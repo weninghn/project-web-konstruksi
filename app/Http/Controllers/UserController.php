@@ -23,7 +23,7 @@ class UserController extends Controller
     // }
     public function add()
     {
-        return view('add_user');
+        return view('user.add_user');
     }
     public function store(Request $request)
     {
