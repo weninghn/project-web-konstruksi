@@ -18,9 +18,6 @@ Route::get('/', function () {
     return view('layouts.master');
 });
 
-<<<<<<< HEAD
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-=======
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/user/data', [UserController::class, 'data'])->name('user.data');
@@ -33,4 +30,3 @@ Route::resource('/user', UserController::class);
 // Route::put('user-edit/{id}',[UserController::class,'update']);
 // Route::get('user-delete/{id}',[UserController::class,'delete']);
 // Route::get('user-deleted',[UserController::class,'deleteduser']);
->>>>>>> 8205a401e49fb59f0307cee5c04d01fefb854dbd
