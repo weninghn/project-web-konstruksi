@@ -5,21 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Offers extends Model
+class Detail_offer extends Model
 {
     use HasFactory;
-    protected $table = 'offers';
+    protected $table = 'detail_offers';
     public $timetamps = 'false';
     protected $primaryKey ='id';
 
     protected $fillable = [
-        'project_id',
-        'category',
-        'status',
-        'date_offer',
+        'offer_id',
+        'facility',
+        'quantity',
+        'total',
     ];
-
-    public function project(){
-        return $this->belongsTo(Project::class,'project_id','id');
+    
+    public function offer()
+    {
+        return $this->belongsTo(Offer::class);
     }
 }
