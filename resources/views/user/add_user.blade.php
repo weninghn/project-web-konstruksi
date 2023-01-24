@@ -6,10 +6,11 @@
 
 <div class="card card-primary">
     <div class="card-header">
-      <h3 class="card-title">Tambah User</h3>
+      <h3 class="card-title">Add User</h3>
     </div>
     <div class="card-body">
-        <form action="user-add" method="POST"  enctype="multipart/form-data">
+        <form action="user-add('{{ route('user.store') }}')" method="POST"  enctype="multipart/form-data">
+          @csrf
       <!-- Date dd/mm/yyyy -->
       <div class="form-group">
         <label>Name</label>
@@ -20,11 +21,9 @@
           </div>
           <input type="text" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
         </div>
-        <!-- /.input group -->
+     
       </div>
-      <!-- /.form group -->
-
-      <!-- phone mask -->
+    
       <div class="form-group">
         <label>Phone:</label>
 
