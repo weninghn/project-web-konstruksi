@@ -20,6 +20,9 @@ Route::get('/', function () {
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+Route::get('/user/data', [UserController::class, 'data'])->name('user.data');
+Route::resource('/user', UserController::class);
+
 // Route::get('/users', [UserController::class, 'index']);
 // Route::get('add_user', [UserController::class,'add']);
 // Route::post('user-add',[UserController::class,'store']);
