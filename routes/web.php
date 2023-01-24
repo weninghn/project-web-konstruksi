@@ -13,8 +13,8 @@ use App\Http\Controllers\DashboardController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/welcome', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return view('layouts.master');
 });
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+// Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
