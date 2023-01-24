@@ -19,11 +19,3 @@ Route::get('/', function () {
 });
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-
-Route::get('/users', [UserController::class, 'index']);
-Route::get('add_user', [UserController::class,'add']);
-Route::post('user-add',[UserController::class,'store']);
-Route::get('user-edit/{id}',[UserController::class,'edit']);
-Route::put('user-edit/{id}',[UserController::class,'update']);
-Route::get('user-delete/{id}',[UserController::class,'delete']);
-Route::get('user-deleted',[UserController::class,'deleteduser']);

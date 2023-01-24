@@ -9,6 +9,7 @@
       <h3 class="card-title">Tambah User</h3>
     </div>
     <div class="card-body">
+        <form action="user-add" method="POST"  enctype="multipart/form-data">
       <!-- Date dd/mm/yyyy -->
       <div class="form-group">
         <label>Name</label>
@@ -77,5 +78,6 @@
     </div>
     <!-- /.card-body -->
   </div>
+</form>
   <!-- /.card -->
   @endsection
