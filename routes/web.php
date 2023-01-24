@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/user/data', [UserController::class, 'data'])->name('user.data');
 Route::resource('/user', UserController::class);
+
+Route::get('/client', [ClientController::class, 'index'])->name('client');
 
 // Route::get('/users', [UserController::class, 'index']);
 // Route::get('add_user', [UserController::class,'add']);
