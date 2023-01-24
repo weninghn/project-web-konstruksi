@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Offers extends Model
 {
     use HasFactory;
-    protected $table = 'clients';
+    protected $table = 'offers';
     public $timetamps = 'false';
     protected $primaryKey ='id';
 

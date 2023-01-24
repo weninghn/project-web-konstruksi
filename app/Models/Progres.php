@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Progres extends Model
 {
     use HasFactory;
-    protected $table = 'clients';
+    protected $table = 'progres';
     public $timetamps = 'false';
     protected $primaryKey ='id';
 
@@ -22,5 +22,9 @@ class Progres extends Model
     public function project()
     {
         return $this->belongsTo(Project::class,'project_id','id');
+    }
+    public function picture()
+    {
+        return $this->hasMany(Picture::class,'project_id','id');
     }
 }
