@@ -2,8 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,6 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/user/data', [UserController::class, 'data'])->name('user.data');
 Route::resource('/user', UserController::class);
 
-// client
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 // tambahdata
 Route::get('/tambahdata', [ClientController::class, 'tambahdata'])->name('tambahdata');
@@ -34,11 +35,21 @@ Route::get('/tampilkandata/{id}', [ClientController::class, 'tampilkandata'])->n
 Route::post('/updatedata/{id}', [ClientController::class, 'updatedata'])->name('updatedata');
 //hapus
 Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
+// route project
+route::get('/project','App\Http\Controllers\ProjectController@index')->name('project');
+route::get('/project/create','App\Http\Controllers\ProjectController@create')->name('project.create');
+route::post('/project/add','App\Http\Controllers\ProjectController@add')->name('project.add');
 
-// Route::get('/users', [UserController::class, 'index']);
-// Route::get('add_user', [UserController::class,'add']);
-// Route::post('user-add',[UserController::class,'store']);
-// Route::get('user-edit/{id}',[UserController::class,'edit']);
-// Route::put('user-edit/{id}',[UserController::class,'update']);
-// Route::get('user-delete/{id}',[UserController::class,'delete']);
-// Route::get('user-deleted',[UserController::class,'deleteduser']);
+
+
+
+Route::get('/progres', [ProgressController::class, 'index']);
+Route::get('add-progres', [ProgressController::class,'add']);
+Route::post('progres-add',[ProgressController::class,'store']);
+Route::get('progres-edit',[ProgressController::class,'edit']);
+Route::put('progres-edit/{id}',[ProgressController::class,'update']);
+Route::get('progres-delete/{id}',[ProgressController::class,'delete']);
+
+//Pembayaran
+Route::get('/payment', [PaymentController::class, 'index']);
+Route::get('add-payment', [PaymentController::class,'add']);

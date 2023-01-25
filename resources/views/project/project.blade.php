@@ -1,11 +1,10 @@
 @extends('layouts.master')
 
 @section('title')
-  Data User
+  Data Project
 @endsection
 
-{{-- @section('content')   --}}
-
+@section('content')  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -17,7 +16,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-              <li class="breadcrumb-item active">Client</li>
+              <li class="breadcrumb-item active">Project</li>
             </ol>
           </div>
         </div>
@@ -32,33 +31,60 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data User</h3>
+              <h3 class="card-title">Data Project</h3>
                 <div class="row justify-content-end">
-              <a href="#" class="btn btn-success">Add User</a>
+              <a href="#" class="btn btn-success">Add Project</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
               <div class="card-body"> 
                 <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Aksi</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>01</td>
-                      <td>wening</td>
-                      <td>weningnhn@gmail.com</td>
-                      <td>085711859746</td>
-                      <td>surakarta</td>
-                      <td>
+                    <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Client</th>
+                          <th>Work Date</th>
+                          <th>Date End</th>
+                          <th>Name</th>
+                          <th>Location</th>
+                          <th>Date offer</th>
+                          <th>Status</th>
+                          <th>Status Payment</th>
+                          <th>Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                              @php
+                              $no=1; 
+                              @endphp
+                              @foreach($pro as $project)
+                              <tr>
+                                  <td scope="project">{{$no++}} </td>
+                                  <td>
+                                      {{ $project->client?->name }}
+                                  </td>
+                                  <td>
+                                      {{ $project->work_date }}
+                                  </td>
+                                  <td>
+                                      {{ $project->date_end }}
+                                  </td>
+                                  <td>
+                                      {{ $project->name }}
+                                  </td>
+                                  <td>
+                                      {{ $project->location }}
+                                  </td>
+                                  <td>
+                                      {{ $project->date_offer }}
+                                  </td>
+                                  <td>
+                                      {{ $project->status }}
+                                  </td>
+                                  <td>
+                                      {{ $project->status_payment }}
+                                  </td>
                         <a href="#" class="btn btn-info">Edit</button>
                         <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
                         </td>
@@ -110,4 +136,4 @@
 </body>
 </html>
 
-      {{-- @endsection --}}
+    

@@ -9,17 +9,16 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    protected $table = 'project';
+    protected $table = 'projects';
     public $timetamps = 'false';
     protected $primaryKey ='id';
 
     protected $fillable = [
         'client_id',
         'work_date',
-        'end_date',
-        'location',
+        'date_end',
         'name',
-        'status',
+        'location',
         'date_offer',
         'status',
         'status_payment',
