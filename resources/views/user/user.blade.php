@@ -4,147 +4,109 @@
   Data User
 @endsection
 
-    @section('content')
-    @if (session('success'))
-    <div class="alert alert-success alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
-      <h4><i class="icon fa fa-check"></i>Alert!</h4>
-      {{ session('success')}}  
-    </div>        
-    @endif
-    <div class="content-wrapper">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="box">
-          <div class="box-header with-border">
-            <button onclick="addUser('{{route('user.store')}}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle">Tambah User</i></button>
+section('content')  
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
           </div>
-          <div class="box-body table-responsive">
-            <table class="table">
-              <thead>
-                <th width="5%">NO</th>
-                <th>Nama</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Aksi</th>
-              </thead>
-            </table>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+              <li class="breadcrumb-item active">Client</li>
+            </ol>
           </div>
         </div>
-      </div>
-    </div>
-    </div>
+      </div><!-- /.container-fluid -->
+    </section>
 
-    @includeIf('user.add')
-    @endsection
-
-    @push('scripts')
-        <script>
-          let table;
-
-          $(function())
-          {
-            table = $('.table').DataTable({
-              processing: true;
-              autoWidth: false;
-              serverSide: true;
-              responsive: true;
-              ajax:
-              {
-                url: '{{ route('user.data') }}',
-              },
-              columns:
-              [
-                {data: 'DT_RowIndex', searchable: false},
-                {data: 'name'},
-                {data: 'email'},
-                {data: 'password'}
-              ]
-            })
-          }
-        </script>
-    @endpush
-
-        {{-- <h3 class="card-title">Users</h3>
-  
-      </div>
-
-      <div class="card-body">
-        <div class="row justify-content-end">
-          <a href="#" class="btn btn-primary mb-4 me-3 ">Add</a>
-
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+      <div class="container-wrapper">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-header">
+              <h3 class="card-title">Data Client</h3>
+                <div class="row justify-content-end">
+              <a href="/tambahdata" class="btn btn-success">+ new</a>
+              </div>
+              </div>
+              <div class="row g-3 align-items-center mt-2">
+              <!-- .card-header -->
+              <div class="card-body"> 
+                <table id="example2" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Aksi</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>01</td>
+                      <td>wening</td>
+                      <td>weningnhn@gmail.com</td>
+                      <td>085711859746</td>
+                      <td>surakarta</td>
+                      <td>
+                        <a href="#" class="btn btn-info">Edit</button>
+                        <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
+                        </td>
+                    </tr>
+                  </tbody>
+                  {{-- @foreach($data as $row)
+                  <tr>
+                    <td>{{ $row->id }}</td>
+                    <td>{{ $row->name }}</td>
+                    <td>{{ $row->phone }}</td>
+                    <td>{{ $row->address }}</td> --}}
+                    {{-- <td>
+                    <a href="#" class="btn btn-info">Edit</button>
+                    <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
+                    </td> --}}
+                  {{-- </tr>
+                  @endforeach --}}
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
         </div>
-       
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Address</th>
-            <th>Aksi</th>
-          </tr>
-          </thead>
-          <tbody>
-            @foreach ($users as $user)
-          <tr>
-            <td>{{ $loop->iteration}}</td>
-            <td>{{ $user->name}}</td>
-            <td>{{ $user->email}}</td>
-            <td>{ { $user->phone}}</td>
-            <td>{{ $user->address}}</td>
-            <td>
-
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Update</button>
-              <a href="#" class="btn btn-danger" data-confirm="Are you sure to delete this item?">Delete</a>
-            </td>
-          </tr>
-          </tbody>
-        </table>
+        <!-- /.row -->
       </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+<script>
+  $(function () {
+    $("#example1").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>
+</body>
+</html>
 
-    </div>
-
-
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Update User</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="user-update('{{ route('produk.update') }}')" method="POST">
-              @csrf
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Name:</label>
-                <input type="text" class="form-control" id="recipient-name" name="name">
-              </div>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Email:</label>
-                <input type="text" class="form-control" id="recipient-name" name="email">
-              </div>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Password:</label>
-                <input type="text" class="form-control" id="recipient-name" name="password">
-              </div>
-              <div class="mb-3">
-                <label for="recipient-name" class="col-form-label">Phone:</label>
-                <input type="text" class="form-control" id="recipient-name" name="phone">
-              </div>
-              <div class="mb-3">
-                <label for="message-text" class="col-form-label">Address:</label>
-                <textarea class="form-control" id="message-text" name="address"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Save</button>
-          </div>
-        </div>
-      </div>
-    </div> --}}
+      {{-- @endsection --}}
