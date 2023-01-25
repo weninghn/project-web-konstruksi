@@ -92,7 +92,7 @@ Progress
               <div class="card-header">
               <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
-              <a href="#" class="btn btn-success">Add User</a>
+              <a href="add-progres" class="btn btn-success"> + Add </a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
@@ -122,7 +122,7 @@ Progress
                       <td>
                         <a href="/progres-edit">Edit</a>
                                
-                        {{-- <a href="/progres-destroy/{{$item->slug}}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
+                        <a href="/progres-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>
                         </td>
                     </tr>
                   </tbody>

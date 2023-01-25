@@ -1,3 +1,8 @@
+@extends('layouts.master')
+@section('title')
+    Payment
+@endsection
+
 @section('content')  
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -27,7 +32,7 @@
             <div class="card-header">
             <h3 class="card-title">Payment</h3>
               <div class="row justify-content-end">
-            <a href="#" class="btn btn-success">Add</a>
+            <a href="payment-add" class="btn btn-success">Add</a>
             </div>
             </div>
             <div class="row g-3 align-items-center mt-2">
@@ -57,22 +62,12 @@
                     <td>
                       <a href="/progres-edit">Edit</a>
                              
-                      {{-- <a href="/progres-destroy/{{$item->slug}}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
+                      <a href="/progres-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> 
                       </td>
                   </tr>
                 </tbody>
-                {{-- @foreach($data as $row)
-                <tr>
-                  <td>{{ $row->id }}</td>
-                  <td>{{ $row->name }}</td>
-                  <td>{{ $row->phone }}</td>
-                  <td>{{ $row->address }}</td> --}}
-                  {{-- <td>
-                  <a href="#" class="btn btn-info">Edit</button>
-                  <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
-                  </td> --}}
-                {{-- </tr>
-                @endforeach --}}
+              
+
               </table>
             </div>
             <!-- /.card-body -->
