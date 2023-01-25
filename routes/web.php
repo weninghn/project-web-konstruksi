@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\DashboardController;
 
@@ -45,6 +46,10 @@ route::post('/project/add','App\Http\Controllers\ProjectController@add')->name('
 Route::get('/progres', [ProgressController::class, 'index']);
 Route::get('add-progres', [ProgressController::class,'add']);
 Route::post('progres-add',[ProgressController::class,'store']);
-Route::get('progres-edit/{id}',[ProgressController::class,'edit']);
+Route::get('progres-edit',[ProgressController::class,'edit']);
 Route::put('progres-edit/{id}',[ProgressController::class,'update']);
 Route::get('progres-delete/{id}',[ProgressController::class,'delete']);
+
+//Pembayaran
+Route::get('/payment', [PaymentController::class, 'index']);
+Route::get('add-payment', [PaymentController::class,'add']);
