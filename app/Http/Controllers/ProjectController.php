@@ -16,13 +16,5 @@ class ProjectController extends Controller
     {
         return view('create_project');
     }
-    // public function add()
-    // {
-    //     $project =[
-    //         ''=> $request->nama,
-            
-    //     ];
-    //     projectModel::create($project);
-    //     return redirect('project');
-    // }
+    
 }
