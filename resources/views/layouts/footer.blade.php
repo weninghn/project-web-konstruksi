@@ -61,5 +61,38 @@
 <script src="{{asset('AdminLTE')}}/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="{{asset('AdminLTE')}}/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="{{asset('AdminLTE')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
+<script>
+  $('.delete').click( function(){
+    var clientid = $(this).attr('data-id');
+    var name = $(this).attr('data-name');
+        swal({
+              title: "Yakin ?",
+              text: "Kamu akan menghapus data dengan name "+name+" ?",
+              icon: "warning",
+              buttons: true,
+              dangerMode: true,
+            })
+            .then((willDelete) => {
+              if (willDelete) {
+                window.location = "/delete/"+clientid+""
+                swal("Data berhasil di hapus", {
+                  icon: "success",
+                });
+              } else {
+                swal("Data tidak jadi di hapus");
+              }
+            }
+         )});
+</script>
+<script>
+  @if (Session::has('success'))
+  toastr.success("{{ Session::get('success') }}");
+  @endif
+</script>
 </html>

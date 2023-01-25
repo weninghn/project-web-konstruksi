@@ -30,8 +30,8 @@ Route::get('/client', [ClientController::class, 'index'])->name('client');
 Route::get('/tambahdata', [ClientController::class, 'tambahdata'])->name('tambahdata');
 Route::post('/insertdata', [ClientController::class, 'insertdata'])->name('insertdata');
 //edit
-Route::get('/tampilkandata{id}', [ClientController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/updatedata{id}', [ClientController::class, 'updatedata'])->name('updatedata');
+Route::get('/tampilkandata/{id}', [ClientController::class, 'tampilkandata'])->name('tampilkandata');
+Route::post('/updatedata/{id}', [ClientController::class, 'updatedata'])->name('updatedata');
 //hapus
 Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
 

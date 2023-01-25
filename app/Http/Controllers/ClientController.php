@@ -38,7 +38,7 @@ class ClientController extends Controller
     public function delete($id){
         $data = Client::find($id);
         $data->delete();
-        return redirect()->route('client')->with('succes','Data Berhsail di Hapus');
+        return redirect()->route('client')->with('success','Data Berhsail di Delete');
     }
 
 }
