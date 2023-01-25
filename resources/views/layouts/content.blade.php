@@ -1,4 +1,4 @@
 <!-- Main content -->
-<div class="content col-lg-10 p-5">
+<div class="content ">
   @yield('content')
 </div>
