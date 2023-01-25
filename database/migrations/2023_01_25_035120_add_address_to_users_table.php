@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('phone',255);
-            $table->string('addres',255);
+            $table->string('phone',255)->after('email');
+            $table->string('addres',255)->after('phone');
         });
     }
 
@@ -27,8 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('phone',255);
-            $table->dropColumn('addres',255);
+            $table->dropColumn('phone');
+            $table->dropColumn('addres');
         });
     }
 };
