@@ -1,10 +1,10 @@
 @extends('layouts.master')
 
 @section('title')
-  Data User
+  Data Project
 @endsection
 
-section('content')  
+@section('content')  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -16,7 +16,7 @@ section('content')
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-              <li class="breadcrumb-item active">Client</li>
+              <li class="breadcrumb-item active">Project</li>
             </ol>
           </div>
         </div>
@@ -31,7 +31,7 @@ section('content')
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data Client</h3>
+              <h3 class="card-title">Data Project</h3>
                 <div class="row justify-content-end">
               <a href="{{ route('project.create')}}" class="btn btn-success">+ new</a>
               </div>
