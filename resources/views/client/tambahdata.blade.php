@@ -36,7 +36,8 @@
         <div id="emailHelp" class="form-text"></div>
     </div>
 <div class="col-auto">
-      <button type="submit" class="btn btn-primary mb-2">Simpan</button>
+    <button type="submit" class="btn btn-md btn-primary">Simpan</button>
+    <button type="reset" class="btn btn-md btn-warning">Reset</button>
     </div>
     </form>
             </div>

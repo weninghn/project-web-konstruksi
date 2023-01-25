@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Project extends Model
 {
     use HasFactory;
-    protected $table = 'project';
+    protected $table = 'projects';
     public $timetamps = 'false';
     protected $primaryKey ='id';
 

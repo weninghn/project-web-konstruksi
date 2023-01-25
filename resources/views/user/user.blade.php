@@ -4,7 +4,12 @@
   Data User
 @endsection
 
+<<<<<<< HEAD
 @section('content')  
+=======
+{{-- @section('content')   --}}
+
+>>>>>>> 7e02417a91e2c5e6e5c2ebe51f02135ac67cdac0
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
