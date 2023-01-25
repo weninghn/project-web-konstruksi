@@ -1,4 +1,4 @@
-<!doctype html>
+{{-- <!doctype html>
     <html lang="en">
     <head>
         <!-- Required meta tags -->
@@ -10,8 +10,15 @@
 
         <title>data|client</title>
     </head>
-    <body>
-    <h1 class="text-center mb-4">Edit Data</h1>
+    <body> --}}
+        @extends('layouts.master')
+
+        @section('title')
+            Edit Data Client
+        @endsection
+
+        @section('content')
+            <h1 class="text-center mb-4">Edit Data</h1>
     <div class="container">
 
     <div class="row justify-content-center">
@@ -57,3 +64,4 @@
         -->
     </body>
     </html>
+        @endsection

@@ -20,7 +20,7 @@ class UserController extends Controller
     public function tampiluser($id)
     {
         $user = Users::find($id);
-        return view('user.tampiluser', compact('data'));
+        return view('user.edituser', compact('data'));
     }
 
     public function updateuser(Request $request, $id)

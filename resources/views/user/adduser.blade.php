@@ -5,7 +5,46 @@
 @endsection
 @section('content');
 
-<h1 class="text-center mb-4">Tambah Data User</h1>
+<section class="content">
+  <div class="container-fluid">
+    <div class="content-wrapper">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-success">
+            <div class="card-header">
+              <h3 class="card-title">User Add</h3>
+            </div>
+            <form>
+              <div class="card-body">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" name="name" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="text" name="email" class="form-control" id="email">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone</label>
+                  <input type="text" name="phone" class="form-control" id="phone">
+                </div>
+                <div class="form-group">
+                  <label for="address">Address</label>
+                  <input type="text" name="address" class="form-control" id="address">
+                </div>
+              </div>
+              <div class="card-footer">
+                <a href="/edituser/{{ $row->id }}" class="btn btn-md btn-info">Edit</button>
+                <button type="reset" class="btn btn-md btn-warning">Reset</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ </section>
+{{-- <h1 class="text-center">Tambah Data User</h1>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
@@ -38,7 +77,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 {{-- 
 <div class="card card-primary">
