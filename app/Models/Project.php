@@ -16,10 +16,9 @@ class Project extends Model
     protected $fillable = [
         'client_id',
         'work_date',
-        'end_date',
-        'location',
+        'date_end',
         'name',
-        'status',
+        'location',
         'date_offer',
         'status',
         'status_payment',
