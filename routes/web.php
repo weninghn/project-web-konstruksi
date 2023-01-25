@@ -24,7 +24,11 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/user/data', [UserController::class, 'data'])->name('user.data');
 Route::resource('/user', UserController::class);
 
+// client
 Route::get('/client', [ClientController::class, 'index'])->name('client');
+// tambahdata
+Route::get('/tambahdata', [ClientController::class, 'tambahdata'])->name('tambahdata');
+Route::post('/insertdata', [ClientController::class, 'insertdata'])->name('insertdata');
 
 // Route::get('/users', [UserController::class, 'index']);
 // Route::get('add_user', [UserController::class,'add']);
