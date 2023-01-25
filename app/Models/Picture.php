@@ -13,7 +13,7 @@ class Picture extends Model
     protected $primaryKey ='id';
 
     protected  $fillable= [
-        'project_id',
+        'progres_id',
         'image',
     ];
 
