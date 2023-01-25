@@ -29,6 +29,11 @@ Route::get('/client', [ClientController::class, 'index'])->name('client');
 // tambahdata
 Route::get('/tambahdata', [ClientController::class, 'tambahdata'])->name('tambahdata');
 Route::post('/insertdata', [ClientController::class, 'insertdata'])->name('insertdata');
+//edit
+Route::get('/tampilkandata{id}', [ClientController::class, 'tampilkandata'])->name('tampilkandata');
+Route::post('/updatedata{id}', [ClientController::class, 'updatedata'])->name('updatedata');
+//hapus
+Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
 
 // Route::get('/users', [UserController::class, 'index']);
 // Route::get('add_user', [UserController::class,'add']);

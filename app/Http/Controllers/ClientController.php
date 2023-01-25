@@ -12,13 +12,33 @@ class ClientController extends Controller
     }
 
     public function tambahdata(){
-        return view('tambahclient');
+        return view('client.tambahdata');
     }
 
     public function insertdata(Request $request){
         //dd($request->all());
          Client::create($request->all());
          return redirect()->route('client')->with('success','Data Berhsail di Tambahkan');
+    }
+
+    public function tampilkandata($id){
+
+        $data = Client::find($id);
+        //dd($data);
+        return view('client.tampildata', compact('data'));
+    }
+
+    public function updatedata(Request $request, $id){
+        $data = Client::find($id);
+        $data->update($request->all());
+
+        return redirect()->route('client')->with('success','Data Berhasil di Update');
+    }
+
+    public function delete($id){
+        $data = Client::find($id);
+        $data->delete();
+        return redirect()->route('client')->with('succes','Data Berhsail di Hapus');
     }
 
 }
