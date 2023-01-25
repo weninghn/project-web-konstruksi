@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DashboardController;
 
 /*
