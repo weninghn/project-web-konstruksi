@@ -60,8 +60,8 @@
                         <th>{{ $users->phone }}</th>
                         <th>{{ $users->address }}</th>
                         <td>
-                          <a href="/edituser/{{ $row->id }}" class="btn btn-info">Edit</a>
-                          <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</a>
+                          <a href="/edituser/{{ $users->id }}" class="btn btn-info">Edit</a>
+                          <a href="#" class="btn btn-danger delete" data-id="{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
                         </td>
                       </tr>
                   @endforeach

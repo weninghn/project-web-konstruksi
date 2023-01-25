@@ -34,7 +34,7 @@
                 </div>
               </div>
               <div class="card-footer">
-                <a href="/edituser/{{ $row->id }}" class="btn btn-md btn-info">Edit</button>
+                <a href="/edituser/{{ $users->id }}" class="btn btn-md btn-info">Edit</button>
                 <button type="reset" class="btn btn-md btn-warning">Reset</button>
               </div>
             </form>
