@@ -91,18 +91,7 @@
                         </td>
                     </tr>
                   </tbody>
-                  {{-- @foreach($data as $row)
-                  <tr>
-                    <td>{{ $row->id }}</td>
-                    <td>{{ $row->name }}</td>
-                    <td>{{ $row->phone }}</td>
-                    <td>{{ $row->address }}</td> --}}
-                    {{-- <td>
-                    <a href="#" class="btn btn-info">Edit</button>
-                    <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
-                    </td> --}}
-                  {{-- </tr>
-                  @endforeach --}}
+                
                 </table>
               </div>
               <!-- /.card-body -->

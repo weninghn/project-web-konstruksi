@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
-    <center><h1>Absensi</h1></center>
+    <center><h1>Project</h1></center>
     <div class="content">
         <div class="row justify-content-center">
             <div class="col-md-5">
@@ -72,8 +72,8 @@
                        </div>
                        <div class="form-group" style="padding: 5px 0">
                         <div class="form_material">
-                            <label for="status-payment" class="form-label">Status Payment</label>
-                            <input type="text" id="status-payment" name="status-payment" class="form-control" required>
+                            <label for="status_payment" class="form-label">Status Payment</label>
+                            <input type="text" id="status_payment" name="status_payment" class="form-control" required>
                         </div>
                        </div>
                        <center class="m-20">
@@ -84,7 +84,6 @@
             </div>
         </div>
     </div>
-   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   </body>
 </html>
