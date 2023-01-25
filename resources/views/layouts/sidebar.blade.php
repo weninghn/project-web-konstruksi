@@ -28,7 +28,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="{{ route('user.index') }}" class="nav-link">
+            <a href="{{ route('user') }}" class="nav-link">
               <i class="fas fa-user-alt" aria-hidden="true"></i>
               <p>
                   User

@@ -1,9 +1,46 @@
-@extends('layouts.sidebar');
-@extends('layouts.header')
-@section('title','User-Add');
+@extends('layouts.master')
+
+@section('title')
+  Tambah Data User
+@endsection
 @section('content');
 
+<h1 class="text-center mb-4">Tambah Data User</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="card">
+        <div class="card-body">
+          <form action="/insertuser" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" name="name" class="form-control" id="name">
+              <div class="form-text" id="name"></div>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" name="email" class="form-control" id="email">
+              <div class="form-text" id="email"></div>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" name="phone" class="form-control" id="phone">
+              <div class="form-text" id="phone"></div>
+            </div>
+            <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" name="address" class="form-control" id="address">
+              <div class="form-text" id="address"></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+{{-- 
 <div class="card card-primary">
     <div class="card-header">
       <h3 class="card-title">Add User</h3>
@@ -78,5 +115,5 @@
     <!-- /.card-body -->
   </div>
 </form>
-  <!-- /.card -->
+  <!-- /.card --> --}}
   @endsection

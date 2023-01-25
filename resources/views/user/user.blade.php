@@ -4,7 +4,7 @@
   Data User
 @endsection
 
-section('content')  
+@section('content')  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -33,7 +33,7 @@ section('content')
               <div class="card-header">
               <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
-              <a href="#" class="btn btn-success">Add User</a>
+              <a href="/adduser" class="btn btn-success">Add User</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
@@ -109,4 +109,4 @@ section('content')
 </body>
 </html>
 
-      {{-- @endsection --}}
+      @endsection
