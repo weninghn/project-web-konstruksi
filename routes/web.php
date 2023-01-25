@@ -25,10 +25,17 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/user/data', [UserController::class, 'data'])->name('user.data');
 Route::resource('/user', UserController::class);
 
-
-
-
 Route::get('/client', [ClientController::class, 'index'])->name('client');
+// tambahdata
+Route::get('/tambahdata', [ClientController::class, 'tambahdata'])->name('tambahdata');
+Route::post('/insertdata', [ClientController::class, 'insertdata'])->name('insertdata');
+//edit
+Route::get('/tampilkandata{id}', [ClientController::class, 'tampilkandata'])->name('tampilkandata');
+Route::post('/updatedata{id}', [ClientController::class, 'updatedata'])->name('updatedata');
+//hapus
+Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
+
+
 
 Route::get('/progres', [ProgressController::class, 'index']);
 Route::get('add-progres', [ProgressController::class,'add']);
