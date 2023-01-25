@@ -1,15 +1,75 @@
 @extends('layouts.master')
 
-@section('title','User')
-
+@section('title')
+  Data User
+@endsection
 
     @section('content')
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Users</h3>
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true"></button>
+      <h4><i class="icon fa fa-check"></i>Alert!</h4>
+      {{ session('success')}}  
+    </div>        
+    @endif
+    <div class="content-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box">
+          <div class="box-header with-border">
+            <button onclick="addUser('{{route('user.store')}}')" class="btn btn-success btn-xs btn-flat"><i class="fa fa-plus-circle">Tambah User</i></button>
+          </div>
+          <div class="box-body table-responsive">
+            <table class="table">
+              <thead>
+                <th width="5%">NO</th>
+                <th>Nama</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Aksi</th>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    @includeIf('user.add')
+    @endsection
+
+    @push('scripts')
+        <script>
+          let table;
+
+          $(function())
+          {
+            table = $('.table').DataTable({
+              processing: true;
+              autoWidth: false;
+              serverSide: true;
+              responsive: true;
+              ajax:
+              {
+                url: '{{ route('user.data') }}',
+              },
+              columns:
+              [
+                {data: 'DT_RowIndex', searchable: false},
+                {data: 'name'},
+                {data: 'email'},
+                {data: 'password'}
+              ]
+            })
+          }
+        </script>
+    @endpush
+
+        {{-- <h3 class="card-title">Users</h3>
   
       </div>
-      <!-- /.card-header -->
+
       <div class="card-body">
         <div class="row justify-content-end">
           <a href="#" class="btn btn-primary mb-4 me-3 ">Add</a>
@@ -36,7 +96,7 @@
             <td>{ { $user->phone}}</td>
             <td>{{ $user->address}}</td>
             <td>
-              {{-- <a href="#" class="btn btn-warning">Update</a> --}}
+
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >Update</button>
               <a href="#" class="btn btn-danger" data-confirm="Are you sure to delete this item?">Delete</a>
             </td>
@@ -44,10 +104,10 @@
           </tbody>
         </table>
       </div>
-      <!-- /.card-body -->
+
     </div>
 
-    <!--MOdal-->
+
 
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -87,6 +147,4 @@
           </div>
         </div>
       </div>
-    </div>
-
-    @endsection
+    </div> --}}
