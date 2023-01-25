@@ -31,9 +31,9 @@ section('content')
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data Client</h3>
+              <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
-              <a href="/tambahdata" class="btn btn-success">+ new</a>
+              <a href="#" class="btn btn-success">Add User</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
