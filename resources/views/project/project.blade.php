@@ -33,65 +33,75 @@
               <div class="card-header">
               <h3 class="card-title">Data Project</h3>
                 <div class="row justify-content-end">
-              <a href="{{ route('project.create')}}" class="btn btn-success">+ new</a>
+              <a href="#" class="btn btn-success">Add Project</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
               <div class="card-body"> 
                 <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>No</th>
-                    <th>Client</th>
-                    <th>Work Date</th>
-                    <th>Date End</th>
-                    <th>Name</th>
-                    <th>Location</th>
-                    <th>Date offer</th>
-                    <th>Status</th>
-                    <th>Status Payment</th>
-                    <th>Aksi</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                        @php
-                        $no=1; 
-                        @endphp
-                        @foreach($pro as $project)
+                    <thead>
                         <tr>
-                            <td scope="project">{{$no++}} </td>
-                            <td>
-                                {{ $project->client?->name }}
-                            </td>
-                            <td>
-                                {{ $project->work_date }}
-                            </td>
-                            <td>
-                                {{ $project->date_end }}
-                            </td>
-                            <td>
-                                {{ $project->name }}
-                            </td>
-                            <td>
-                                {{ $project->location }}
-                            </td>
-                            <td>
-                                {{ $project->date_offer }}
-                            </td>
-                            <td>
-                                {{ $project->status }}
-                            </td>
-                            <td>
-                                {{ $project->status_payment }}
-                            </td>
-                            <td>
+                          <th>No</th>
+                          <th>Client</th>
+                          <th>Work Date</th>
+                          <th>Date End</th>
+                          <th>Name</th>
+                          <th>Location</th>
+                          <th>Date offer</th>
+                          <th>Status</th>
+                          <th>Status Payment</th>
+                          <th>Aksi</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                              @php
+                              $no=1; 
+                              @endphp
+                              @foreach($pro as $project)
+                              <tr>
+                                  <td scope="project">{{$no++}} </td>
+                                  <td>
+                                      {{ $project->client?->name }}
+                                  </td>
+                                  <td>
+                                      {{ $project->work_date }}
+                                  </td>
+                                  <td>
+                                      {{ $project->date_end }}
+                                  </td>
+                                  <td>
+                                      {{ $project->name }}
+                                  </td>
+                                  <td>
+                                      {{ $project->location }}
+                                  </td>
+                                  <td>
+                                      {{ $project->date_offer }}
+                                  </td>
+                                  <td>
+                                      {{ $project->status }}
+                                  </td>
+                                  <td>
+                                      {{ $project->status_payment }}
+                                  </td>
                         <a href="#" class="btn btn-info">Edit</button>
                         <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
                         </td>
                     </tr>
                   </tbody>
-                
+                  {{-- @foreach($data as $row)
+                  <tr>
+                    <td>{{ $row->id }}</td>
+                    <td>{{ $row->name }}</td>
+                    <td>{{ $row->phone }}</td>
+                    <td>{{ $row->address }}</td> --}}
+                    {{-- <td>
+                    <a href="#" class="btn btn-info">Edit</button>
+                    <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
+                    </td> --}}
+                  {{-- </tr>
+                  @endforeach --}}
                 </table>
               </div>
               <!-- /.card-body -->
@@ -126,4 +136,4 @@
 </body>
 </html>
 
-      {{-- @endsection --}}
+    
