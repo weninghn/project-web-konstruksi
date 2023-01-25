@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Models\Client;
 
 class ProjectController extends Controller
 {
@@ -14,13 +15,14 @@ class ProjectController extends Controller
     }
     public function create()
     {
-        return view('create_project');
+        $client = Client::all();
+        return view ('add',['client'=> $client]);
     }
     public function add()
     {
         $karyawan =[
-            'client_id'=> $request->client,
-            'work_end'=> $request->work_end,
+            'client_id'=> $request->client_id,
+            'work_date'=> $request->work_end,
             'date_end'=> $request->date_end,
             'name'=> $request->name,
             'location'=> $request->location,
