@@ -32,6 +32,12 @@ class UserController extends Controller
         Users::create($user);
         return redirect('user')->with('Success','User Added Successfully'); 
     }
+
+    public function edituser($id)
+    {
+        $user = Users::find($id);
+        return view('user.edituser', compact('user'));
+    }
     public function updateuser(Request $request, $id)
     {
         $user = Users::find($id);

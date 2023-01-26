@@ -63,8 +63,8 @@
                         <td>{{ $users->addres }}</td>
                         <td>{{ $users->role?->name }}</td>
                         <td>
-                          <a href="/edituser/{{ $users->id }}" class="btn btn-info">Edit</a>
-                          <a href="#" class="btn btn-danger delete" data-id="{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
+                          <a href="/edituser/{{ $users->id }}">Edit</a>  | 
+                          <a href="#"  data-id="{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
                         </td>
                       </tr>
                   @endforeach
