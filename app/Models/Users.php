@@ -18,6 +18,7 @@ class Users extends Model
         'addres',
         'phone',
         'password',
+        'role_id',
     ];
 
     public function role()

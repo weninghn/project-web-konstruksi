@@ -21,8 +21,17 @@ class PaymentController extends Controller
     }
     public function store(Request $request)
     {
-        Payment::create($request->all());
-         return redirect()->route('payment')->with('success','Data Berhsail di Tambahkan'); 
+        // dd($request->all());
+        $payment =[
+            'project_id'=> $request->project_id,
+            'payment_method_id'=> $request->payment_method_id,
+            'amount_payment'=> $request->amount_payment,
+            'payment_date'=> $request->payment_date,
+            'payment_to'=> $request->payment_to,
+            'note'=> $request->note
+        ];
+        Payment::create($payment);
+        return redirect('payment')->with('success','payment Added Successfully');   
     }
     
 }

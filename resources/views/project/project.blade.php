@@ -87,9 +87,11 @@ Project
                                   <td>
                                       {{ $project->status_payment }}
                                   </td>
-                               
-                        {{-- <a href="/progres-destroy/{{$item->slug}}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
-                        </td>
+                                  <td>
+                                  <a href="{{ url('project/edit/'.$project->id) }}" class="btn btn-warning">edit<i class="fa fa-pencil"></i></a>
+                                  {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
+                                  </td>
+                                    {{-- <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> --}}
                     </tr>
                   </tbody>
                  @endforeach

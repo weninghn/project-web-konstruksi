@@ -4,23 +4,7 @@
 @endsection
 
 @section('content')
-
-<section class="content-header">
-  <div class="container-fluid">
-    <div class="row mb-2">
-      <div class="col-sm-6">
-      </div>
-      <div class="col-sm-6">
-        <ol class="breadcrumb float-sm-right">
-          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-          <li class="breadcrumb-item active">Project-Add</li>
-        </ol>
-      </div>
-    </div>
-  </div><!-- /.container-fluid -->
-</section>
-{{-- 
-<section class="content">
+ <section class="content">
   <div class="container-fluid">
     <div class="content-wrapper">
       <div class="row">
@@ -31,6 +15,9 @@
             </div>
             <form class="js-validation-material" action= "{{ route('project.add')}}" method="POST" enctype="multipart/form-data">
               @csrf
+<<<<<<< HEAD
+              <form action="">
+=======
             <form>
               <div class="card-body">
                 <div class="form-group">
@@ -95,6 +82,7 @@
             </div>
             <form class="js-validation-material" action= "{{ route('project.add')}}" method="POST" enctype="multipart/form-data">
               @csrf
+>>>>>>> 77060b3d27aad7e55e140d750ca238d07cb24861
                 <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
@@ -132,13 +120,13 @@
                         <input type="text" class="form-control" id="name" name="name" placeholder="name">
                       </div>
                       <div class="form-group">
-                        <label for="status_payment">Status payment</label>
-                        <input type="text" class="form-control" id="status_payment" name="status_payment" placeholder="Status payment">
-                      </div>
-                      <div class="form-group">
                         <label for="status">Status</label>
                          <input type="text" class="form-control" id="status" name="status" placeholder="status">
                        </div>
+                      <div class="form-group">
+                        <label for="status_payment">Status payment</label>
+                        <input type="text" class="form-control" id="status_payment" name="status_payment" placeholder="Status payment">
+                      </div>
                        <div class="form-group">
                           <label for="date_offer">Date Offer</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer">
