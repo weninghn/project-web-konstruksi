@@ -27,8 +27,8 @@
                                         <input type="text" name="phone" class="form-control" id="phone" value="{{ $user->phone }}">
                                     </div>
                                     <div class="form-group">
-                                        <label for="address">Address</label>
-                                        <input type="text" name="address" class="form-control" id="address" value="{{ $user->address }}">
+                                        <label for="addres">Address</label>
+                                        <input type="text" name="addres" class="form-control" id="addres" value="{{ $user->address }}">
                                     </div>
                                     </div>
                                     <div class="card-footer">
