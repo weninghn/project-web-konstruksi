@@ -18,7 +18,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="" method="POST">
+                    <form action="/progres-edit/{{ $progress->id }}" method="POST">
                       <div class="card-body">
                         <div class="form-group">
                           <label for="projek">Project</label>

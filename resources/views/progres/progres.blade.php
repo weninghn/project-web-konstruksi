@@ -75,7 +75,7 @@ Progress
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-              <li class="breadcrumb-item active">Client</li>
+              <li class="breadcrumb-item active">Progres</li>
             </ol>
           </div>
         </div>
@@ -90,7 +90,7 @@ Progress
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data User</h3>
+              <h3 class="card-title">Progres</h3>
                 <div class="row justify-content-end">
                   <a href="#" class="btn btn-primary"> PDF </a>
                   <a href="add-progres" class="btn btn-success"> + Add </a>
