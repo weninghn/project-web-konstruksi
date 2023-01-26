@@ -18,12 +18,12 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form>
+                    <form action="" method="POST">
                       <div class="card-body">
                         <div class="form-group">
                           <label for="projek">Project</label>
-                          <select name="projects[]" id="projects" class="form-control select-multiple" multiple>
-            
+                          <select name="projects[]" id="projects" name="projects"class="form-control " >
+                            
                             @foreach ($project as $item)
                             <option value="{{ $item->id}}">{{ $item->name}}</option>
                             @endforeach
@@ -53,7 +53,7 @@
                       <!-- /.card-body -->
       
                       <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-success">Submit</button>
                       </div>
                     </form>
                   </div>

@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('phone',255)->after('email');
-            $table->string('addres',255)->after('phone');
+            $table->string('addres',255)->after('email');
         });
     }
 
@@ -27,8 +27,15 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('phone');
-            $table->dropColumn('addres');
+            // $table->dropColumn('phone');
+            // $table->dropColumn('addres');
+            if (Schema::hasColumn('users', 'phone')) {
+                $table->dropColumn('phone');
+            }
+            if (Schema::hasColumn('users', 'addres')) {
+                $table->dropColumn('addres');
+            }
+
         });
     }
 };

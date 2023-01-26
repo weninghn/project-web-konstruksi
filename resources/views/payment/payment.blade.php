@@ -32,7 +32,7 @@
             <div class="card-header">
             <h3 class="card-title">Payment</h3>
               <div class="row justify-content-end">
-            <a href="payment-add" class="btn btn-success">Add</a>
+            <a href="add-payment" class="btn btn-success">Add</a>
             </div>
             </div>
             <div class="row g-3 align-items-center mt-2">
@@ -46,7 +46,7 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Payment To</th>
-                    <th>Progres</th>
+                    <th>Notes</th>
                     <th>Action</th>
                 </tr>
                 </thead>
