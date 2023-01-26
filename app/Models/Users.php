@@ -15,8 +15,9 @@ class Users extends Model
     protected $fillable = [
         'name',
         'email',
-        'address',
+        'addres',
         'phone',
+        'password',
     ];
 
     public function role()

@@ -4,6 +4,24 @@
 @endsection
 
 @section('content') 
+
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item active">Payment-add</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+
+
+
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -21,7 +39,7 @@
               <div class="card-body">
                 <div class="form-group">
                   <label for="projek">Project</label>
-                  <select name="projects[]" id="projects" class="form-control select-multiple" multiple>
+                  <select name="projects[]" id="projects" class="form-control " >
     
                     @foreach ($project as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
@@ -31,25 +49,19 @@
                 </div>
                 <div class="form-group">
                   <label for="persentase">Amount</label>
-                  <input type="text" class="form-control" id="persentase" name="persentase" placeholder="Amount">
+                  <input type="text" class="form-control" id="persentase" name="persentase">
                 </div>
                 <div class="form-group">
                   <label for="date">Date</label>
-                  <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+                  <input type="date" class="form-control" id="date" name="date" >
+                </div>
+                <div class="form-group">
+                  <label for="date">Payment To</label>
+                  <input type="text" class="form-control" id="date" name="payment_to" >
                 </div>
                 <div class="form-group">
                   <label for="date">Notes</label>
-                  <input type="date" class="form-control" id="date" name="notes" placeholder="Notes">
-                </div>
-                <div class="form-group">
-                  <label for="date">Notes</label>
-                  <select name="projects[]" id="projects" class="form-control select-multiple" multiple>
-    
-                    @foreach ($project as $item)
-                    <option value="{{ $item->id}}">{{ $item->name}}</option>
-                    @endforeach
-                    
-                </select>
+                <textarea name="notes" id="notes" class="form-control" cols="20" rows="4"></textarea>
                 </div>
                 
                
@@ -57,7 +69,8 @@
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-warning">Reset</button>
               </div>
             </form>
           </div>
