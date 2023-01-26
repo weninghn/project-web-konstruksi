@@ -39,9 +39,9 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="/updatedata/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+               @csrf
                 <div class="card-body">
-    
                   <div class="form-group">
                     <label for="persentase">Name</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ $data->name }}">

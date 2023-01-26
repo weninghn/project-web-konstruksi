@@ -60,11 +60,6 @@
               </div>
             </div>
            </section>
-
-
-
-
-
         {{-- <h1 class="text-center mb-4">Tambah Data</h1>
         <div class="container">
     

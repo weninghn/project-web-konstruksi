@@ -24,7 +24,7 @@ class ClientController extends Controller
     public function tampilkandata($id){
 
         $data = Clients::find($id);
-        //dd($data);
+        // dd($data);
         return view('client.tampildata', compact('data'));
     }
 
