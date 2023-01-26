@@ -40,7 +40,9 @@ Route::post('/insertdata', [ClientController::class, 'insertdata'])->name('inser
 Route::get('/tampilkandata/{id}', [ClientController::class, 'tampilkandata'])->name('tampilkandata');
 Route::post('/updatedata/{id}', [ClientController::class, 'updatedata'])->name('updatedata');
 //hapus
-Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
+// Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
+Route::get('client-delete/{id}',[ClientController::class,'delete']);
+
 // route project
 route::get('/project','App\Http\Controllers\ProjectController@index')->name('project');
 route::get('/project/create','App\Http\Controllers\ProjectController@create')->name('project.create');
@@ -50,7 +52,7 @@ route::post('/project/update','App\Http\Controllers\ProjectController@update')->
 
 
 
-
+//progres
 Route::get('/progres', [ProgressController::class, 'index']);
 Route::get('add-progres', [ProgressController::class,'add']);
 Route::post('progres-add',[ProgressController::class,'store']);
@@ -61,10 +63,13 @@ Route::get('progres-delete/{id}',[ProgressController::class,'delete']);
 //Offer
 Route::get('/offer',[OfferController::class,'index']);
 Route::get('add-offer',[OfferController::class,'add']);
-Route::get('offer-add',[OfferController::class,'store']);
-Route::get('add-offer',[OfferController::class,'add']);
+Route::post('offer-add',[OfferController::class,'store']);
+// Route::get('add-offer',[OfferController::class,'add']);
 
 
 //Pembayaran
 Route::get('/payment', [PaymentController::class, 'index']);
 Route::get('add-payment', [PaymentController::class,'add']);
+Route::post('payment-add',[ProgressController::class,'store']);
+Route::get('progres-edit',[ProgressController::class,'edit']);
+Route::put('progres-edit/{id}',[ProgressController::class,'update']);

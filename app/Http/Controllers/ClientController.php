@@ -35,10 +35,17 @@ class ClientController extends Controller
         return redirect()->route('client')->with('success','Data Berhasil di Update');
     }
 
-    public function delete($id){
-        $data = Clients::find($id);
+    public function destroy($slug)
+    {
+        $data = Client::where($id)->first();
         $data->delete();
-        return redirect()->route('client')->with('success','Data Berhsail di Delete');
+        return redirect('client.client')->with('status','Client deleted Successfully');
     }
+
+    // public function delete($id){
+    //     $data = Clients::find($id);
+    //     $data->delete();
+    //     return redirect()->route('client')->with('success','Data Berhsail di Delete');
+    // }
 
 }

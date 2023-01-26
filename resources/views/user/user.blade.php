@@ -48,6 +48,7 @@
                     <th>Email</th>
                     <th>Phone</th>
                     <th>Address</th>
+                    <th>user</th>
                     <th>Aksi</th>
                   </tr>
                   @php
@@ -55,11 +56,12 @@
                   @endphp
                   @foreach ($user as $users)
                       <tr>
-                        <th scope="row">{{ $no++ }}</th>
-                        <th>{{ $users->name }}</th>
-                        <th>{{ $users->email }}</th>
-                        <th>{{ $users->phone }}</th>
-                        <th>{{ $users->addres }}</th>
+                        <td scope="users">{{ $no++ }}</td>
+                        <td>{{ $users->name }}</td>
+                        <td>{{ $users->email }}</td>
+                        <td>{{ $users->phone }}</td>
+                        <td>{{ $users->addres }}</td>
+                        <td>{{ $users->role?->name }}</td>
                         <td>
                           <a href="/edituser/{{ $users->id }}" class="btn btn-info">Edit</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>

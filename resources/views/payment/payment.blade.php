@@ -51,20 +51,25 @@
                 </tr>
                 </thead>
                 <tbody>
+                 
+                 @foreach ($payment as $item)
+                     
+              
                   <tr>
-                    <td>01</td>
-                    <td>20%</td>
-                    <td>kamafr mandi</td>
-                    <td>kamarmamdngfgee</td>
-                    <td>234235356</td>
-                    <td>-</td>
+                   <td>{{ $item->project }}</td>
+                   <td>{{ $item->amount }}</td>
+                   <td>{{ $item->date }}</td>
+                   <td>{{ $item->payment }}</td>
+                   <td>{{ $item->notes }}</td>
+
 
                     <td>
-                      <a href="/progres-edit">Edit</a>
+                      <a href="/payment-edit">Edit</a>
                              
-                      <a href="/progres-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> 
+                      <a href="/payment-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> 
                       </td>
                   </tr>
+                  @endforeach
                 </tbody>
               
 

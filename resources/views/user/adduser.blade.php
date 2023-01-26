@@ -48,12 +48,12 @@
                   <input type="text" name="phone" class="form-control" id="phone">
                 </div>
                 <div class="form-group">
-                  <label for="addres">Address</label>
+                  <label for="addres">Addres</label>
                   <input type="text" name="addres" class="form-control" id="addres">
                 </div>
                 <div class="form-group">
-                  <label for="phone">Level</label>
-                    <select name="roles[]" id="role_id" name="role_id" class="form-control">
+                  <label for="role_id">Level</label>
+                    <select name="role_id" id="role_id" name="role_id" class="form-control">
                       @foreach ($roles as $item)
                       <option value="{{ $item->id}}">{{ $item->name}}</option>
                       @endforeach
