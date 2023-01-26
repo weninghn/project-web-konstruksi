@@ -49,7 +49,7 @@
                           </div>
                         </div>
                         <div class="card-footer">
-                           <a href="/edituser/{{ $user->id }}" class="btn btn-md btn-info">Edit</button> --}}
+                         
                            <button class="btn btn-success" type="submit">Save</button>
                           <button type="reset" class="btn btn-md btn-warning">Reset</button>
                         </div>
@@ -60,40 +60,4 @@
               </div>
             </div>
            </section>
-        {{-- <h1 class="text-center mb-4">Tambah Data</h1>
-        <div class="container">
-    
-        <div class="row justify-content-center">
-            <div class="col-6">
-            <div class="card">
-                <div class="card-body">
-                <form action="/insertdata" method="POST" enctype="multipart/form-data">
-                    @csrf 
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Name</label>
-            <input type="text" name= "name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text"></div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Phone</label>
-            <input type="number" name= "phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text"></div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Address</label>
-            <input type="text" name= "address" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text"></div>
-        </div>
-    <div class="col-auto">
-        <button type="submit" class="btn btn-md btn-primary">Simpan</button>
-        <button type="reset" class="btn btn-md btn-warning">Reset</button>
-        </div>
-        </form>
-                </div>
-            </div>
-        </div>
-        </div>
-            </div>
-    </div> --}}
-          
         @endsection

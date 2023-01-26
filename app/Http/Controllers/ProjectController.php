@@ -31,7 +31,7 @@ class ProjectController extends Controller
             'status_payment'=> $request->status_payment,
         ];
         Project::create($project);
-        return redirect('project')->with('status','project Added Successfully');   
+        return redirect('project')->with->with('success','Data Berhsail di Tambahkan');   
     }
     public function edit($id)
     {
@@ -50,6 +50,6 @@ class ProjectController extends Controller
         $project->status = $request->status;
         $project->status_payment = $request->status_payment;
         $project->save();
-        return redirect('project')->with('status','project update Successfully');;
+        return redirect('project')->with('success','Data Berhsail di Tambahkan');   
     }
 }
