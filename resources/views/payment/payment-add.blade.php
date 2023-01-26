@@ -35,7 +35,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form>
+            <form action="payment-add" method="POST">
               <div class="card-body">
                 <div class="form-group">
                   <label for="projek">Project</label>

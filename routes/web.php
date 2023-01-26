@@ -59,8 +59,8 @@ Route::get('progres-delete/{id}',[ProgressController::class,'delete']);
 //Offer
 Route::get('/offer',[OfferController::class,'index']);
 Route::get('add-offer',[OfferController::class,'add']);
-Route::get('offer-add',[OfferController::class,'store']);
-Route::get('add-offer',[OfferController::class,'add']);
+Route::post('offer-add',[OfferController::class,'store']);
+// Route::get('add-offer',[OfferController::class,'add']);
 
 
 //Pembayaran
