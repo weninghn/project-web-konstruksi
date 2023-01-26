@@ -27,7 +27,7 @@ Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::get('/adduser', [UserController::class, 'adduser'])->name('adduser');
 Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');
-Route::get('/tampiluser{id}', [UserController::class, 'tampiluser'])->name('tampiluser');
+Route::get('/edituser{id}', [UserController::class, 'edituser'])->name('edituser');
 Route::post('/updateuser{id}', [UserController::class, 'updateuser'])->name('updateuser');
 Route::get('/deleteuser{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
 

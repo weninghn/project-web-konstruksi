@@ -1,15 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Users;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $data = Users::all();
-        return view('user.user', compact('data'));
+        $user = Users::all();
+        return view('user.user', compact('user'));
     }
 
     public function adduser()
@@ -17,10 +18,16 @@ class UserController extends Controller
         return view('user.adduser');
     }
 
-    public function tampiluser($id)
+    public function insertuser(Request $request)
+    {
+        Users::create($request->all());
+        return redirect()->route('user')->with('success', 'Data berhasil ditambahkan');
+    }
+
+    public function edituser($id)
     {
         $user = Users::find($id);
-        return view('user.edituser', compact('data'));
+        return view('user.edituser', compact('user'));
     }
 
     public function updateuser(Request $request, $id)

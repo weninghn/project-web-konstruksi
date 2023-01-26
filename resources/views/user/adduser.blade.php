@@ -14,7 +14,8 @@
             <div class="card-header">
               <h3 class="card-title">User Add</h3>
             </div>
-            <form>
+            <form action="/insertuser" method="POST" enctype="multipart/form-data">
+              @csrf
               <div class="card-body">
                 <div class="form-group">
                   <label for="name">Name</label>
@@ -29,12 +30,12 @@
                   <input type="text" name="phone" class="form-control" id="phone">
                 </div>
                 <div class="form-group">
-                  <label for="address">Address</label>
-                  <input type="text" name="address" class="form-control" id="address">
+                  <label for="addres">Address</label>
+                  <input type="text" name="addres" class="form-control" id="addres">
                 </div>
               </div>
               <div class="card-footer">
-                <a href="/edituser/{{ $users->id }}" class="btn btn-md btn-info">Edit</button>
+                <button type="submit" class="btn btn-md btn-info">Simpan</button>
                 <button type="reset" class="btn btn-md btn-warning">Reset</button>
               </div>
             </form>

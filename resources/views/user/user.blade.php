@@ -58,39 +58,14 @@
                         <th>{{ $users->name }}</th>
                         <th>{{ $users->email }}</th>
                         <th>{{ $users->phone }}</th>
-                        <th>{{ $users->address }}</th>
+                        <th>{{ $users->addres }}</th>
                         <td>
                           <a href="/edituser/{{ $users->id }}" class="btn btn-info">Edit</a>
                           <a href="#" class="btn btn-danger delete" data-id="{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
                         </td>
                       </tr>
                   @endforeach
-                  {{-- </thead>
-                  <tbody>
-                    <tr>
-                      <td>01</td>
-                      <td>wening</td>
-                      <td>weningnhn@gmail.com</td>
-                      <td>085711859746</td>
-                      <td>surakarta</td>
-                      <td>
-                        <a href="#" class="btn btn-info">Edit</button>
-                        <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
-                        </td>
-                    </tr>
-                  </tbody> --}}
-                  {{-- @foreach($data as $row)
-                  <tr>
-                    <td>{{ $row->id }}</td>
-                    <td>{{ $row->name }}</td>
-                    <td>{{ $row->phone }}</td>
-                    <td>{{ $row->address }}</td> --}}
-                    {{-- <td>
-                    <a href="#" class="btn btn-info">Edit</button>
-                    <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
-                    </td> --}}
-                  {{-- </tr>
-                  @endforeach --}}
+                  
                 </table>
               </div>
               <!-- /.card-body -->

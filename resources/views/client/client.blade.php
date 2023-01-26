@@ -56,7 +56,7 @@
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->phone }}</td>
-                    <td>{{ $row->address }}</td>
+                    <td>{{ $row->addres }}</td>
                     <td>
                     <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info">Edit</button>
                     <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
