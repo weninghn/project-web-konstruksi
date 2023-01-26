@@ -4,6 +4,20 @@
   Tambah Data User
 @endsection
 @section('content');
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+          <li class="breadcrumb-item active">User</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
 
 <section class="content">
   <div class="container-fluid">
@@ -14,7 +28,8 @@
             <div class="card-header">
               <h3 class="card-title">User Add</h3>
             </div>
-            <form>
+            <form action="insertuser" method="POST">
+              @csrf
               <div class="card-body">
                 <div class="form-group">
                   <label for="name">Name</label>
@@ -25,8 +40,20 @@
                   <input type="text" name="email" class="form-control" id="email">
                 </div>
                 <div class="form-group">
+                  <label for="email">Password</label>
+                  <input type="text" name="password" class="form-control" id="password">
+                </div>
+                <div class="form-group">
                   <label for="phone">Phone</label>
                   <input type="text" name="phone" class="form-control" id="phone">
+                </div>
+                <div class="form-group">
+                  <label for="phone">Level</label>
+                  <select name="roles[]" id="role_id" name="role_id" class="form-control">
+                    @foreach ($roles as $item)
+                    <option value="{{ $item->id}}">{{ $item->name}}</option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="address">Address</label>
@@ -34,7 +61,8 @@
                 </div>
               </div>
               <div class="card-footer">
-                <a href="/edituser/{{ $users->id }}" class="btn btn-md btn-info">Edit</button>
+                {{-- <a href="/edituser/{{ $user->id }}" class="btn btn-md btn-info">Edit</button> --}}
+                 <button class="btn btn-success" type="submit">Save</button>
                 <button type="reset" class="btn btn-md btn-warning">Reset</button>
               </div>
             </form>

@@ -32,8 +32,9 @@ Project
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data Project</h3>
+              <h3 class="card-title">Project</h3>
                 <div class="row justify-content-end">
+                  <a href="#" class="btn btn-primary px-3">PDF</a>
               <a href="{{route('project.create')}}" class="btn btn-success">Add Project</a>
               </div>
               </div>

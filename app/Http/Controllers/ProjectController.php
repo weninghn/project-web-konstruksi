@@ -14,7 +14,7 @@ class ProjectController extends Controller
     }
     public function create()
     {
-        $client = Client::all();
+        $client = Clients::all();
         return view ('project.create',['client'=> $client]);
     }
     public function add(Request $request)
