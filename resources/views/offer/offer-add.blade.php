@@ -36,10 +36,11 @@
             <!-- /.card-header -->
             <!-- form start -->
             <form action="offer-add" method="POST">
+              @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="projek">Project</label>
-                  <select name="projects[]" id="projects" class="form-control " >
+                <label for="name">Project</label>
+                <select name="project_id" id="project_id" name="project_id"class="form-control " >
     
                     @foreach ($project as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
@@ -52,15 +53,15 @@
                   <input type="text" class="form-control" id="persentase" name="status">
                 </div>
                 <div class="form-group">
-                  <label for="date">Category</label>
+                  <label for="category">Category</label>
                   <input type="text" class="form-control" id="category" name="category" >
                 </div>
                 <div class="form-group">
-                  <label for="date">Payment To</label>
-                  <input type="text" class="form-control" id="date" name="payment_to" >
+                  <label for="date">Date Offer</label>
+                  <input type="date" class="form-control" id="date" name="date_offer" >
                 </div>
                 <div class="form-group">
-                  <label for="date">Notes</label>
+                  <label for="note">Notes</label>
                 <textarea name="notes" id="notes" class="form-control" cols="20" rows="4"></textarea>
                 </div>
                 

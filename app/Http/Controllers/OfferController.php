@@ -23,6 +23,6 @@ class OfferController extends Controller
         // dd($request->all());
       
         Offers::create($request->all());
-        return redirect('offer')->with('status','Category Added Successfully'); 
+        return redirect('offer')->with('success','offer Added Successfully');
     }
 }

@@ -46,20 +46,21 @@ Progress
                       <th>Category</th>
                       <th>Status</th>
                       <th>Project</th>
-                      <th>Date</th>
+                      <th>Date Offer</th>
                       <th>Action</th>
                   </tr>
-                  </thead>
-                  <tbody>
+                  @php
+                  $no = 1;
+                  @endphp
                     @foreach($offer as $row)
                     <tr>
                       <th scope="row">{{ $no++ }}</th>
                       <td>{{ $row->category }}</td>
                       <td>{{ $row->status }}</td>
-                      <td>{{ $row->project }}</td>
-                      <td>{{ $row->date }}</td>
+                      <td>{{ $row->project->name }}</td>
+                      <td>{{ $row->date_offer }}</td>
                       <td>
-                      <a href="/edit-data/{{ $row->id }}" class="btn btn-info">Edit</button>
+                      <a href="/edit-data/{{ $row->id }}">Edit</button>
                       <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
                       </td>
                     </tr>
