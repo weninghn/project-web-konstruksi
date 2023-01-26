@@ -77,6 +77,7 @@
 
 
 
+<<<<<<< HEAD
              <h1 class="text-center mb-4">Edit Data</h1>
     <div class="container">
 

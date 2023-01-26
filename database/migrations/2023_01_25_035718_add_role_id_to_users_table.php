@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('role_id');
-            $table->foreign('role_id')->references('id')->on('users')->after('remember_token');
+            $table->foreign('role_id')->references('id')->on('roles');
             
         });
     }
@@ -28,7 +28,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_role_id');
+            $table->dropForeign('posts_user_id_foreign');
             $table->dropColumn('role_id');
         });
     }
