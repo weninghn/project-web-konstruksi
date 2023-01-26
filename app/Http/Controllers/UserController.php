@@ -16,7 +16,7 @@ class UserController extends Controller
     public function adduser()
     {
         $role = Role::all();
-        return view ('user.adduser',['Roles'=> $role]);
+        return view ('user.adduser',['roles'=> $role]);
     }
     public function insertuser(Request $request){
         //dd($request->all());
