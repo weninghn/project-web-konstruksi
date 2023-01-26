@@ -33,5 +33,23 @@ class ProjectController extends Controller
         Project::create($project);
         return redirect('project')->with('status','project Added Successfully');   
     }
-    
+    public function edit($id)
+    {
+        $project = Project::select ('*')->where('id' , $id)->first();
+        
+        return view('edit',['pro' => $project]);
+    }
+    public function update(Request $request)
+    {
+        $project = Project::select('*')->where('id',$request->id)->first();
+        $project->work_date = $request->work_date;
+        $project->date_end = $request->date_end;
+        $project->name = $request->name;
+        $project->location = $request->date_end;
+        $project->date_offer = $request->date_offer;
+        $project->status = $request->status;
+        $project->status_payment = $request->status_payment;
+        $project->save();
+        return redirect('project')->with('status','project update Successfully');;
+    }
 }
