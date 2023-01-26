@@ -35,7 +35,7 @@
             <!-- general form elements -->
             <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Client</h3>
+                <h3 class="card-title">Client Edit</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -53,10 +53,7 @@
                   <div class="form-group">
                     <label for="date">Address</label>
                     <input type="text" class="form-control" id="address" name="address" value="{{ $data->address }} ">
-                  </div>
-                 
-                  
-                 
+                  </div> 
                 </div>
                 <!-- /.card-body -->
   
@@ -72,47 +69,3 @@
   </section>
   </div>
   @endsection
-
-
-
-
-
-<<<<<<< HEAD
-             <h1 class="text-center mb-4">Edit Data</h1>
-    <div class="container">
-
-    <div class="row justify-content-center">
-        <div class="col-6">
-        <div class="card">
-            <div class="card-body">
-            <form action="/updatedata/{{ $data->id }}" method="POST" enctype="multipart/form-data">
-                @csrf 
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="text" name= "name" class="form-control" id="exampleInputEmail1" 
-        aria-describedby="emailHelp"  value="{{ $data->name }}">
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Phone</label>
-        <input type="number" name= "phone" class="form-control" id="exampleInputEmail1" 
-        aria-describedby="emailHelp" value="{{ $data->phone }}">
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Address</label>
-        <input type="text" name= "address" class="form-control" id="exampleInputEmail1" 
-        aria-describedby="emailHelp"  value="{{ $data->address }}">
-    </div>
-  </div>
-</div>
-<div class="col-auto">
-      <button type="submit" class="btn btn-md btn-primary">Simpan</button>
-      <button type="reset" class="btn btn-md btn-warning">Reset</button>
-    </div>
-    </form>
-            </div>
-        </div>
-    </div>
-    </div>
-        </div>
-</div>
-      
