@@ -51,6 +51,8 @@
                 </tr>
                 </thead>
                 <tbody>
+                 
+                  @endforeach
                   <tr>
                     <td>01</td>
                     <td>20%</td>

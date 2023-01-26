@@ -93,7 +93,8 @@
             <div class="card-header">
               <h3 class="card-title">Project Add</h3>
             </div>
-              <form action="">
+            <form class="js-validation-material" action= "{{ route('project.add')}}" method="POST" enctype="multipart/form-data">
+              @csrf
                 <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
