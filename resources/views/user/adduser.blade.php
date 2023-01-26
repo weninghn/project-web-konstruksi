@@ -51,7 +51,9 @@
                   <label for="addres">Address</label>
                   <input type="text" name="addres" class="form-control" id="addres">
                 </div>
-              <div class="form-group">
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-md btn-info">Simpan</button>
                 <label for="phone">Level</label>
                   <select name="roles[]" id="role_id" name="role_id" class="form-control">
                     @foreach ($roles as $item)
