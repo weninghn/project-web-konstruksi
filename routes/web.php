@@ -50,7 +50,7 @@ route::post('/project/add','App\Http\Controllers\ProjectController@add')->name('
 
 
 
-
+//progres
 Route::get('/progres', [ProgressController::class, 'index']);
 Route::get('add-progres', [ProgressController::class,'add']);
 Route::post('progres-add',[ProgressController::class,'store']);
@@ -68,3 +68,6 @@ Route::post('offer-add',[OfferController::class,'store']);
 //Pembayaran
 Route::get('/payment', [PaymentController::class, 'index']);
 Route::get('add-payment', [PaymentController::class,'add']);
+Route::post('payment-add',[ProgressController::class,'store']);
+Route::get('progres-edit',[ProgressController::class,'edit']);
+Route::put('progres-edit/{id}',[ProgressController::class,'update']);
