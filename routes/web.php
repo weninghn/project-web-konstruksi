@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProgressController;
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -23,8 +24,12 @@ Route::get('/', function () {
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/user/data', [UserController::class, 'data'])->name('user.data');
-Route::resource('/user', UserController::class);
+Route::get('/user', [UserController::class, 'index'])->name('user');
+Route::get('/adduser', [UserController::class, 'adduser'])->name('adduser');
+Route::post('insertuser', [UserController::class, 'insertuser'])->name('insertuser');
+Route::get('/tampiluser{id}', [UserController::class, 'tampiluser'])->name('tampiluser');
+Route::post('/updateuser{id}', [UserController::class, 'updateuser'])->name('updateuser');
+Route::get('/deleteuser{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
 
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 // tambahdata

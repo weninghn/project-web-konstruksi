@@ -1,10 +1,11 @@
 @extends('layouts.master')
-
 @section('title')
-  Data Project
+Project
 @endsection
+    {{-- @section('content')
 
-@section('content')  
+    </section> --}}
+    @section('content')  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -31,16 +32,17 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data Project</h3>
+              <h3 class="card-title">Project</h3>
                 <div class="row justify-content-end">
-              <a href="#" class="btn btn-success">Add Project</a>
+                  <a href="#" class="btn btn-primary px-3">PDF</a>
+              <a href="{{route('project.create')}}" class="btn btn-success">Add Project</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
               <div class="card-body"> 
                 <table id="example2" class="table table-bordered table-hover">
-                    <thead>
+                  <thead>
                         <tr>
                           <th>No</th>
                           <th>Client</th>
@@ -85,23 +87,12 @@
                                   <td>
                                       {{ $project->status_payment }}
                                   </td>
-                        <a href="#" class="btn btn-info">Edit</button>
-                        <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
+                               
+                        {{-- <a href="/progres-destroy/{{$item->slug}}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
                         </td>
                     </tr>
                   </tbody>
-                  {{-- @foreach($data as $row)
-                  <tr>
-                    <td>{{ $row->id }}</td>
-                    <td>{{ $row->name }}</td>
-                    <td>{{ $row->phone }}</td>
-                    <td>{{ $row->address }}</td> --}}
-                    {{-- <td>
-                    <a href="#" class="btn btn-info">Edit</button>
-                    <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
-                    </td> --}}
-                  {{-- </tr>
-                  @endforeach --}}
+                 @endforeach
                 </table>
               </div>
               <!-- /.card-body -->
@@ -116,24 +107,6 @@
     </section>
     <!-- /.content -->
   </div>
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-</body>
-</html>
 
-    
+   
+@endsection

@@ -92,8 +92,9 @@ Progress
               <div class="card-header">
               <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
-              <a href="#" class="btn btn-success">Add User</a>
-              </div>
+                  <a href="#" class="btn btn-primary"> PDF </a>
+                  <a href="add-progres" class="btn btn-success"> + Add </a>
+                 </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
@@ -122,22 +123,11 @@ Progress
                       <td>
                         <a href="/progres-edit">Edit</a>
                                
-                        {{-- <a href="/progres-destroy/{{$item->slug}}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
+                        <a href="/progres-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>
                         </td>
                     </tr>
                   </tbody>
-                  {{-- @foreach($data as $row)
-                  <tr>
-                    <td>{{ $row->id }}</td>
-                    <td>{{ $row->name }}</td>
-                    <td>{{ $row->phone }}</td>
-                    <td>{{ $row->address }}</td> --}}
-                    {{-- <td>
-                    <a href="#" class="btn btn-info">Edit</button>
-                    <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
-                    </td> --}}
-                  {{-- </tr>
-                  @endforeach --}}
+                
                 </table>
               </div>
               <!-- /.card-body -->

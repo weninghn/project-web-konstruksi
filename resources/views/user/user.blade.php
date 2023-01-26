@@ -4,8 +4,7 @@
   Data User
 @endsection
 
-{{-- @section('content')   --}}
-
+@section('content')  
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -17,7 +16,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-              <li class="breadcrumb-item active">Client</li>
+              <li class="breadcrumb-item active">User</li>
             </ol>
           </div>
         </div>
@@ -34,7 +33,8 @@
               <div class="card-header">
               <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
-              <a href="#" class="btn btn-success">Add User</a>
+                 
+                  <a href="/adduser" class="btn btn-success">Add User</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
@@ -50,7 +50,23 @@
                     <th>Address</th>
                     <th>Aksi</th>
                   </tr>
-                  </thead>
+                  @php
+                    $no = 1;
+                  @endphp
+                  @foreach ($user as $users)
+                      <tr>
+                        <th scope="row">{{ $no++ }}</th>
+                        <th>{{ $users->name }}</th>
+                        <th>{{ $users->email }}</th>
+                        <th>{{ $users->phone }}</th>
+                        <th>{{ $users->address }}</th>
+                        <td>
+                          <a href="/edituser/{{ $users->id }}" class="btn btn-info">Edit</a>
+                          <a href="#" class="btn btn-danger delete" data-id="{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
+                        </td>
+                      </tr>
+                  @endforeach
+                  {{-- </thead>
                   <tbody>
                     <tr>
                       <td>01</td>
@@ -63,7 +79,7 @@
                         <a href="#" class="btn btn-danger delete" data-id="">Delete</button>
                         </td>
                     </tr>
-                  </tbody>
+                  </tbody> --}}
                   {{-- @foreach($data as $row)
                   <tr>
                     <td>{{ $row->id }}</td>
@@ -110,4 +126,4 @@
 </body>
 </html>
 
-      {{-- @endsection --}}
+      @endsection

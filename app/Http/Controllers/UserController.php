@@ -1,105 +1,48 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Role;
 use App\Models\User;
+use App\Models\Users;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-
     public function index()
     {
-       $users = User::all();
-
-       return view('user.user');
-    //    return view('user.user ',['users' => $users]);
+        $data = User::all();
+        return view('user.user',['user' => $data]);
     }
 
-    public function data()
+    public function adduser()
     {
-        $user = User::orderBy('id', 'asc')->get();
-
-        return datatables()
-        ->of($user)
-        ->addIndexColumn()
-        ->addColumn('aksi', function($user)
-        {
-            return '
-                <div class="btn-group">
-                    <button onclick="editUser(`'. route('user.update', $user->id).'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-                    <button onclick="deleteData(`'. route('user.destroy', $user->id).'`)" class="btn btn-xs btn-danger btn-flat"><i class="fa fa-trash"></i></button>
-                </div>
-            ';
-
-            // return '
-            //     <div class="btn-group">
-            //         <button onclick="editUser(`'. route('user.update', $user->id).'`)" class="btn btn-xs btn-info btn-flat"><i class="fa fa-pencil"></i></button>
-            //         <button onclick="deleteData(`'. route('user.destroy', $user->id). `')" class="btn btn-danger btn-flat"><i class="fa fa-trash"></i></button>
-            //     </div>
-            // ';
-        })
-        ->rawColumns(['aksi'])
-        ->make(true);
+        $role = Role::all();
+        return view ('user.adduser',['Roles'=> $role]);
     }
-
-    public function create()
-    {
-
+    public function insertuser(Request $request){
+        //dd($request->all());
+         User::create($request->all());
+         return redirect()->route('user')->with('success','Data Berhsail di Tambahkan');
     }
-    
-    // public function add()
-    // {
-    //     return view('user.add_user');
-    // }
-
-    public function store(Request $request)
-    {
-        $user = new User();
-        $user->name = $request->name;
-        $user->save();
-
-        return redirect(route('user.data'))->withSuccess('Data Berhasil Disimpan');
-    }
-
-    public function show($id)
+    public function tampiluser($id)
     {
         $user = User::find($id);
-        return response()->json($user);
+        return view('user.edituser', compact('data'));
     }
 
-    public function edit($id)
+    public function updateuser(Request $request, $id)
     {
-        // $user = User::where('id',$id)->first();
-        // return view('user-edit',['user' => $user]);
-    }
-
-    public function update(Request $request, $id)
-    {
-        // $user = User::where('id', $id)->first();
-        // $user->update($request->all());
-        // return redirect('users')->with('status','User Updated Successfully');
-
         $user = User::find($id);
-        $user->name = $request->name;
-        $user->update();
-
-        return redirect(route('user.user'))->withSuccess('Data Berhasil Diubah');
+        $user->update($request->all());
+        return redirect()->route('user')->with('Success', 'Data berhasil di update');
     }
 
-    public function destroy($id)
+    public function deleteuser($id)
     {
         $user = User::find($id);
         $user->delete();
-
-        return response(null, 204);
+        return redirect()->route('user')->with('Success', 'Data Berhasil Dihapus');
     }
-
-    // public function delete($slug)
-    // {
-    //     $user = User::where('id',$id)->first();
-    //     $user->delete();
-    //     return redirect('users')->with('status','User deleted Successfully');
-    // }
-
 }
+
+?>
