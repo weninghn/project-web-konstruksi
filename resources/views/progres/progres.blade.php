@@ -90,7 +90,7 @@ Progress
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Progres</h3>
+              <h3 class="card-title">Progress</h3>
                 <div class="row justify-content-end">
                   <a href="#" class="btn btn-primary"> PDF </a>
                   <a href="add-progres" class="btn btn-success"> + Add </a>
@@ -110,24 +110,23 @@ Progress
                       <th>Picture</th>
                       <th>Action</th>
                   </tr>
-                  </thead>
-                  <tbody>
+                  @php
+                  $no = 1;
+                  @endphp
+                  @foreach($progress as $item)
                     <tr>
-                      <td>01</td>
-                      <td>20%</td>
-                      <td>kamafr mandi</td>
-                      <td>kamarmamdngfgee</td>
-                      <td>234235356</td>
-                      <td>-</td>
-
+                    <th scope="row">{{ $no++ }}</th>
+                    <td>{{ $item->project }}</td>
+                    <td>{{ $item->presentase }}</td>
+                    <td>{{ $item->job_detail }}</td>
+                    <td>{{ $item->date }}</td>
+                    <td>{{ $item->picture }}</td>
                       <td>
                         <a href="/progres-edit">Edit</a>
-                               
                         <a href="/progres-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>
                         </td>
                     </tr>
-                  </tbody>
-                
+                    @endforeach
                 </table>
               </div>
               <!-- /.card-body -->

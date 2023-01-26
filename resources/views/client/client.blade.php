@@ -57,7 +57,7 @@
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->phone }}</td>
-                    <td>{{ $row->addres }}</td>
+                    <td>{{ $row->address }}</td>
                     <td>
                     <a href="/tampilkandata/{{ $row->id }}">Edit</button>
                     <a href="/client-destroy/{{$row->slug}}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>

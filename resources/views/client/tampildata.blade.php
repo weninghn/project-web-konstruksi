@@ -17,7 +17,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-            <li class="breadcrumb-item active">Payment-add</li>
+            <li class="breadcrumb-item active">Client-edit</li>
           </ol>
         </div>
       </div>
@@ -35,7 +35,7 @@
             <!-- general form elements -->
             <div class="card card-success">
               <div class="card-header">
-                <h3 class="card-title">Payment</h3>
+                <h3 class="card-title">Client</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -52,7 +52,7 @@
                   </div>
                   <div class="form-group">
                     <label for="date">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" value="{{ $data->name }} ">
+                    <input type="text" class="form-control" id="address" name="address" value="{{ $data->address }} ">
                   </div>
                  
                   
@@ -77,7 +77,7 @@
 
 
 
-            {{-- <h1 class="text-center mb-4">Edit Data</h1>
+             <h1 class="text-center mb-4">Edit Data</h1>
     <div class="container">
 
     <div class="row justify-content-center">
@@ -89,7 +89,7 @@
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Name</label>
         <input type="text" name= "name" class="form-control" id="exampleInputEmail1" 
-        aria-describedby="emailHelp" ">
+        aria-describedby="emailHelp"  value="{{ $data->name }}">
     </div>
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Phone</label>
@@ -114,4 +114,4 @@
     </div>
         </div>
 </div>
-      --}}
+      
