@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OfferController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\DashboardController;
 
 /*
@@ -54,6 +55,13 @@ Route::post('progres-add',[ProgressController::class,'store']);
 Route::get('progres-edit',[ProgressController::class,'edit']);
 Route::put('progres-edit/{id}',[ProgressController::class,'update']);
 Route::get('progres-delete/{id}',[ProgressController::class,'delete']);
+
+//Offer
+Route::get('/offer',[OfferController::class,'index']);
+Route::get('add-offer',[OfferController::class,'add']);
+Route::get('offer-add',[OfferController::class,'store']);
+Route::get('add-offer',[OfferController::class,'add']);
+
 
 //Pembayaran
 Route::get('/payment', [PaymentController::class, 'index']);

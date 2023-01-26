@@ -17,4 +17,8 @@ class PaymentController extends Controller
         return view('payment.payment-add',['project' => $project]);
       
     }
+    public function store(Request $request)
+    {
+        
+    }
 }

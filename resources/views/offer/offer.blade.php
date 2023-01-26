@@ -15,7 +15,7 @@ Progress
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-              <li class="breadcrumb-item active">Client</li>
+              <li class="breadcrumb-item active">Offer</li>
             </ol>
           </div>
         </div>
@@ -30,10 +30,10 @@ Progress
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data User</h3>
+              <h3 class="card-title">Offer</h3>
                 <div class="row justify-content-end">
                   <a href="#" class="btn btn-primary"> PDF </a>
-                  <a href="add-progres" class="btn btn-success"> + Add </a>
+                  <a href="add-offer" class="btn btn-success"> + Add </a>
                  </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
@@ -43,23 +43,21 @@ Progress
                   <thead>
                   <tr>
                     <th>No</th>
+                      <th>Category</th>
+                      <th>Status</th>
                       <th>Project</th>
-                      <th>Persentase</th>
-                      <th>Job Detail</th>
                       <th>Date</th>
-                      <th>Picture</th>
                       <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach($progress as $row)
+                    @foreach($offer as $row)
                     <tr>
                       <th scope="row">{{ $no++ }}</th>
+                      <td>{{ $row->category }}</td>
+                      <td>{{ $row->status }}</td>
                       <td>{{ $row->project }}</td>
-                      <td>{{ $row->persentase }}</td>
-                      <td>{{ $row->job_detail }}</td>
-                      <td>{{ $row->detail }}</td>
-                      <td>{{ $row->picture}}</td>
+                      <td>{{ $row->date }}</td>
                       <td>
                       <a href="/edit-data/{{ $row->id }}" class="btn btn-info">Edit</button>
                       <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
