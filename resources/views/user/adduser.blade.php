@@ -51,20 +51,17 @@
                   <label for="addres">Address</label>
                   <input type="text" name="addres" class="form-control" id="addres">
                 </div>
-              </div>
-              <div class="card-footer">
-                <button type="submit" class="btn btn-md btn-info">Simpan</button>
-                <label for="phone">Level</label>
-                  <select name="roles[]" id="role_id" name="role_id" class="form-control">
-                    @foreach ($roles as $item)
-                    <option value="{{ $item->id}}">{{ $item->name}}</option>
-                    @endforeach
-                  </select>
-              </div>
-            </div>
-              <div class="card-footer">
+                <div class="form-group">
+                  <label for="phone">Level</label>
+                    <select name="roles[]" id="role_id" name="role_id" class="form-control">
+                      @foreach ($roles as $item)
+                      <option value="{{ $item->id}}">{{ $item->name}}</option>
+                      @endforeach
+                    </select>
                 </div>
               </div>
+              </div>
+            </div>
               <div class="card-footer">
                 {{-- <a href="/edituser/{{ $user->id }}" class="btn btn-md btn-info">Edit</button> --}}
                  <button class="btn btn-success" type="submit">Save</button>
