@@ -48,12 +48,16 @@
                         </select>
                         </div>
                         <div class="form-group">
-                          <label for="persentase">Persentase</label>
-                          <input type="persentase" class="form-control" id="persentase" name="persentase" placeholder="persentase">
+                          <label for="presentase">Persentase</label>
+                          <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase">
                         </div>
                         <div class="form-group">
                           <label for="job">Job Detail</label>
                           <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="job_details">
+                        </div>
+                        <div class="form-group">
+                          <label for="date">Date Progres</label>
+                          <input type="date" class="form-control" id="date" name="date" placeholder="date">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputFile">File input</label>

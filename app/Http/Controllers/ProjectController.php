@@ -54,13 +54,13 @@ class ProjectController extends Controller
         $project->status = $request->status;
         $project->status_payment = $request->status_payment;
         $project->save();
-        return redirect('project')->with('success','Project Update Successfully');     
+        return redirect('project')->with('success','Project Update Successfully');
     }
     public function delete($id)
     {
         Project::where('id', $id)->delete();
         // $user = Users::find($id);
         // $user->delete();
-        return redirect()->route('project')->with('Success', 'Data Berhasil Dihapus');
+        return redirect()->route('project')->with('Success', 'Project Delete Successfully');
     }
 }

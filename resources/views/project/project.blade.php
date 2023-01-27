@@ -87,8 +87,14 @@ Project
                                       {{ $project->status_pay?->nama }}
                                   </td>
                                   <td>
-                                  <a href="/edit/{{ $project->id }}">Edit</button>
+                                  <a href="/edit/{{ $project->id }}">Edit</button> | 
                                     <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>
+<<<<<<< HEAD
+=======
+                                  {{-- <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a> --}}
+                                  {{-- <a href="/edit/{{ $project->id }}">Edit<i class="fa fa-pencil"></i></a> --}}
+                                  {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
+>>>>>>> b939310f534045e9c574d666ad164c2700c3418a
                                   </td>
                     </tr>
                   </tbody>

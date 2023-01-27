@@ -32,6 +32,7 @@ Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertu
 Route::get('/edituser/{id}', [UserController::class, 'edituser'])->name('edituser');
 Route::post('/updateuser/{id}', [UserController::class, 'updateuser'])->name('updateuser');
 Route::get('/deleteuser/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
+Route::get('/exportpdf', [UserController::class, 'exportpdf'])->name('exportpdf');
 
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 // tambahdata
@@ -63,8 +64,8 @@ Route::get('progres-delete/{id}',[ProgressController::class,'delete']);
 Route::get('/offer',[OfferController::class,'index'])->name('offer');;
 Route::get('add-offer',[OfferController::class,'add'])->name('offer.add');
 Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');;
-Route::post('editoffer/{id}',[OfferController::class,'edit'])->name('edit');;
-Route::get('editoffer/{id}',[OfferController::class,'update'])->name('update');;
+Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');;
+Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');;
 
 
 //Pembayaran
