@@ -59,8 +59,9 @@
                     <td>{{ $row->phone }}</td>
                     <td>{{ $row->address }}</td>
                     <td>
-                    <a href="/tampilkandata/{{ $row->id }}">Edit</button>
-                    <a href="/client-destroy/{{$row->slug}}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>
+                    <a href="/tampilkandata/{{ $row->id }}">Edit</button>  | 
+                    {{-- <a href="/clientdelete/{{$row->id}}" data-name="{{ $row->name }}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> --}}
+                    <a href="/client-delete/{{ $row->id }}" data-name="{{ $row->name }}">Delete</a>
                     <!-- <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> -->
                     </td>
                   </tr>

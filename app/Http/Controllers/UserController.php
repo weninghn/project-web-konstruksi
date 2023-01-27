@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Role;
+use App\Models\User;
 use App\Models\Users;
 use Illuminate\Http\Request;
 
@@ -32,6 +33,12 @@ class UserController extends Controller
         Users::create($user);
         return redirect('user')->with('Success','User Added Successfully'); 
     }
+
+    public function edituser($id)
+    {
+        $user = Users::find($id);
+        return view('user.edituser', compact('user'));
+    }
     public function updateuser(Request $request, $id)
     {
         $user = Users::find($id);
@@ -41,8 +48,9 @@ class UserController extends Controller
 
     public function deleteuser($id)
     {
-        $user = Users::find($id);
-        $user->delete();
+        User::where('id', $id)->delete();
+        // $user = Users::find($id);
+        // $user->delete();
         return redirect()->route('user')->with('Success', 'Data Berhasil Dihapus');
     }
 }

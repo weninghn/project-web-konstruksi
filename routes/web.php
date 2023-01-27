@@ -25,12 +25,13 @@ Route::get('/', function () {
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
+//Route User
 Route::get('/user', [UserController::class, 'index'])->name('user');
 Route::get('/adduser', [UserController::class, 'adduser'])->name('adduser');
 Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertuser');
-Route::get('/edituser{id}', [UserController::class, 'edituser'])->name('edituser');
-Route::post('/updateuser{id}', [UserController::class, 'updateuser'])->name('updateuser');
-Route::get('/deleteuser{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
+Route::get('/edituser/{id}', [UserController::class, 'edituser'])->name('edituser');
+Route::post('/updateuser/{id}', [UserController::class, 'updateuser'])->name('updateuser');
+Route::get('/deleteuser/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
 
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 // tambahdata
@@ -41,17 +42,14 @@ Route::get('/tampilkandata/{id}', [ClientController::class, 'tampilkandata'])->n
 Route::post('/updatedata/{id}', [ClientController::class, 'updatedata'])->name('updatedata');
 //hapus
 // Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
-Route::get('client-delete/{id}',[ClientController::class,'delete']);
+Route::get('client-delete/{id}',[ClientController::class,'destroy'])->name('clientdelete');
 
 // route project
 route::get('/project','App\Http\Controllers\ProjectController@index')->name('project');
 route::get('/project/create','App\Http\Controllers\ProjectController@create')->name('project.create');
 route::post('/project/add','App\Http\Controllers\ProjectController@add')->name('project.add');
-route::get('/project/edit/{$id}','App\Http\Controllers\ProjectController@edit')->name('project.edit');
-route::post('/project/update','App\Http\Controllers\ProjectController@update')->name('project.update');
-
-
-
+Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
+Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
 //progres
 Route::get('/progres', [ProgressController::class, 'index']);
 Route::get('add-progres', [ProgressController::class,'add']);

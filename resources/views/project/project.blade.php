@@ -88,8 +88,12 @@ Project
                                       {{ $project->status_payment }}
                                   </td>
                                   <td>
-                                  <a href="{{ url('project/edit/'.$project->id) }}" class="btn btn-warning">edit<i class="fa fa-pencil"></i></a>
+<<<<<<< HEAD
+                                    <a href="/edit/{{ $project->id }}">Edit</button>
+=======
+                                  <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a>
                                   {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
+>>>>>>> 4f459df36c9465071acd3ff99597975d5ffbc2aa
                                   </td>
                                     {{-- <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> --}}
                     </tr>
