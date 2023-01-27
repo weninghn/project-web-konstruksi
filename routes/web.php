@@ -32,6 +32,7 @@ Route::post('/insertuser', [UserController::class, 'insertuser'])->name('insertu
 Route::get('/edituser/{id}', [UserController::class, 'edituser'])->name('edituser');
 Route::post('/updateuser/{id}', [UserController::class, 'updateuser'])->name('updateuser');
 Route::get('/deleteuser/{id}', [UserController::class, 'deleteuser'])->name('deleteuser');
+Route::get('/exportpdf', [UserController::class, 'exportpdf'])->name('exportpdf');
 
 Route::get('/client', [ClientController::class, 'index'])->name('client');
 // tambahdata
