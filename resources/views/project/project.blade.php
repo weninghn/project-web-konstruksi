@@ -48,7 +48,7 @@ Project
                           <th>Client</th>
                           <th>Work Date</th>
                           <th>Date End</th>
-                          <th>Name</th>
+                          <th>Name Project</th>
                           <th>Location</th>
                           <th>Date offer</th>
                           <th>Status</th>
@@ -91,6 +91,8 @@ Project
                                   <a href="/edit/{{ $project->id }}">Edit</button>
                                     <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>
                                   {{-- <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a> --}}
+                                  <a href="/edit/{{ $project->id }}">Edit<i class="fa fa-pencil"></i></a>
+                                  {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
                                   </td>
                     </tr>
                   </tbody>
