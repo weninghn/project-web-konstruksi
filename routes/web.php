@@ -50,6 +50,7 @@ route::get('/project/create','App\Http\Controllers\ProjectController@create')->n
 route::post('/project/add','App\Http\Controllers\ProjectController@add')->name('project.add');
 Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
 Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
+Route::get('delete/{id}',[ProjectController::class,'delete'])->name('delete');
 //progres
 Route::get('/progres', [ProgressController::class, 'index']);
 Route::get('add-progres', [ProgressController::class,'add']);

@@ -88,14 +88,10 @@ Project
                                       {{ $project->status_payment }}
                                   </td>
                                   <td>
-<<<<<<< HEAD
-                                    <a href="/edit/{{ $project->id }}">Edit</button>
-=======
-                                  <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a>
-                                  {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
->>>>>>> 4f459df36c9465071acd3ff99597975d5ffbc2aa
+                                  <a href="/edit/{{ $project->id }}">Edit</button>
+                                    <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>
+                                  {{-- <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a> --}}
                                   </td>
-                                    {{-- <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> --}}
                     </tr>
                   </tbody>
                  @endforeach
@@ -113,10 +109,7 @@ Project
     </section>
     <!-- /.content -->
   </div>
-
-
-
   
-
-   
+</body>
+</html>
 @endsection

@@ -44,11 +44,18 @@ class ProjectController extends Controller
         $project->work_date = $request->work_date;
         $project->date_end = $request->date_end;
         $project->name = $request->name;
-        $project->location = $request->date_end;
+        $project->location = $request->location;
         $project->date_offer = $request->date_offer;
         $project->status = $request->status;
         $project->status_payment = $request->status_payment;
         $project->save();
-        return redirect('project')->with('success','Data Berhsail di Tambahkan');   
+        return redirect('project')->with('success','Data Berhsail di di update');   
+    }
+    public function delete($id)
+    {
+        Project::where('id', $id)->delete();
+        // $user = Users::find($id);
+        // $user->delete();
+        return redirect()->route('project')->with('Success', 'Data Berhasil Dihapus');
     }
 }
