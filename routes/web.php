@@ -42,7 +42,7 @@ Route::get('/tampilkandata/{id}', [ClientController::class, 'tampilkandata'])->n
 Route::post('/updatedata/{id}', [ClientController::class, 'updatedata'])->name('updatedata');
 //hapus
 // Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
-Route::get('client-delete/{id}',[ClientController::class,'delete']);
+Route::get('client-delete/{id}',[ClientController::class,'destroy'])->name('clientdelete');
 
 // route project
 route::get('/project','App\Http\Controllers\ProjectController@index')->name('project');
