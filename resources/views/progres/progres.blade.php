@@ -32,8 +32,7 @@ Progress
               <div class="card-header">
               <h3 class="card-title">Progress</h3>
                 <div class="row justify-content-end">
-                  <a href="#" class="btn btn-primary"> PDF </a>
-                  <a href="add-progres" class="btn btn-success"> + Add </a>
+                  <a href="add-progres" class="btn btn-success">Add Progres</a>
                  </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
