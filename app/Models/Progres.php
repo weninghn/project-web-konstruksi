@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Progres;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Progres extends Model
 {
@@ -23,8 +24,14 @@ class Progres extends Model
     {
         return $this->belongsTo(Project::class,'project_id','id');
     }
-    public function picture()
+    
+    /**
+     * The roles that belong to the Progres
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function picture(): BelongsToMany
     {
-        return $this->hasMany(Picture::class,'project_id','id');
+        return $this->belongsToMany(Progres::class, 'progres_picture', 'progres_id', 'picture_id');
     }
 }
