@@ -13,9 +13,8 @@
             <div class="card-header">
               <h3 class="card-title">Project Update</h3>
             </div>
-            <form class="js-validation-material" action= "{{ route('project.update')}}" method="POST" enctype="multipart/form-data">
+            <form action="/update/{{ $project->id }}" method="POST" enctype="multipart/form-data">
               @csrf
-                  <input type="number" id="id" name="id" value=" {{ $project->id }}" class="d-none">
                 <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
@@ -34,7 +33,7 @@
                         </div>
                         <div class="form-group">
                         <label for="location">Location</label>
-                        <input type="date" id="location" name="location" value="{{ $project->location }}" class="form-control" required>
+                        <input type="text" id="location" name="location" value="{{ $project->location }}" class="form-control" required>
                         </div>
                       <!-- /.form-group -->
                     </div>

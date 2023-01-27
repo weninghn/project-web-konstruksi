@@ -36,11 +36,11 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::select ('*')->where('id' , $id)->first();
-        return view('edit',['project' => $project]);
+        return view('project.edit',['project' => $project]);
     }
     public function update(Request $request)
     {
-        $project = Project::select('*')->where('id',$request->id)->first();
+        $project = Project::select('*')->where('id', $request->id)->first();
         $project->work_date = $request->work_date;
         $project->date_end = $request->date_end;
         $project->name = $request->name;
