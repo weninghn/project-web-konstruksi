@@ -36,7 +36,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('project.edit', compact('project'));
+        return view('project.edit' , compact('project'));
     }
     public function update(Request $request)
     {
@@ -49,7 +49,7 @@ class ProjectController extends Controller
         $project->status = $request->status;
         $project->status_payment = $request->status_payment;
         $project->save();
-        return redirect('project')->with('success','Data Berhsail di di update');   
+        return redirect('project')->with('success','Project Update Successfully');
     }
     public function delete($id)
     {
