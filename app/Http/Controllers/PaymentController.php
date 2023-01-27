@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Project;
 use App\Models\Payment;
+use App\Models\Project;
+use Illuminate\Http\Request;
+use App\Models\payment_method;
 
 class PaymentController extends Controller
 {
@@ -16,7 +17,8 @@ class PaymentController extends Controller
     public function add()
     {
         $project = Project::all();
-        return view('payment.payment-add',['project' => $project]);
+        $payment = payment_method::all();
+        return view('payment.payment-add',['project' => $project , 'payments' => $payment ]);
       
     }
     public function store(Request $request)
@@ -33,5 +35,15 @@ class PaymentController extends Controller
         Payment::create($payment);
         return redirect('payment')->with('success','payment Added Successfully');   
     }
-    
+    public function edit($id)
+    {
+        $payment = Payment::where('id',$id)->first();
+        return view('payment.payment-edit',['payment' => $payment]);
+    }
+    public function update(Request $request, $id)
+    {
+        $payment = Payment::where('id', $id)->first();
+        $payment->update($request->all());
+        return redirect('payment')->with('status','Payment Updated Successfully');
+    }
 }

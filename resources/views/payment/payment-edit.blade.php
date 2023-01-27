@@ -17,11 +17,12 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form>
+            <form  action="progres-edit/{id}" method="POST">
+              @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="projek">Project</label>
-                  <select name="projects[]" id="projects" class="form-control select-multiple" multiple>
+                  <label for="name">Project</label>
+                  <select name="project_id" id="project_id" class="form-control " >
     
                     @foreach ($project as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
@@ -31,25 +32,34 @@
                 </div>
                 <div class="form-group">
                   <label for="persentase">Amount</label>
-                  <input type="text" class="form-control" id="persentase" name="persentase" placeholder="Amount">
+                  <input type="text" class="form-control" id="amount" name="amount_payment">
                 </div>
                 <div class="form-group">
                   <label for="date">Date</label>
-                  <input type="date" class="form-control" id="date" name="date" placeholder="Date">
+                  <input type="date" class="form-control" id="date" name="payment_date" >
                 </div>
                 <div class="form-group">
-                  <label for="date">Notes</label>
-                  <input type="date" class="form-control" id="date" name="notes" placeholder="Notes">
-                </div>
-                <div class="form-group">
-                  <label for="date">Notes</label>
-                  <select name="projects[]" id="projects" class="form-control select-multiple" multiple>
+                  <label for="name">Payment Method</label>
+                  <select name="payment_method_id" id="payment_method_id" class="form-control " >
     
-                    @foreach ($project as $item)
-                    <option value="{{ $item->id}}">{{ $item->name}}</option>
+                    @foreach ($payments as $item)
+                    <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
                     
                 </select>
+                </div>
+                <div class="form-group">
+                  <label for="date">Payment To</label>
+                  <input type="text" class="form-control" id="date" name="payment_to" >
+                </div>
+                <div class="form-group">
+                  <label for="date">Notes</label>
+                <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea>
+                </div>
+                
+               
+              </div>
+  
                 </div>
                 
                
