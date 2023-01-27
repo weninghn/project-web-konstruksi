@@ -49,8 +49,8 @@
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="amount">Amount</label>
-                  <input type="text" class="form-control" id="amount" name="amount">
+                  <label for="amount">Payment Amount</label>
+                  <input type="text" class="form-control" id="amount" name="amount_payment">
                 </div>
                 <div class="form-group">
                   <label for="date">Date</label>

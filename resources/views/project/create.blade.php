@@ -52,17 +52,22 @@
                         <input type="text" class="form-control" id="name" name="name" placeholder="name">
                       </div>
                       <div class="form-group">
-                        <label for="status">Status</label>
-                        <select class="form-control select2bs4" disabled="disabled" style="width: 100%;">
-                          <option selected="status">Status</option>
-                          <option>REVISI</option>
-                          <option>ON GOING</option>
-                          <option>FINISH</option>
-                        </select>
-                       </div>
+                        <label for="status_id">Status</label>
+                        <select class="form-control" id="status_id" name="status_id" required>
+                          <option value="">--Pilih--</option>
+                          @foreach($status as $data)
+                          <option value="{{$data->id}}">{{$data->nama}}</option>
+                          @endforeach
+                      </select>
+                      </div>
                       <div class="form-group">
-                        <label for="status_payment">Status payment</label>
-                        <input type="text" class="form-control" id="status_payment" name="status_payment" placeholder="Status payment">
+                        <label for="status_payment_id">Status</label>
+                        <select class="form-control" id="status_payment_id" name="status_payment_id" required>
+                          <option value="">--Pilih--</option>
+                          @foreach($status_pay as $data)
+                          <option value="{{$data->id}}">{{$data->nama}}</option>
+                          @endforeach
+                      </select>
                       </div>
                        <div class="form-group">
                           <label for="date_offer">Date Offer</label>

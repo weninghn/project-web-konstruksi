@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Role;
 use App\Models\User;
 use App\Models\Users;
+use PDF;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -52,6 +53,14 @@ class UserController extends Controller
         // $user = Users::find($id);
         // $user->delete();
         return redirect()->route('user')->with('success', 'User Delete Successfully');
+    }
+
+    public function exportpdf()
+    {
+        $user = User::all();
+        view()->share('user', $user);
+        $pdf = PDF::loadview('user-pdf');
+        return $pdf->download('data.pdf');
     }
 }
 
