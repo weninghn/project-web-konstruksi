@@ -53,7 +53,12 @@
                       </div>
                       <div class="form-group">
                         <label for="status">Status</label>
-                         <input type="text" class="form-control" id="status" name="status" placeholder="status">
+                        <select class="form-control select2bs4" disabled="disabled" style="width: 100%;">
+                          <option selected="status">Status</option>
+                          <option>REVISI</option>
+                          <option>ON GOING</option>
+                          <option>FINISH</option>
+                        </select>
                        </div>
                       <div class="form-group">
                         <label for="status_payment">Status payment</label>
@@ -69,6 +74,7 @@
                      </div>
                      <div class="card-footer">
                       <button type="submit" class="btn btn-success">Save</button>
+                      <button type="reset" class="btn btn-md btn-warning">Reset</button>
                      </div>
               </form>
           </div>
