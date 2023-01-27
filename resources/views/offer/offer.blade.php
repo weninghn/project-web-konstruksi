@@ -60,8 +60,8 @@ Progress
                       <td>{{ $row->project->name }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>
-                      <a href="/edit-data/{{ $row->id }}">Edit</button>
-                      <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
+                      <a href="/edit-data/{{ $row->id }}">Edit</button>  | 
+                      <a href="#" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
                       </td>
                     </tr>
                     @endforeach

@@ -63,8 +63,8 @@
                         <td>{{ $users->addres }}</td>
                         <td>{{ $users->role?->name }}</td>
                         <td>
-                          <a href="/edituser/{{ $users->id }}" class="btn btn-info">Edit</a>
-                          <a href="#" class="btn btn-danger delete" data-id="{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
+                          <a href="/edituser/{{ $users->id }}">Edit</a>  | 
+                          <a href="/deleteuser/{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
                         </td>
                       </tr>
                   @endforeach
@@ -83,8 +83,40 @@
     </section>
     <!-- /.content -->
   </div>
-<script>
-  $(function () {
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script type="text/javascript">
+    function deleteData(id)
+    {
+      event.prefentDefault();
+      var url = "{{ route('deleteuser', ':id') }}";
+      console.log(url);
+      swal.fire({
+        type: 'warning',
+        title: 'Hapus Data',
+        text: 'Apakah anda yakin menghapus data?',
+        showCancelButton: true,
+        confirmButtonColor: '$f5084a',
+        cancelCuttonColor: '$42b6b3'
+      }).then(function (result) {
+        if (result.dismiss) return
+          $.ajax({
+            headers:{
+              @csrf
+            },
+            url: url.replace(':id', id),
+            type: 'DELETE'
+          })
+      })
+    }
+    $(document).ajaxStop(function(){
+      window.location.reload();
+    });
+  </script>
+  {{-- <script>
+    $(function () {
     $("#example1").DataTable({
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
@@ -99,7 +131,7 @@
       "responsive": true,
     });
   });
-</script>
+  </script> --}}
 </body>
 </html>
 
