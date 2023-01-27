@@ -48,7 +48,7 @@ Project
                           <th>Client</th>
                           <th>Work Date</th>
                           <th>Date End</th>
-                          <th>Name</th>
+                          <th>Name Project</th>
                           <th>Location</th>
                           <th>Date offer</th>
                           <th>Status</th>

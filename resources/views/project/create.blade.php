@@ -48,7 +48,7 @@
                      
                       <!-- /.form-group -->
                       <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">Name Project</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="name">
                       </div>
                       <div class="form-group">
