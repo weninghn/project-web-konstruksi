@@ -25,13 +25,14 @@ class OfferController extends Controller
         Offers::create($request->all());
         return redirect('offer')->with('success','Offer Added Successfully');
     }
-    public function editoffer($id)
+    public function edit($id)
     {
         $offer = Offers::find($id);
         return view('offer.offer-edit', compact('offer'));
     }
     public function update(Request $request)
     {
+        // $offer = Offers::findOrFail($id);
         $offer = Offers::select('*')->where('id', $request->id)->first();
         $offer->category = $request->category;
         $offer->status = $request->status;

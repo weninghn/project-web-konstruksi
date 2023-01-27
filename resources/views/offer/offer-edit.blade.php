@@ -41,6 +41,7 @@
       <!-- form start -->
       <form action="/editoffer/{{ $offer->id }}" method="POST" enctype="multipart/form-data">
        @csrf
+       @method('PUT')
         <div class="card-body">
           <div class="form-group">
             <label for="category">Category</label>
@@ -56,9 +57,9 @@
           </div> 
           </div> 
         </div>
-        <!-- /.card-body
+        <!-- </.card-body -->
 
-        <div class="card-footer">
+         <div class="card-footer">
           <button type="submit" class="btn btn-success">Update</button>
           <button type="reset" class="btn btn-md btn-warning">Reset</button>
           
@@ -70,4 +71,4 @@
 </div>
 </section>
 </div>
-@endsection
+@endsection 
