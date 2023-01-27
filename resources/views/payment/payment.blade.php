@@ -58,8 +58,8 @@
                   <tr>
                    <td>{{ $item->project }}</td>
                    <td>{{ $item->amount }}</td>
-                   <td>{{ $item->date }}</td>
-                   <td>{{ $item->payment }}</td>
+                   <td>{{ $item->payment_date }}</td>
+                   <td>{{ $item->payment_to }}</td>
                    <td>{{ $item->notes }}</td>
 
 

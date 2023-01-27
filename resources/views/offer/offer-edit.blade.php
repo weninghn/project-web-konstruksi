@@ -2,7 +2,7 @@
         @extends('layouts.master')
 
 @section('title')
-    Edit Data Client
+    Edit Data Offer
 @endsection
 
 @section('content')
@@ -39,26 +39,28 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form action="/updatedata/{{ $data->id }}" method="POST" enctype="multipart/form-data">
+      <form action="/editoffer/{{ $offer->id }}" method="POST" enctype="multipart/form-data">
        @csrf
         <div class="card-body">
           <div class="form-group">
-            <label for="persentase">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="{{ $data->name }}">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category" name="category" value="{{ $offer->category }}">
           </div>
           <div class="form-group">
-            <label for="date">Phone</label>
-            <input type="number" class="form-control" id="phone" name="phone"value="{{ $data->phone }}" >
+            <label for="status">Status</label>
+            <input type="text" class="form-control" id="status" name="status"value="{{ $offer->status }}" >
           </div>
-          <div class="form-group">
-            <label for="date">Address</label>
-            <input type="text" class="form-control" id="address" name="address" value="{{ $data->address }} ">
+            <div class="form-group">
+            <label for="date_offer">Date</label>
+            <input type="date" class="form-control" id="date_offer" name="date_offer"value="{{ $offer->date_offer }}" >
+          </div> 
           </div> 
         </div>
-        <!-- /.card-body -->
+        <!-- /.card-body
 
         <div class="card-footer">
-          <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success">Update</button>
+          <button type="reset" class="btn btn-md btn-warning">Reset</button>
           
         </div>
       </form>

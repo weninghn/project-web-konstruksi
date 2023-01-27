@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                   <label for="status">Status</label>
-                  <input type="text" class="form-control" id="persentase" name="status">
+                  <input type="text" class="form-control" id="status" name="status">
                 </div>
                 <div class="form-group">
                   <label for="category">Category</label>

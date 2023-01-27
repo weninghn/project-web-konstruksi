@@ -31,7 +31,7 @@ class UserController extends Controller
             'password' => $request->password,
         ];
         Users::create($user);
-        return redirect('user')->with('Success','User Added Successfully'); 
+        return redirect('user')->with('success','User Added Successfully'); 
     }
 
     public function edituser($id)
@@ -43,7 +43,7 @@ class UserController extends Controller
     {
         $user = Users::find($id);
         $user->update($request->all());
-        return redirect()->route('user')->with('Success', 'Data berhasil di update');
+        return redirect()->route('user')->with('success', 'User Update Successfully');
     }
 
     public function deleteuser($id)
@@ -51,7 +51,7 @@ class UserController extends Controller
         User::where('id', $id)->delete();
         // $user = Users::find($id);
         // $user->delete();
-        return redirect()->route('user')->with('Success', 'Data Berhasil Dihapus');
+        return redirect()->route('user')->with('success', 'User Delete Successfully');
     }
 }
 

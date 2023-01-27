@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Payment Add
+    note Add
 @endsection
 
 @section('content') 
@@ -49,12 +49,19 @@
                 </select>
                 </div>
                 <div class="form-group">
+<<<<<<< HEAD
+                  <label for="amount">Amount</label>
+                  <input type="text" class="form-control" id="amount" name="amount">
+=======
                   <label for="persentase">Amount</label>
                   <input type="text" class="form-control" id="amount" name="amount_payment">
+>>>>>>> af1d50ba54b9d88bcf9fe1fbafc8184a77cd8bed
                 </div>
                 <div class="form-group">
                   <label for="date">Date</label>
                   <input type="date" class="form-control" id="date" name="payment_date" >
+<<<<<<< HEAD
+=======
                 </div>
                 <div class="form-group">
                   <label for="name">Payment Method</label>
@@ -65,14 +72,15 @@
                     @endforeach
                     
                 </select>
+>>>>>>> af1d50ba54b9d88bcf9fe1fbafc8184a77cd8bed
                 </div>
                 <div class="form-group">
-                  <label for="date">Payment To</label>
-                  <input type="text" class="form-control" id="date" name="payment_to" >
+                  <label for="payment">Payment To</label>
+                  <input type="text" class="form-control" id="payment" name="payment_to" >
                 </div>
                 <div class="form-group">
-                  <label for="date">Notes</label>
-                <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea>
+                  <label for="note">Notes</label>
+                <textarea name="text" id="note" class="form-control" cols="20" rows="4"></textarea>
                 </div>
                 
                

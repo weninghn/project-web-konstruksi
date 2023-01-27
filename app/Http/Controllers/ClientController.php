@@ -18,7 +18,7 @@ class ClientController extends Controller
     public function insertdata(Request $request){
         //dd($request->all());
          Clients::create($request->all());
-         return redirect()->route('client')->with('success','Data Berhsail di Tambahkan');
+         return redirect()->route('client')->with('success','Client Added Successfully'); 
     }
 
     public function tampilkandata($id){
@@ -32,7 +32,7 @@ class ClientController extends Controller
         $data = Clients::find($id);
         $data->update($request->all());
 
-        return redirect()->route('client')->with('success','Data Berhasil di Update');
+        return redirect()->route('client')->with('success', 'Client Update Successfully');
     }
 
     public function destroy($id)
@@ -40,7 +40,7 @@ class ClientController extends Controller
         Clients::where('id', $id)->delete();
         // $user = Users::find($id);
         // $user->delete();
-        return redirect()->route('client')->with('Success', 'Data Berhasil Dihapus');
+        return redirect()->route('client')->with('success', 'Client Delete Successfully');
         // $data = Clients::where($id)->first();
         // $data->delete();
         // return redirect('client.client')->with('status','Client deleted Successfully');

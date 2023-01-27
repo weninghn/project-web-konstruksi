@@ -68,6 +68,7 @@
 
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Update</button>
+                <button type="reset" class="btn btn-md btn-warning">Reset</button>
               </div>
             </form>
           </div>

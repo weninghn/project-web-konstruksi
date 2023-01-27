@@ -34,7 +34,6 @@ Project
               <div class="card-header">
               <h3 class="card-title">Project</h3>
                 <div class="row justify-content-end">
-                  <a href="#" class="btn btn-primary px-3">PDF</a>
               <a href="{{route('project.create')}}" class="btn btn-success">Add Project</a>
               </div>
               </div>
@@ -88,10 +87,12 @@ Project
                                       {{ $project->status_payment }}
                                   </td>
                                   <td>
+                                  <a href="/edit/{{ $project->id }}">Edit</button>
+                                    <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>
+                                  {{-- <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a> --}}
                                   <a href="/edit/{{ $project->id }}">Edit<i class="fa fa-pencil"></i></a>
                                   {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
                                   </td>
-                                    {{-- <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> --}}
                     </tr>
                   </tbody>
                  @endforeach
@@ -109,10 +110,7 @@ Project
     </section>
     <!-- /.content -->
   </div>
-
-
-
   
-
-   
+</body>
+</html>
 @endsection
