@@ -39,7 +39,7 @@
       </div>
       <!-- /.card-header -->
       <!-- form start -->
-      <form action="/edit-offer/{{ $offer->id }}" method="POST" enctype="multipart/form-data">
+      <form action="/editoffer/{{ $offer->id }}" method="POST" enctype="multipart/form-data">
        @csrf
         <div class="card-body">
           <div class="form-group">
@@ -50,19 +50,13 @@
             <label for="status">Status</label>
             <input type="text" class="form-control" id="status" name="status"value="{{ $offer->status }}" >
           </div>
-          <div class="form-group">
-            <label for="name">Project</label>
-            <input type="project_id" class="form-control" id="project_id" name="project_id" value="{{ $data->project_id }} ">
-            @foreach ($project as $item)
-                    <option value="{{ $item->id}}">{{ $item->name}}</option>
-                    @endforeach
             <div class="form-group">
-            <label for="date">Date</label>
-            <input type="date" class="form-control" id="date" name="date"value="{{ $offer->date_offer }}" >
+            <label for="date_offer">Date</label>
+            <input type="date" class="form-control" id="date_offer" name="date_offer"value="{{ $offer->date_offer }}" >
           </div> 
           </div> 
         </div>
-        <!-- /.card-body -->
+        <!-- /.card-body
 
         <div class="card-footer">
           <button type="submit" class="btn btn-success">Update</button>

@@ -59,11 +59,11 @@ Route::put('progres-edit/{id}',[ProgressController::class,'update']);
 Route::get('progres-delete/{id}',[ProgressController::class,'delete']);
 
 //Offer
-Route::get('/offer',[OfferController::class,'index']);
-Route::get('add-offer',[OfferController::class,'add']);
-Route::post('offer-add',[OfferController::class,'store']);
-Route::get('edit-offer',[OfferController::class,'edit']);
-Route::get('edit-offer/{id}',[OfferController::class,'update']);
+Route::get('/offer',[OfferController::class,'index'])->name('offer');;
+Route::get('add-offer',[OfferController::class,'add'])->name('offer.add');
+Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');;
+Route::post('editoffer/{id}',[OfferController::class,'edit'])->name('edit');;
+Route::get('editoffer/{id}',[OfferController::class,'update'])->name('update');;
 
 
 //Pembayaran
