@@ -35,8 +35,8 @@ class ProjectController extends Controller
     }
     public function edit($id)
     {
-        $project = Project::select ('*')->where('id' , $id)->first();
-        return view('project.edit',['project' => $project]);
+        $project = Project::find($id);
+        return view('project.edit', compact('project'));
     }
     public function update(Request $request)
     {
@@ -44,7 +44,7 @@ class ProjectController extends Controller
         $project->work_date = $request->work_date;
         $project->date_end = $request->date_end;
         $project->name = $request->name;
-        $project->location = $request->date_end;
+        $project->location = $request->location;
         $project->date_offer = $request->date_offer;
         $project->status = $request->status;
         $project->status_payment = $request->status_payment;
