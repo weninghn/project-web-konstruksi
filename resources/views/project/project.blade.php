@@ -91,7 +91,7 @@ Project
                                   <a href="/edit/{{ $project->id }}">Edit</button>
                                     <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>
                                   {{-- <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a> --}}
-                                  <a href="/edit/{{ $project->id }}">Edit<i class="fa fa-pencil"></i></a>
+                                  {{-- <a href="/edit/{{ $project->id }}">Edit<i class="fa fa-pencil"></i></a> --}}
                                   {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
                                   </td>
                     </tr>
