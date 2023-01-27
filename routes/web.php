@@ -47,11 +47,8 @@ Route::get('client-delete/{id}',[ClientController::class,'delete']);
 route::get('/project','App\Http\Controllers\ProjectController@index')->name('project');
 route::get('/project/create','App\Http\Controllers\ProjectController@create')->name('project.create');
 route::post('/project/add','App\Http\Controllers\ProjectController@add')->name('project.add');
-route::get('/project/edit/{$id}','App\Http\Controllers\ProjectController@edit')->name('project.edit');
-route::post('/project/update','App\Http\Controllers\ProjectController@update')->name('project.update');
-
-
-
+Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
+Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
 //progres
 Route::get('/progres', [ProgressController::class, 'index']);
 Route::get('add-progres', [ProgressController::class,'add']);
