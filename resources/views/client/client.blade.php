@@ -33,8 +33,7 @@
               <div class="card-header">
               <h3 class="card-title">Data Client</h3>
                 <div class="row justify-content-end">
-                  <a href="#" class="btn btn-primary px-3">PDF</a>
-              <a href="/tambahdata" class="btn btn-success">Add </a>
+              <a href="/tambahdata" class="btn btn-success">Add Client</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Picture;
 use App\Models\Progres;
 use App\Models\Project;
 use Illuminate\Http\Request;
@@ -17,7 +18,8 @@ class ProgressController extends Controller
     public function add()
     {
         $projek = Project::all();
-        return view('progres.progres-add',['project' => $projek]);
+        $picture = Picture::all();
+        return view('progres.progres-add',['project' => $projek, 'picture' => $picture]);
       
     }
 

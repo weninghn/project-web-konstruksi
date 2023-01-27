@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Progress
+Offer
 @endsection
     
     @section('content')  
@@ -32,8 +32,7 @@ Progress
               <div class="card-header">
               <h3 class="card-title">Offer</h3>
                 <div class="row justify-content-end">
-                  <a href="#" class="btn btn-primary"> PDF </a>
-                  <a href="add-offer" class="btn btn-success"> + Add </a>
+                  <a href="add-offer" class="btn btn-success">Add Offer</a>
                  </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
@@ -60,7 +59,7 @@ Progress
                       <td>{{ $row->project->name }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>
-                      <a href="/edit-data/{{ $row->id }}">Edit</button>  | 
+                      <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
                       <a href="#" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
                       </td>
                     </tr>

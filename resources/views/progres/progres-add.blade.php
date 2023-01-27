@@ -49,17 +49,17 @@
                         </div>
                         <div class="form-group">
                           <label for="persentase">Persentase</label>
-                          <input type="persentase" class="form-control" id="persentase" name="persentase" placeholder="Persentase">
+                          <input type="persentase" class="form-control" id="persentase" name="persentase" placeholder="persentase">
                         </div>
                         <div class="form-group">
-                          <label for="date">Date</label>
-                          <input type="date" class="form-control" id="date" name="date" placeholder="Persentase">
+                          <label for="job">Job Detail</label>
+                          <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="job_details">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputFile">File input</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" name="" class="custom-file-input" id="exampleInputFile">
+                              <input type="file " name="image" class="custom-file-input" id="exampleInputFile">
                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                            
