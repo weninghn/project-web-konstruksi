@@ -20,8 +20,8 @@ class Project extends Model
         'name',
         'location',
         'date_offer',
-        'status',
-        'status_payment',
+        'status_id',
+        'status_payment_id',
     ];
 
     public function client(){
@@ -29,6 +29,15 @@ class Project extends Model
     }
     public function offer(){
         return $this->hasMany(Offers::class);
+    }
+    
+    public function status()
+    {
+        return $this->belongsTo(status::class,'status_id','id');
+    }
+    public function status_payment()
+    {
+        return $this->belongsTo(status_payment::class,'status_payment_id','id');
     }
 
 }

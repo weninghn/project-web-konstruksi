@@ -81,23 +81,14 @@ Project
                                       {{ $project->date_offer }}
                                   </td>
                                   <td>
-                                      {{ $project->status }}
+                                      {{ $project->status?->nama }}
                                   </td>
                                   <td>
-                                      {{ $project->status_payment }}
+                                      {{ $project->status_pay?->nama }}
                                   </td>
                                   <td>
                                   <a href="/edit/{{ $project->id }}">Edit</button>
                                     <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>
-<<<<<<< HEAD
-                                  {{-- <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a> --}}
-                                  {{-- <a href="/edit/{{ $project->id }}">Edit<i class="fa fa-pencil"></i></a> --}}
-                                  {{-- <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> --}}
-=======
-                                  <!--  <a href="{{ url('project/edit/'.$project->id) }}">Edit<i class="fa fa-pencil"></i></a> 
-                                  <a href="/edit/{{ $project->id }}">Edit<i class="fa fa-pencil"></i></a>
-                                   <a href="/edit{{ $project->id }}" class="btn btn-info">Edit</button> -->
->>>>>>> 950272faa228eb8fe67526d87997c8101ab7b84b
                                   </td>
                     </tr>
                   </tbody>
