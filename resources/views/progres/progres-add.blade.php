@@ -34,13 +34,12 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="progres-add" method="POST">
+                    <form action="progres-add" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="card-body">
                         <div class="form-group">
                           <label for="name">Project</label>
                           <select name="project_id" id="project_id" name="project_id"class="form-control " >
-                            
                             @foreach ($project as $item)
                             <option value="{{ $item->id}}">{{ $item->name}}</option>
                             @endforeach
@@ -63,7 +62,7 @@
                           <label for="exampleInputFile">File input</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file " name="image" class="custom-file-input" id="exampleInputFile">
+                              <input type="file" name="files[]" class="custom-file-input" id="exampleInputFile" multiple>
                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                            

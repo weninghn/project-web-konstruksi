@@ -71,6 +71,6 @@ Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.upda
 //Pembayaran
 Route::get('/payment', [PaymentController::class, 'index']);
 Route::get('add-payment', [PaymentController::class,'add']);
-Route::post('payment-add',[ProgressController::class,'store']);
-Route::get('progres-edit',[ProgressController::class,'edit']);
-Route::put('progres-edit/{id}',[ProgressController::class,'update']);
+Route::post('payment-add',[PaymentController::class,'store']);
+Route::get('progres-edit',[PaymentController::class,'edit']);
+Route::put('progres-edit/{id}',[PaymentController::class,'update']);

@@ -59,7 +59,12 @@ Progress
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_detail }}</td>
                     <td>{{ $item->date }}</td>
-                    <td>{{ $item->picture }}</td>
+                    {{-- <td>{{ $item->picture }}</td> --}}
+                    <td>
+                      @foreach (json_decode($item->photos) as $photo)
+                        <img src="{{asset('/storage').'/'.$photo}}" alt="" width="50px">
+                        @endforeach
+                      </td>
                       <td>
                         <a href="/progres-edit">Edit</a>
                         <a href="/progres-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>

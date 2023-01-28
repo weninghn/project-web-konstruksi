@@ -29,20 +29,20 @@ class ProgressController extends Controller
 
         $newName = '';
 
-        if($request->file('image')){
-            $file = $request->image;
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
-            // $request->file('image')->storeAs('cover', $newName);
-            $file->move('storage/cover/', $newName);
-
+        if($request->file('files')){
+            $name = [];
+            foreach ($request->file('files') as $file) {
+                $extension = $file->getClientOriginalExtension();
+                $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
+                $name[]= $newName;
+                $file->storeAs('certificateImages', $newName);
+            }
+            $request['photos'] = json_encode($name);
           
         }
-        $request['cover'] = $newName;
-         
         $progres = Progres::create($request->all());
-        $progres->pictures()->sync($request->pictures);
-        return redirect('progres.progres')->with('status','Progres Added Successfully');
+        // $progres->pictures()->sync($request->pictures);
+        return redirect('progres')->with('status','Progres Added Successfully');
     }
     public function edit($id)
     {

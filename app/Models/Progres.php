@@ -17,6 +17,7 @@ class Progres extends Model
         'project_id',
         'presentase',
         'job_details',
+        'photos',
         'date',
     ];
     
@@ -30,8 +31,8 @@ class Progres extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function picture(): BelongsToMany
-    {
-        return $this->belongsToMany(Progres::class, 'progres_picture', 'progres_id', 'picture_id');
-    }
+    // public function picture(): BelongsToMany
+    // { 
+    //     return $this->belongsToMany(Progres::class, 'progres_picture', 'progres_id', 'picture_id');
+    // }
 }
