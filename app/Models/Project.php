@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use GuzzleHttp\Client;
+use App\Models\status;
+use App\Models\status_payment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

@@ -81,10 +81,10 @@ Project
                                       {{ $project->date_offer }}
                                   </td>
                                   <td>
-                                      {{ $project->status }}
+                                      {{ $project->status?->nama }}
                                   </td>
                                   <td>
-                                      {{ $project->status_payment }}
+                                      {{ $project->status_pay?->nama }}
                                   </td>
                                   <td>
                                   <a href="/edit/{{ $project->id }}">Edit</button> | 

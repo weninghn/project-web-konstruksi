@@ -11,7 +11,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $project = Project::orderBy('id','asc')->get();
+        $project = Project::all();
         return view ('project.project',['pro'=>$project]);
     }
     public function create()
