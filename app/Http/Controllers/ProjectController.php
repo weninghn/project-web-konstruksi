@@ -54,6 +54,13 @@ class ProjectController extends Controller
         $project->status = $request->status;
         $project->status_payment = $request->status_payment;
         $project->save();
+
+        // $offer = Offers::select('*')->where('id', $request->id)->first();
+        // $offer->category = $request->category;
+        // $offer->status = $request->status;
+        // $offer->date_offer = $request->date_offer;
+        // $offer->save();
+
         return redirect('project')->with('success','Project Update Successfully');
     }
     public function delete($id)
