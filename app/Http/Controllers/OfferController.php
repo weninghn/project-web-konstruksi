@@ -40,4 +40,10 @@ class OfferController extends Controller
         $offer->save();
         return redirect('offer')->with('success','Offer Update Successfully');    
     }
+
+    public function deleteoffer($id)
+    {
+        Offers::where('id', $id)->delete();
+        return redirect()->route('offer')->with('success', 'Offer deleted successfully');
+    }
 }

@@ -49,7 +49,7 @@
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="persentase">Payment Amount</label>
+                  <label for="amount">Payment Amount</label>
                   <input type="text" class="form-control" id="amount" name="amount_payment">
                 </div>
                 <div class="form-group">
@@ -57,7 +57,7 @@
                   <input type="date" class="form-control" id="date" name="payment_date" >
                 </div>
                 <div class="form-group">
-                  <label for="name">Payment Method</label>
+                  <label for="payment">Payment Method</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " >
     
                     @foreach ($payments as $item)
@@ -72,7 +72,7 @@
                 </div>
                 <div class="form-group">
                   <label for="note">Notes</label>
-                <textarea name="text" id="note" class="form-control" cols="20" rows="4"></textarea>
+                <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea>
                 </div>
                 
                

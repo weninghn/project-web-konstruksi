@@ -60,7 +60,7 @@ Offer
                       <td>{{ $row->date_offer }}</td>
                       <td>
                       <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
-                      <a href="#" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
+                      <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
                       </td>
                     </tr>
                     @endforeach

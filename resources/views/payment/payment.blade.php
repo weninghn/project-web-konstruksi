@@ -56,17 +56,18 @@
                      
               
                   <tr>
-                   <td>{{ $item->project }}</td>
-                   <td>{{ $item->amount }}</td>
+                    <td>{{ $loop->iteration }}</td>
+                   <td>{{ $item->project->name }}</td>
+                   <td>{{ $item->amount_payment }}</td>
                    <td>{{ $item->payment_date }}</td>
                    <td>{{ $item->payment_to }}</td>
-                   <td>{{ $item->notes }}</td>
+                   <td>{{ $item->note }}</td>
 
 
                     <td>
-                      <a href="/payment-edit">Edit</a>
+                      <a href="/payment-edit">Edit</a> |
                              
-                      <a href="/payment-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> 
+                      <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> 
                       </td>
                   </tr>
                   @endforeach
