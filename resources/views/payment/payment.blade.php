@@ -65,9 +65,9 @@
 
 
                     <td>
-                      <a href="/payment-edit">Edit</a>
+                      <a href="/payment-edit">Edit</a> |
                              
-                      <a href="/payment-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a> 
+                      <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> 
                       </td>
                   </tr>
                   @endforeach

@@ -55,19 +55,21 @@ Progress
                   @foreach($progress as $item)
                     <tr>
                     <th scope="row">{{ $no++ }}</th>
-                    <td>{{ $item->project }}</td>
+                    {{-- <td>{{ $loop->iteration }}</td> --}}
+                    <td>{{ $item->project->name }}</td>
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_detail }}</td>
                     <td>{{ $item->date }}</td>
                     {{-- <td>{{ $item->picture }}</td> --}}
                     <td>
                       @foreach (json_decode($item->photos) as $photo)
-                        <img src="{{asset('/storage').'/'.$photo}}" alt="" width="50px">
+                        <img src="{{asset('/storage').'/'.$photo}}" alt="" width="170px">
                         @endforeach
                       </td>
                       <td>
-                        <a href="/progres-edit">Edit</a>
-                        <a href="/progres-destroy" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>
+                        <a href="/progres-edit">Edit</a>  |
+                        {{-- <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> --}}
+                        <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>
                         </td>
                     </tr>
                     @endforeach

@@ -42,7 +42,7 @@ class ProgressController extends Controller
         }
         $progres = Progres::create($request->all());
         // $progres->pictures()->sync($request->pictures);
-        return redirect('progres')->with('status','Progres Added Successfully');
+        return redirect('progres')->with('Success','Progres Added Successfully');
     }
     public function edit($id)
     {
@@ -70,10 +70,12 @@ class ProgressController extends Controller
         
     }
    
-    public function destroy($slug)
+    public function progresdelete($id)
     {
-        $progres = Progres::where($id)->first();
-        $progres->delete();
-        return redirect('progres.progres')->with('status','Progres deleted Successfully');
+        Progres::where('id', $id)->delete();
+        return redirect()->route('progres')->with('Success', 'Progress Deleted Successfully');
+        // $progres = Progres::where($id)->first();
+        // $progres->delete();
+        // return redirect('progres.progres')->with('status','Progres deleted Successfully');
     }
 }
