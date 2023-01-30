@@ -46,4 +46,9 @@ class OfferController extends Controller
         Offers::where('id', $id)->delete();
         return redirect()->route('offer')->with('success', 'Offer deleted successfully');
     }
+    public function detail($id)
+    {
+        $offer = Offers::find($id);
+        return view('offer.detailoffer', compact('offer'));
+    }
 }
