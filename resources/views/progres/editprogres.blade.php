@@ -34,7 +34,9 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="/progres-edit/{{ $progress->id }}" method="POST">
+                    <form action="/editprogres/{{ $progres->id }}" method="POST">
+                      @csrf
+                      @method('PUT')
                       <div class="card-body">
                         <div class="form-group">
                           <label for="projek">Project</label>

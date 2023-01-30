@@ -72,7 +72,8 @@
                           <option value="{{$data->id}}">{{$data->nama}}</option>
                           @endforeach
                       </select>
-                      </div> --}}
+                      </div>
+                    </div> --}}
                        <div class="form-group">
                           <label for="date_offer">Date Offer</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer">

@@ -46,18 +46,23 @@
                         <label for="date_offer" class="form-label">Date Offer</label>
                         <input type="text" id="date_offer" name="date_offer" value="{{ $project->date_offer }}" class="form-control" required>
                         </div>
+                        <div class="form-group">
+
+                          <label for="status" class="form-label">Status</label>
+                          <input type="text" id="status" name="status" value="{{$project->status }}">
+                        </div>
                       <div class="form-group">
                         <label for="price" class="form-label">Price</label>
                         <input type="text" id="price" name="price" value="{{ $project->price }}" class="form-control" required>
                         </div>
-                        {{-- <div class="form-group">
+                        <div class="form-group">
                         <label for="status" class="form-label">Status</label>
-                        <input type="text" id="status" name="status" value="{{ $project->status }}" class="form-control" required>
+                        <input type="text" id="status" name="status" value="{{ $project->status }}" class="form-control" >
                         </div>
                         <div class="form-group">
-                        <label for="status_payment" class="form-label">Status Payment</label>
-                        <input type="text" id="status_payment" name="status_payment" value="{{ $project->status_payment }}" class="form-control" required>
-                        </div> --}}
+                          <label for="status_payment" class="form-label">Status Payment</label>
+                          <input type="text" id="status_payment" name="status_payment" value="{{ $project->status_payment }}" class="form-control">
+                        </div>
                       </div>
                      </div>
                      <div class="card-footer">

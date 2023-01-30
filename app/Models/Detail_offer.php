@@ -21,6 +21,6 @@ class Detail_offer extends Model
     
     public function offer()
     {
-        return $this->belongsTo(Offer::class);
+        return $this->belongsTo(Offers::class);
     }
 }
