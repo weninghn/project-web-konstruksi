@@ -59,7 +59,7 @@ Offer
                       <td>
                       <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
                       <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>    |
-                      <a href="detailoffer/{{ $row->id }}">Detail</button>
+                      <a href="{{ route('offer.detail', $row->id) }}">Detail</button>
                       </td>
                     </tr>
                     @endforeach

@@ -62,13 +62,13 @@ Progress
                     <td>{{ $item->date }}</td>
                     <!-- {{-- <td>{{ $item->picture }}</td> --}} -->
                     <td>
-                      @foreach (json_decode($item->photos) as $photo)
-                        <img src="{{asset('/storage').'/'.$photo}}" alt="" width="170px">
+                      @foreach ($item->pictures as $picture)
+                        <img src="{{asset('uploads/progres/'.$picture->image) }}" alt="" width="170px">
                         @endforeach
                       </td>
                       <td>
                         <a href="/progres-edit">Edit</a>  |
-                        <!--  <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> --}} -->
+                        <!--  <a href="deleteoffer/{{ $item->id }}" data-name="{{ $item->name }}">Delete</button> --}} -->
                         <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>
                         </td>
                     </tr>

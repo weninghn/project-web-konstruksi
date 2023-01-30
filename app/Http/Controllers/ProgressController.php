@@ -25,22 +25,31 @@ class ProgressController extends Controller
 
     public function store(Request $request)
     {
+        $progres = Progres::create([
+            'project_id' => $request->project_id,
+            'presentase' => $request->presentase,
+            'job_details' => $request->job_details,
+            'date' => $request->date,
+        ]);
 
-
-        $newName = '';
+        $alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
         if($request->file('files')){
-            $name = [];
             foreach ($request->file('files') as $file) {
                 $extension = $file->getClientOriginalExtension();
-                $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
-                $name[]= $newName;
-                $file->storeAs('certificateImages', $newName);
+                $random = substr(str_shuffle($alphanumeric), 0, 4);
+                $filename = $progres->project->name.'-'.$random.now()->timestamp.'.'.$extension;
+                $file->move(public_path('uploads/progres'), $filename);
+                // $progres->pictures()->create([
+                //     'image' => $filename
+                // ]);
+
+                Picture::create([
+                    'progres_id' => $progres->id,
+                    'image' => $filename
+                ]);
             }
-            $request['photos'] = json_encode($name);
-          
         }
-        $progres = Progres::create($request->all());
         // $progres->pictures()->sync($request->pictures);
         return redirect('progres')->with('Success','Progres Added Successfully');
     }

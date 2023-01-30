@@ -27,11 +27,17 @@ Detail Offer
     <!-- Main content -->
     <section class="content">
 
+    <h2><b>Penawaran Harga</b></h2>
+    <br>
+    <br>
+    <p>Berikut adalah penawaran harga dan fasilitas yang kami berikan dalam Pembuatan Istana Negara Madyang:</p>
+
       <!-- Default box -->
       <div class="card">
         <div class="card-header">
           <!-- <h3 class="card-title">Detail Offer</h3> -->
           <div class="card-body"> 
+           
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
@@ -41,42 +47,22 @@ Detail Offer
                       <th>Quantity</th>
                       <th>Total</th>
                   </tr>
+                  @foreach ($offer->detail_offers as $item)
+                     
                   <tr>
-                    <td>1</td>
-                    <td>Ruang Tamu</td>
-                    <td>
-                        Sofa
-                    </td>
-                    <td>2</td>
-                    <td>4000000</td>
+                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $item->offer->category }}</td>
+                    <td>{{ $item->facility }}</td>
+                    <td>{{ $item->quantity }}</td>
+                    <td>{{ $item->total }}</td>
                 </tr>
-</div>
-</div>
-</div>
-</table>
+                @endforeach
+            </table>
+            </div>
+            </div>
+            </div>
 
-              <h5 class="mt-5 text-muted">Project files</h5>
-              <ul class="list-unstyled">
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Functional-requirements.docx</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-pdf"></i> UAT.pdf</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-envelope"></i> Email-from-flatbal.mln</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-image "></i> Logo.png</a>
-                </li>
-                <li>
-                  <a href="" class="btn-link text-secondary"><i class="far fa-fw fa-file-word"></i> Contract-10_12_2014.docx</a>
-                </li>
-              </ul>
-              <div class="text-center mt-5 mb-3">
-                <a href="#" class="btn btn-sm btn-primary">Add files</a>
-                <a href="#" class="btn btn-sm btn-warning">Report contact</a>
-              </div>
+
             </div>
           </div>
         </div>

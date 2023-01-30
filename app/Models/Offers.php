@@ -22,4 +22,9 @@ class Offers extends Model
     public function project(){
         return $this->belongsTo(Project::class,'project_id','id');
     }
+
+    public function detail_offers() {
+        return $this->hasMany(Detail_offer::class, 'offer_id', 'id');
+    }
+
 }
