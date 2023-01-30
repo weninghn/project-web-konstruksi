@@ -44,13 +44,16 @@ class ProgressController extends Controller
         // $progres->pictures()->sync($request->pictures);
         return redirect('progres')->with('Success','Progres Added Successfully');
     }
-    public function edit($id)
+    public function editprogres($id)
     {
+        // $progres = Progres::find($id);
+        // return view('progres.editprogres', compact('progres'));
+
         $progres = Progres::where($id)->first();
         $pictures = Picture::all();
-        return view('progres.proges',['progress' => $progres, 'pictures' => $pictures]);
+        return view('progres.editprogres',['progress' => $progres, 'pictures' => $pictures]);
     }
-    public function update( Request $request,$id)
+    public function updateprogres( Request $request,$id)
     {
         if($request->file('image')){
             $extension = $request->file('image')->getClientOriginalExtension();

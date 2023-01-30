@@ -81,7 +81,6 @@ Project
                                       {{ $project->date_offer }}
                                   </td>
                                   <td>
-                                    {{-- {{ $loop->iteration }} --}}
                                       {{ $project->status }}
                                   </td>
                                   <td>
