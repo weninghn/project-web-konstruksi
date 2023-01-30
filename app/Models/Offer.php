@@ -22,17 +22,13 @@ class Offer extends Model
     public function project(){
         return $this->belongsTo(Project::class,'project_id','id');
     }
-<<<<<<< HEAD:app/Models/Offer.php
     public function offer(): HasMany
     {
         return $this->hasMany(Offer::class);
     }
-}
-=======
 
     public function detail_offers() {
         return $this->hasMany(Detail_offer::class, 'offer_id', 'id');
     }
 
 }
->>>>>>> 3a1f516144153dbc82a7fa881854b52b2986c12d:app/Models/Offers.php
