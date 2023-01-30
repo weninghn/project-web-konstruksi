@@ -30,5 +30,4 @@ class Offer extends Model
     public function detail_offers() {
         return $this->hasMany(Detail_offer::class, 'offer_id', 'id');
     }
-
 }
