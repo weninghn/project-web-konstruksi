@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Payment;
 use App\Models\Project;
+use App\Models\paymemt_method;
 use Illuminate\Http\Request;
 use App\Models\payment_method;
 
@@ -30,7 +31,8 @@ class PaymentController extends Controller
             'amount_payment'=> $request->amount_payment,
             'payment_date'=> $request->payment_date,
             'payment_to'=> $request->payment_to,
-            'note'=> $request->note
+            'status'=> $request->status,
+            'note'=> $request->note,
         ];
         Payment::create($payment);
         return redirect('payment')->with('success','payment Added Successfully');   
@@ -38,6 +40,7 @@ class PaymentController extends Controller
     public function edit($id)
     {
         $payment = Payment::where('id',$id)->first();
+        $method = payment_method::all();
         return view('payment.payment-edit',['payment' => $payment]);
     }
     public function update(Request $request, $id)
