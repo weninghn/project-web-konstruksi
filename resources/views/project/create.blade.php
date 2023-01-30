@@ -51,7 +51,7 @@
                         <label for="name">Name Project</label>
                         <input type="text" class="form-control" id="name" name="name" placeholder="name">
                       </div>
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label for="status_id">Status</label>
                         <select class="form-control" id="status_id" name="status_id" required>
                           <option value="">--Pilih--</option>
@@ -68,7 +68,7 @@
                           <option value="{{$data->id}}">{{$data->nama}}</option>
                           @endforeach
                       </select>
-                      </div>
+                      </div> --}}
                        <div class="form-group">
                           <label for="date_offer">Date Offer</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer">

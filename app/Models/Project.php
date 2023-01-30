@@ -3,8 +3,8 @@
 namespace App\Models;
 
 use GuzzleHttp\Client;
-use App\Models\status;
-use App\Models\status_payment;
+// use App\Models\status;
+// use App\Models\status_payment;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,8 +22,8 @@ class Project extends Model
         'name',
         'location',
         'date_offer',
-        'status_id',
-        'status_payment_id',
+        // 'status_id',
+        // 'status_payment_id',
     ];
 
     public function client(){
@@ -33,13 +33,13 @@ class Project extends Model
         return $this->hasMany(Offers::class);
     }
     
-    public function status()
-    {
-        return $this->belongsTo(status::class,'status_id','id');
-    }
-    public function status_payment()
-    {
-        return $this->belongsTo(status_payment::class,'status_payment_id','id');
-    }
+    // public function status()
+    // {
+    //     return $this->belongsTo(status::class,'status_id','id');
+    // }
+    // public function status_payment()
+    // {
+    //     return $this->belongsTo(status_payment::class,'status_payment_id','id');
+    // }
 
 }

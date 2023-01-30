@@ -47,11 +47,11 @@
                         </div>
                         <div class="form-group">
                         <label for="status" class="form-label">Status</label>
-                        <input type="text" id="status" name="status" value="{{ $project->status }}" class="form-control" required>
+                        <input type="text" id="status" name="status" value="{{ $project->status }}" class="form-control" >
                         </div>
                         <div class="form-group">
                         <label for="status_payment" class="form-label">Status Payment</label>
-                        <input type="text" id="status_payment" name="status_payment" value="{{ $project->status_payment }}" class="form-control" required>
+                        <input type="text" id="status_payment" name="status_payment" value="{{ $project->status_payment }}" class="form-control">
                         </div>
                       </div>
                      </div>

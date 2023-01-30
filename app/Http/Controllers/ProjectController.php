@@ -17,10 +17,10 @@ class ProjectController extends Controller
     public function create()
     {
         $client = Clients::all();
-        $status = status::all();
-        $status_pay = status_payment::all();
+        // $status = status::all();
+        // $status_pay = status_payment::all();
         // dd($status_pay);
-        return view ('project.create',['client'=> $client, 'status'=> $status,'status_pay'=> $status_pay]);
+        return view ('project.create',['client'=> $client]);
     }
     public function add(Request $request)
     {
@@ -32,8 +32,8 @@ class ProjectController extends Controller
             'name'=> $request->name,
             'location'=> $request->location,
             'date_offer'=> $request->date_offer,
-            'status_id'=> $request->status_id,
-            'status_payment_id'=> $request->status_payment_id,
+            // 'status_id'=> $request->status_id,
+            // 'status_payment_id'=> $request->status_payment_id,
         ];
         Project::create($project);
         return redirect('project')->with('success','Project Added Successfully');    
@@ -51,8 +51,8 @@ class ProjectController extends Controller
         $project->name = $request->name;
         $project->location = $request->location;
         $project->date_offer = $request->date_offer;
-        $project->status = $request->status;
-        $project->status_payment = $request->status_payment;
+        // $project->status = $request->status;
+        // $project->status_payment = $request->status_payment;
         $project->save();
 
         return redirect('project')->with('success','Project Update Successfully');    
