@@ -3,19 +3,24 @@
 namespace App\Http\Controllers;
 use App\Models\Clients;
 use App\Models\Project;
+use App\Models\status;
+use App\Models\status_payment;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-        $project = Project::orderBy('id','asc')->get();
+        $project = Project::all();
         return view ('project.project',['pro'=>$project]);
     }
     public function create()
     {
         $client = Clients::all();
-        return view ('project.create',['client'=> $client]);
+        $status = status::all();
+        $status_pay = status_payment::all();
+        // dd($status_pay);
+        return view ('project.create',['client'=> $client, 'status'=> $status,'status_pay'=> $status_pay]);
     }
     public function add(Request $request)
     {
@@ -27,8 +32,8 @@ class ProjectController extends Controller
             'name'=> $request->name,
             'location'=> $request->location,
             'date_offer'=> $request->date_offer,
-            'status'=> $request->status,
-            'status_payment'=> $request->status_payment,
+            'status_id'=> $request->status_id,
+            'status_payment_id'=> $request->status_payment_id,
         ];
         Project::create($project);
         return redirect('project')->with('success','Project Added Successfully');    
@@ -36,7 +41,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('project.edit', compact('project'));
+        return view('project.edit' , compact('project'));
     }
     public function update(Request $request)
     {
@@ -49,16 +54,17 @@ class ProjectController extends Controller
         $project->status = $request->status;
         $project->status_payment = $request->status_payment;
         $project->save();
+
         return redirect('project')->with('success','Project Update Successfully');    
 
-        return redirect('project')->with('success','Data Berhsail di di update');   
-    }
+
+       }
     public function delete($id)
     {
         Project::where('id', $id)->delete();
         // $user = Users::find($id);
         // $user->delete();
-        return redirect()->route('project')->with('Success', 'Data Berhasil Dihapus');
+        return redirect()->route('project')->with('Success', 'Project Delete Successfully');
 
     }
 }

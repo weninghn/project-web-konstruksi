@@ -42,9 +42,9 @@ Offer
                   <thead>
                   <tr>
                     <th>No</th>
+                      <th>Project</th>
                       <th>Category</th>
                       <th>Status</th>
-                      <th>Project</th>
                       <th>Date Offer</th>
                       <th>Action</th>
                   </tr>
@@ -54,13 +54,13 @@ Offer
                     @foreach($offer as $row)
                     <tr>
                       <th scope="row">{{ $no++ }}</th>
+                      <td>{{ $row->project->name }}</td>
                       <td>{{ $row->category }}</td>
                       <td>{{ $row->status }}</td>
-                      <td>{{ $row->project->name }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>
                       <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
-                      <a href="#" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
+                      <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>
                       </td>
                     </tr>
                     @endforeach

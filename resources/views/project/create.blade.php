@@ -52,12 +52,22 @@
                         <input type="text" class="form-control" id="name" name="name" placeholder="name">
                       </div>
                       <div class="form-group">
-                        <label for="status">Status</label>
-                         <input type="text" class="form-control" id="status" name="status" placeholder="status">
-                       </div>
+                        <label for="status_id">Status</label>
+                        <select class="form-control" id="status_id" name="status_id" required>
+                          <option value="">--Pilih--</option>
+                          @foreach($status as $data)
+                          <option value="{{$data->id}}">{{$data->nama}}</option>
+                          @endforeach
+                      </select>
+                      </div>
                       <div class="form-group">
-                        <label for="status_payment">Status payment</label>
-                        <input type="text" class="form-control" id="status_payment" name="status_payment" placeholder="Status payment">
+                        <label for="status_payment_id">Status</label>
+                        <select class="form-control" id="status_payment_id" name="status_payment_id" required>
+                          <option value="">--Pilih--</option>
+                          @foreach($status_pay as $data)
+                          <option value="{{$data->id}}">{{$data->nama}}</option>
+                          @endforeach
+                      </select>
                       </div>
                        <div class="form-group">
                           <label for="date_offer">Date Offer</label>
@@ -69,6 +79,7 @@
                      </div>
                      <div class="card-footer">
                       <button type="submit" class="btn btn-success">Save</button>
+                      <button type="reset" class="btn btn-md btn-warning">Reset</button>
                      </div>
               </form>
           </div>

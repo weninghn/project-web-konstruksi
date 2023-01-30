@@ -34,13 +34,12 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="progres-add" method="POST">
+                    <form action="progres-add" method="POST" enctype="multipart/form-data">
                       @csrf
                       <div class="card-body">
                         <div class="form-group">
                           <label for="name">Project</label>
                           <select name="project_id" id="project_id" name="project_id"class="form-control " >
-                            
                             @foreach ($project as $item)
                             <option value="{{ $item->id}}">{{ $item->name}}</option>
                             @endforeach
@@ -48,18 +47,22 @@
                         </select>
                         </div>
                         <div class="form-group">
-                          <label for="persentase">Persentase</label>
-                          <input type="persentase" class="form-control" id="persentase" name="persentase" placeholder="persentase">
+                          <label for="presentase">Persentase</label>
+                          <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase">
                         </div>
                         <div class="form-group">
                           <label for="job">Job Detail</label>
                           <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="job_details">
                         </div>
                         <div class="form-group">
+                          <label for="date">Date Progres</label>
+                          <input type="date" class="form-control" id="date" name="date" placeholder="date">
+                        </div>
+                        <div class="form-group">
                           <label for="exampleInputFile">File input</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file " name="image" class="custom-file-input" id="exampleInputFile">
+                              <input type="file" name="files[]" class="custom-file-input" id="exampleInputFile" multiple>
                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
                            

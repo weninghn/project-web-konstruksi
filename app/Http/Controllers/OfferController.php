@@ -25,18 +25,25 @@ class OfferController extends Controller
         Offers::create($request->all());
         return redirect('offer')->with('success','Offer Added Successfully');
     }
-    public function editoffer($id)
+    public function edit($id)
     {
         $offer = Offers::find($id);
         return view('offer.offer-edit', compact('offer'));
     }
     public function update(Request $request)
     {
+        // $offer = Offers::findOrFail($id);
         $offer = Offers::select('*')->where('id', $request->id)->first();
         $offer->category = $request->category;
         $offer->status = $request->status;
         $offer->date_offer = $request->date_offer;
         $offer->save();
         return redirect('offer')->with('success','Offer Update Successfully');    
+    }
+
+    public function deleteoffer($id)
+    {
+        Offers::where('id', $id)->delete();
+        return redirect()->route('offer')->with('success', 'Offer deleted successfully');
     }
 }
