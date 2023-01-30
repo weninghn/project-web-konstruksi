@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('location',255);
             $table->date('date_offer');
             // $table->string('status',255);
-            // $table->string('status_payment',255);
+            // $table->string('status_payment',255); 
             $table->timestamps();
         });
     }
