@@ -22,6 +22,10 @@ return new class extends Migration
             $table->string('name',255);
             $table->string('location',255);
             $table->date('date_offer');
+            // $table->unsignedBigInteger('offer-id');
+            // $table->foreign('offer-id')->references('id')->on('offers');
+            // $table->unsignedBigInteger('payments');
+            // $table->foreign('payments')->references('id')->on('payments');
             // $table->string('status',255);
             // $table->string('status_payment',255);
             $table->timestamps();
