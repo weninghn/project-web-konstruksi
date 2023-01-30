@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-<<<<<<< HEAD
 use App\Models\Offer;
-=======
-use App\Models\Offers;
 use App\Models\Detail_offer;
->>>>>>> 3a1f516144153dbc82a7fa881854b52b2986c12d
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -51,7 +47,7 @@ class OfferController extends Controller
         Offer::where('id', $id)->delete();
         return redirect()->route('offer')->with('success', 'Offer deleted successfully');
     }
-    public function detail(Offers $offer)
+    public function detail(Offer $offer)
     {
         return view('offer.detailoffer', compact('offer'));
     }
