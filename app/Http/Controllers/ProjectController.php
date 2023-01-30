@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 use App\Models\Clients;
 use App\Models\Project;
-use App\Models\status;
-use App\Models\status_payment;
+// use App\Models\Payment;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -12,15 +12,14 @@ class ProjectController extends Controller
     public function index()
     {
         $project = Project::all();
-        return view ('project.project',['pro'=>$project]);
+        // $payment = Payment::all();
+        $offer = Offer::all();
+        return view ('project.project',['pro'=>$project, 'offer'=>$offer]);
     }
     public function create()
     {
         $client = Clients::all();
-        $status = status::all();
-        $status_pay = status_payment::all();
-        // dd($status_pay);
-        return view ('project.create',['client'=> $client, 'status'=> $status,'status_pay'=> $status_pay]);
+        return view ('project.create',['client'=> $client]);
     }
     public function add(Request $request)
     {
@@ -32,8 +31,9 @@ class ProjectController extends Controller
             'name'=> $request->name,
             'location'=> $request->location,
             'date_offer'=> $request->date_offer,
-            'status_id'=> $request->status_id,
-            'status_payment_id'=> $request->status_payment_id,
+            'price'=> $request->price,
+            // 'status_id'=> $request->status_id,
+            // 'status_payment_id'=> $request->status_payment_id,
         ];
         Project::create($project);
         return redirect('project')->with('success','Project Added Successfully');    
@@ -51,8 +51,9 @@ class ProjectController extends Controller
         $project->name = $request->name;
         $project->location = $request->location;
         $project->date_offer = $request->date_offer;
-        $project->status = $request->status;
-        $project->status_payment = $request->status_payment;
+        $project->price = $request->price;
+        // $project->status = $request->status;
+        // $project->status_payment = $request->status_payment;
         $project->save();
 
         return redirect('project')->with('success','Project Update Successfully');    

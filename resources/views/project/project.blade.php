@@ -50,8 +50,9 @@ Project
                           <th>Name Project</th>
                           <th>Location</th>
                           <th>Date offer</th>
+                          <th>Price</th>
                           <th>Status</th>
-                          <th>Status Payment</th>
+                          {{-- <th>Status Payment</th> --}}
                           <th>Aksi</th>
                         </tr>
                         </thead>
@@ -81,12 +82,12 @@ Project
                                       {{ $project->date_offer }}
                                   </td>
                                   <td>
-                                    {{-- {{ $loop->iteration }} --}}
-                                      {{ $project->status }}
+                                      {{ $project->price }}
                                   </td>
-                                  <td>
-                                      {{ $project->status_payment }}
+                                  <td> 
+                                    {{ $project->offer()->latest()->first()?->status ?? '-' }}
                                   </td>
+                                  
                                   <td>
                                   <a href="/edit/{{ $project->id }}">Edit</button> | 
                                   <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>

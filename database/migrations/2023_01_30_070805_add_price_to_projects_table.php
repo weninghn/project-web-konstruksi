@@ -14,8 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->unsignedBigInteger('status_id')->after('date_offer');
-            $table->foreign('status_id')->references('id')->on('status');
+            $table->string('price',255)->after('date_offer');
         });
     }
 
@@ -27,8 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            $table->dropForeign('posts_user_id_foreign');
-            $table->dropColumn('status_id');
+            $table->dropColumn('price',255);
         });
     }
 };

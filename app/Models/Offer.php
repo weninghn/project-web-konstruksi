@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Offers extends Model
+class Offer extends Model
 {
     use HasFactory;
     protected $table = 'offers';
@@ -21,5 +21,9 @@ class Offers extends Model
 
     public function project(){
         return $this->belongsTo(Project::class,'project_id','id');
+    }
+    public function offer(): HasMany
+    {
+        return $this->hasMany(Offer::class);
     }
 }

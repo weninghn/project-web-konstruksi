@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Offers;
+use App\Models\Offer;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,7 @@ class OfferController extends Controller
 {
     public function index()
     {
-        $offer = Offers::all();
+        $offer = Offer::all();
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
@@ -22,18 +22,18 @@ class OfferController extends Controller
     {
         // dd($request->all());
       
-        Offers::create($request->all());
+        Offer::create($request->all());
         return redirect('offer')->with('success','Offer Added Successfully');
     }
     public function edit($id)
     {
-        $offer = Offers::find($id);
+        $offer = Offer::find($id);
         return view('offer.offer-edit', compact('offer'));
     }
     public function update(Request $request)
     {
-        // $offer = Offers::findOrFail($id);
-        $offer = Offers::select('*')->where('id', $request->id)->first();
+        // $offer = Offer::findOrFail($id);
+        $offer = Offer::select('*')->where('id', $request->id)->first();
         $offer->category = $request->category;
         $offer->status = $request->status;
         $offer->date_offer = $request->date_offer;
@@ -43,7 +43,7 @@ class OfferController extends Controller
 
     public function deleteoffer($id)
     {
-        Offers::where('id', $id)->delete();
+        Offer::where('id', $id)->delete();
         return redirect()->route('offer')->with('success', 'Offer deleted successfully');
     }
 }

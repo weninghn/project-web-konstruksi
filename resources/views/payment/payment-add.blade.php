@@ -74,6 +74,11 @@
                   <label for="note">Notes</label>
                 <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea>
                 </div>
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <input type="text" class="form-control" id="status" name="status" >
+
+                </div>
                 
                
               </div>

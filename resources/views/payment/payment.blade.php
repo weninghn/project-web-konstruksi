@@ -46,6 +46,7 @@
                     <th>Amount</th>
                     <th>Date</th>
                     <th>Payment To</th>
+                    <th>Status</th>
                     <th>Notes</th>
                     <th>Action</th>
                 </tr>
@@ -61,12 +62,12 @@
                    <td>{{ $item->amount_payment }}</td>
                    <td>{{ $item->payment_date }}</td>
                    <td>{{ $item->payment_to }}</td>
+                   <td>{{ $item->status }}</td>
                    <td>{{ $item->note }}</td>
 
 
                     <td>
-                      <a href="/payment-edit">Edit</a> |
-                             
+                      <a href="/payment-edit/{{ $item->id }}">Edit</button> |                              
                       <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> 
                       </td>
                   </tr>

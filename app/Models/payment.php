@@ -18,9 +18,15 @@ class Payment extends Model
         'amount_payment',
         'payment_date',
         'payment_to',
+        'status',
         'note',
     ];
     public function project(){
         return $this->belongsTo(Project::class);
+    }
+
+    public function payments(): HasMany
+    {
+        return $this->hasMany(payments::class);
     }
 }
