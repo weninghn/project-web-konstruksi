@@ -48,13 +48,21 @@
             <input type="text" class="form-control" id="category" name="category" value="{{ $offer->category }}">
           </div>
           <div class="form-group">
-            <label for="status">Status</label>
+            <label for="status">Status Project</label>
             <input type="text" class="form-control" id="status" name="status"value="{{ $offer->status }}" >
           </div>
             <div class="form-group">
             <label for="date_offer">Date</label>
             <input type="date" class="form-control" id="date_offer" name="date_offer"value="{{ $offer->date_offer }}" >
-          </div> 
+          </div>
+          <div class="form-group">
+                  <label for="facility">Facility</label>
+                  <input type="text" class="form-control" id="facility" name="facility" >
+                </div>
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" class="form-control" id="quantity" name="quantity" >
+                </div>
           </div> 
         </div>
         <!-- </.card-body -->

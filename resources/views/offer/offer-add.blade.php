@@ -49,7 +49,7 @@
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="status">Status</label>
+                  <label for="status">Status Project</label>
                   <input type="text" class="form-control" id="status" name="status">
                 </div>
                 <div class="form-group">
@@ -61,16 +61,18 @@
                   <input type="date" class="form-control" id="date" name="date_offer" >
                 </div>
                 <div class="form-group">
-                  <label for="note">Notes</label>
-                <textarea name="notes" id="notes" class="form-control" cols="20" rows="4"></textarea>
+                  <label for="facility">Facility</label>
+                  <input type="text" class="form-control" id="facility" name="facility" >
                 </div>
-                
-               
+                <div class="form-group">
+                  <label for="quantity">Quantity</label>
+                  <input type="number" class="form-control" id="quantity" name="quantity" >
+                </div>
               </div>
               <!-- /.card-body -->
 
               <div class="card-footer">
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">Save</button>
                 <button type="reset" class="btn btn-warning">Reset</button>
               </div>
             </form>

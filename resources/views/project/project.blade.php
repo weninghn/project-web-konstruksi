@@ -80,13 +80,7 @@ Project
                                   <td>
                                       {{ $project->date_offer }}
                                   </td>
-                                  {{-- <td>
-                                    {{-- {{ $loop->iteration }} --}}
-                                      {{-- {{ $project->status }} --}}
-                                  {{-- </td> --}}
-                                  {{-- <td>
-                                      {{ $project->status_payment }}
-                                  </td>--}}
+
                                   <td>
                                   <a href="/edit/{{ $project->id }}">Edit</button> | 
                                   <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>

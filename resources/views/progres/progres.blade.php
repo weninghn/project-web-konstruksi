@@ -54,21 +54,20 @@ Progress
                   @endphp
                   @foreach($progress as $item)
                     <tr>
-                    <th scope="row">{{ $no++ }}</th>
-                    {{-- <td>{{ $loop->iteration }}</td> --}}
+                    {{-- <th scope="row">{{ $no++ }}</th> --}}
+                    <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->project->name }}</td>
                     <td>{{ $item->presentase }}</td>
-                    <td>{{ $item->job_detail }}</td>
+                    <td>{{ $item->job_details }}</td>
                     <td>{{ $item->date }}</td>
-                    {{-- <td>{{ $item->picture }}</td> --}}
+                    <!-- {{-- <td>{{ $item->picture }}</td> --}} -->
                     <td>
                       @foreach (json_decode($item->photos) as $photo)
                         <img src="{{asset('/storage').'/'.$photo}}" alt="" width="170px">
                         @endforeach
                       </td>
                       <td>
-                        <a href="/progres-edit">Edit</a>  |
-                        {{-- <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> --}}
+                        <a href="/editprogres/{{$item->id}}">Edit</a>  |
                         <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>
                         </td>
                     </tr>
@@ -87,6 +86,5 @@ Progress
     </section>
     <!-- /.content -->
   </div>
-
    
 @endsection
