@@ -67,7 +67,7 @@ Progress
                         @endforeach
                       </td>
                       <td>
-                        <a href="/progres-edit">Edit</a>  |
+                        <a href="/progres-edit/{{ $item->id }}">Edit</a>  |
                         <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>
                         </td>
                     </tr>

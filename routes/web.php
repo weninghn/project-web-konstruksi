@@ -57,8 +57,8 @@ Route::get('delete/{id}',[ProjectController::class,'delete'])->name('delete');
 Route::get('/progres', [ProgressController::class, 'index'])->name('progres');
 Route::get('add-progres', [ProgressController::class,'add']);
 Route::post('progres-add',[ProgressController::class,'store']);
-Route::get('/editprogres/{$id}',[ProgressController::class,'editprogres'])->name('editprogres');
-Route::post('/updateprogres/{id}',[ProgressController::class,'updateprogres'])->name('updateprogres');
+Route::get('/progres-edit/{$id}',[ProgressController::class,'progres-edit'])->name('progres.edit');
+Route::put('/progres-update/{id}',[ProgressController::class,'progres-update'])->name('progres.update');
 Route::get('progresdelete/{id}',[ProgressController::class,'progresdelete'])->name('progresdelete');
 
 //Offer
@@ -74,8 +74,14 @@ Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 Route::get('add-payment', [PaymentController::class,'add']);
 Route::post('payment-add',[PaymentController::class,'store']);
-Route::get('payment-edit/{id}',[PaymentController::class,'edit']);
-Route::post('payment-update/{id}',[PaymentController::class,'update']);
+Route::get('payment-edit/{id}',[PaymentController::class,'edit'])->name('payment.edit');
+Route::put('payment-update/{id}',[PaymentController::class,'update'])->name('payment.update');
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete');
+
+
+// Route::get('progres-edit',[PaymentController::class,'edit']);
+// Route::put('progres-edit/{id}',[PaymentController::class,'update']);
+// Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete');
+
 //Detail
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');
