@@ -77,10 +77,5 @@ Route::post('payment-add',[PaymentController::class,'store']);
 Route::get('payment-edit/{id}',[PaymentController::class,'edit']);
 Route::post('payment-update/{id}',[PaymentController::class,'update']);
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete');
-
-Route::get('progres-edit',[PaymentController::class,'edit']);
-Route::put('progres-edit/{id}',[PaymentController::class,'update']);
-Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete');
-
 //Detail
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');
