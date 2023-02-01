@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    note Add
+    Payment Add
 @endsection
 
 @section('content') 
@@ -53,7 +53,7 @@
                   <input type="text" class="form-control" id="amount" name="amount_payment">
                 </div>
                 <div class="form-group">
-                  <label for="date">Date</label>
+                  <label for="date">Date Payment</label>
                   <input type="date" class="form-control" id="date" name="payment_date" >
                 </div>
                 <div class="form-group">
@@ -75,7 +75,7 @@
                 <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea>
                 </div>
                 <div class="form-group">
-                  <label for="status">Status</label>
+                  <label for="status">Status Payment</label>
                   <input type="text" class="form-control" id="status" name="status" >
 
                 </div>

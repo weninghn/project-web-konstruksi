@@ -90,4 +90,9 @@ class ProgressController extends Controller
         // $progres->delete();
         // return redirect('progres.progres')->with('status','Progres deleted Successfully');
     }
+
+    public function detail(Progres $progres)
+    {
+        return view('progres.detailprogres', compact('progres'));
+    }
 }
