@@ -35,23 +35,21 @@ Route::get('/deleteuser/{id}', [UserController::class, 'deleteuser'])->name('del
 Route::get('/exportpdf', [UserController::class, 'exportpdf'])->name('exportpdf');
 
 Route::get('/client', [ClientController::class, 'index'])->name('client');
-// tambahdata
 Route::get('/tambahdata', [ClientController::class, 'tambahdata'])->name('tambahdata');
 Route::post('/insertdata', [ClientController::class, 'insertdata'])->name('insertdata');
-//edit
-Route::get('/tampilkandata/{id}', [ClientController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/updatedata/{id}', [ClientController::class, 'updatedata'])->name('updatedata');
-//hapus
-// Route::get('/delete/{id}', [ClientController::class, 'delete'])->name('delete');
-Route::get('client-delete/{id}',[ClientController::class,'destroy'])->name('clientdelete');
+Route::get('/tampilkandata/{slug}', [ClientController::class, 'tampilkandata'])->name('tampilkandata');
+Route::post('/updatedata/{slug}', [ClientController::class, 'updatedata'])->name('updatedata');
+Route::get('client-delete/{slug}',[ClientController::class,'destroy'])->name('clientdelete');
+Route::get('client-deleted',[ClientController::class,'deletedClients']);
+Route::get('client-restore/{slug}',[ClientController::class,'restore']);
 
 // route project
 route::get('/project','App\Http\Controllers\ProjectController@index')->name('project');
 route::get('/project/create','App\Http\Controllers\ProjectController@create')->name('project.create');
 route::post('/project/add','App\Http\Controllers\ProjectController@add')->name('project.add');
-Route::get('/edit/{id}', [ProjectController::class, 'edit'])->name('edit');
-Route::post('/update/{id}', [ProjectController::class, 'update'])->name('update');
-Route::get('delete/{id}',[ProjectController::class,'delete'])->name('delete');
+Route::get('/edit/{slug}', [ProjectController::class, 'edit'])->name('edit');
+Route::post('/update/{slug}', [ProjectController::class, 'update'])->name('update');
+Route::get('delete/{slug}',[ProjectController::class,'delete'])->name('delete');
 
 //progres
 Route::get('/progres', [ProgressController::class, 'index'])->name('progres');

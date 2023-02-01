@@ -6,15 +6,16 @@ use GuzzleHttp\Client;
 // use App\Models\payment;
 // use App\Models\status;
 // use App\Models\status_payment;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Project extends Model
 {
     use HasFactory;
-    protected $table = 'projects';
-    public $timetamps = 'false';
-    protected $primaryKey ='id';
+    use Sluggable;
+    use SoftDeletes;
 
     protected $fillable = [
         'client_id',
@@ -27,6 +28,15 @@ class Project extends Model
         // 'status_id',
         // 'status_payment_id',
     ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+            ];
+    }
 
     public function client(){
         return $this->belongsTo(Clients::class,'client_id','id');
