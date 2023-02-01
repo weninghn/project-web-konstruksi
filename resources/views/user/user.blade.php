@@ -33,9 +33,7 @@
               <div class="card-header">
               <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
-                 
                   <a href="/adduser" class="btn btn-success">Add User</a>
-                  <a href="/exportpdf" class="btn btn-info">Export PDF</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">

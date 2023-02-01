@@ -44,9 +44,9 @@
                   <th>No</th>
                     <th>Project</th>
                     <th>Amount</th>
-                    <th>Date</th>
+                    <th>Date Payment</th>
                     <th>Payment To</th>
-                    <th>Status</th>
+                    <th>Status Payment</th>
                     <th>Notes</th>
                     <th>Action</th>
                 </tr>
@@ -67,7 +67,7 @@
 
 
                     <td>
-                      <a href="/payment-edit/{{ $item->id }}">Edit</button> |                              
+                      <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |                              
                       <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> 
                       </td>
                   </tr>

@@ -17,8 +17,10 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form  action="payment-update/{id}" method="POST">
-              @csrf
+<<<<<<< HEAD
+            <form  action="/payment-update/{{ $payment->id }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
               <div class="card-body">
                 <div class="form-group">
                   {{-- <label for="name">Project</label>
@@ -35,14 +37,14 @@
                   <input type="text" class="form-control" id="amount" value="{{ $payment->amount_payment }}" name="amount_payment" >
                 </div>
                 <div class="form-group">
-                  <label for="date">Date</label>
+                  <label for="date">Date Payment</label>
                   <input type="date" class="form-control" id="date" value="{{ $payment->payment_date }}" name="payment_date" >
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment Method</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " >
     
-                    @foreach ($payment as $item)
+                    @foreach ($method as $item)
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
                     
@@ -53,7 +55,7 @@
                   <input type="text" class="form-control" id="payment_to" value="{{ $payment->payment_to }}" name="payment_to" >
                 </div>
                 <div class="form-group">
-                  <label for="status">Status</label>
+                  <label for="status">Status Payment</label>
                   <input type="text" class="form-control" id="status" value="{{ $payment->status }}" name="payment_to" >
                 </div>
                 <div class="form-group">
