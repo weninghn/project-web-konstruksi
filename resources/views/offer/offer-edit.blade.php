@@ -57,11 +57,11 @@
           </div>
           <div class="form-group">
                   <label for="facility">Facility</label>
-                  <input type="text" class="form-control" id="facility" name="facility" >
+                  <input type="text" class="form-control" id="facility" name="facility" value="{{ $offer->facility }}" >
                 </div>
                 <div class="form-group">
                   <label for="quantity">Quantity</label>
-                  <input type="number" class="form-control" id="quantity" name="quantity" >
+                  <input type="number" class="form-control" id="quantity" name="quantity" value="{{ $offer->quantity }}" >
                 </div>
           </div> 
         </div>
