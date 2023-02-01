@@ -17,6 +17,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
+<<<<<<< HEAD
             <form  action="/payment-update/{{ $payment->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
@@ -43,7 +44,7 @@
                   <label for="payment">Payment Method</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " >
     
-                    @foreach ($payment as $item)
+                    @foreach ($method as $item)
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
                     

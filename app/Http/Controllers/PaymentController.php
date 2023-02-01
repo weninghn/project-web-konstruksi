@@ -39,9 +39,13 @@ class PaymentController extends Controller
     }
     public function edit($id)
     {
-        $payment = Payment::where('id',$id)->first();
+        $payment = Payment::find($id);
+        // $pictures = Picture::all();
         $method = payment_method::all();
-        return view('payment.payment-edit',['payment' => $payment]);
+        // return view('progres.editprogres',['progress' => $progres, 'pictures' => $pictures]);
+        // $payment = Payment::where('id',$id)->first();
+        // $method = payment_method::all();
+        return view('payment.payment-edit',['payment' => $payment,'method'=>$method]);
     }
     public function update(Request $request, $id)
     {
