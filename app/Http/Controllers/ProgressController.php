@@ -55,20 +55,11 @@ class ProgressController extends Controller
     }
     public function edit($id)
     {
-        // $progres = Progres::find($id);
-        // return view('progres.editprogres', compact('progres'));
 
         $progres = Progres::find($id);
         $pictures = Picture::all();
-        // return view('progres.progres-edit',['progress' => $progres, 'pictures' => $pictures]);
         return view('progres.progres-edit', compact('progres', 'picture'));
     }
-
-    // public function edit($id)
-    // {
-    //     $offer = Offer::find($id);
-    //     return view('offer.offer-edit', compact('offer'));
-    // }
 
     public function update( Request $request,$id)
     {
@@ -110,8 +101,13 @@ class ProgressController extends Controller
         // return redirect('progres.progres')->with('status','Progres deleted Successfully');
     }
 
-    public function detail(Progres $progres)
+    public function detail($id)
     {
+      
+        $progres = Progres::find($id);
+        // $pictures = Picture::all();
+
+        
         return view('progres.detailprogres', compact('progres'));
     }
 }

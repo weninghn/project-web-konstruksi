@@ -23,49 +23,44 @@ Detail Offer
       </div><!-- /.container-fluid -->
     </section>
     
-
-    <!-- Main content -->
-    <section class="content">
-
-    <h2><b>Penawaran Harga</b></h2>
-    <br>
-    <br>
-    <p>Berikut adalah penawaran harga dan fasilitas yang kami berikan dalam Pembuatan Istana Negara Madyang:</p>
-
-      <!-- Default box -->
-      <div class="card">
-        <div class="card-header">
-          <!-- <h3 class="card-title">Detail Offer</h3> -->
-          <div class="card-body"> 
-           
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr>
-                      <th>No</th>
-                      <th>Category</th>
-                      <th>Facility</th>
-                      <th>Quantity</th>
-                      <th>Total</th>
-                  </tr>
-                  @foreach ($offer->detail_offers as $item)
-                     
-                  <tr>
-                    <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->offer->category }}</td>
-                    <td>{{ $item->facility }}</td>
-                    <td>{{ $item->quantity }}</td>
-                    <td>{{ $item->total }}</td>
-                </tr>
-                @endforeach
-            </table>
-            </div>
-            </div>
-            </div>
-
-
-            </div>
+          
+      
+          <!-- Main content -->
+          <section class="content">
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div class="box box-success">
+                              <div class="box-header with-border">
+                                  <h4></h4>
+                              </div>
+                              <!-- /.box-header -->
+                              <div class="box-body">
+                                  <table class="table table-striped table-bordered">
+                                  
+                                      <tr>
+                                          <td style="width:20%">Category</td>
+                                          <td>{{ $offer->name}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Facility</td>
+                                          <td>{{ $offer->facility}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Quantity</td>
+                                          <td>{{ $offer->qty}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>presentase</td>
+                                          <td>{{ $offer->total }}</td>
+                                      </tr>
+                                      
+                
+                                  </table>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </section>
           </div>
-        </div>
-        <!-- /.card-body -->
       </div>
 @endsection
