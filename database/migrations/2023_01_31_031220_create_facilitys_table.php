@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('detail_offers_id');
             $table->foreign('detail_offers_id')->references('id')->on('detail_offers');
-            $table->string('category');
+            $table ->string('nama',255);
+            // $table->string('category');
             $table->string('quantity');
             $table->string('price');
-            $table->string('total');
+            // $table->string('total');
             $table->timestamps();
         });
     }

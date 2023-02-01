@@ -14,7 +14,7 @@ class Detail_offer extends Model
 
     protected $fillable = [
         'offer_id',
-        'facility',
+        'category',
         'quantity',
         'total',
     ];
@@ -22,5 +22,9 @@ class Detail_offer extends Model
     public function offer()
     {
         return $this->belongsTo(Offers::class);
+    }
+    public function Facility(): HasMany
+    {
+        return $this->hasMany(Facility::class);
     }
 }

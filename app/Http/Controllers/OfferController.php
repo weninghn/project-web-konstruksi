@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Offer;
-use App\Models\Offers;
 use App\Models\Detail_offer;
+use App\Models\facility;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -22,11 +22,13 @@ class OfferController extends Controller
     }
     public function store(Request $request)
     {
-        // dd($request->all());
-      
-        Offer::create($request->all());
+        $offer = Offer::create([
+            'project_id' => $request->project_id,
+            'status' => $request->status,
+            'date_offer' => $request->date_offer,
+        ]);
         return redirect('offer')->with('success','Offer Added Successfully');
-    }
+}
     public function edit($id)
     {
         $offer = Offer::find($id);
@@ -34,7 +36,6 @@ class OfferController extends Controller
     }
     public function update(Request $request)
     {
-        // $offer = Offer::findOrFail($id);
         $offer = Offer::select('*')->where('id', $request->id)->first();
         $offer->category = $request->category;
         $offer->status = $request->status;
@@ -42,7 +43,6 @@ class OfferController extends Controller
         $offer->save();
         return redirect('offer')->with('success','Offer Update Successfully');    
     }
-
     public function deleteoffer($id)
     {
         Offer::where('id', $id)->delete();

@@ -19,9 +19,6 @@
     </div>
   </div><!-- /.container-fluid -->
 </section>
-
-
-
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -53,25 +50,15 @@
                   <input type="text" class="form-control" id="status" name="status">
                 </div>
                 <div class="form-group">
-                  <label for="category">Category</label>
-                  <input type="text" class="form-control" id="category" name="category" >
-                </div>
-                <div class="form-group">
                   <label for="date">Date Offer</label>
                   <input type="date" class="form-control" id="date" name="date_offer" >
                 </div>
-                <div class="form-group">
-                  <label for="facility">Facility</label>
-                  <input type="text" class="form-control" id="facility" name="facility" >
-                </div>
-                <div class="form-group">
-                  <label for="quantity">Quantity</label>
-                  <input type="number" class="form-control" id="quantity" name="quantity" >
-                </div>
-              </div>
+             
               <!-- /.card-body -->
 
               <div class="card-footer">
+                {{-- <a href="add-category" class="btn btn-primary">add category</a>
+                <a href="add-facilitas" class="btn btn-danger">add facilities</a> --}}
                 <button type="submit" class="btn btn-success">Save</button>
                 <button type="reset" class="btn btn-warning">Reset</button>
               </div>
