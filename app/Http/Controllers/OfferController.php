@@ -30,15 +30,20 @@ class OfferController extends Controller
     public function edit($id)
     {
         $offer = Offer::find($id);
-        return view('offer.offer-edit', compact('offer'));
+        $detail_offer = Detail_offer::find($id);
+        return view('offer.offer-edit', compact('offer', 'detail_offer'));
     }
     public function update(Request $request)
     {
         // $offer = Offer::findOrFail($id);
         $offer = Offer::select('*')->where('id', $request->id)->first();
+        $detail_offer = Detail_offer::select('*')->where('id', $request->id)->first();
         $offer->category = $request->category;
         $offer->status = $request->status;
         $offer->date_offer = $request->date_offer;
+        $detail_offer->facility = $request->facility;
+        $detail_offer->quantity = $request->quantity;
+        $detail_offer->save();
         $offer->save();
         return redirect('offer')->with('success','Offer Update Successfully');    
     }
