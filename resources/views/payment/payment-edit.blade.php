@@ -17,23 +17,13 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-<<<<<<< HEAD
             <form  action="/payment-update/{{ $payment->id }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
               <div class="card-body">
                 <div class="form-group">
-                  {{-- <label for="name">Project</label>
-                  <select name="project_id" id="project_id" class="form-control " >
-    
-                    @foreach ($project as $item)
-                    <option value="{{ $item->id}}">{{ $item->name}}</option>
-                    @endforeach
-                    
-                </select>
-                </div> --}}
                 <div class="form-group">
-                  <label for="amount">Amount</label>
+                  <label for="amount">Payment Amount</label>
                   <input type="text" class="form-control" id="amount" value="{{ $payment->amount_payment }}" name="amount_payment" >
                 </div>
                 <div class="form-group">
@@ -47,7 +37,6 @@
                     @foreach ($method as $item)
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
-                    
                 </select>
                 </div>
                 <div class="form-group">
@@ -55,23 +44,17 @@
                   <input type="text" class="form-control" id="payment_to" value="{{ $payment->payment_to }}" name="payment_to" >
                 </div>
                 <div class="form-group">
-                  <label for="status">Status Payment</label>
-                  <input type="text" class="form-control" id="status" value="{{ $payment->status }}" name="payment_to" >
-                </div>
-                <div class="form-group">
                   <label for="note">Notes</label>
                 <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
                 </div>
-                
-               
-              </div>
-  
+                <div class="form-group">
+                  <label for="status">Status Payment</label>
+                  <input type="text" class="form-control" id="status" value="{{ $payment->status }}" name="payment_to" >
                 </div>
-                
-               
+              </div>
+                </div>
               </div>
               <!-- /.card-body -->
-
               <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Update</button>
                 <button type="reset" class="btn btn-md btn-warning">Reset</button>

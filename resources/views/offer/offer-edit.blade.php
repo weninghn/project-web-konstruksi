@@ -52,7 +52,7 @@
             <input type="text" class="form-control" id="status" name="status"value="{{ $offer->status }}" >
           </div>
             <div class="form-group">
-            <label for="date_offer">Date</label>
+            <label for="date_offer">Date Offer</label>
             <input type="date" class="form-control" id="date_offer" name="date_offer"value="{{ $offer->date_offer }}" >
           </div>
           <div class="form-group">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="form-group">
                   <label for="quantity">Quantity</label>
-                  <input type="number" class="form-control" id="quantity" name="quantity" value="{{ $offer->quantity }}" >
+                  <input type="number" class="form-control" id="quantity" name="quantity" value="{{ $detail_offer->quantity }}" >
                 </div>
           </div> 
         </div>

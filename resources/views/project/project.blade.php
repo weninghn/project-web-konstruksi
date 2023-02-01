@@ -51,7 +51,7 @@ Project
                           <th>Location</th>
                           <th>Date offer</th>
                           <th>Price</th>
-                          <th>Status</th>
+                          <th>Status Project</th>
                           {{-- <th>Status</th>
                           <th>Status Payment</th> --}}
                           <th>Aksi</th>
