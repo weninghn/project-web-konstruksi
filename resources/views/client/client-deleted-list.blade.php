@@ -33,8 +33,7 @@
               <div class="card-header">
               <h3 class="card-title">Data Client</h3>
                 <div class="row justify-content-end">
-                  <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a>
-              <a href="/tambahdata" class="btn btn-success">Add Client</a>
+              <a href="/client" class="btn btn-success">Back</a>
               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
@@ -52,18 +51,15 @@
                   @php
                   $no = 1;
                   @endphp
-                  @foreach($data as $row)
+                  @foreach($deletedClients as $row)
                   <tr>
                     <th scope="row">{{ $no++ }}</th>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->phone }}</td>
                     <td>{{ $row->address }}</td>
                     <td>
-                    <a href="/tampilkandata/{{ $row->slug }}">Edit</button>  | 
-                    <a href="/client-delete/{{$row->slug}}" data-name="{{ $row->name }}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>
+                    <a href="/client-restore/{{ $row->slug }}">Restore</button>  
                    
-                    <!-- <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> -->
-                    </td>
                   </tr>
                   @endforeach
                 </table>

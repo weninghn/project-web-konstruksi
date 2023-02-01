@@ -21,35 +21,37 @@ class ClientController extends Controller
          return redirect()->route('client')->with('success','Client Added Successfully'); 
     }
 
-    public function tampilkandata($id){
+    public function tampilkandata($slug){
 
-        $data = Clients::find($id);
+        $data = Clients::where('slug',$slug)->first();
         // dd($data);
         return view('client.tampildata', compact('data'));
     }
 
-    public function updatedata(Request $request, $id){
-        $data = Clients::find($id);
+    public function updatedata(Request $request, $slug){
+        $data = Clients::where('slug',$slug)->first();
+        $data->slug = null;
         $data->update($request->all());
 
         return redirect()->route('client')->with('success', 'Client Update Successfully');
     }
 
-    public function destroy($id)
+    public function destroy($slug)
     {
-        Clients::where('id', $id)->delete();
-        // $user = Users::find($id);
-        // $user->delete();
+        $data = Clients::where('slug',$slug)->first();
+        $data->delete(); 
         return redirect()->route('client')->with('success', 'Client Delete Successfully');
-        // $data = Clients::where($id)->first();
-        // $data->delete();
-        // return redirect('client.client')->with('status','Client deleted Successfully');
+      
     }
-
-    // public function delete($id){
-    //     $data = Clients::find($id);
-    //     $data->delete();
-    //     return redirect()->route('client')->with('success','Data Berhsail di Delete');
-    // }
-
+    public function deletedClients()
+    {
+        $data = Clients::onlyTrashed()->get();
+        return view('client.client-deleted-list',['deletedClients' =>$data]);
+    }
+    public function restore($slug)
+    {
+        $data = Clients::withTrashed()->where('slug',$slug)->first();
+        $data->restore();
+        return redirect('client')->with('status','Client Restored Sucessfully');
+    }
 }
