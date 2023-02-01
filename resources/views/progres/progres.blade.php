@@ -45,7 +45,7 @@ Progress
                       <th>Project</th>
                       <th>Persentase</th>
                       <th>Job Detail</th>
-                      <th>Date</th>
+                      <th>Date Progres</th>
                       <th>Picture</th>
                       <th>Action</th>
                   </tr>
@@ -54,21 +54,20 @@ Progress
                   @endphp
                   @foreach($progress as $item)
                     <tr>
-                    {{-- <th scope="row">{{ $no++ }}</th> --}}
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->project->name }}</td>
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
                     <td>{{ $item->date }}</td>
-                    <!-- {{-- <td>{{ $item->picture }}</td> --}} -->
                     <td>
                       @foreach ($item->pictures as $picture)
                         <img src="{{asset('uploads/progres/'.$picture->image) }}" alt="" width="170px">
                         @endforeach
                       </td>
                       <td>
-                        <a href="/progres-edit/{{ $item->id }}">Edit</a>  |
-                        <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>
+                        <a href="/progres-edit">Edit</a>  |
+                        <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>    |
+                        <a href="{{ route('progres.detail', $item->id) }}">Detail</button>
                         </td>
                     </tr>
                     @endforeach

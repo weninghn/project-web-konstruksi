@@ -51,7 +51,7 @@ Project
                           <th>Location</th>
                           <th>Date offer</th>
                           <th>Price</th>
-                          <th>Status</th>
+                          <th>Status Project</th>
                           {{-- <th>Status</th>
                           <th>Status Payment</th> --}}
                           <th>Aksi</th>
@@ -90,7 +90,7 @@ Project
                                 </td>
                                   <td>
                                   <a href="/edit/{{ $project->id }}">Edit</button> | 
-                                  <a href="/delete/{{ $project->id }}" data-name="{{ $project->name }}">Delete</a>
+                                  <a href="/delete/{{ $project->slug }}" data-name="{{ $project->name }}">Delete</a>
                                   </td>
                     </tr>
                   </tbody>

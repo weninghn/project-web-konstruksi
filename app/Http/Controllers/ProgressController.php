@@ -60,7 +60,8 @@ class ProgressController extends Controller
 
         $progres = Progres::find($id);
         $pictures = Picture::all();
-        return view('progres.editprogres',['progress' => $progres, 'pictures' => $pictures]);
+        // return view('progres.progres-edit',['progress' => $progres, 'pictures' => $pictures]);
+        return view('progres.progres-edit', compact('progres', 'picture'));
     }
 
     // public function edit($id)
@@ -85,7 +86,7 @@ class ProgressController extends Controller
         if($request->pictures){
             $book-pictures()->sync($request->pictures);
         }
-        return redirect('progres.progres')->with('status','Progres Updated Successfully');
+        return redirect('progres')->with('status','Progres Updated Successfully');
         
     }
 
@@ -107,5 +108,10 @@ class ProgressController extends Controller
         // $progres = Progres::where($id)->first();
         // $progres->delete();
         // return redirect('progres.progres')->with('status','Progres deleted Successfully');
+    }
+
+    public function detail(Progres $progres)
+    {
+        return view('progres.detailprogres', compact('progres'));
     }
 }
