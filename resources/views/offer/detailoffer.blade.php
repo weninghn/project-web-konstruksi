@@ -50,11 +50,9 @@ Detail Offer
                                           <td>{{ $offer->qty}}</td>
                                       </tr>
                                       <tr>
-                                          <td>presentase</td>
+                                          <td>Total</td>
                                           <td>{{ $offer->total }}</td>
                                       </tr>
-                                      
-                
                                   </table>
                               </div>
                           </div>

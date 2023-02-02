@@ -34,36 +34,44 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form action="/progres-edit/{{ $progres->id }}" method="POST">
+                    <form action="/update/{{ $progress->slug }}" method="POST" enctype="multipart/form-data">
                       @csrf
-                      @method('PUT')
+                @method('PUT')
                       <div class="card-body">
-                        <div class="form-group">
-                          <label for="projek">Project</label>
-                          <select name="projects[]" id="projects" class="form-control select-multiple" multiple>
-            
-                            @foreach ($project as $item)
-                            <option value="{{ $item->id}}">{{ $item->name}}</option>
-                            @endforeach
-                            
-                        </select>
-                        </div>
+                
                         <div class="form-group">
                           <label for="persentase">Persentase</label>
-                          <input type="persentase" class="form-control" id="persentase" name="persentase" placeholder="Persentase">
+                          <input type="persentase" class="form-control" id="persentase" name="persentase" placeholder="Persentase" value="{{ $progress->presentase }}">
                         </div>
                         <div class="form-group">
                           <label for="date">Date</label>
-                          <input type="date" class="form-control" id="date" name="date" placeholder="Persentase">
+                          <input type="date" class="form-control" id="date" name="date" placeholder="Persentase" value="{{ $progress->date}}">
+                        </div>
+                        <div class="form-group">
+                          <label for="job detail">Job Detail</label>
+                          <input type="text" class="form-control" id="job_details" name="job_details" placeholder="Job Detail" value="{{ $progress->job_details}}">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputFile">File input</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input"name="image" id="exampleInputFile">
+                              <input type="file" name="files[]" class="custom-file-input" id="exampleInputFile" multiple>
                               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                             </div>
-                           
+                      
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="Gambar">Progres Pictures</label>
+                          <div class="row">
+                            
+                              @foreach ($progress->pictures as $picture)
+                              <div class="col-md-3">
+                                <a href="{{ url(hapusgambar) }}" class="btn btn-sm btn-danger float-right"><i class="fas fa-times"></i></a>
+                                <img src="{{ asset('uploads/progres/'.$picture->image) }}" class="w-100">
+                              </div>
+                              @endforeach
+                            
                           </div>
                         </div>
                        

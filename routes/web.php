@@ -55,9 +55,9 @@ Route::get('delete/{slug}',[ProjectController::class,'delete'])->name('delete');
 Route::get('/progres', [ProgressController::class, 'index'])->name('progres');
 Route::get('add-progres', [ProgressController::class,'add']);
 Route::post('progres-add',[ProgressController::class,'store']);
-Route::get('/progres-edit/{$id}',[ProgressController::class,'edit']);
-Route::put('/progres-update/{id}',[ProgressController::class,'update']);
-Route::get('progresdelete/{id}',[ProgressController::class,'progresdelete'])->name('progresdelete');
+Route::get('progres-edit/{slug}',[ProgressController::class,'edit']);
+Route::put('update/{slug}',[ProgressController::class,'update']);
+Route::get('progresdelete/{slug}',[ProgressController::class,'progresdelete'])->name('progresdelete');
 Route::get('/detailprogres/{id}', [ProgressController::class, 'detail']);
 //Offer
 Route::get('/offer',[OfferController::class,'index'])->name('offer');;
