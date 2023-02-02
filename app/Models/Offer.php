@@ -14,7 +14,7 @@ class Offer extends Model
 
     protected $fillable = [
         'project_id',
-        'category',
+        // 'category',
         'status',
         'date_offer',
     ];
@@ -30,4 +30,10 @@ class Offer extends Model
     public function detail_offers() {
         return $this->hasMany(Detail_offer::class, 'offer_id', 'id');
     }
+
+    // public function allData()
+    // {
+    //     return DB::table('offers')
+    //         ->leftJoin('facliyties')
+    // }
 }

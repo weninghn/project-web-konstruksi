@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Progres extends Model
 {
     use HasFactory;
-    protected $table = 'progres';
-    public $timetamps = 'false';
-    protected $primaryKey ='id';
-
+    use Sluggable;
+    use SoftDeletes;
+    
     protected  $fillable= [
         'project_id',
         'presentase',
@@ -20,6 +21,14 @@ class Progres extends Model
         'date',
     ];
     
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'job_details'
+            ]
+            ];
+    }
     public function project()
     {
         return $this->belongsTo(Project::class,'project_id','id');

@@ -59,8 +59,7 @@ Route::post('progres-add',[ProgressController::class,'store']);
 Route::get('/progres-edit/{$id}',[ProgressController::class,'edit']);
 Route::put('/progres-update/{id}',[ProgressController::class,'update']);
 Route::get('progresdelete/{id}',[ProgressController::class,'progresdelete'])->name('progresdelete');
-Route::get('/detailprogres/{progres}', [ProgressController::class, 'detail'])->name('progres.detail');
-
+Route::get('/detailprogres/{id}', [ProgressController::class, 'detail']);
 //Offer
 Route::get('/offer',[OfferController::class,'index'])->name('offer');;
 Route::get('add-offer',[OfferController::class,'add'])->name('offer.add');
