@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group">
                           <label for="job">Job Detail</label>
-                          <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="job_details">
+                          <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="Job_Details">
                         </div>
                         <div class="form-group">
                           <label for="date">Date Progres</label>

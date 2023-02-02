@@ -36,6 +36,15 @@
                   <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a>
               <a href="/tambahdata" class="btn btn-success">Add Client</a>
               </div>
+              <td>
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <form action="/client" method="GET">
+                    <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                    </form>
+                  </div>
+                </div>
+              </td>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
@@ -52,9 +61,9 @@
                   @php
                   $no = 1;
                   @endphp
-                  @foreach($data as $row)
+                  @foreach($data as $index => $row)
                   <tr>
-                    <th scope="row">{{ $no++ }}</th>
+                    <th scope="row">{{ $index + $data->firstItem() }}</th>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->phone }}</td>
                     <td>{{ $row->address }}</td>
@@ -67,6 +76,7 @@
                   </tr>
                   @endforeach
                 </table>
+                {{ $data->links() }}
               </div>
               <!-- /.card-body -->
             </div>

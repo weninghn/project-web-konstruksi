@@ -55,25 +55,7 @@
                         <label for="price">Price</label>
                         <input type="text" class="form-control" id="price" name="price" placeholder="price">
                       </div>
-                      {{-- <div class="form-group">
-                        <label for="status_id">Status</label>
-                        <select class="form-control" id="status_id" name="status_id" required>
-                          <option value="">--Pilih--</option>
-                          @foreach($status as $data)
-                          <option value="{{$data->id}}">{{$data->nama}}</option>
-                          @endforeach
-                      </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="status_payment_id">Status</label>
-                        <select class="form-control" id="status_payment_id" name="status_payment_id" required>
-                          <option value="">--Pilih--</option>
-                          @foreach($status_pay as $data)
-                          <option value="{{$data->id}}">{{$data->nama}}</option>
-                          @endforeach
-                      </select>
-                      </div>
-                    </div> --}}
+                      
                        <div class="form-group">
                           <label for="date_offer">Date Offer</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer">

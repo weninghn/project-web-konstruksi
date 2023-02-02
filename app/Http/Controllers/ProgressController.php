@@ -53,52 +53,33 @@ class ProgressController extends Controller
         // $progres->pictures()->sync($request->pictures);
         return redirect('progres')->with('Success','Progres Added Successfully');
     }
-    public function edit($id)
+    public function edit($slug)
     {
-
-        $progres = Progres::find($id);
-        $pictures = Picture::all();
-        return view('progres.progres-edit', compact('progres', 'picture'));
+        $data = Progres::where('slug',$slug)->first();
+        return view('progres.progres-edit',['progress' => $data]);
     }
 
-    public function update( Request $request,$id)
+    public function update(Request $request,$slug)
     {
         if($request->file('image')){
             $extension = $request->file('image')->getClientOriginalExtension();
             $newName = $request->title.'-'.now()->timestamp.'-'.$extension;
-            $request->file('image')->storeAs('cover', $newName);
-            $request['cover'] = $newName;
+            $request->file('image')->storeAs('uploads/progres', $newName);
+            $request['uploads/progres'] = $newName;
         }
 
       
-        $progres = Progres::where($id)->first();
+        $progres = Progres::where('slug',$slug)->first();
         $progres->update($request->all());
        
-        if($request->pictures){
-            $book-pictures()->sync($request->pictures);
-        }
-        return redirect('progres')->with('status','Progres Updated Successfully');
-        
+        return redirect('progres')->with('Success','Progres Added Successfully');
+   
     }
 
-    // public function update(Request $request)
-    // {
-    //     // $offer = Offer::findOrFail($id);
-    //     $offer = Offer::select('*')->where('id', $request->id)->first();
-    //     $offer->category = $request->category;
-    //     $offer->status = $request->status;
-    //     $offer->date_offer = $request->date_offer;
-    //     $offer->save();
-    //     return redirect('offer')->with('success','Offer Update Successfully');    
-    // }
-   
     public function progresdelete($id)
     {
         Progres::where('id', $id)->delete();
         return redirect()->route('progres')->with('Success', 'Progress Deleted Successfully');
-        // $progres = Progres::where($id)->first();
-        // $progres->delete();
-        // return redirect('progres.progres')->with('status','Progres deleted Successfully');
     }
 
     public function detail($id)
@@ -106,8 +87,6 @@ class ProgressController extends Controller
       
         $progres = Progres::find($id);
         // $pictures = Picture::all();
-
-        
         return view('progres.detailprogres', compact('progres'));
     }
 }

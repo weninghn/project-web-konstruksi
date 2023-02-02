@@ -56,9 +56,9 @@ Route::get('delete/{slug}',[ProjectController::class,'delete'])->name('delete')-
 Route::get('/progres', [ProgressController::class, 'index'])->name('progres')->middleware('auth');
 Route::get('add-progres', [ProgressController::class,'add'])->middleware('auth');
 Route::post('progres-add',[ProgressController::class,'store'])->middleware('auth');
-Route::get('/progres-edit/{$id}',[ProgressController::class,'edit'])->middleware('auth');
-Route::put('/progres-update/{id}',[ProgressController::class,'update'])->middleware('auth');
-Route::get('progresdelete/{id}',[ProgressController::class,'progresdelete'])->name('progresdelete')->middleware('auth');
+Route::get('/progres-edit/{slug}',[ProgressController::class,'edit'])->middleware('auth');
+Route::put('/update/{slug}',[ProgressController::class,'update'])->middleware('auth');
+Route::get('progresdelete/{slug}',[ProgressController::class,'progresdelete'])->name('progresdelete')->middleware('auth');
 Route::get('/detailprogres/{id}', [ProgressController::class, 'detail'])->middleware('auth');
 //Offer
 Route::get('/offer',[OfferController::class,'index'])->name('offer')->middleware('auth')->middleware('auth');

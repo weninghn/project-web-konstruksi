@@ -37,6 +37,7 @@
                     @foreach ($method as $item)
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
+
                 </select>
                 </div>
                 <div class="form-group">
@@ -45,11 +46,12 @@
                 </div>
                 <div class="form-group">
                   <label for="note">Notes</label>
-                <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
+                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}">
+                  {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea> --}}
                 </div>
                 <div class="form-group">
                   <label for="status">Status Payment</label>
-                  <input type="text" class="form-control" id="status" value="{{ $payment->status }}" name="payment_to" >
+                  <input type="text" class="form-control" id="status" value="{{ $payment->status }}" name="payment_status" >
                 </div>
               </div>
                 </div>

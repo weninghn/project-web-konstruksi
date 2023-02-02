@@ -41,22 +41,24 @@ Detail Progres
                                     <td>{{ $progres->project->name}}</td>
                                 </tr>
                                 <tr>
+                                  <td>presentase</td>
+                                  <td>{{ $progres->presentase }}</td>
+                                </tr>
+                                <tr>
+                                  <td>Date </td>
+                                  <td>{{ $progres->date}}</td>
+                                </tr>
+                          
+                                <tr>
                                     <td>Job Details</td>
                                     <td>{{ $progres->job_details}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Date </td>
-                                    <td>{{ $progres->date}}</td>
-                                </tr>
-                                <tr>
-                                    <td>presentase</td>
-                                    <td>{{ $progres->presentase }}</td>
-                                </tr>
+                               
                                 <tr>
                                     <td>Gambar</td>
                                     <td>
                                       @foreach ($progres->pictures as $picture)
-                                      <img src="{{ asset('uploads/progres/'.$picture->image) }}" style="width: 200px; margin-right: 20px">
+                                      <img src="{{ asset('uploads/progres/'.$picture->image) }}" style="width: 150px; margin-right: 20px">
                                       @endforeach
                                     </td>
                                 </tr>
