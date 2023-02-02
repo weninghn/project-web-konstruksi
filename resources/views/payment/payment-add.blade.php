@@ -72,7 +72,8 @@
                 </div>
                 <div class="form-group">
                   <label for="note">Notes</label>
-                <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea>
+                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4">
+                  {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea> --}}
                 </div>
                 <div class="form-group">
                   <label for="status">Status Payment</label>

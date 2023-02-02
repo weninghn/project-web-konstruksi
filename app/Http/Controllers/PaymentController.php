@@ -51,7 +51,7 @@ class PaymentController extends Controller
     {
         $payment = Payment::where('id', $id)->first();
         $payment->update($request->all());
-        return redirect('payment')->with('status','Payment Updated Successfully');
+        return redirect('payment')->with('success','Payment Updated Successfully');
     }
 
     public function paymentdelete($id)
