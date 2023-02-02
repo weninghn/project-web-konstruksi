@@ -8,6 +8,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PictureController;
 use App\Http\Controllers\AuthController;
 
 /*
@@ -60,6 +61,9 @@ Route::get('progres-edit/{slug}',[ProgressController::class,'edit']);
 Route::put('update/{slug}',[ProgressController::class,'update']);
 Route::get('progresdelete/{slug}',[ProgressController::class,'progresdelete'])->name('progresdelete');
 Route::get('/detailprogres/{id}', [ProgressController::class, 'detail']);
+
+
+Route::get('/picture-destroy/{id}',[PictureController::class,'destroy']);
 //Offer
 Route::get('/offer',[OfferController::class,'index'])->name('offer');;
 Route::get('add-offer',[OfferController::class,'add'])->name('offer.add');

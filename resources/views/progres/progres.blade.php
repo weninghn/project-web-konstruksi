@@ -46,7 +46,6 @@ Progress
                       <th>Persentase</th>
                       <th>Job Detail</th>
                       <th>Date Progres</th>
-                      <th>Picture</th>
                       <th>Action</th>
                   </tr>
                   @php
@@ -59,11 +58,11 @@ Progress
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
                     <td>{{ $item->date }}</td>
-                    <td>
+                    {{-- <td>
                       @foreach ($item->pictures as $picture)
                         <img src="{{asset('uploads/progres/'.$picture->image) }}" alt="" width="170px">
                         @endforeach
-                      </td>
+                      </td> --}}
                       <td>
                         <a href="/progres-edit/{{ $item->slug }}">Edit</a>  |
                         <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>    |
