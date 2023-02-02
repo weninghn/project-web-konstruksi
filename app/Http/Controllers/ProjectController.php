@@ -9,10 +9,17 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $project = Project::all();
-        $offer = Offer::all();
+        if ($request->has('search')) {
+            $project  = Project::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+            $offer = Offer::where('status', 'LIKE', '%' .$request->search. '%')->paginate(2);
+        } else {
+            $project = Project::paginate(2);
+            $offer = Offer::paginate(2);
+        }
+        // $project = Project::all();
+        // $offer = Offer::all();
         return view ('project.project',['pro'=>$project, 'offer'=>$offer]);
     }
     public function create()

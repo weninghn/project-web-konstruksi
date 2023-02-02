@@ -13,7 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('offers', function (Blueprint $table) {
+            $table->string('number',255)->after('date_offer')->unique();
+        });
     }
 
     /**
@@ -23,6 +25,10 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('offers', function (Blueprint $table) {
+            if (Schema::hasColumn('offers', 'number')) {
+                $table->dropColumn('number');
+            }
+        });
     }
 };

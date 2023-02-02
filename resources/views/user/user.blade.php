@@ -34,8 +34,17 @@
               <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
                   <a href="/adduser" class="btn btn-success">Add User</a>
-              </div>
-              </div>
+                </div>
+                <td>
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <form action="/user" method="GET">
+                      <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                      </form>
+                    </div>
+                  </div>
+                </td>
+               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
               <div class="card-body"> 
@@ -53,9 +62,9 @@
                   @php
                     $no = 1;
                   @endphp
-                  @foreach ($user as $users)
+                  @foreach ($user as $index => $users)
                       <tr>
-                        <td scope="users">{{ $no++ }}</td>
+                        <td scope="users">{{ $index + $user->firstItem() }}</td>
                         <td>{{ $users->name }}</td>
                         <td>{{ $users->email }}</td>
                         <td>{{ $users->phone }}</td>
@@ -69,6 +78,7 @@
                   @endforeach
                   
                 </table>
+                {{ $user->links() }}
               </div>
               <!-- /.card-body -->
             </div>
