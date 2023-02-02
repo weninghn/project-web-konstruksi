@@ -18,6 +18,8 @@ class OfferController extends Controller
     public function add()
     {
         $project = Project::all();
+        // $detail = Detail_offer::all();
+        // $facility = Facility::all();
         return view('offer.offer-add',['project' => $project]);
     }
     public function store(Request $request)
@@ -27,6 +29,12 @@ class OfferController extends Controller
             'status' => $request->status,
             'date_offer' => $request->date_offer,
         ]);
+            Detail_offer::create([
+                'offer_id' => $offer->id,
+                'category'=>$request->category,
+                'quantity'=>$request->quantity,
+                'total'=>$request->total,
+            ]);      
         return redirect('offer')->with('success','Offer Added Successfully');
 }
     public function edit($id)

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('offer_id');
             $table->foreign('offer_id')->references('id')->on('offers');
-            $table->string('facility',255);
+            $table->string('category',255);
             $table->string('quantity',255);
             $table->string('total',255);
             $table->timestamps();
