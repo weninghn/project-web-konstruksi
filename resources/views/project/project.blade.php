@@ -36,6 +36,15 @@ Project
                 <div class="row justify-content-end">
               <a href="{{route('project.create')}}" class="btn btn-success">Add Project</a>
               </div>
+              <td>
+                <div class="row g-3 align-items-center">
+                  <div class="col-auto">
+                    <form action="/project" method="GET">
+                    <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                    </form>
+                  </div>
+                </div>
+              </td>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
@@ -61,9 +70,9 @@ Project
                               @php
                               $no=1; 
                               @endphp
-                              @foreach($pro as $project)
+                              @foreach($pro as $index => $project)
                               <tr>
-                                  <td scope="project">{{$no++}} </td>
+                                  <td scope="project">{{$index + $pro->firstItem() }} </td>
                                   <td>
                                       {{ $project->client?->name }}
                                   </td>
@@ -96,6 +105,7 @@ Project
                   </tbody>
                  @endforeach
                 </table>
+                {{ $pro->links() }}
               </div>
               <!-- /.card-body -->
             </div>

@@ -7,7 +7,14 @@ use Illuminate\Http\Request;
 class ClientController extends Controller
 {
     public function index (Request $request){
-        $data = Clients::all();
+
+        if ($request->has('search')) {
+            $data = Clients::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+        } else {
+            $data = Clients::paginate(2);
+        }
+
+        //$data = Clients::all();
         return view('client.client', compact('data'));
     }
 
