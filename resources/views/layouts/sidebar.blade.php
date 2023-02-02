@@ -78,6 +78,7 @@
           </li>
         </ul>
       </nav>
+      <a href="/logout" onclick="return confirm('Apakah anda yakin ingin keluar ?')">Logout</a>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

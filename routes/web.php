@@ -8,6 +8,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,9 +22,9 @@ use App\Http\Controllers\DashboardController;
 */
 Route::get('/', function () {
     return view('layouts.master');
-});
+})->middleware('auth');
 
-Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 //Route User
 Route::get('/user', [UserController::class, 'index'])->name('user');
@@ -76,9 +77,9 @@ Route::post('payment-add',[PaymentController::class,'store']);
 Route::get('payment-edit/{id}',[PaymentController::class,'edit'])->name('payment.edit');
 Route::put('payment-update/{id}',[PaymentController::class,'update'])->name('payment.update');
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete');
-// Route::get('progres-edit',[PaymentController::class,'edit']);
-// Route::put('progres-edit/{id}',[PaymentController::class,'update']);
-// Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete');
-
 //Detail
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');
+//login
+Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');
+Route::get('/logout', [AuthController::class, 'logout']);
