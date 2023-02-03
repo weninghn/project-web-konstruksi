@@ -32,7 +32,9 @@ Offer
               <div class="card-header">
               <h3 class="card-title">Offer</h3>
                 <div class="row justify-content-end">
+                  @if (auth()->user()->name=="admin")
                   <a href="add-offer" class="btn btn-success">Add Offer</a>
+                  @endif
                  </div>
                  {{-- <td>
                   <div class="row g-3 align-items-center">
@@ -66,9 +68,11 @@ Offer
                       <td>{{ $row->status }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>
+                      @if (auth()->user()->name=="admin")
                       <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
                       <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>    |
-                      <a href="{{ route('offer.detail', $row->id) }}">Detail</button>
+                      @endif
+                        <a href="{{ route('offer.detail', $row->id) }}">Detail</button>
                       </td>
                     </tr>
                     @endforeach

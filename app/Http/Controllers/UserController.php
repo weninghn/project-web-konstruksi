@@ -12,9 +12,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         if ($request->has('search')) {
-            $data = Users::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+            $data = Users::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
         } else {
-            $data = Users::paginate(2);
+            $data = Users::paginate(5);
         }
         // $data = Users::all();
         return view('user.user',['user' => $data]);

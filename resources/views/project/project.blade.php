@@ -34,7 +34,10 @@ Project
               <div class="card-header">
               <h3 class="card-title">Project</h3>
                 <div class="row justify-content-end">
+                  <br>
+                  @if (auth()->user()->name=="admin")
               <a href="{{route('project.create')}}" class="btn btn-success">Add Project</a>
+              @endif
               </div>
               <td>
                 <div class="row g-3 align-items-center">
@@ -63,7 +66,9 @@ Project
                           <th>Status Project</th>
                           {{-- <th>Status</th>
                           <th>Status Payment</th> --}}
-                          <th>Aksi</th>
+                          @if (auth()->user()->name=="admin")
+                          <th>Action</th>
+                          @endif
                         </tr>
                         </thead>
                         <tbody>
@@ -97,10 +102,12 @@ Project
                                 <td> 
                                   {{ $project->offer()->latest()->first()?->status ?? '-' }}
                                 </td>
+                                @if (auth()->user()->name=="admin")
                                   <td>
                                   <a href="/edit/{{ $project->id }}">Edit</button> | 
                                   <a href="/delete/{{ $project->slug }}" data-name="{{ $project->name }}">Delete</a>
                                   </td>
+                                  @endif
                     </tr>
                   </tbody>
                  @endforeach
