@@ -14,9 +14,9 @@ class Offer extends Model
 
     protected $fillable = [
         'project_id',
-        // 'category',
         'status',
         'date_offer',
+        'number',
     ];
 
     public function project(){
@@ -28,12 +28,12 @@ class Offer extends Model
     }
 
     public function detail_offers() {
-        return $this->hasMany(Detail_offer::class, 'offer_id', 'id');
+        return $this->hasMany(Detail_offer::class);
     }
-
-    // public function allData()
-    // {
-    //     return DB::table('offers')
-    //         ->leftJoin('facliyties')
-    // }
+    public function facilitys()
+    {
+        return $this->belongsTo(Facility::class,'facility_id','id');
+    }
 }
+    // public function allData()
+

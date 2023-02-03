@@ -64,7 +64,7 @@ Offer
                     @foreach($offer as $row)
                     <tr>
                       <th scope="row">{{ $no++ }}</th>
-                      <td>{{ $row->project->name }}</td>
+                      <td>{{ $row->project?->name }}</td>
                       <td>{{ $row->status }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>

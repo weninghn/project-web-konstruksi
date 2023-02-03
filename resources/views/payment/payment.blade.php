@@ -63,7 +63,7 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                    <td>{{ $item->project->name }}</td>
-                   <td>{{ $item->amount_payment }}</td>
+                   <td>@currency($item->amount_payment)</td>
                    <td>{{ $item->payment_date }}</td>
                    <td>{{ $item->payment_to }}</td>
                    <td>{{ $item->status }}</td>
