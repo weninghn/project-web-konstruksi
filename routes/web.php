@@ -83,6 +83,8 @@ Route::post('offer-add',[OfferController::class,'store'])->name('offer.store')->
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit')->middleware('auth');
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update')->middleware('auth');
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer')->middleware('auth');
+Route::get('/detailoffer/{id}', [OfferController::class, 'detail'])->name('offer.detail')->middleware('auth');
+Route::get('export',[OfferController::class, 'export_pdf']);
 
 
 //Pembayaran
@@ -93,7 +95,7 @@ Route::get('payment-edit/{id}',[PaymentController::class,'edit'])->name('payment
 Route::put('payment-update/{id}',[PaymentController::class,'update'])->name('payment.update')->middleware('auth');
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete')->middleware('auth');
 //Detail
-Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail')->middleware('auth');
+
 //login
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');

@@ -106,5 +106,5 @@ class ProgressController extends Controller
         $progres = Progres::find($id);
         // $pictures = Picture::all();
         return view('progres.detailprogres', compact('progres'));
-    }
+    } 
 }

@@ -39,7 +39,7 @@ Detail Offer
                                   
                                       <tr>
                                           <td style="width:20%">Category</td>
-                                          <td>{{ $offer->name}}</td>
+                                          <td>{{ $offer->facilitys->category}}</td>
                                       </tr>
                                       <tr>
                                           <td>Facility</td>
@@ -54,6 +54,7 @@ Detail Offer
                                           <td>{{ $offer->total }}</td>
                                       </tr>
                                   </table>
+                                 
                               </div>
                           </div>
                       </div>
