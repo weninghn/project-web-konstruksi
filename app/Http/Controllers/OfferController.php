@@ -12,11 +12,11 @@ class OfferController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->has('search')) {
-            $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
-        } else {
-            $offer = Offer::paginate(2);
-        }
+        // if ($request->has('search')) {
+        //     $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
+        // } else {
+            $offer = Offer::paginate(5);
+        // }
         // $offer = Offer::all();
         return view('offer.offer',['offer' => $offer]);
     }

@@ -44,6 +44,13 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('client-delete/{slug}',[ClientController::class,'destroy'])->name('clientdelete')->middleware('auth');
     Route::get('client-deleted',[ClientController::class,'deletedClients'])->middleware('auth');
     Route::get('client-restore/{slug}',[ClientController::class,'restore'])->middleware('auth');
+    // Route::post('cetak', [ClientController::class, 'refresh'])->name('client.refresh')->middleware('auth');
+    // Route::get('cetak/data/{awal}/{akhir}', [ClientController::class, 'data'])->name('client.data')->middleware('auth');
+    // Route::get('/cetak/pdf/{awal}/{akhir}', [ClientController::class, 'exportPDF'])->name('client.export_pdf')->middleware('auth');
+    Route::get('/cetak-form', [ClientController::class, 'cetakForm'])->name('cetak-form')->middleware('auth');
+    Route::get('cetak-data-pertanggal/{tglawal}/{tglakhir}', [ClientController::class, 'cetakClientPertanggal'])->name('cetak-data-pertanggal')->middleware('auth');
+    // Route::get('/laporan/pdf/{awal}/{akhir}', [ClientController::class, 'cetakForm'])->name('laporan.export_pdf')  ;
+
     // route project
     route::get('/project','App\Http\Controllers\ProjectController@index')->name('project')->middleware('auth');
     route::get('/project/create','App\Http\Controllers\ProjectController@create')->name('project.create')->middleware('auth');

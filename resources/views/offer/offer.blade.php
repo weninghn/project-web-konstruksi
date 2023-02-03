@@ -80,7 +80,7 @@ Offer
                 
                 </table>
               </div>
-              {{-- {{ $offer->likes() }} --}}
+              {{-- {{$offer->likes()}} --}}
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
