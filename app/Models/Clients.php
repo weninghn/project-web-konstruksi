@@ -19,6 +19,7 @@ class Clients extends Model
         'slug',
         'phone',
         'address',
+        'created_at',
     ];
 
     public function sluggable(): array

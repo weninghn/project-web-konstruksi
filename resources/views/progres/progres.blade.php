@@ -61,9 +61,9 @@ Progress
                   @php
                   $no = 1;
                   @endphp
-                  @foreach($progress as $item)
+                  @foreach($progress as $index => $item)
                     <tr>
-                    <td>{{ $loop->iteration }}</td>
+                    <td>{{ $index + $progress->firstItem() }}</td>
                     <td>{{ $item->project->name }}</td>
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
@@ -83,7 +83,10 @@ Progress
                     </tr>
                     @endforeach
                 </table>
-                {{-- {{ $progress->links() }} --}}
+                <div class="my-3">
+                  {{$progress->links()}}
+                </div>
+                {{-- {{$progress->links()}} --}}
               </div>
               <!-- /.card-body -->
             </div>

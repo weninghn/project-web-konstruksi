@@ -19,7 +19,7 @@ class ProgressController extends Controller
         // }
         $search = $request->search;
         $projek = Project::where('name', 'LIKE', '%'. $search. '%')->paginate(2);
-        $progres = Progres::paginate();
+        $progres = Progres::paginate(5);
     // return view('user.user',['user' => $data]);
        return view('progres.progres ',['progress' => $progres, 'project' => $projek]);
     }

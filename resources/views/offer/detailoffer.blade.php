@@ -36,7 +36,7 @@ Detail Offer
                                       <tr>
                                           <td style="width:20%">Project</td>
                                           <td>{{ $offer->project->name}}</td>
-{{-- =======
+{{-- 
                                           <td style="width:20%">Category</td>
                                           <td>{{ $offer->facilitys->category}}</td> --}}
                                       </tr>
@@ -47,6 +47,10 @@ Detail Offer
                                       <tr>
                                           <td>Status</td>
                                           <td>{{ $offer->status}}</td>
+                                      </tr>
+                                      <tr>
+                                          <td>Number</td>
+                                          <td>{{ $offer->number}}</td>
                                       </tr>
                                   </table>
                                 
@@ -96,7 +100,6 @@ Detail Offer
                                     @endforelse
                                   </table>
                                 </div>
-
                                  
                               </div>
                           </div>

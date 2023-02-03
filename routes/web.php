@@ -79,12 +79,20 @@ Route::get('/detailprogres/{id}', [ProgressController::class, 'detail'])->middle
 //Offer
 Route::get('/offer',[OfferController::class,'index'])->name('offer');
 Route::get('add-offer',[OfferController::class,'add'])->name('offer.add');
+
 Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');
 Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');
 
+
+
+Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');;
+Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');;
+Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');;
+Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');;
+Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');;
 
 Route::get('/offer',[OfferController::class,'index'])->name('offer')->middleware('auth')->middleware('auth');
 Route::get('add-offer',[OfferController::class,'add'])->name('offer.add')->middleware('auth');
@@ -112,7 +120,6 @@ route::post('/offer/insertcategory','App\Http\Controllers\OfferController@insert
 route::post('/offer/insertfacility','App\Http\Controllers\OfferController@insertfacility')->name('offer.insertfacility');
 
 
-
 Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('/user', [UserController::class, 'index'])->name('user')->middleware('auth');
     Route::get('/adduser', [UserController::class, 'adduser'])->name('adduser')->middleware('auth');
@@ -130,6 +137,13 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('client-delete/{slug}',[ClientController::class,'destroy'])->name('clientdelete')->middleware('auth');
     Route::get('client-deleted',[ClientController::class,'deletedClients'])->middleware('auth');
     Route::get('client-restore/{slug}',[ClientController::class,'restore'])->middleware('auth');
+    // Route::post('cetak', [ClientController::class, 'refresh'])->name('client.refresh')->middleware('auth');
+    // Route::get('cetak/data/{awal}/{akhir}', [ClientController::class, 'data'])->name('client.data')->middleware('auth');
+    // Route::get('/cetak/pdf/{awal}/{akhir}', [ClientController::class, 'exportPDF'])->name('client.export_pdf')->middleware('auth');
+    Route::get('/cetak-form', [ClientController::class, 'cetakForm'])->name('cetak-form')->middleware('auth');
+    Route::get('cetak-data-pertanggal/{tglawal}/{tglakhir}', [ClientController::class, 'cetakClientPertanggal'])->name('cetak-data-pertanggal')->middleware('auth');
+    // Route::get('/laporan/pdf/{awal}/{akhir}', [ClientController::class, 'cetakForm'])->name('laporan.export_pdf')  ;
+
     // route project
     route::get('/project','App\Http\Controllers\ProjectController@index')->name('project')->middleware('auth');
     route::get('/project/create','App\Http\Controllers\ProjectController@create')->name('project.create')->middleware('auth');
