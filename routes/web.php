@@ -77,14 +77,15 @@ Route::get('/detailprogres/{id}', [ProgressController::class, 'detail'])->middle
 
 
 //Offer
-Route::get('/offer',[OfferController::class,'index'])->name('offer');;
+Route::get('/offer',[OfferController::class,'index'])->name('offer');
 Route::get('add-offer',[OfferController::class,'add'])->name('offer.add');
-Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');;
-Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');;
-Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');;
-Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');;
-Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');;
-=======
+Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');
+Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');
+Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');
+Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');
+Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');
+
+
 Route::get('/offer',[OfferController::class,'index'])->name('offer')->middleware('auth')->middleware('auth');
 Route::get('add-offer',[OfferController::class,'add'])->name('offer.add')->middleware('auth');
 Route::post('offer-add',[OfferController::class,'store'])->name('offer.store')->middleware('auth');
@@ -103,13 +104,13 @@ Route::get('payment-edit/{id}',[PaymentController::class,'edit'])->name('payment
 Route::put('payment-update/{id}',[PaymentController::class,'update'])->name('payment.update')->middleware('auth');
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete')->middleware('auth');
 //Detail
-<<<<<<< HEAD
+
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');
 route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addcategory')->name('offer.addcategory');
 route::get('/offer/add','App\Http\Controllers\OfferController@addfacility')->name('offer.addfacility');
 route::post('/offer/insertcategory','App\Http\Controllers\OfferController@insertcategory')->name('offer.insertcategory');
 route::post('/offer/insertfacility','App\Http\Controllers\OfferController@insertfacility')->name('offer.insertfacility');
-=======
+
 
 
 Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
@@ -172,7 +173,6 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin,owner']], function() {
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment')->middleware('auth');
 });
 
->>>>>>> 992daa43fb5b6ab0abde557331e3da0a0fe84a65
 //login
 Route::get('/login', [AuthController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');

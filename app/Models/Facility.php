@@ -13,7 +13,7 @@ class Facility extends Model
     protected $primaryKey ='id';
 
     protected $fillable = [
-        'detail_offer_id ',
+        'detail_offer_id',
         'nama',
         'quantity',
         'price',

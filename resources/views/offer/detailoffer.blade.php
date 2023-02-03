@@ -60,8 +60,33 @@ Detail Offer
                                     @endforeach --}}
                                     @forelse($offer->detail_offers as $category)
                                     <tr>
+                                      <td>{{ $loop->iteration }}</td>
                                       <td>{{ $category->category }}
-                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;">Add Facility</button>
+                                      <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;">Add Facility</button>
+                                      </td>
+                                      <td>
+                                        <table class="table">
+                                          <tr>
+                                         <th>Facility</th>   
+                                         <th>Quantity</th>   
+                                         <th>Price</th>   
+                                         <th></th>
+                                       </tr>   
+                                          @forelse ($category->facilities as $facility)
+                                          <tr>
+                                            <td>{{ $facility->nama }}</td>
+                                            <td>{{ $facility->quantity }}</td>
+                                            <td>{{ $facility->price }}</td>
+                                            <td>
+                                              <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                            </td>
+                                          </tr>
+                                          @empty                                              
+                                          <tr>
+                                            <td rowspan="4">Tidak ada Facility</td>
+                                          </tr>
+                                          @endforelse
+                                        </table>
                                       </td>
                                     </tr>
                                     @empty
@@ -71,7 +96,7 @@ Detail Offer
                                     @endforelse
                                   </table>
                                 </div>
-=======
+
                                  
                               </div>
                           </div>
@@ -80,9 +105,9 @@ Detail Offer
               </section>
           </div>
       </div>
-      <form class="js-validation-material" action= "{{ route('offer.insertcategory')}}" method="POST" enctype="multipart/form-data">
-        @csrf
       <div class="modal fade" id="modal-add-category">
+        <form class="js-validation-material" action= "{{ route('offer.insertcategory')}}" method="POST" enctype="multipart/form-data">
+          @csrf
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -92,9 +117,10 @@ Detail Offer
               </button>
             </div>
             <div class="modal-body">
+              <input type="hidden" value="{{ $offer->id }}" name="offer_id">
               <div class="form-group">
                 <label for="category">Category</label>
-                <input type="text" class="form-control" id="category" name="category[]" >
+                <input type="text" class="form-control" id="category" name="category" >
               </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -107,11 +133,12 @@ Detail Offer
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
+        </form>
       </div>
+      <div class="modal fade" id="modal-add-facility">
       <form class="js-validation-material" action= "{{ route('offer.insertfacility')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card-body">
-      <div class="modal fade" id="modal-add-facility">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -120,23 +147,24 @@ Detail Offer
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="facility">
+            {{-- <div class="facility">
               <div class="m-20">
                   <a href="#" class="addfacility btn btn-primary" style="float: right;">Add facility</a> 
               </div> 
-            </div>
+            </div> --}}
             <div class="modal-body">
+              <input type="hidden" id="detail_offer_id" name="detail_offer_id">
             <div class="form-group">
               <label for="nama">Facility</label>
-              <input type="text" class="form-control" id="nama" name="nama[]" >
+              <input type="text" class="form-control" id="nama" name="nama" >
             </div>
             <div class="form-group">
               <label for="quantity">Quantity </label>
-              <input type="number" class="form-control" id="quantity" name="quantity[]" >
+              <input type="number" class="form-control" id="quantity" name="quantity" >
             </div>
             <div class="form-group">
               <label for="price">Price </label>
-              <input type="price" class="form-control" id="price" name="price[]" >
+              <input type="price" class="form-control" id="price" name="price" >
             </div>
             <div class="modal-footer justify-content-between">
               <button type="simpan" class="btn btn-success">Save</button>
@@ -145,14 +173,18 @@ Detail Offer
           <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
+      </form>
       </div>
              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
               <script type="text/javascript">
+              $('.modal-add-facility').on('click', function(){
+                $('#detail_offer_id').val(this.id);
+              });
               $('.addfacility').on('click', function(){
               addfacility();
               });
               function addfacility(){
-              var facility = '<div><div class="modal-body"><label for="nama">Facility</label><input type="text" class="form-control" id="nama" name="nama[]" > </div><div class="form-group"></div><div class="modal-body"><label for="quantity">Quantity </label><input type="number" class="form-control" id="quantity" name="quantity[]" > </div></div><div class="form-group"><div class="modal-body"><label for="price">Price </label> <input type="price" class="form-control" id="price" name="price[]" ></div> </div></div>'
+              var facility = '<div><div class="modal-body"><label for="nama">Facility</label><input type="text" class="form-control" id="nama" name="nama" > </div><div class="form-group"></div><div class="modal-body"><label for="quantity">Quantity </label><input type="number" class="form-control" id="quantity" name="quantity" > </div></div><div class="form-group"><div class="modal-body"><label for="price">Price </label> <input type="price" class="form-control" id="price" name="price" ></div> </div></div>'
                $('.facility').append(facility);
               };
               </script>
