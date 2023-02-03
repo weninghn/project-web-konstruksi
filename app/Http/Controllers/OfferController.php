@@ -10,9 +10,14 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $offer = Offer::all();
+        if ($request->has('search')) {
+            $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+        } else {
+            $offer = Offer::paginate(2);
+        }
+        // $offer = Offer::all();
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
@@ -63,8 +68,9 @@ class OfferController extends Controller
         Offer::where('id', $id)->delete();
         return redirect()->route('offer')->with('success', 'Offer deleted successfully');
     }
-    public function detail(Offer $offer)
+    public function detail($id)
     {
+        $offer = Offer::find($id);
         return view('offer.detailoffer', compact('offer'));
     }
     public function addcategory()
@@ -96,4 +102,12 @@ class OfferController extends Controller
         Facility::create($facility);
         return redirect('detailoffer');
     }
+    public function export_pdf()
+    {
+    	// $offer = Offer::find($id);
+ 
+    	// $pdf = PDF::loadview('export-pdf',['offers'=>$offer]);
+    	// return $pdf->download('Offer-pdf');
+        return view('offer.export-pdf');
+          }
 }

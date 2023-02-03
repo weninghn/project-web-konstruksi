@@ -22,13 +22,17 @@
   </div>
   <!-- /.login-logo -->
   <div class="card">
-    <div class="card-body login-card-body">
+    <div class="card-body login-card-body flex-column">
+      @if(Session::has('status'))
+        <div class="alert alert-danger" role="alert">
+          {{Session::get('message')}}
+        </div>
+        @endif
       {{-- <p class="login-box-msg">Sign in to start your session</p> --}}
-
       <form action="/login" method="post">
         @csrf
         <div class="input-group mb-3">
-          <input type="email" class="form-control" name="email" placeholder="Email">
+          <input type="email" class="form-control" name="email" placeholder="Email" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -36,7 +40,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" name="password" placeholder="pSassword">
+          <input type="password" class="form-control" name="password" placeholder="password" required>
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

@@ -67,7 +67,7 @@
                             
                               @foreach ($progress->pictures as $picture)
                               <div class="col-md-3">
-                                <a href="{{ url(hapusgambar) }}" class="btn btn-sm btn-danger float-right"><i class="fas fa-times"></i></a>
+                                <a href="{{ url("picture-destroy/".$picture->id) }}" class="btn btn-sm btn-danger float-right"><i class="fas fa-times"></i></a>
                                 <img src="{{ asset('uploads/progres/'.$picture->image) }}" class="w-100">
                               </div>
                               @endforeach
@@ -80,7 +80,7 @@
       
                       <div class="card-footer">
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <button type="reset" class="btn btn-md btn-warning">Reset</button>
+                      
                       </div>
                     </form>
                   </div>

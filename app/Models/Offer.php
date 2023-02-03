@@ -30,5 +30,10 @@ class Offer extends Model
     public function detail_offers() {
         return $this->hasMany(Detail_offer::class);
     }
-
+    public function facilitys()
+    {
+        return $this->belongsTo(Facility::class,'facility_id','id');
+    }
 }
+    // public function allData()
+

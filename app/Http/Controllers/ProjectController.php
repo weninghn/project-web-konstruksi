@@ -12,11 +12,11 @@ class ProjectController extends Controller
     public function index(Request $request)
     {
         if ($request->has('search')) {
-            $project  = Project::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
-            $offer = Offer::where('status', 'LIKE', '%' .$request->search. '%')->paginate(2);
+            $project  = Project::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
+            $offer = Offer::where('status', 'LIKE', '%' .$request->search. '%')->paginate(5);
         } else {
-            $project = Project::paginate(2);
-            $offer = Offer::paginate(2);
+            $project = Project::paginate(5);
+            $offer = Offer::paginate(5);
         }
         // $project = Project::all();
         // $offer = Offer::all();

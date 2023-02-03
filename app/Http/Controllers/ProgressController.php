@@ -9,11 +9,19 @@ use Illuminate\Http\Request;
 
 class ProgressController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-       $progres = Progres::all();
-
-       return view('progres.progres ',['progress' => $progres]);
+        // if ($request->has('search')) {
+        //     $projek = Project::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+        // } else {
+        //     $projek = Project::paginate(2);
+        //     $progres = Progres::paginate(2);
+        // }
+        $search = $request->search;
+        $projek = Project::where('name', 'LIKE', '%'. $search. '%')->paginate(2);
+        $progres = Progres::paginate();
+    // return view('user.user',['user' => $data]);
+       return view('progres.progres ',['progress' => $progres, 'project' => $projek]);
     }
     public function add()
     {
@@ -61,18 +69,36 @@ class ProgressController extends Controller
 
     public function update(Request $request,$slug)
     {
-        if($request->file('image')){
-            $extension = $request->file('image')->getClientOriginalExtension();
-            $newName = $request->title.'-'.now()->timestamp.'-'.$extension;
-            $request->file('image')->storeAs('uploads/progres', $newName);
-            $request['uploads/progres'] = $newName;
-        }
-
-      
+        
         $progres = Progres::where('slug',$slug)->first();
-        $progres->update($request->all());
-       
-        return redirect('progres')->with('Success','Progres Added Successfully');
+        $progres->update([
+            'presentase' => $request->persentase,
+            'job_details' => $request->job_details,
+            'date' => $request->date,
+        ]);
+
+        
+        $alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+        if($request->file('files')){
+            foreach ($request->file('files') as $file) {
+                $extension = $file->getClientOriginalExtension();
+                $random = substr(str_shuffle($alphanumeric), 0, 4);
+                $filename = $progres->project->name.'-'.$random.now()->timestamp.'.'.$extension;
+                $file->move(public_path('uploads/progres'), $filename);
+                // $progres->pictures()->create([
+                //     'image' => $filename
+                // ]);
+
+                Picture::create([
+                    'progres_id' => $progres->id,
+                    'image' => $filename
+                ]);
+            }
+        }
+     
+    
+        return redirect('progres')->with('Success','Progres Edted Successfully');
    
     }
 
@@ -88,5 +114,5 @@ class ProgressController extends Controller
         $progres = Progres::find($id);
         // $pictures = Picture::all();
         return view('progres.detailprogres', compact('progres'));
-    }
+    } 
 }
