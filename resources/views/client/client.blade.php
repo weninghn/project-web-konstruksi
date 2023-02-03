@@ -34,7 +34,9 @@
               <h3 class="card-title">Data Client</h3>
                 <div class="row justify-content-end">
                   <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a>
+                  @if (auth()->user()->name=="admin")
               <a href="/tambahdata" class="btn btn-success">Add Client</a>
+              @endif
               </div>
               <td>
                 <div class="row g-3 align-items-center">
@@ -56,7 +58,9 @@
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Address</th>
-                    <th>Aksi</th>
+                    @if (auth()->user()->name=="admin")
+                    <th>Action</th>
+                    @endif
                   </tr>
                   @php
                   $no = 1;
@@ -67,12 +71,14 @@
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->phone }}</td>
                     <td>{{ $row->address }}</td>
+                    @if (auth()->user()->name=="admin")
                     <td>
                     <a href="/tampilkandata/{{ $row->slug }}">Edit</button>  | 
                     <a href="/client-delete/{{$row->slug}}" data-name="{{ $row->name }}" class="delete" data-confirm="Are you sure to delete this item?">Delete</a>
                    
                     <!-- <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-name="{{ $row->name }}">Delete</button> -->
                     </td>
+                    @endif
                   </tr>
                   @endforeach
                 </table>

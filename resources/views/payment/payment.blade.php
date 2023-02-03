@@ -32,7 +32,9 @@
             <div class="card-header">
             <h3 class="card-title">Payment</h3>
               <div class="row justify-content-end">
+                @if (auth()->user()->name=="admin")
             <a href="add-payment" class="btn btn-success">Add</a>
+            @endif
             </div>
             </div>
             <div class="row g-3 align-items-center mt-2">
@@ -48,7 +50,9 @@
                     <th>Payment To</th>
                     <th>Status Payment</th>
                     <th>Notes</th>
+                    @if (auth()->user()->name=="admin")
                     <th>Action</th>
+                    @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -64,12 +68,12 @@
                    <td>{{ $item->payment_to }}</td>
                    <td>{{ $item->status }}</td>
                    <td>{{ $item->note }}</td>
-
-
+                   @if (auth()->user()->name=="admin")
                     <td>
                       <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |                              
                       <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> 
                       </td>
+                      @endif
                   </tr>
                   @endforeach
                 </tbody>

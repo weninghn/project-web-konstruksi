@@ -32,7 +32,9 @@ Progress
               <div class="card-header">
               <h3 class="card-title">Progress</h3>
                 <div class="row justify-content-end">
+                  @if (auth()->user()->name=="admin")
                   <a href="add-progres" class="btn btn-success">Add Progres</a>
+                  @endif
                  </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
@@ -64,8 +66,10 @@ Progress
                         @endforeach
                       </td> --}}
                       <td>
+                        @if (auth()->user()->name=="admin")
                         <a href="/progres-edit/{{ $item->slug }}">Edit</a>  |
                         <a href="/progresdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a>    |
+                        @endif
                         <a href="/detailprogres/{{$item->id}}">Detail</button>
                         </td>
                     </tr>
