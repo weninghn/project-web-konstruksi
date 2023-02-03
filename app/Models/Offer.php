@@ -14,7 +14,6 @@ class Offer extends Model
 
     protected $fillable = [
         'project_id',
-        // 'category',
         'status',
         'date_offer',
     ];
