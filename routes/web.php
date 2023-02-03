@@ -66,6 +66,7 @@ Route::get('add-offer',[OfferController::class,'add'])->name('offer.add');
 Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');;
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');;
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');;
+Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');;
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');;
 
 
@@ -78,6 +79,10 @@ Route::put('payment-update/{id}',[PaymentController::class,'update'])->name('pay
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete');
 //Detail
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');
+route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addcategory')->name('offer.addcategory');
+route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addfacility')->name('offer.addfacility');
+route::post('/offer/insertcategory','App\Http\Controllers\OfferController@insertcategory')->name('offer.insertcategory');
+route::post('/offer/insertfacility','App\Http\Controllers\OfferController@insertfacility')->name('offer.insertfacility');
 //login
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate');

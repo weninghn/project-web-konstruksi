@@ -16,6 +16,7 @@ class Offer extends Model
         'project_id',
         'status',
         'date_offer',
+        'number',
     ];
 
     public function project(){
@@ -27,12 +28,7 @@ class Offer extends Model
     }
 
     public function detail_offers() {
-        return $this->hasMany(Detail_offer::class, 'offer_id', 'id');
+        return $this->hasMany(Detail_offer::class);
     }
 
-    // public function allData()
-    // {
-    //     return DB::table('offers')
-    //         ->leftJoin('facliyties')
-    // }
 }

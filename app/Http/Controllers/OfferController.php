@@ -28,14 +28,16 @@ class OfferController extends Controller
             'project_id' => $request->project_id,
             'status' => $request->status,
             'date_offer' => $request->date_offer,
+            'number' => $request->number,
         ]);
-            Detail_offer::create([
-                'offer_id' => $offer->id,
-                'category'=>$request->category,
-                'quantity'=>$request->quantity,
-                'total'=>$request->total,
-            ]);      
-        return redirect('offer')->with('success','Offer Added Successfully');
+            // Detail_offer::create([
+            //     'offer_id' => $offer->id,
+            //     'category'=>$request->category,
+            //     'quantity'=>$request->quantity,
+            //     'total'=>$request->total,
+            // ]);      
+        return redirect(route('detail-offer', $offer->id))
+        ->with('success','Offer Added Successfully');
 }
     public function edit($id)
     {
@@ -64,5 +66,34 @@ class OfferController extends Controller
     public function detail(Offer $offer)
     {
         return view('offer.detailoffer', compact('offer'));
+    }
+    public function addcategory()
+    {
+        return view('offer.detailoffer');
+    }
+    public function insertcategory(Detail_offer $detail_offer)
+    {
+        $detail_offer =[
+            'offer_id'=> $detail_offer->offer_id,
+            'category'=> $detail_offer->category,
+            // 'quantity'=> $detail_offer->quantity,
+            // 'total'=> $detail_offer->total,
+        ];
+        Detail_offer::create($detail_offer);
+        return redirect('detailoffer');
+    }
+    public function addfacility()
+    {
+        return view('offer.detailoffer');
+    }
+    public function insertfacility(Facility $facility)
+    {
+        $facility =[
+            'facility'=> $facility->facility,
+            'quantity'=> $facility->quantity,
+            'price'=> $facility->price,
+        ];
+        Facility::create($facility);
+        return redirect('detailoffer');
     }
 }
