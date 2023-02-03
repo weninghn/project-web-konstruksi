@@ -133,7 +133,7 @@ Detail Offer
               <input type="price" class="form-control" id="price" name="price[]" >
             </div>
             <div class="modal-footer justify-content-between">
-              <button type="simpan" class="btn btn-primary">Save</button>
+              <button type="simpan" class="btn btn-success">Save</button>
             </div>
           </div>
           <!-- /.modal-content -->

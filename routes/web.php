@@ -80,7 +80,7 @@ Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->n
 //Detail
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');
 route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addcategory')->name('offer.addcategory');
-route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addfacility')->name('offer.addfacility');
+route::get('/offer/add','App\Http\Controllers\OfferController@addfacility')->name('offer.addfacility');
 route::post('/offer/insertcategory','App\Http\Controllers\OfferController@insertcategory')->name('offer.insertcategory');
 route::post('/offer/insertfacility','App\Http\Controllers\OfferController@insertfacility')->name('offer.insertfacility');
 //login
