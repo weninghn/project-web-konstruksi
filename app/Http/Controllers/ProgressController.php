@@ -9,11 +9,19 @@ use Illuminate\Http\Request;
 
 class ProgressController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-       $progres = Progres::all();
-
-       return view('progres.progres ',['progress' => $progres]);
+        // if ($request->has('search')) {
+        //     $projek = Project::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+        // } else {
+        //     $projek = Project::paginate(2);
+        //     $progres = Progres::paginate(2);
+        // }
+        $search = $request->search;
+        $projek = Project::where('name', 'LIKE', '%'. $search. '%')->paginate(2);
+        $progres = Progres::paginate();
+    // return view('user.user',['user' => $data]);
+       return view('progres.progres ',['progress' => $progres, 'project' => $projek]);
     }
     public function add()
     {

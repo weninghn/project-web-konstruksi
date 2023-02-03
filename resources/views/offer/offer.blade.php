@@ -34,6 +34,15 @@ Offer
                 <div class="row justify-content-end">
                   <a href="add-offer" class="btn btn-success">Add Offer</a>
                  </div>
+                 {{-- <td>
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <form action="/offer" method="GET">
+                      <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                      </form>
+                    </div>
+                  </div>
+                </td> --}}
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
@@ -67,6 +76,7 @@ Offer
                 
                 </table>
               </div>
+              {{-- {{ $offer->likes() }} --}}
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
