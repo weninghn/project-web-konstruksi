@@ -48,6 +48,10 @@ Detail Offer
                                           <td>Status</td>
                                           <td>{{ $offer->status}}</td>
                                       </tr>
+                                      <tr>
+                                          <td>Number</td>
+                                          <td>{{ $offer->number}}</td>
+                                      </tr>
                                   </table>
                                 
                                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-category">Add Category</button>
@@ -71,7 +75,6 @@ Detail Offer
                                     @endforelse
                                   </table>
                                 </div>
-=======
                                  
                               </div>
                           </div>
