@@ -32,8 +32,19 @@ Offer
               <div class="card-header">
               <h3 class="card-title">Offer</h3>
                 <div class="row justify-content-end">
+                  @if (auth()->user()->name=="admin")
                   <a href="add-offer" class="btn btn-success">Add Offer</a>
+                  @endif
                  </div>
+                 {{-- <td>
+                  <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <form action="/offer" method="GET">
+                      <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                      </form>
+                    </div>
+                  </div>
+                </td> --}}
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
@@ -57,9 +68,11 @@ Offer
                       <td>{{ $row->status }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>
+                      @if (auth()->user()->name=="admin")
                       <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
                       <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>    |
-                      <a href="{{ route('offer.detail', $row->id) }}">Detail</button>
+                      @endif
+                        <a href="{{ route('offer.detail', $row->id) }}">Detail</button>
                       </td>
                     </tr>
                     @endforeach
@@ -67,6 +80,7 @@ Offer
                 
                 </table>
               </div>
+              {{-- {{ $offer->likes() }} --}}
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

@@ -31,15 +31,18 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Data User</h3>
+                <h3 class="card-title">Data User</h3>
                 <div class="row justify-content-end">
+                  <br>
+                  @if (auth()->user()->name=="admin")
                   <a href="/adduser" class="btn btn-success">Add User</a>
+                  @endif
                 </div>
                 <td>
                   <div class="row g-3 align-items-center">
                     <div class="col-auto">
                       <form action="/user" method="GET">
-                      <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+                    <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
                       </form>
                     </div>
                   </div>
@@ -57,7 +60,9 @@
                     <th>Phone</th>
                     <th>Address</th>
                     <th>user</th>
-                    <th>Aksi</th>
+                    @if (auth()->user()->name=="admin")
+                    <th>Action</th>
+                    @endif
                   </tr>
                   @php
                     $no = 1;
@@ -70,10 +75,12 @@
                         <td>{{ $users->phone }}</td>
                         <td>{{ $users->addres }}</td>
                         <td>{{ $users->role?->name }}</td>
+                        @if (auth()->user()->name=="admin")
                         <td>
                           <a href="/edituser/{{ $users->id }}">Edit</a>  | 
                           <a href="/deleteuser/{{ $users->id }}" data-name="{{ $users->name }}">Delete</a>
                         </td>
+                        @endif
                       </tr>
                   @endforeach
                   

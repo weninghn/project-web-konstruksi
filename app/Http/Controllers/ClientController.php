@@ -9,9 +9,9 @@ class ClientController extends Controller
     public function index (Request $request){
 
         if ($request->has('search')) {
-            $data = Clients::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+            $data = Clients::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
         } else {
-            $data = Clients::paginate(2);
+            $data = Clients::paginate(5);
         }
 
         //$data = Clients::all();

@@ -10,9 +10,14 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $offer = Offer::all();
+        if ($request->has('search')) {
+            $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
+        } else {
+            $offer = Offer::paginate(2);
+        }
+        // $offer = Offer::all();
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
