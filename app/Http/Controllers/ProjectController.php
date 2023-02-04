@@ -21,13 +21,18 @@ class ProjectController extends Controller
         // $project = Project::all();
         // $offer = Offer::all();
         $search = $request->search;
-        $project = Project::where('client_id', 'LIKE', '%' .$search. '%')
-        ->orWhere('work_date', 'LIKE', '%' .$search. '%')
+        $project = Project::with('clients')
+        ->when($search, function($query) use ($search) {
+            $query->whereHas('clients', function($query) use($search) {
+                $query->where('name', 'LIKE', '%'.$search.'%');
+            })
+            ->orWhere('work_date', 'LIKE', '%' .$search. '%')
         ->orWhere('date_end', 'LIKE', '%' .$search. '%')
         ->orWhere('name', 'LIKE', '%' .$search. '%')
         ->orWhere('location', 'LIKE', '%' .$search. '%')
         ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
-        ->orWhere('price', 'LIKE', '%' .$search. '%')
+        ->orWhere('price', 'LIKE', '%' .$search. '%');
+        })
         ->paginate(5);
         return view ('project.project',['pro'=>$project]);
     }
