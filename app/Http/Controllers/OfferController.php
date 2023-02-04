@@ -17,9 +17,15 @@ class OfferController extends Controller
         // if ($request->has('search')) {
         //     $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
         // } else {
-            $offer = Offer::paginate(5);
+            // $offer = Offer::paginate(5);
         // }
         // $offer = Offer::all();
+        $search = $request->search;
+        $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
+        ->orWhere('status', 'LIKE', '%' .$search. '%')
+        ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
+        ->paginate(5);
+
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()

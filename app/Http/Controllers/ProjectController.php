@@ -11,16 +11,25 @@ class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->has('search')) {
-            $project  = Project::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
-            $offer = Offer::where('status', 'LIKE', '%' .$request->search. '%')->paginate(5);
-        } else {
-            $project = Project::paginate(5);
-            $offer = Offer::paginate(5);
-        }
+        // if ($request->has('search')) {
+        //     $project  = Project::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
+        //     $offer = Offer::where('status', 'LIKE', '%' .$request->search. '%')->paginate(5);
+        // } else {
+        //     $project = Project::paginate(5);
+        //     $offer = Offer::paginate(5);
+        // }
         // $project = Project::all();
         // $offer = Offer::all();
-        return view ('project.project',['pro'=>$project, 'offer'=>$offer]);
+        $search = $request->search;
+        $project = Project::where('client_id', 'LIKE', '%' .$search. '%')
+        ->orWhere('work_date', 'LIKE', '%' .$search. '%')
+        ->orWhere('date_end', 'LIKE', '%' .$search. '%')
+        ->orWhere('name', 'LIKE', '%' .$search. '%')
+        ->orWhere('location', 'LIKE', '%' .$search. '%')
+        ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
+        ->orWhere('price', 'LIKE', '%' .$search. '%')
+        ->paginate(5);
+        return view ('project.project',['pro'=>$project]);
     }
     public function create()
     {

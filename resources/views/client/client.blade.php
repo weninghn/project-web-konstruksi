@@ -40,15 +40,14 @@
               <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a>
               @endif
               </div>
-              <td>
-                <div class="row g-3 align-items-right">
-                  <div class="col-auto">
-                    <form action="/client" method="GET">
-                    <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </form>
+              <div class="my-3 col-12 col-sm-8 col-md-3">
+                <form action="" method="GET">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="inputPassword6" name="search">
+                    <button class="input-group-text btn btn-primary">Search</button>
                   </div>
-                </div>
-              </td>
+                </form>
+               </div>
               {{-- <div class="box-header with-border">
                 <button onclick="updatePeriode()" class="btn btn-info btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Ubah Periode</button>
                 <a href="{{ route('laporan.export_pdf', [$tanggalAwal, $tanggalAkhir]) }}" target="_blank" class="btn btn-success btn-xs btn-flat"><i class="fa fa-file-excel-o"></i> Export PDF</a>
