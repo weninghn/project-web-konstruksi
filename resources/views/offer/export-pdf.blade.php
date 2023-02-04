@@ -65,7 +65,7 @@
               <td>
                 {{ $category->category}}
               </td>    
-              <td> 
+              <td colspan="2"> 
                   {{ $facility->nama}}
               </td>
               <td>
