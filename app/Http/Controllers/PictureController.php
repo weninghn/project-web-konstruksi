@@ -18,7 +18,7 @@ class PictureController extends Controller
         $file_path = public_path('uploads/progres/'.$data->image);
         unlink($file_path);
         $data->delete();
-        return redirect()->route('progres')->with('Success', 'Picture Delete Successfully');
+        return redirect()->route('progres')->with('success', 'Picture Delete Successfully');
 
     }
 }   
