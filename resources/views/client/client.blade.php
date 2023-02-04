@@ -33,13 +33,15 @@
               <div class="card-header">
               <h3 class="card-title">Data Client</h3>
                 <div class="row justify-content-end">
-                  <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a>
+                  <a href="/cetak-form" class="btn btn-primary"><i class="fa fa-file-excel-o"></i>Cetak Client</a>
+                  {{-- <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a> --}}
                   @if (auth()->user()->name=="admin")
               <a href="/tambahdata" class="btn btn-success">Add Client</a>
+              <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a>
               @endif
               </div>
               <td>
-                <div class="row g-3 align-items-center">
+                <div class="row g-3 align-items-right">
                   <div class="col-auto">
                     <form action="/client" method="GET">
                     <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
@@ -47,6 +49,10 @@
                   </div>
                 </div>
               </td>
+              {{-- <div class="box-header with-border">
+                <button onclick="updatePeriode()" class="btn btn-info btn-xs btn-flat"><i class="fa fa-plus-circle"></i> Ubah Periode</button>
+                <a href="{{ route('laporan.export_pdf', [$tanggalAwal, $tanggalAkhir]) }}" target="_blank" class="btn btn-success btn-xs btn-flat"><i class="fa fa-file-excel-o"></i> Export PDF</a>
+            </div> --}}
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->

@@ -12,11 +12,11 @@ class OfferController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->has('search')) {
-            $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(2);
-        } else {
-            $offer = Offer::paginate(2);
-        }
+        // if ($request->has('search')) {
+        //     $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
+        // } else {
+            $offer = Offer::paginate(5);
+        // }
         // $offer = Offer::all();
         return view('offer.offer',['offer' => $offer]);
     }
@@ -71,36 +71,41 @@ class OfferController extends Controller
     public function detail($id)
     {
         $offer = Offer::find($id);
-        return view('offer.detailoffer', compact('offer'));
+        // $detail = Detail_offer::find($id);
+        return view('offer.detailoffer',['offer'=>$offer] );
     }
     public function addcategory()
     {
         return view('offer.detailoffer');
     }
-    public function insertcategory(Detail_offer $detail_offer)
+    public function insertcategory(Request $request)
     {
+
         $detail_offer =[
-            'offer_id'=> $detail_offer->offer_id,
-            'category'=> $detail_offer->category,
+            'offer_id'=> $request->offer_id,
+            'category'=> $request->category,
             // 'quantity'=> $detail_offer->quantity,
             // 'total'=> $detail_offer->total,
         ];
         Detail_offer::create($detail_offer);
-        return redirect('detailoffer');
+        return redirect()
+        ->back();
     }
     public function addfacility()
     {
         return view('offer.detailoffer');
     }
-    public function insertfacility(Facility $facility)
+    public function insertfacility(Request $request)
     {
         $facility =[
-            'facility'=> $facility->facility,
-            'quantity'=> $facility->quantity,
-            'price'=> $facility->price,
+            'detail_offer_id'=>$request->detail_offer_id,
+            'nama'=> $request->nama,
+            'quantity'=> $request->quantity,
+            'price'=> $request->price,
         ];
         Facility::create($facility);
-        return redirect('detailoffer');
+        return redirect()
+        ->back();
     }
     public function export_pdf()
     {

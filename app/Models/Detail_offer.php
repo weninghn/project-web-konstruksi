@@ -23,7 +23,7 @@ class Detail_offer extends Model
     {
         return $this->belongsTo(Offers::class);
     }
-    public function Facility(): HasMany
+    public function facilities()
     {
         return $this->hasMany(Facility::class);
     }

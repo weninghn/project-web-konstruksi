@@ -97,7 +97,8 @@ Project
                                       {{ $project->date_offer }}
                                   </td>
                                   <td>
-                                    @currency ($project->price)
+                                    @currency($project->price)
+                                    {{-- {{ $project->price }} --}}
                                 </td>
                                 <td> 
                                   {{ $project->offer()->latest()->first()?->status ?? '-' }}
