@@ -18,10 +18,16 @@ class ProgressController extends Controller
         //     $progres = Progres::paginate(2);
         // }
         $search = $request->search;
-        $projek = Project::where('name', 'LIKE', '%'. $search. '%')->paginate(2);
-        $progres = Progres::paginate(5);
+        $progres = Progres::where('project_id', 'LIKE', '%' .$search. '%')
+        ->orWhere('presentase', 'LIKE', '%' .$search. '%')
+        ->orWhere('job_details', 'LIKE', '%' .$search. '%')
+        ->orWhere('date', 'LIKE', '%' .$search. '%')
+        ->paginate(5);
+        // $projek = Project::where('name', 'LIKE', '%'. $search. '%')->paginate(2);
+        // $progres = Progres::paginate(5);
     // return view('user.user',['user' => $data]);
-       return view('progres.progres ',['progress' => $progres, 'project' => $projek]);
+    
+       return view('progres.progres ',['progress' => $progres]);
     }
     public function add()
     {

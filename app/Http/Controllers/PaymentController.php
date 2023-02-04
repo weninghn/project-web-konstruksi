@@ -10,9 +10,20 @@ use App\Models\payment_method;
 
 class PaymentController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $payment = Payment::all();
+        $search = $request->search;
+        $payment = Payment::where('project_id', 'LIKE', '%' .$search. '%')
+        ->orWhere('payment_method_id', 'LIKE', '%' .$search. '%')
+        ->orWhere('amount_payment', 'LIKE', '%' .$search. '%')
+        ->orWhere('payment_date', 'LIKE', '%' .$search. '%')
+        ->orWhere('payment_to', 'LIKE', '%' .$search. '%')
+        ->orWhere('status', 'LIKE', '%' .$search. '%')
+        ->orWhere('note', 'LIKE', '%' .$search. '%')
+        ->paginate(5);
+
+        // return view('user.user',['user' => $data]);
+        // $payment = Payment::all();
         return view('payment.payment',['payment' => $payment]);
     }
     public function add()

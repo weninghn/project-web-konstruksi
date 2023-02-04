@@ -11,12 +11,20 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        if ($request->has('search')) {
-            $data = Users::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
-        } else {
-            $data = Users::paginate(5);
-        }
+        // if ($request->has('search')) {
+        //     $data = Users::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
+        // } else {
+        //     $data = Users::paginate(5);
+        // }
         // $data = Users::all();
+        $search = $request->search;
+        $data = Users::where('name', 'LIKE', '%' .$search. '%')
+        ->orWhere('email', 'LIKE', '%' .$search. '%')
+        ->orWhere('addres', 'LIKE', '%' .$search. '%')
+        ->orWhere('phone', 'LIKE', '%' .$search. '%')
+        ->orWhere('role_id', 'LIKE', '%' .$search. '%')
+        ->paginate(5);
+
         return view('user.user',['user' => $data]);
     }
 

@@ -39,15 +39,14 @@ Project
               <a href="{{route('project.create')}}" class="btn btn-success">Add Project</a>
               @endif
               </div>
-              <td>
-                <div class="row g-3 align-items-center">
-                  <div class="col-auto">
-                    <form action="/project" method="GET">
-                    <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                    </form>
+              <div class="my-3 col-12 col-sm-8 col-md-3">
+                <form action="" method="GET">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" id="inputPassword6" name="search">
+                    <button class="input-group-text btn btn-primary">Search</button>
                   </div>
-                </div>
-              </td>
+                </form>
+               </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->

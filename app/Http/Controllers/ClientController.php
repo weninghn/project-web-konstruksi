@@ -18,11 +18,16 @@ class ClientController extends Controller
 
         // return view('client.client', compact('tanggalAwal', 'tanggalAkhir', 'data'));
         
-        if ($request->has('search')) {
-            $data = Clients::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
-        } else {
-            $data = Clients::paginate(5);
-        }
+        // if ($request->has('search')) {
+        //     $data = Clients::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
+        // } else {
+        //     $data = Clients::paginate(5);
+        // }
+        $search = $request->search;
+        $data = Clients::where('name', 'LIKE', '%' .$search. '%')
+        ->orWhere('phone', 'LIKE', '%' .$search. '%')
+        ->orWhere('address', 'LIKE', '%' .$search. '%')
+        ->paginate(5);
 
         return view('client.client', compact('tanggalAwal', 'tanggalAkhir', 'data'));
 
