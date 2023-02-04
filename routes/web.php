@@ -100,8 +100,9 @@ Route::post('offer-add',[OfferController::class,'store'])->name('offer.store')->
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit')->middleware('auth');
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update')->middleware('auth');
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer')->middleware('auth');
+Route::get('/deletefacility/{id}', [OfferController::class, 'destroy'])->name('destroy')->middleware('auth');
 Route::get('/detailoffer/{id}', [OfferController::class, 'detail'])->name('offer.detail')->middleware('auth');
-Route::get('export',[OfferController::class, 'export_pdf']);
+// Route::get('export/{$id}',[OfferController::class, 'export_pdf'])->name('export_pdf');
 
 
 //Pembayaran
@@ -142,7 +143,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     // Route::get('/cetak/pdf/{awal}/{akhir}', [ClientController::class, 'exportPDF'])->name('client.export_pdf')->middleware('auth');
     Route::get('/cetak-form', [ClientController::class, 'cetakForm'])->name('cetak-form')->middleware('auth');
     Route::get('cetak-data-pertanggal/{tglawal}/{tglakhir}', [ClientController::class, 'cetakClientPertanggal'])->name('cetak-data-pertanggal')->middleware('auth');
-    // Route::get('/laporan/pdf/{awal}/{akhir}', [ClientController::class, 'cetakForm'])->name('laporan.export_pdf')  ;
+
 
     // route project
     route::get('/project','App\Http\Controllers\ProjectController@index')->name('project')->middleware('auth');
@@ -151,6 +152,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('/edit/{slug}', [ProjectController::class, 'edit'])->name('edit')->middleware('auth');
     Route::post('/update/{slug}', [ProjectController::class, 'update'])->name('update')->middleware('auth');
     Route::get('delete/{slug}',[ProjectController::class,'delete'])->name('delete')->middleware('auth');
+
     //progres
     Route::get('/picture-destroy/{id}',[PictureController::class,'destroy']); 
     Route::get('/progres', [ProgressController::class, 'index'])->name('progres')->middleware('auth');
@@ -160,6 +162,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::put('/update/{slug}',[ProgressController::class,'update'])->middleware('auth');
     Route::get('progresdelete/{slug}',[ProgressController::class,'progresdelete'])->name('progresdelete')->middleware('auth');
     Route::get('/detailprogres/{id}', [ProgressController::class, 'detail'])->middleware('auth');
+
     //Offer
     Route::get('/offer',[OfferController::class,'index'])->name('offer')->middleware('auth')->middleware('auth');
     Route::get('add-offer',[OfferController::class,'add'])->name('offer.add')->middleware('auth');
@@ -167,6 +170,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit')->middleware('auth');
     Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update')->middleware('auth');
     Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer')->middleware('auth');
+    Route::get('/export-pdf/{id}',[OfferController::class, 'export_pdf'])->name('export_pdf')->middleware('auth');
+
     //Pembayaran
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment')->middleware('auth');
     Route::get('add-payment', [PaymentController::class,'add'])->middleware('auth');

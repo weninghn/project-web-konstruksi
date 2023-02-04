@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\Models\Offer;
-use App\Models\Detail_offer;
-use App\Models\facility;
 use App\Models\Project;
+// use App\Models\facility;
+use App\Models\Facility;
+use App\Models\Detail_offer;
 use Illuminate\Http\Request;
 
 class OfferController extends Controller
@@ -107,12 +109,23 @@ class OfferController extends Controller
         return redirect()
         ->back();
     }
-    public function export_pdf()
+    public function export_pdf($id)
     {
-    	// $offer = Offer::find($id);
- 
-    	// $pdf = PDF::loadview('export-pdf',['offers'=>$offer]);
-    	// return $pdf->download('Offer-pdf');
-        return view('offer.export-pdf');
+        // dd($id)
+    	$offer = Offer::find($id);     
+    	$detail = Detail_offer::find($id);     
+    	$facility = Facility::find($id);     
+    	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'facilities'=>$facility]);
+        return $pdf->stream('export-pdf');
+      
           }
-}
+          
+    public function destroy($id)
+    {
+        $data = Facility::where('id',$id)->first();
+        $data->delete(); 
+        return redirect()
+        ->back();
+
+    }
+      }

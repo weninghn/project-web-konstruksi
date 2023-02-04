@@ -27,8 +27,8 @@ Detail Offer
                   <div class="row">
                       <div class="col-md-12">
                           <div class="box box-success">
-                              <div class="box-header with-border">
-                                  <h4></h4>
+                              <div class="row justify-content-end ms-md-3 mx-2 mb-3">
+                                  <a href="{{ route('export_pdf', $offer->id) }}" class="btn btn-success">Export PDF</a>
                               </div>
                               <!-- /.box-header -->
                               <div class="box-body">
@@ -54,7 +54,7 @@ Detail Offer
                                       </tr>
                                   </table>
                                 
-                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-add-category">Add Category</button>
+                                  <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category">Add Category</button>
                                   <table class="table table-sm table-striped">
                                     {{-- @foreach($offer->detail_offers as $category)
                                     <tr>
@@ -82,7 +82,7 @@ Detail Offer
                                             <td>{{ $facility->quantity }}</td>
                                             <td>{{ $facility->price }}</td>
                                             <td>
-                                              <a href="#" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                              <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
                                           </tr>
                                           @empty                                              
