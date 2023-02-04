@@ -36,8 +36,7 @@ Detail Offer
                                       <tr>
                                           <td style="width:20%">Project</td>
                                           <td>{{ $offer->project->name}}</td>
-{{-- =======
-                                          <td style="width:20%">Category</td>
+                                          {{-- <td style="width:20%">Category</td>
                                           <td>{{ $offer->facilitys->category}}</td> --}}
                                       </tr>
                                       <tr>
