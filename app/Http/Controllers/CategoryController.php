@@ -41,7 +41,6 @@ class CategoryController extends Controller
         $cat->delete(); 
         return redirect()
         ->back();
-
     }
 
 }
