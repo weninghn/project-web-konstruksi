@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('facilitys', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('detail_offers_id');
-            $table->foreign('detail_offers_id')->references('id')->on('detail_offers');
+            $table->unsignedBigInteger('detail_offer_id');
+            $table->foreign('detail_offer_id')->references('id')->on('detail_offers');
             $table ->string('nama',255);
             // $table->string('category');
             $table->string('quantity');
