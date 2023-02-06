@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProjectController;
@@ -170,7 +171,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit')->middleware('auth');
     Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update')->middleware('auth');
     Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer')->middleware('auth');
-    Route::get('/export-pdf/{id}',[OfferController::class, 'export_pdf'])->name('export_pdf')->middleware('auth');
+    
 
     //Pembayaran
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment')->middleware('auth');
@@ -181,6 +182,15 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete')->middleware('auth');
     //Detail
     Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail')->middleware('auth');
+    Route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addcategory')->name('offer.addcategory')->middleware('auth');
+    Route::get('/offer/add','App\Http\Controllers\CategoryController@addfacility')->name('offer.addfacility')->middleware('auth');
+    Route::post('/offer/insertcategory','App\Http\Controllers\CategoryController@insertcategory')->name('offer.insertcategory')->middleware('auth');
+    // Route::get('/editcategory/{id}',[CategoryController::class,'edit'])->name('offer.edit')->middleware('auth');
+    // Route::put('/update/{id}',[CategoryController::class,'update'])->name('category.update')->middleware('auth');
+    Route::post('/offer/insertfacility','App\Http\Controllers\OfferController@insertfacility')->name('offer.insertfacility')->middleware('auth');
+    Route::get('/deletefacility/{id}', [OfferController::class, 'destroy'])->name('destroy')->middleware('auth');
+    Route::get('/deletecategory/{id}', [CategoryController::class, 'delete'])->name('delete')->middleware('auth');
+    Route::get('/export-pdf/{id}',[OfferController::class, 'export_pdf'])->name('export_pdf')->middleware('auth');
 });
 //owner
 Route::group(['middleware' => ['auth', 'CekLevel:admin,owner']], function() {

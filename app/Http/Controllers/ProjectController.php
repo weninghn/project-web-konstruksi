@@ -20,15 +20,29 @@ class ProjectController extends Controller
         // }
         // $project = Project::all();
         // $offer = Offer::all();
+        // $search = $request->search;
         $search = $request->search;
-        $project = Project::where('client_id', 'LIKE', '%' .$search. '%')
-        ->orWhere('work_date', 'LIKE', '%' .$search. '%')
-        ->orWhere('date_end', 'LIKE', '%' .$search. '%')
-        ->orWhere('name', 'LIKE', '%' .$search. '%')
-        ->orWhere('location', 'LIKE', '%' .$search. '%')
-        ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
-        ->orWhere('price', 'LIKE', '%' .$search. '%')
+        $project = Project::with('client')
+        ->when($search, function($query) use ($search) {
+            $query->whereHas('client', function($query) use($search) {
+            $query->where('name', 'LIKE', '%'.$search.'%');
+            })
+            ->orWhere('work_date', 'LIKE', '%' .$search. '%')
+            ->orWhere('date_end', 'LIKE', '%' .$search. '%')
+            ->orWhere('name', 'LIKE', '%' .$search. '%')
+            ->orWhere('location', 'LIKE', '%' .$search. '%')
+            ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
+            ->orWhere('price', 'LIKE', '%' .$search. '%');
+        })
         ->paginate(5);
+        // $project = Project::where('client_id', 'LIKE', '%' .$search. '%')
+        // ->orWhere('work_date', 'LIKE', '%' .$search. '%')
+        // ->orWhere('date_end', 'LIKE', '%' .$search. '%')
+        // ->orWhere('name', 'LIKE', '%' .$search. '%')
+        // ->orWhere('location', 'LIKE', '%' .$search. '%')
+        // ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
+        // ->orWhere('price', 'LIKE', '%' .$search. '%')
+        // ->paginate(5);
         return view ('project.project',['pro'=>$project]);
     }
     public function create()

@@ -20,10 +20,15 @@ class ProgressController extends Controller
         //     $progres = Progres::paginate(2);
         // }
         $search = $request->search;
-        $progres = Progres::where('project_id', 'LIKE', '%' .$search. '%')
-        ->orWhere('presentase', 'LIKE', '%' .$search. '%')
+        $progres = Progres::with('project')
+        ->when($search, function($query) use ($search) {
+            $query->whereHas('project', function($query) use($search) {
+                $query->where('name', 'LIKE', '%'.$search.'%');
+            })
+            ->orWhere('presentase', 'LIKE', '%' .$search. '%')
         ->orWhere('job_details', 'LIKE', '%' .$search. '%')
-        ->orWhere('date', 'LIKE', '%' .$search. '%')
+        ->orWhere('date', 'LIKE', '%' .$search. '%');
+        })
         ->paginate(5);
         // $projek = Project::where('name', 'LIKE', '%'. $search. '%')->paginate(2);
         // $progres = Progres::paginate(5);
@@ -71,7 +76,7 @@ class ProgressController extends Controller
             }
         }
         // $progres->pictures()->sync($request->pictures);
-        return redirect('progres')->with('Success','Progres Added Successfully');
+        return redirect('progres')->with('success','Progres Added Successfully');
     }
     public function edit($slug)
     {
@@ -110,14 +115,14 @@ class ProgressController extends Controller
         }
      
     
-        return redirect('progres')->with('Success','Progres Edted Successfully');
+        return redirect('progres')->with('success','Progres Edited Successfully');
    
     }
 
     public function progresdelete($id)
     {
         Progres::where('id', $id)->delete();
-        return redirect()->route('progres')->with('Success', 'Progress Deleted Successfully');
+        return redirect()->route('progres')->with('success', 'Progress Deleted Successfully');
     }
 
     public function detail($id)
