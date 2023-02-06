@@ -69,6 +69,12 @@ Detail Offer
                                       <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;">Add Facility</button>
                                       </td>
                                       <td>
+                                        <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                      </td>
+                                      {{-- <td>                                  
+                                        <a href="/editcategory/{{$category->id}}">Edit</a> 
+                                      </td> --}}
+                                      <td>
                                         <table class="table">
                                           <tr>
                                          <th>Facility</th>   

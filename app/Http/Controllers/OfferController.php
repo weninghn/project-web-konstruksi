@@ -87,23 +87,7 @@ class OfferController extends Controller
         // $detail = Detail_offer::find($id);
         return view('offer.detailoffer',['offer'=>$offer] );
     }
-    public function addcategory()
-    {
-        return view('offer.detailoffer');
-    }
-    public function insertcategory(Request $request)
-    {
-
-        $detail_offer =[
-            'offer_id'=> $request->offer_id,
-            'category'=> $request->category,
-            // 'quantity'=> $detail_offer->quantity,
-            // 'total'=> $detail_offer->total,
-        ];
-        Detail_offer::create($detail_offer);
-        return redirect()
-        ->back();
-    }
+    
     public function addfacility()
     {
         return view('offer.detailoffer');
@@ -139,4 +123,5 @@ class OfferController extends Controller
         ->back();
 
     }
+   
       }
