@@ -43,28 +43,24 @@
        @csrf
        @method('PUT')
         <div class="card-body">
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="category">Category</label>
             <input type="text" class="form-control" id="category" name="category" value="{{ $offer->category }}">
-          </div>
+          </div> --}}
           <div class="form-group">
             <label for="status">Status Project</label>
-            <input type="text" class="form-control" id="status" name="status"value="{{ $offer->status }}" >
+            <select name="status_id" id="status_id" name="status_id"class="form-control " >
+              <option value="#"></option>
+              @foreach ($status as $item)
+              <option value="{{ $item->id}}">{{ $item->name}}</option>
+              @endforeach
+            </select>
           </div>
             <div class="form-group">
             <label for="date_offer">Date Offer</label>
             <input type="date" class="form-control" id="date_offer" name="date_offer"value="{{ $offer->date_offer }}" >
           </div>
-          <div class="form-group">
-                  <label for="facility">Facility</label>
-                  <input type="text" class="form-control" id="facility" name="facility">
-                </div>
-                <div class="form-group">
-                  <label for="quantity">Quantity</label>
-                  <input type="number" class="form-control" id="quantity" name="quantity">
-                </div>
-          </div> 
-        </div>
+                 </div>
         <!-- </.card-body -->
 
          <div class="card-footer">

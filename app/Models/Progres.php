@@ -15,6 +15,8 @@ class Progres extends Model
     
     protected  $fillable= [
         'project_id',
+        'offer_id',
+        'payment_id',
         'presentase',
         'job_details',
         // 'photos',
@@ -34,11 +36,16 @@ class Progres extends Model
         return $this->belongsTo(Project::class,'project_id','id');
     }
     
-    /**
-     * The roles that belong to the Progres
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
-     */
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class,'payment_id','id');
+    }
+    
+    public function offer(): BelongsTo
+    {
+        return $this->belongsTo(Offer::class, 'offer_id', 'id');
+    }
+    
     public function pictures()
     { 
         return $this->hasMany(Picture::class);

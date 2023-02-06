@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Progres;
+use App\Models\Status_offer;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Offer extends Model
 {
@@ -14,13 +16,16 @@ class Offer extends Model
 
     protected $fillable = [
         'project_id',
-        'status',
+        'status_id',
         'date_offer',
         'number',
     ];
 
     public function project(){
         return $this->belongsTo(Project::class,'project_id','id');
+    }
+    public function status(){
+        return $this->belongsTo(Status_offer::class,'status_id','id');
     }
     public function offer(): HasMany
     {
@@ -34,6 +39,9 @@ class Offer extends Model
     {
         return $this->belongsTo(Facility::class,'facility_id','id');
     }
+    public function progres()
+    {
+        return $this->hasMany(Progres::class);
+    }
 }
     // public function allData()
-

@@ -100,7 +100,7 @@ Project
                                     {{-- {{ $project->price }} --}}
                                 </td>
                                 <td> 
-                                  {{ $project->offer()->latest()->first()?->status ?? '-' }}
+                                  {{ $project->offer()->latest()->first()?->status->name ?? '-' }}
                                 </td>
                                 @if (auth()->user()->name=="admin")
                                   <td>

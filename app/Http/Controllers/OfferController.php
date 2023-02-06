@@ -8,68 +8,87 @@ use App\Models\Project;
 // use App\Models\facility;
 use App\Models\Facility;
 use App\Models\Detail_offer;
+use App\Models\Status_offer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class OfferController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         // if ($request->has('search')) {
         //     $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
         // } else {
             // $offer = Offer::paginate(5);
         // }
-        // $offer = Offer::all();
-        $search = $request->search;
-        $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
-        ->orWhere('status', 'LIKE', '%' .$search. '%')
-        ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
-        ->paginate(5);
+        $offer = Offer::all();
+        // $search = $request->search;
+        // $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
+        // ->orWhere('status', 'LIKE', '%' .$search. '%')
+        // ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
+        // ->paginate(5);
 
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
     {
         $project = Project::all();
-        // $detail = Detail_offer::all();
-        // $facility = Facility::all();
-        return view('offer.offer-add',['project' => $project]);
+        $status = Status_offer::all();
+        // dd($status->all());
+        return view('offer.offer-add',['project' => $project , 'status' => $status]);
     }
     public function store(Request $request)
     {
-        $offer = Offer::create([
-            'project_id' => $request->project_id,
-            'status' => $request->status,
-            'date_offer' => $request->date_offer,
-            'number' => $request->number,
-        ]);
-            // Detail_offer::create([
-            //     'offer_id' => $offer->id,
-            //     'category'=>$request->category,
-            //     'quantity'=>$request->quantity,
-            //     'total'=>$request->total,
-            // ]);      
-        return redirect(route('detail-offer', $offer->id))
-        ->with('success','Offer Added Successfully');
+        $count = Offer::where('project_id',$request->project_id)->where('status_id',1)->count();
+
+        if($count >= 1){
+            Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');
+            Session::flash('alert-class','alert-danger');
+            return redirect('offer');
+        }else{
+            try {
+             $offer = [
+                 'project_id' => $request->project_id,
+                 'status_id'=> $request->status_id,
+                 'date_offer' => $request->date_offer,
+                 'number' => $request->number,
+             ];
+             Offer::create($offer);
+             return redirect(route('offer'))
+             ->with('success','Offer Added Successfully');
+            } catch (\Throwable $th) {
+             DB::rollBack(); 
+            }
+         }
 }
     public function edit($id)
     {
         $offer = Offer::find($id);
-        $detail_offer = Detail_offer::find($id);
-        return view('offer.offer-edit', compact('offer', 'detail_offer'));
+        $status = Status_offer::all();
+        return view('offer.offer-edit', compact('offer', 'status'));
     }
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
-        $offer = Offer::select('*')->where('id', $request->id)->first();
-        $detail_offer = Detail_offer::select('*')->where('id', $request->id)->first();
-        $offer->category = $request->category;
-        $offer->status = $request->status;
-        $offer->date_offer = $request->date_offer;
-        $detail_offer->facility = $request->facility;
-        $detail_offer->quantity = $request->quantity;
-        $detail_offer->save();
-        $offer->save();
-        return redirect('offer')->with('success','Offer Update Successfully');    
+        $count = Offer::where('project_id',$request->project_id)->where('status_id',1)->count();
+
+        if($count >= 1){
+            Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');
+            Session::flash('alert-class','alert-danger');
+            return redirect('offer');
+        }else{
+            try {
+                $offer = offer::where('id', $id)->first();
+                $offer->update($request->all());
+
+            
+             return redirect(route('offer'))
+             ->with('success','Offer Update Successfully');
+            } catch (\Throwable $th) {
+             DB::rollBack(); 
+            }}
+        
+        // return redirect('offer')->with('success','Offer Update Successfully');    
     }
     public function deleteoffer($id)
     {

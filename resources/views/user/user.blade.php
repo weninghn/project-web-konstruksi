@@ -48,6 +48,13 @@
                  </div>
                </div>
               <div class="row g-3 align-items-center mt-2">
+                <div class="mt-5">
+                  @if (session('message'))
+                      <div class="alert {{session('alert-class')}}">
+                          {{ session('message') }}
+                      </div>
+                  @endif
+              </div>
               <!-- .card-header -->
               <div class="card-body"> 
                 <table id="example2" class="table table-bordered table-hover">

@@ -44,7 +44,9 @@ class UserController extends Controller
             'phone'=> $request->phone,
             'password' => $request->password,
         ];
+
         Users::create($user);
+
         return redirect('user')->with('success','User Added Successfully'); 
     }
 
