@@ -30,4 +30,8 @@ class Clients extends Model
             ]
             ];
     }
+    public function project()
+    {
+        return $this->hasMany(Project::class);
+    }
 }

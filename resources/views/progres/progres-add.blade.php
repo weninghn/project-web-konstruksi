@@ -20,7 +20,7 @@
   </div><!-- /.container-fluid -->
 </section>
 
-   
+
         <section class="content">
             <div class="container-fluid">
                 <div class="content-wrapper">
@@ -43,6 +43,24 @@
                             @foreach ($project as $item)
                             <option value="{{ $item->id}}">{{ $item->name}}</option>
                             @endforeach
+
+                        </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Number</label>
+                          <select name="offer_id" id="offer_id" name="offer_id"class="form-control " >
+                            @foreach ($offer as $item)
+                            <option value="{{ $item->id}}">{{ $item->number}}</option>
+                            @endforeach
+                            
+                        </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="name">Payment</label>
+                          <select name="payment_id" id="payment_id" name="payment_id"class="form-control " >
+                            @foreach ($payment as $item)
+                            <option value="{{ $item->id}}">{{ $item->status}}</option>
+                            @endforeach
                             
                         </select>
                         </div>
@@ -58,20 +76,50 @@
                           <label for="date">Date Progres</label>
                           <input type="date" class="form-control" id="date" name="date" placeholder="date">
                         </div>
+
+						<div class="row" id="image-preview-container">
+
+						</div>
+
+                        {{-- @php
+                            $files = DB::table('progres')->where('id', 1)->first();
+                            $filess = explode('|', $files->$files);
+                        @endphp
+                        {{-- @php
+                            $file = DB::table('progres')->where('id', 1)->first();
+                            $files = explode('|', $file->file);
+                        @endphp
+                        @foreach ($filess as $item)
+                            <img src="{{URL::to($item)}}" style="height:60px;" alt="">
+                        @endforeach --}}
                         <div class="form-group">
-                          <label for="exampleInputFile">File input</label>
+                          <label for="upload_file">File input</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" name="files[]" class="custom-file-input" id="exampleInputFile" multiple>
-                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                              <input type="file" name="files[]" class="custom-file-input" id="upload_file" multiple>
+                              <label class="custom-file-label" for="upload_file">Choose file</label>
                             </div>
-                           
+                            {{-- @foreach ($progress->pictures as $picture)
+                            <div class="col-md-3">
+                              <a href="{{ url("picture-destroy/".$picture->id) }}" class="btn btn-sm btn-danger float-right"><i class="fas fa-times"></i></a>
+                              <img src="{{ asset('uploads/progres/'.$picture->image) }}" class="w-100">
+                            </div>
+                            @endforeach
+                          </div> --}}
                           </div>
-                        </div>
-                       
+                              {{-- @foreach ($progress->pictures as $picture)
+                              <div class="col-md-3">
+                                <a href="{{ url("picture-destroy/".$picture->id) }}" class="btn btn-sm btn-danger float-right"><i class="fas fa-times"></i></a>
+                                <img src="{{ asset('uploads/progres/'.$picture->image) }}" class="w-100">
+                              </div>
+                              @endforeach --}}
+                        {{-- @foreach ($progres->pictures as $picture)
+                          <img src="{{ asset('uploads/progres/'.$picture->image) }}" style="width: 150px; margin-right: 20px">
+                        @endforeach --}}
+
                       </div>
                       <!-- /.card-body -->
-      
+
                       <div class="card-footer">
                         <button type="submit" class="btn btn-success">Submit</button>
                       </div>
@@ -82,4 +130,54 @@
             </div>
         </section>
     </div>
+
+    <script>
+      var loadFile = function(event)
+      {
+        var output = document.getElementById('output');
+        output.src = URL.createObjectURL(event.target.files[0]);
+      };
+
+
+    </script>
 @endsection
+
+@push('script')
+    <script>
+      $('#upload_file').on('change', function() {
+		//get all image files
+		var files = $(this)[0].files;
+		//check file length
+		if (files.length > 0) {
+			$('#image-preview-container').html('');
+			var index = 0;
+			var total_file_size = 0;
+			//loop through all files
+			$.each(files, function(i, file) {
+				//add to total size
+				total_file_size = total_file_size + file.size;
+				//make sure file is image
+				if (file.type.match(/image.*/)) {
+					// initialize file reader
+					var reader = new FileReader();
+					//image loaded
+					reader.onload = function(e) {
+						//create image element
+						var img = $('<img/>');
+						console.log(img);
+						img.attr('src', e.target.result);
+						img.attr('class', 'img-fluid mr-2');
+						//set styling properties, height 100px and width auto
+						img.css('height', '100px');
+						img.css('width', 'auto');
+						//append image to output element
+						$('#image-preview-container').append(img);
+					}
+					//read the image
+					reader.readAsDataURL(file);
+				}
+			});
+		}
+	});
+    </script>
+@endpush

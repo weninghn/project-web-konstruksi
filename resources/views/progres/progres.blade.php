@@ -52,7 +52,9 @@ Progress
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>No Offer</th>
                       <th>Project</th>
+                      <th>Payment</th>
                       <th>Persentase</th>
                       <th>Job Detail</th>
                       <th>Date Progres</th>
@@ -64,7 +66,9 @@ Progress
                   @foreach($progress as $index => $item)
                     <tr>
                     <td>{{ $index + $progress->firstItem() }}</td>
+                    <td>{{ $item->offer->number }}</td>
                     <td>{{ $item->project->name }}</td>
+                    <td>{{ $item->offer->status}}</td>
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
                     <td>{{ $item->date }}</td>

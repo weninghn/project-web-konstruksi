@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Picture;
 use App\Models\Progres;
+use App\Models\Offer;
+use App\Models\Payment;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -38,7 +40,9 @@ class ProgressController extends Controller
     {
         $projek = Project::all();
         $picture = Picture::all();
-        return view('progres.progres-add',['project' => $projek, 'picture' => $picture]);
+        $offer = Offer::all();
+        $payment = Payment::all();
+        return view('progres.progres-add',['project' => $projek, 'picture' => $picture, 'offer'=>$offer, 'payment'=>$payment]);
       
     }
 
@@ -46,6 +50,8 @@ class ProgressController extends Controller
     {
         $progres = Progres::create([
             'project_id' => $request->project_id,
+            'offer_id' => $request->offer_id,
+            'payment_id' => $request->payment_id,
             'presentase' => $request->presentase,
             'job_details' => $request->job_details,
             'date' => $request->date,

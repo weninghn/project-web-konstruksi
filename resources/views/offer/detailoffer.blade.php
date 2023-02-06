@@ -46,7 +46,7 @@ Detail Offer
                                       </tr>
                                       <tr>
                                           <td>Status</td>
-                                          <td>{{ $offer->status}}</td>
+                                          <td>{{ $offer->status->name }}</td>
                                       </tr>
                                       <tr>
                                           <td>Number</td>

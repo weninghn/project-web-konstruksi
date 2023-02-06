@@ -44,15 +44,13 @@ Offer
                     </div>
                   </form>
                  </div>
-                 {{-- <td>
-                  <div class="row g-3 align-items-center">
-                    <div class="col-auto">
-                      <form action="/offer" method="GET">
-                      <input type="search" name="search" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
-                      </form>
-                    </div>
-                  </div>
-                </td> --}}
+                 <div class="mt-5">
+                  @if (session('message'))
+                      <div class="alert {{session('alert-class')}}">
+                          {{ session('message') }}
+                      </div>
+                  @endif
+              </div>
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
@@ -61,6 +59,7 @@ Offer
                   <thead>
                   <tr>
                     <th>No</th>
+                    <th>No Penawaran</th>
                       <th>Project</th>
                       <th>Status Project</th>
                       <th>Date Offer</th>
@@ -72,8 +71,9 @@ Offer
                     @foreach($offer as $row)
                     <tr>
                       <th scope="row">{{ $no++ }}</th>
+                      <td>{{ $row->number }}</td>
                       <td>{{ $row->project?->name }}</td>
-                      <td>{{ $row->status }}</td>
+                      <td>{{ $row->status?->name }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>
                       @if (auth()->user()->name=="admin")

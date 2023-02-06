@@ -44,6 +44,7 @@ class UserController extends Controller
             'phone'=> $request->phone,
             'password' => $request->password,
         ];
+<<<<<<< HEAD
         $check_if_user_exist = User::where([
             ['email', $request->email],
             ['role_id', $request->role_id] 
@@ -55,6 +56,12 @@ class UserController extends Controller
         else {
             $user = Users::create($user);
         }
+=======
+
+        Users::create($user);
+
+        return redirect('user')->with('success','User Added Successfully'); 
+>>>>>>> f014a53c671719083da9a0e40696c1bd8268fdd4
     }
 
     public function edituser($id)
