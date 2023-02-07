@@ -18,7 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('project_id');
             $table->foreign('project_id')->references('id')->on('projects');
             $table->string('category',255);
-            $table->string('status',255);
+            // $table->string('status',255);
+            $table->boolean('status')->default(0);
             $table->string('date_offer',255);
             $table->timestamps();
         });

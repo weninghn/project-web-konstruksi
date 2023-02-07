@@ -14,19 +14,24 @@ class Offer extends Model
     public $timetamps = 'false';
     protected $primaryKey ='id';
 
+
     protected $fillable = [
         'project_id',
-        'status_id',
         'date_offer',
+        'status',
         'number',
     ];
 
+    protected $appends = [
+        'status_text'
+    ];
+    
     public function project(){
         return $this->belongsTo(Project::class,'project_id','id');
     }
-    public function status(){
-        return $this->belongsTo(Status_offer::class,'status_id','id');
-    }
+    // public function status(){
+    //     return $this->belongsTo(Status_offer::class,'status_id','id');
+    // }
     public function offer(): HasMany
     {
         return $this->hasMany(Offer::class);
@@ -42,6 +47,16 @@ class Offer extends Model
     public function progres()
     {
         return $this->hasMany(Progres::class);
+    }
+    public function  getStatusTextAttribute() {
+        $status = $this->status ?? 0;
+
+        $array_status = [
+            0 => 'Deal',
+            1 => 'Revisi',
+        ];
+
+        return $array_status[$status];
     }
 }
     // public function allData()

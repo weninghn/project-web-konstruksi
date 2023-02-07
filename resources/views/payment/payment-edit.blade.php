@@ -44,23 +44,30 @@
                   <label for="payment_to">Payment To</label>
                   <input type="text" class="form-control" id="payment_to" value="{{ $payment->payment_to }}" name="payment_to" >
                 </div>
+               
+                  <div class="form-group">
+                    <label for="status">Status Payment</label>
+                    <select name="status" id="status" class="form-control " >
+                      <option value="0">Belum Lunas</option>
+                      <option value="1">Lunas</option>
+                    </select>
+                  </div>
+               
                 <div class="form-group">
                   <label for="note">Notes</label>
-                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}">
-                  {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea> --}}
+                  {{-- <textarea name="note" id="note" name="note" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
+                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" > --}}
+                  <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
                 </div>
-                <div class="form-group">
-                  <label for="status">Status Payment</label>
-                  <input type="text" class="form-control" id="status" value="{{ $payment->status }}" name="payment_status" >
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                  <button type="reset" class="btn btn-md btn-warning">Reset</button>
                 </div>
               </div>
                 </div>
               </div>
               <!-- /.card-body -->
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Update</button>
-                <button type="reset" class="btn btn-md btn-warning">Reset</button>
-              </div>
+              
             </form>
           </div>
         </div>
