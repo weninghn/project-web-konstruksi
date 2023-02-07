@@ -21,6 +21,12 @@ class Payment extends Model
         'status',
         'note',
     ];
+
+    protected $appends = [
+        'status_text'
+    ];
+
+
     public function project(){
         return $this->belongsTo(Project::class);
     }
@@ -29,5 +35,22 @@ class Payment extends Model
     {
         return $this->hasMany(payments::class);
     }
-    
+
+    public function progres()
+    {
+        return $this->hasMany(Progres::class);
+    }
+
+    public function  getStatusTextAttribute() {
+        $status = $this->status ?? 0;
+
+        $array_status = [
+            0 => 'Belum Lunas',
+            1 => 'Lunas',
+        ];
+
+        return $array_status[$status];
+    }
+
+
 }

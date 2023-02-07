@@ -55,9 +55,7 @@ class UserController extends Controller
         else {
             $user = Users::create($user);
         }
-
-        // Users::create($user);
-
+        Users::create($user);
         return redirect('user')->with('success','User Added Successfully');
     }
 

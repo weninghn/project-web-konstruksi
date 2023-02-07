@@ -16,7 +16,7 @@ class Progres extends Model
     protected  $fillable= [
         'project_id',
         'offer_id',
-        'payment_id',
+        // 'payment_id',
         'presentase',
         'job_details',
         // 'photos',
@@ -41,7 +41,7 @@ class Progres extends Model
         return $this->belongsTo(Payment::class,'payment_id','id');
     }
     
-    public function offer(): BelongsTo
+    public function offer()
     {
         return $this->belongsTo(Offer::class, 'offer_id', 'id');
     }

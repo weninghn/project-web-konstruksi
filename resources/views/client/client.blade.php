@@ -62,6 +62,7 @@
                     <th>No</th>
                     <th>Name</th>
                     <th>Phone</th>
+                    <th>Email</th>
                     <th>Address</th>
                     @if (auth()->user()->name=="admin")
                     <th>Action</th>
@@ -75,6 +76,7 @@
                     <th scope="row">{{ $index + $data->firstItem() }}</th>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->phone }}</td>
+                    <td>{{ $row->email }}</td>
                     <td>{{ $row->address }}</td>
                     @if (auth()->user()->name=="admin")
                     <td>

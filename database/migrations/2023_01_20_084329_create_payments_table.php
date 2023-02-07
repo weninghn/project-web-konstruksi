@@ -22,7 +22,8 @@ return new class extends Migration
             $table->string('amount_payment',255);
             $table->date('payment_date');
             $table->string('payment_to');
-            $table->string('status');
+            // $table->string('status');
+            $table->boolean('status')->default(0);
             $table->string('note');
             $table->timestamps();
         });

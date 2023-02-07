@@ -68,7 +68,8 @@ Progress
                     <td>{{ $index + $progress->firstItem() }}</td>
                     <td>{{ $item->offer->number }}</td>
                     <td>{{ $item->project->name }}</td>
-                    <td>{{ $item->offer->status}}</td>
+                    <td>{{ $item->project?->payments()->latest()->first()?->status_text ?? '-' }}</td>
+                    {{-- <td>{{ $item->payment->status}}</td> --}}
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
                     <td>{{ $item->date }}</td>
