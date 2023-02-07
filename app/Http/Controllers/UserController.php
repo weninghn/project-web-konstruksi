@@ -44,24 +44,21 @@ class UserController extends Controller
             'phone'=> $request->phone,
             'password' => $request->password,
         ];
-<<<<<<< HEAD
         $check_if_user_exist = User::where([
             ['email', $request->email],
-            ['role_id', $request->role_id] 
+            ['role_id', $request->role_id]
         ])->exists();
             //untuk mengecek apakah tanggal dan sudah di pakai atau belum
         if($check_if_user_exist) {
             return back()->with('error', 'Email Sudah ada!');
-        } 
+        }
         else {
             $user = Users::create($user);
         }
-=======
 
-        Users::create($user);
+        // Users::create($user);
 
-        return redirect('user')->with('success','User Added Successfully'); 
->>>>>>> f014a53c671719083da9a0e40696c1bd8268fdd4
+        return redirect('user')->with('success','User Added Successfully');
     }
 
     public function edituser($id)
