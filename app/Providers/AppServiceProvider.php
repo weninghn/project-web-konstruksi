@@ -17,18 +17,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //
     }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
+  
     public function boot()
     {
         Blade::directive('currency', function ( $expression )
         {
             return "Rp. <?php echo number_format($expression ,0,',','.'); ?>";
-        });
-        paginator::useBootstrap();
-    }
+});
+paginator::useBootstrap();
+}
 }

@@ -21,7 +21,7 @@
                 @csrf
                 @method('PUT')
               <div class="card-body">
-                <div class="form-group">
+                
                 <div class="form-group">
                   <label for="amount">Payment Amount</label>
                   <input type="text" class="form-control" id="amount" value="{{ $payment->amount_payment }}" name="amount_payment" >
@@ -38,13 +38,15 @@
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
 
-                </select>
+                  </select>
                 </div>
                 <div class="form-group">
-                  <label for="payment_to">Payment To</label>
-                  <input type="text" class="form-control" id="payment_to" value="{{ $payment->payment_to }}" name="payment_to" >
+                  <label for="payment">Payment To</label>
+                  <select name="payment_to" id="payment_to" class="form-control " >
+                    <option value="2">1</option>
+                    <option value="2">2</option>
+                  </select>
                 </div>
-               
                   <div class="form-group">
                     <label for="status">Status Payment</label>
                     <select name="status" id="status" class="form-control " >
@@ -59,14 +61,11 @@
                   <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" > --}}
                   <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
                 </div>
+              </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Update</button>
                   <button type="reset" class="btn btn-md btn-warning">Reset</button>
                 </div>
-              </div>
-                </div>
-              </div>
-              <!-- /.card-body -->
               
             </form>
           </div>

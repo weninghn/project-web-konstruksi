@@ -23,7 +23,8 @@ class Payment extends Model
     ];
 
     protected $appends = [
-        'status_text'
+        'status_text',
+        'payment_to'
     ];
 
 
@@ -43,13 +44,23 @@ class Payment extends Model
 
     public function  getStatusTextAttribute() {
         $status = $this->status ?? 0;
-
+        
         $array_status = [
             0 => 'Belum Lunas',
             1 => 'Lunas',
         ];
-
         return $array_status[$status];
+    }
+    public function  getPaymenToAttribute() {
+        
+        $payment_to = $this->payment_to ?? 0;
+    
+        $array_payment = [
+            0 => '1',
+            1 => '2',
+        ];
+    
+        return $array_payment[$paymentto];
     }
 
 

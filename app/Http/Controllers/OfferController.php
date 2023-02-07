@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Models\Offer;
+use Carbon\Carbon;
 use App\Models\Project;
 // use App\Models\facility;
 use App\Models\Facility;
@@ -22,24 +23,7 @@ class OfferController extends Controller
         // } else {
             // $offer = Offer::paginate(5);
         // }
-        $offer = Offer::all();
-        // $search = $request->search;
-        // $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
-        // ->orWhere('status', 'LIKE', '%' .$search. '%')
-        // ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
-        // ->paginate(5);
-
-        $offer = Offer::all();
-        // $search = $request->search;
-        // $offer = Offer::with('project')
-        // ->when($search, function($query) use ($search) {
-        //     $query->whereHas('project', function($query) use($search) {
-        //         $query->where('name', 'LIKE', '%'.$search.'%');
-        //     })
-        //     ->orWhere('status', 'LIKE', '%' .$search. '%')
-        //     ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
-        // })
-        // ->paginate(5);
+       
         $search = $request->search;
         $offer = Offer::with('project')
         ->when($search, function($query) use ($search) {
@@ -50,7 +34,7 @@ class OfferController extends Controller
             ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
         })
         ->paginate(5);
-        return view('offer.offer',['offer' => $offer]);
+        return view('offer.offer',['offer' => $offer ]);
     }
     public function add()
     {
@@ -66,18 +50,34 @@ class OfferController extends Controller
         if($count >= 2){
             Session::flash('message','tidak bisa menambahkan Penawarana Sudah ada');
             Session::flash('alert-class','alert-danger');
-            return redirect('offer');
+            return redirect('offer');     
+          
         }else{
             try {
-             $offer = [
-                 'project_id' => $request->project_id,
-                 'status'=> $request->status,
-                 'date_offer' => $request->date_offer,
-                 'number' => $request->number,
-             ];
-             Offer::create($offer);
-             return redirect(route('offer'))
-             ->with('success','Offer Added Successfully');
+                $offer = Offer::all();
+                $tanggal = Carbon ::now()->format('Y-m-d');
+                $now = Carbon::now();
+                $thnBulan =$now->year . $now->month;
+                $cek = Offer::count();
+                if ($cek == 0) {
+                    $urut = 10000000001;
+                    $nomer = 'MDK' . $thnBulan . $urut;
+                }else{
+                    $ambil = Offer::all()->last();
+                    $urut = (int)substr($ambil->number, -8) + 1;
+                    $nomer ='MDK' .$thnBulan . $urut;
+
+                    $offer = [
+                        'project_id' => $request->project_id,
+                        'status'=> $request->status,
+                        'date_offer' => $request->date_offer,
+                        'number' =>  $nomer,
+                    ];
+                    Offer::create($offer);
+                    return redirect(route('offer'))
+                    ->with('success','Offer Added Successfully');
+                }
+           
             } catch (\Throwable $th) {
              DB::rollBack();
             }

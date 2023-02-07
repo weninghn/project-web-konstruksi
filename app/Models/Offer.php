@@ -58,5 +58,18 @@ class Offer extends Model
 
         return $array_status[$status];
     }
+
+    
+    public function getAutoNumberOptions()
+    {
+        return [
+            'number' => [
+                'format' => function () {
+                    return date('Y.m.d') . '/MDK/?';
+                },
+                'length' => 5
+            ]
+        ];
+    }
 }
     // public function allData()

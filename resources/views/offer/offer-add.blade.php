@@ -65,8 +65,8 @@
                   <input type="date" class="form-control" id="date" name="date_offer" >
                 </div>
                 <div class="form-group">
-                  <label for="number">Number</label>
-                  <input type="text" class="form-control" id="number" name="number" >
+                 
+                  <input type="hidden" class="form-control" id="number" name="number" >
                 </div>
               
               <div class="card-footer">

@@ -182,6 +182,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Alfa6661\AutoNumber\AutoNumberServiceProvider::class,
 
         /*
          * Package Service Providers...

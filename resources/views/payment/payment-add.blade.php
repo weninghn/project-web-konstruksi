@@ -68,7 +68,10 @@
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment To</label>
-                  <input type="text" class="form-control" id="payment" name="payment_to" >
+                  <select name="payment_to" id="payment_to" class="form-control " >
+                    <option value="2">1</option>
+                    <option value="2">2</option>
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="status">Status Payment</label>
@@ -79,8 +82,9 @@
                 </div>
                 <div class="form-group">
                   <label for="note">Notes</label>
-                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4">
-                  {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea> --}}
+                  {{-- <textarea name="note" id="note" name="note" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
+                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" > --}}
+                  <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea>
                 </div>
                 
                

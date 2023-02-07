@@ -49,13 +49,9 @@ class UserController extends Controller
             ['role_id', $request->role_id]
         ])->exists();
         if($check_if_user_exist) {
-<<<<<<< HEAD
+
             return redirect('user')->with('success', 'Email Sudah ada!');
         } 
-=======
-            return back()->with('error', 'Email Sudah ada!');
-        }
->>>>>>> e6ba7072e2ec758ec712a50df6083544e041227c
         else {
             $user = Users::create($user);
         }
