@@ -46,17 +46,17 @@ class UserController extends Controller
         ];
         $check_if_user_exist = User::where([
             ['email', $request->email],
-            ['role_id', $request->role_id] 
+            ['role_id', $request->role_id]
         ])->exists();
             //untuk mengecek apakah tanggal dan sudah di pakai atau belum
         if($check_if_user_exist) {
             return back()->with('error', 'Email Sudah ada!');
-        } 
+        }
         else {
             $user = Users::create($user);
         }
         Users::create($user);
-        return redirect('user')->with('success','User Added Successfully'); 
+        return redirect('user')->with('success','User Added Successfully');
     }
 
     public function edituser($id)

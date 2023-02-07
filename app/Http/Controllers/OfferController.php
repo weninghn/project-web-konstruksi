@@ -15,20 +15,23 @@ use Illuminate\Support\Facades\Session;
 
 class OfferController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         // if ($request->has('search')) {
         //     $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
         // } else {
             // $offer = Offer::paginate(5);
         // }
-        $offer = Offer::all();
-        // $search = $request->search;
-        // $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
-        // ->orWhere('status', 'LIKE', '%' .$search. '%')
-        // ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
-        // ->paginate(5);
-
+        $search = $request->search;
+        $offer = Offer::with('project')
+        ->when($search, function($query) use ($search) {
+            $query->whereHas('project', function($query) use($search) {
+                $query->where('name', 'LIKE', '%'.$search.'%');
+            })
+            ->orWhere('status', 'LIKE', '%' .$search. '%')
+            ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
+        })
+        ->paginate(5);
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
@@ -58,15 +61,20 @@ class OfferController extends Controller
              return redirect(route('offer'))
              ->with('success','Offer Added Successfully');
             } catch (\Throwable $th) {
-             DB::rollBack(); 
-            } 
+<<<<<<< HEAD
+             DB::rollBack();
+            }
+=======
+             DB::rollBack();
+            }
+>>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
          }
 }
     public function edit($id)
     {
         $offer = Offer::find($id);
         $status = Status_offer::all();
-        
+
         if(!checkStatusOffer($offer?->project_id)) {
             Session::flash('message','Project Sudah Deal! Tidak dapat melakukan Edit!');
             Session::flash('alert-class','alert-danger');
@@ -87,14 +95,14 @@ class OfferController extends Controller
                 $offer = offer::where('id', $id)->first();
                 $offer->update($request->all());
 
-            
+
              return redirect(route('offer'))
              ->with('success','Offer Update Successfully');
             } catch (\Throwable $th) {
-             DB::rollBack(); 
+             DB::rollBack();
             }}
-        
-        // return redirect('offer')->with('success','Offer Update Successfully');    
+
+        // return redirect('offer')->with('success','Offer Update Successfully');
     }
     public function deleteoffer($id)
     {
@@ -107,6 +115,9 @@ class OfferController extends Controller
         // $detail = Detail_offer::find($id);
         return view('offer.detailoffer',['offer'=>$offer] );
     }
+<<<<<<< HEAD
+
+=======
     public function addcategory()
     {
         return view('offer.detailoffer');
@@ -124,6 +135,7 @@ class OfferController extends Controller
         return redirect()
         ->back();
     }
+>>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
     public function addfacility()
     {
         return view('offer.detailoffer');
@@ -143,20 +155,24 @@ class OfferController extends Controller
     public function export_pdf($id)
     {
         // dd($id)
-    	$offer = Offer::find($id);     
-    	$detail = Detail_offer::find($id);     
-    	$facility = Facility::find($id);     
+    	$offer = Offer::find($id);
+    	$detail = Detail_offer::find($id);
+    	$facility = Facility::find($id);
     	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'facilities'=>$facility]);
         return $pdf->stream('export-pdf');
-      
+
           }
-          
+
     public function destroy($id)
     {
         $data = Facility::where('id',$id)->first();
-        $data->delete(); 
+        $data->delete();
         return redirect()
         ->back();
 
     }
+<<<<<<< HEAD
+
+=======
+>>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
       }
