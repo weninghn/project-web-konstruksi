@@ -22,16 +22,13 @@ class OfferController extends Controller
         // } else {
             // $offer = Offer::paginate(5);
         // }
-<<<<<<< HEAD
         $offer = Offer::all();
         // $search = $request->search;
         // $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
         // ->orWhere('status', 'LIKE', '%' .$search. '%')
         // ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
         // ->paginate(5);
-
-=======
-        // $offer = Offer::all();
+        $offer = Offer::all();
         $search = $request->search;
         $offer = Offer::with('project')
         ->when($search, function($query) use ($search) {
@@ -42,8 +39,6 @@ class OfferController extends Controller
             ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
         })
         ->paginate(5);
-        
->>>>>>> 478bf3b58885dc478f4ba4b5d4940883412586dd
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
