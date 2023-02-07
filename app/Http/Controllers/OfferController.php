@@ -34,6 +34,35 @@ class OfferController extends Controller
         ->paginate(5);
         return view('offer.offer',['offer' => $offer]);
     }
+	public function data($id)
+	{
+		$detail = Detail_offer::with('facilities')
+			->where('offer_id', $id)
+			->get();
+
+		$data = array();
+		$total = 0;
+
+		foreach ($detail as $item)
+		{
+			$row = array();
+			$row['category'] = $item->category['category'];
+			$row['nama'] = $item->nama['nama'];
+			$row['quantity'] = $item->quantity['quantity'];
+			$row['price'] = $item->price['price'];
+
+			$data[] = $row;
+
+			$total;
+		}
+		$data[] = [
+			'category' => '',
+			'nama' => '',
+			'quantity' => '',
+			'price' => '',
+		];
+
+	}
     public function add()
     {
         $project = Project::all();
@@ -46,7 +75,7 @@ class OfferController extends Controller
         $count = Offer::where('project_id',$request->project_id)->where('status_id',1)->count();
 
         if($count >= 1){
-            Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');
+            Session::flash('message','tdak bisa menambahkan, Penawaran Sudah ada');
             Session::flash('alert-class','alert-danger');
             return redirect('offer');
         }else{
@@ -61,13 +90,8 @@ class OfferController extends Controller
              return redirect(route('offer'))
              ->with('success','Offer Added Successfully');
             } catch (\Throwable $th) {
-<<<<<<< HEAD
              DB::rollBack();
             }
-=======
-             DB::rollBack();
-            }
->>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
          }
 }
     public function edit($id)
@@ -115,9 +139,7 @@ class OfferController extends Controller
         // $detail = Detail_offer::find($id);
         return view('offer.detailoffer',['offer'=>$offer] );
     }
-<<<<<<< HEAD
 
-=======
     public function addcategory()
     {
         return view('offer.detailoffer');
@@ -135,7 +157,6 @@ class OfferController extends Controller
         return redirect()
         ->back();
     }
->>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
     public function addfacility()
     {
         return view('offer.detailoffer');
@@ -151,14 +172,20 @@ class OfferController extends Controller
         Facility::create($facility);
         return redirect()
         ->back();
+		// $total = $facility->sum('price');
     }
     public function export_pdf($id)
     {
         // dd($id)
     	$offer = Offer::find($id);
-    	$detail = Detail_offer::find($id);
-    	$facility = Facility::find($id);
-    	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'facilities'=>$facility]);
+    	$detail = $offer->detail_offers->load('facilities');
+		$total = 0;
+		foreach($detail as $item) {
+			foreach($item->facilities as $facility) {
+				$total += $facility->price;
+			}
+		}
+    	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'detail'=>$detail, 'total' => $total]);
         return $pdf->stream('export-pdf');
 
           }
@@ -171,8 +198,4 @@ class OfferController extends Controller
         ->back();
 
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
       }

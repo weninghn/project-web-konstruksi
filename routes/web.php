@@ -11,6 +11,8 @@ use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PictureController;
 use App\Http\Controllers\AuthController;
+use App\Models\Facility;
+use App\Models\Offer;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +87,10 @@ Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');
 Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');
+Route::get('sum', function(){
+	$facility = Facility::sum('price');
+	// dd($facility);
+});
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');
 
 
@@ -155,7 +161,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('delete/{slug}',[ProjectController::class,'delete'])->name('delete')->middleware('auth');
 
     //progres
-    Route::get('/picture-destroy/{id}',[PictureController::class,'destroy']); 
+    Route::get('/picture-destroy/{id}',[PictureController::class,'destroy']);
     Route::get('/progres', [ProgressController::class, 'index'])->name('progres')->middleware('auth');
     Route::get('add-progres', [ProgressController::class,'add'])->middleware('auth');
     Route::post('progres-add',[ProgressController::class,'store'])->middleware('auth');
@@ -171,7 +177,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit')->middleware('auth');
     Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update')->middleware('auth');
     Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer')->middleware('auth');
-    
+
 
     //Pembayaran
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment')->middleware('auth');
