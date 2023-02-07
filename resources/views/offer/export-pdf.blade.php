@@ -43,14 +43,15 @@
       <p>{{ $offer->number}}</p>
       <p>{{ $offer->project->name}}</p>
       <br>
-      <p align="center"><b>Offer Madang Kosntruksi</b></p>
+      <p align="center"><b>Offer Madang Konstruksi</b></p>
 
       <table border="1">
         <thead>
           <tr>
             <th>Harga</th>
-            <th colspan="4"><center>{{$offer->project->price}}</center></th>
-          </tr> 
+			<th colspan="4"><center>Rp. {{ $total }}</center></th>
+            {{-- <th colspan="4"><center>{{$offer->project->price }}</center></th> --}}
+          </tr>
           <tr>
             <th >Category</th>
             <th colspan="2">Fasilitas</th>
@@ -59,33 +60,33 @@
           </tr>
       </thead>
       <tbody>
-            @foreach($offer->detail_offers as $category)
+            @foreach($detail as $category)
             @foreach ($category->facilities as $facility)
             <tr>
               <td>
                 {{ $category->category}}
-              </td>    
-              <td colspan="2"> 
+              </td>
+              <td colspan="2">
                   {{ $facility->nama}}
               </td>
               <td>
-                    {{ $facility->quantity }} 
+                    {{ $facility->quantity }}
               </td>
-              <td> 
-                    {{ $facility->price }}
+              <td>
+                Rp.    {{ $facility->price }}
               </td>
               @endforeach
                 @endforeach
               {{-- <td>
                 {{ $category->category}}
-              </td>    
-              <td> 
+              </td>
+              <td>
                   {{ $facility->nama}}
               </td>
               <td>
-                    {{ $facility->quantity }} 
+                    {{ $facility->quantity }}
               </td>
-              <td> 
+              <td>
                     {{ $facility->price }}
               </td>
               @endforeach

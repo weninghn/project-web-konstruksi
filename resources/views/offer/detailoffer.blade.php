@@ -32,7 +32,7 @@ Detail Offer
                               </div>
                               <!-- /.box-header -->
                               <div class="box-body">
-                                  <table class="table table-striped table-bordered">                                  
+                                  <table class="table table-striped table-bordered">
                                       <tr>
                                           <td style="width:20%">Project</td>
                                           <td>{{ $offer->project->name}}</td>
@@ -52,8 +52,9 @@ Detail Offer
                                           <td>Number</td>
                                           <td>{{ $offer->number}}</td>
                                       </tr>
+									  {{-- <p class="subtotal">IDR {{ $facility->facilities->price * $facility->quantity }}</p> --}}
                                   </table>
-                                
+
                                   <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category">Add Category</button>
                                   <table class="table table-sm table-striped">
                                     {{-- @foreach($offer->detail_offers as $category)
@@ -71,17 +72,17 @@ Detail Offer
                                       <td>
                                         <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                       </td>
-                                      {{-- <td>                                  
-                                        <a href="/editcategory/{{$category->id}}">Edit</a> 
+                                      {{-- <td>
+                                        <a href="/editcategory/{{$category->id}}">Edit</a>
                                       </td> --}}
                                       <td>
                                         <table class="table">
                                           <tr>
-                                         <th>Facility</th>   
-                                         <th>Quantity</th>   
-                                         <th>Price</th>   
+                                         <th>Facility</th>
+                                         <th>Quantity</th>
+                                         <th>Price</th>
                                          <th></th>
-                                       </tr>   
+                                       </tr>
                                           @forelse ($category->facilities as $facility)
                                           <tr>
                                             <td>{{ $facility->nama }}</td>
@@ -91,7 +92,7 @@ Detail Offer
                                               <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
                                           </tr>
-                                          @empty                                              
+                                          @empty
                                           <tr>
                                             <td rowspan="4">Tidak ada Facility</td>
                                           </tr>
@@ -106,7 +107,7 @@ Detail Offer
                                     @endforelse
                                   </table>
                                 </div>
-                                 
+
                               </div>
                           </div>
                       </div>
@@ -158,8 +159,8 @@ Detail Offer
             </div>
             {{-- <div class="facility">
               <div class="m-20">
-                  <a href="#" class="addfacility btn btn-primary" style="float: right;">Add facility</a> 
-              </div> 
+                  <a href="#" class="addfacility btn btn-primary" style="float: right;">Add facility</a>
+              </div>
             </div> --}}
             <div class="modal-body">
               <input type="hidden" id="detail_offer_id" name="detail_offer_id">

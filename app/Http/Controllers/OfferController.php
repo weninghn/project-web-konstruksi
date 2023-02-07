@@ -36,6 +36,35 @@ class OfferController extends Controller
         ->paginate(5);
         return view('offer.offer',['offer' => $offer ]);
     }
+	public function data($id)
+	{
+		$detail = Detail_offer::with('facilities')
+			->where('offer_id', $id)
+			->get();
+
+		$data = array();
+		$total = 0;
+
+		foreach ($detail as $item)
+		{
+			$row = array();
+			$row['category'] = $item->category['category'];
+			$row['nama'] = $item->nama['nama'];
+			$row['quantity'] = $item->quantity['quantity'];
+			$row['price'] = $item->price['price'];
+
+			$data[] = $row;
+
+			$total;
+		}
+		$data[] = [
+			'category' => '',
+			'nama' => '',
+			'quantity' => '',
+			'price' => '',
+		];
+
+	}
     public function add()
     {
         $project = Project::all();
@@ -46,9 +75,8 @@ class OfferController extends Controller
     public function store(Request $request)
     {
         $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
-
-        if($count >= 2){
-            Session::flash('message','tidak bisa menambahkan Penawarana Sudah ada');
+        if($count >= 1){
+            Session::flash('message','tdak bisa menambahkan, Penawaran Sudah ada');
             Session::flash('alert-class','alert-danger');
             return redirect('offer');     
           
@@ -163,14 +191,20 @@ class OfferController extends Controller
         Facility::create($facility);
         return redirect()
         ->back();
+		// $total = $facility->sum('price');
     }
     public function export_pdf($id)
     {
         // dd($id)
     	$offer = Offer::find($id);
-    	$detail = Detail_offer::find($id);
-    	$facility = Facility::find($id);
-    	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'facilities'=>$facility]);
+    	$detail = $offer->detail_offers->load('facilities');
+		$total = 0;
+		foreach($detail as $item) {
+			foreach($item->facilities as $facility) {
+				$total += $facility->price;
+			}
+		}
+    	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'detail'=>$detail, 'total' => $total]);
         return $pdf->stream('export-pdf');
 
           }
@@ -183,4 +217,3 @@ class OfferController extends Controller
         ->back();
 
     }
-}

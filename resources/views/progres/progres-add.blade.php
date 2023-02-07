@@ -66,15 +66,15 @@
                         </div> --}}
                         <div class="form-group">
                           <label for="presentase">Persentase</label>
-                          <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase">
+                          <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase" required>
                         </div>
                         <div class="form-group">
                           <label for="job">Job Detail</label>
-                          <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="Job_Details">
+                          <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="Job_Details" required>
                         </div>
                         <div class="form-group">
                           <label for="date">Date Progres</label>
-                          <input type="date" class="form-control" id="date" name="date" placeholder="date">
+                          <input type="date" class="form-control" id="date" name="date" placeholder="date" required>
                         </div>
 
 						<div class="row" id="image-preview-container">

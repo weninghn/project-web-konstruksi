@@ -62,11 +62,11 @@
                 </div>
                 <div class="form-group">
                   <label for="date">Date Offer</label>
-                  <input type="date" class="form-control" id="date" name="date_offer" >
+                  <input type="date" class="form-control" id="date" name="date_offer" required >
                 </div>
                 <div class="form-group">
-                 
-                  <input type="hidden" class="form-control" id="number" name="number" >
+                  <input type="hidden" class="form-control" id="number" name="number" required >
+
                 </div>
               
               <div class="card-footer">
