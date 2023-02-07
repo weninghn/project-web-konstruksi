@@ -22,7 +22,6 @@ class OfferController extends Controller
         // } else {
             // $offer = Offer::paginate(5);
         // }
-<<<<<<< HEAD
         $offer = Offer::all();
         // $search = $request->search;
         // $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
@@ -41,8 +40,6 @@ class OfferController extends Controller
         //     ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
         // })
         // ->paginate(5);
-
-=======
         $search = $request->search;
         $offer = Offer::with('project')
         ->when($search, function($query) use ($search) {
@@ -53,7 +50,6 @@ class OfferController extends Controller
             ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
         })
         ->paginate(5);
->>>>>>> e6ba7072e2ec758ec712a50df6083544e041227c
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
@@ -83,15 +79,12 @@ class OfferController extends Controller
              return redirect(route('offer'))
              ->with('success','Offer Added Successfully');
             } catch (\Throwable $th) {
-<<<<<<< HEAD
              DB::rollBack();
             }
-=======
              DB::rollBack();
             }
->>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
          }
-}
+
     public function edit($id)
     {
         $offer = Offer::find($id);
@@ -137,9 +130,7 @@ class OfferController extends Controller
         // $detail = Detail_offer::find($id);
         return view('offer.detailoffer',['offer'=>$offer] );
     }
-<<<<<<< HEAD
 
-=======
     public function addcategory()
     {
         return view('offer.detailoffer');
@@ -157,7 +148,6 @@ class OfferController extends Controller
         return redirect()
         ->back();
     }
->>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
     public function addfacility()
     {
         return view('offer.detailoffer');
@@ -193,8 +183,4 @@ class OfferController extends Controller
         ->back();
 
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> e5015eb72b9e2517883c47570ab4ac6812389e15
-      }
+}
