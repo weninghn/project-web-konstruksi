@@ -77,8 +77,8 @@ Offer
                       <td>{{ $row->date_offer }}</td>
                       <td>
                       @if (auth()->user()->name=="admin")
-                      <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
-                      <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>    |
+                          <a href="/editoffer/{{ $row->id }}">Edit</button>  | 
+                        <a href="deleteoffer/{{ $row->id }}" data-name="{{ $row->name }}">Delete</button>    |
                       @endif
                         <a href="{{ route('offer.detail', $row->id) }}">Detail</button>
                       </td>

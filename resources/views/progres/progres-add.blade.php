@@ -55,7 +55,7 @@
                             
                         </select>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                           <label for="name">Payment</label>
                           <select name="payment_id" id="payment_id" name="payment_id"class="form-control " >
                             @foreach ($payment as $item)
@@ -63,7 +63,7 @@
                             @endforeach
                             
                         </select>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                           <label for="presentase">Persentase</label>
                           <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase">

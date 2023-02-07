@@ -18,6 +18,7 @@ class Clients extends Model
         'name',
         'slug',
         'phone',
+        'email',
         'address',
         'created_at',
     ];

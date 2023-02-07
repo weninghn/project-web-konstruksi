@@ -66,6 +66,12 @@ class OfferController extends Controller
     {
         $offer = Offer::find($id);
         $status = Status_offer::all();
+        
+        if(!checkStatusOffer($offer?->project_id)) {
+            Session::flash('message','Project Sudah Deal! Tidak dapat melakukan Edit!');
+            Session::flash('alert-class','alert-danger');
+            return back();
+        }
         return view('offer.offer-edit', compact('offer', 'status'));
     }
     public function update(Request $request,$id)
