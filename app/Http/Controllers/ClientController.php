@@ -82,6 +82,16 @@ class ClientController extends Controller
 
     public function insertdata(Request $request){
         //dd($request->all());
+        $check_if_client_exist = Clients::where([
+            ['email', $request->email],
+            ['phone', $request->phone]
+        ])->exists();
+        if($check_if_client_exist) {
+            return redirect('client')->with('success', 'Email Sudah ada!');
+        } 
+        else {
+            Clients::create($request->all());
+        }
          Clients::create($request->all());
          return redirect()->route('client')->with('success','Client Added Successfully'); 
     }
