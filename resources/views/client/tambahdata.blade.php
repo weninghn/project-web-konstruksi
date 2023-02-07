@@ -44,6 +44,11 @@
                           </div>
                           
                           <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" class="form-control" id="email">
+                          </div>
+                          
+                          <div class="form-group">
                             <label for="address">Address</label>
                             <input type="text" name="address" class="form-control" id="address">
                           </div>

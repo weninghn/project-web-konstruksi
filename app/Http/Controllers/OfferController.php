@@ -28,6 +28,7 @@ class OfferController extends Controller
         // ->orWhere('status', 'LIKE', '%' .$search. '%')
         // ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
         // ->paginate(5);
+
         $offer = Offer::all();
         $search = $request->search;
         $offer = Offer::with('project')
@@ -39,6 +40,7 @@ class OfferController extends Controller
             ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
         })
         ->paginate(5);
+
         return view('offer.offer',['offer' => $offer]);
     }
     public function add()
@@ -69,13 +71,19 @@ class OfferController extends Controller
              ->with('success','Offer Added Successfully');
             } catch (\Throwable $th) {
              DB::rollBack(); 
-            }
+            } 
          }
 }
     public function edit($id)
     {
         $offer = Offer::find($id);
         $status = Status_offer::all();
+        
+        if(!checkStatusOffer($offer?->project_id)) {
+            Session::flash('message','Project Sudah Deal! Tidak dapat melakukan Edit!');
+            Session::flash('alert-class','alert-danger');
+            return back();
+        }
         return view('offer.offer-edit', compact('offer', 'status'));
     }
     public function update(Request $request,$id)
@@ -111,7 +119,23 @@ class OfferController extends Controller
         // $detail = Detail_offer::find($id);
         return view('offer.detailoffer',['offer'=>$offer] );
     }
-    
+    public function addcategory()
+    {
+        return view('offer.detailoffer');
+    }
+    public function insertcategory(Request $request)
+    {
+
+        $detail_offer =[
+            'offer_id'=> $request->offer_id,
+            'category'=> $request->category,
+            // 'quantity'=> $detail_offer->quantity,
+            // 'total'=> $detail_offer->total,
+        ];
+        Detail_offer::create($detail_offer);
+        return redirect()
+        ->back();
+    }
     public function addfacility()
     {
         return view('offer.detailoffer');
@@ -147,5 +171,4 @@ class OfferController extends Controller
         ->back();
 
     }
-   
       }

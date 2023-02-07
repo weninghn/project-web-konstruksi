@@ -1,4 +1,7 @@
 <?php
+
+use App\Models\Offer;
+
 function tanggal_indonesia($tgl, $tampil_hari = true)
 {
     $nama_hari  = array(
@@ -22,5 +25,19 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
     }
     
     return $text; 
+}
+
+function checkStatusOffer($project_id)
+{
+    $offer = Offer::where([
+        ['project_id', $project_id],
+        ['status_id', 1]
+    ])->exists();
+
+    if($offer) {
+        return false;
+    }
+
+    return true;
 }
 ?>

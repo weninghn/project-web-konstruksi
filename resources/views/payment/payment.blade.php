@@ -74,7 +74,7 @@
                    <td>@currency($item->amount_payment)</td>
                    <td>{{ $item->payment_date }}</td>
                    <td>{{ $item->payment_to }}</td>
-                   <td>{{ $item->status }}</td>
+                   <td>{{ $item->status_text }}</td>
                    <td>{{ $item->note }}</td>
                    @if (auth()->user()->name=="admin")
                     <td>
