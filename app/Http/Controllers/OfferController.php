@@ -30,16 +30,16 @@ class OfferController extends Controller
         // ->paginate(5);
 
         $offer = Offer::all();
-        $search = $request->search;
-        $offer = Offer::with('project')
-        ->when($search, function($query) use ($search) {
-            $query->whereHas('project', function($query) use($search) {
-                $query->where('name', 'LIKE', '%'.$search.'%');
-            })
-            ->orWhere('status', 'LIKE', '%' .$search. '%')
-            ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
-        })
-        ->paginate(5);
+        // $search = $request->search;
+        // $offer = Offer::with('project')
+        // ->when($search, function($query) use ($search) {
+        //     $query->whereHas('project', function($query) use($search) {
+        //         $query->where('name', 'LIKE', '%'.$search.'%');
+        //     })
+        //     ->orWhere('status', 'LIKE', '%' .$search. '%')
+        //     ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
+        // })
+        // ->paginate(5);
 
         return view('offer.offer',['offer' => $offer]);
     }

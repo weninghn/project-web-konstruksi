@@ -48,9 +48,8 @@ class UserController extends Controller
             ['email', $request->email],
             ['role_id', $request->role_id] 
         ])->exists();
-            //untuk mengecek apakah tanggal dan sudah di pakai atau belum
         if($check_if_user_exist) {
-            return back()->with('error', 'Email Sudah ada!');
+            return redirect('user')->with('success', 'Email Sudah ada!');
         } 
         else {
             $user = Users::create($user);
