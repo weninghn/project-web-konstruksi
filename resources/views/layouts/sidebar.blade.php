@@ -61,6 +61,14 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="/payment" class="nav-link">
+              <i class="fa fa-credit-card"></i>
+              <p>
+                Payment
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="/progres" class="nav-link">
               <i class="fas fa-hourglass-half"></i>
               <p>
@@ -69,16 +77,16 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/payment" class="nav-link">
-              <i class="fa fa-credit-card"></i>
+            <a href="/logout" onclick="return confirm('Apakah anda yakin ingin keluar ?')"" class="nav-link">
+              <i class="fas fa-power-off"></i>
               <p>
-                Payment
+                Logout
               </p>
             </a>
           </li>
         </ul>
       </nav>
-      <a href="/logout" onclick="return confirm('Apakah anda yakin ingin keluar ?')">Logout</a>
+      
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

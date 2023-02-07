@@ -49,16 +49,16 @@
                       <!-- /.form-group -->
                       <div class="form-group">
                         <label for="name">Name Project</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                        <input type="text" class="form-control" id="name" name="name" placeholder="name" required>
                       </div>
                       <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="price">
+                        <input type="text" class="form-control" id="price" name="price" placeholder="price" required>
                       </div>
                       
                        <div class="form-group">
                           <label for="date_offer">Date Offer</label>
-                          <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer">
+                          <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer" required>
                         </div>
                         
                       </div>

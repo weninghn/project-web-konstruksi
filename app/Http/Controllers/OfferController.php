@@ -22,6 +22,24 @@ class OfferController extends Controller
         // } else {
             // $offer = Offer::paginate(5);
         // }
+        $offer = Offer::all();
+        // $search = $request->search;
+        // $offer = Offer::where('project_id', 'LIKE', '%' .$search. '%')
+        // ->orWhere('status', 'LIKE', '%' .$search. '%')
+        // ->orWhere('date_offer', 'LIKE', '%' .$search. '%')
+        // ->paginate(5);
+
+        $offer = Offer::all();
+        // $search = $request->search;
+        // $offer = Offer::with('project')
+        // ->when($search, function($query) use ($search) {
+        //     $query->whereHas('project', function($query) use($search) {
+        //         $query->where('name', 'LIKE', '%'.$search.'%');
+        //     })
+        //     ->orWhere('status', 'LIKE', '%' .$search. '%')
+        //     ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
+        // })
+        // ->paginate(5);
         $search = $request->search;
         $offer = Offer::with('project')
         ->when($search, function($query) use ($search) {
@@ -72,8 +90,7 @@ class OfferController extends Controller
     }
     public function store(Request $request)
     {
-        $count = Offer::where('project_id',$request->project_id)->where('status_id',1)->count();
-
+        $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
         if($count >= 1){
             Session::flash('message','tdak bisa menambahkan, Penawaran Sudah ada');
             Session::flash('alert-class','alert-danger');
@@ -82,7 +99,7 @@ class OfferController extends Controller
             try {
              $offer = [
                  'project_id' => $request->project_id,
-                 'status_id'=> $request->status_id,
+                 'status'=> $request->status,
                  'date_offer' => $request->date_offer,
                  'number' => $request->number,
              ];
@@ -92,8 +109,10 @@ class OfferController extends Controller
             } catch (\Throwable $th) {
              DB::rollBack();
             }
+             DB::rollBack();
+            }
          }
-}
+
     public function edit($id)
     {
         $offer = Offer::find($id);
@@ -108,7 +127,7 @@ class OfferController extends Controller
     }
     public function update(Request $request,$id)
     {
-        $count = Offer::where('project_id',$request->project_id)->where('status_id',1)->count();
+        $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
 
         if($count >= 1){
             Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');

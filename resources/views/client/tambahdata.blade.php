@@ -35,22 +35,22 @@
                         <div class="card-body">
                           <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" id="name">
+                            <input type="text" name="name" class="form-control" id="name" required>
                           </div>
                         
                           <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" name="phone" class="form-control" id="phone">
+                            <input type="text" name="phone" class="form-control" id="phone" required>
                           </div>
                           
                           <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="text" name="email" class="form-control" id="email">
+                            <input type="text" name="email" class="form-control" id="email" required>
                           </div>
                           
                           <div class="form-group">
                             <label for="address">Address</label>
-                            <input type="text" name="address" class="form-control" id="address">
+                            <input type="text" name="address" class="form-control" id="address" required>
                           </div>
                         </div>
                         <div class="card-footer">

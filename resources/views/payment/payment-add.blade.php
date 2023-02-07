@@ -50,15 +50,15 @@
                 </div>
                 <div class="form-group">
                   <label for="amount">Payment Amount</label>
-                  <input type="text" class="form-control" id="amount" name="amount_payment">
+                  <input type="text" class="form-control" id="amount" name="amount_payment" required>
                 </div>
                 <div class="form-group">
                   <label for="date">Date Payment</label>
-                  <input type="date" class="form-control" id="date" name="payment_date" >
+                  <input type="date" class="form-control" id="date" name="payment_date"  required>
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment Method</label>
-                  <select name="payment_method_id" id="payment_method_id" class="form-control " >
+                  <select name="payment_method_id" id="payment_method_id" class="form-control " required>
     
                     @foreach ($payments as $item)
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
@@ -68,17 +68,19 @@
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment To</label>
-                  <input type="text" class="form-control" id="payment" name="payment_to" >
-                </div>
-                <div class="form-group">
-                  <label for="note">Notes</label>
-                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4">
-                  {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea> --}}
+                  <input type="text" class="form-control" id="payment" name="payment_to" required>
                 </div>
                 <div class="form-group">
                   <label for="status">Status Payment</label>
-                  <input type="text" class="form-control" id="status" name="status" >
-
+                  <select name="status" id="status" class="form-control " required>
+                    <option value="0">Belum Lunas</option>
+                    <option value="1">Lunas</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="note">Notes</label>
+                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" required>
+                  {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea> --}}
                 </div>
                 
                
