@@ -40,17 +40,17 @@ class OfferController extends Controller
     }
     public function store(Request $request)
     {
-        $count = Offer::where('project_id',$request->project_id)->where('status_id',1)->count();
+        $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
 
-        if($count >= 1){
-            Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');
+        if($count >= 2){
+            Session::flash('message','tidak bisa menambahkan Penawarana Sudah ada');
             Session::flash('alert-class','alert-danger');
             return redirect('offer');
         }else{
             try {
              $offer = [
                  'project_id' => $request->project_id,
-                 'status_id'=> $request->status_id,
+                 'status'=> $request->status,
                  'date_offer' => $request->date_offer,
                  'number' => $request->number,
              ];
@@ -76,7 +76,7 @@ class OfferController extends Controller
     }
     public function update(Request $request,$id)
     {
-        $count = Offer::where('project_id',$request->project_id)->where('status_id',1)->count();
+        $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
 
         if($count >= 1){
             Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');

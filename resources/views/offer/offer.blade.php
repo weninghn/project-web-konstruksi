@@ -73,7 +73,7 @@ Offer
                       <th scope="row">{{ $no++ }}</th>
                       <td>{{ $row->number }}</td>
                       <td>{{ $row->project?->name }}</td>
-                      <td>{{ $row->status?->name }}</td>
+                      <td>{{ $row->status_text }}</td>
                       <td>{{ $row->date_offer }}</td>
                       <td>
                       @if (auth()->user()->name=="admin")

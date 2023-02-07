@@ -71,14 +71,16 @@
                   <input type="text" class="form-control" id="payment" name="payment_to" >
                 </div>
                 <div class="form-group">
+                  <label for="status">Status Payment</label>
+                  <select name="status" id="status" class="form-control " >
+                    <option value="0">Belum Lunas</option>
+                    <option value="1">Lunas</option>
+                  </select>
+                </div>
+                <div class="form-group">
                   <label for="note">Notes</label>
                   <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4">
                   {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4"></textarea> --}}
-                </div>
-                <div class="form-group">
-                  <label for="status">Status Payment</label>
-                  <input type="text" class="form-control" id="status" name="status" >
-
                 </div>
                 
                

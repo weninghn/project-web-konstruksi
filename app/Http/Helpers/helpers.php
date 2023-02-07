@@ -31,7 +31,7 @@ function checkStatusOffer($project_id)
 {
     $offer = Offer::where([
         ['project_id', $project_id],
-        ['status_id', 1]
+        ['status', 0]
     ])->exists();
 
     if($offer) {
