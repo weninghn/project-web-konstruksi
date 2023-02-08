@@ -76,42 +76,45 @@ class OfferController extends Controller
     {
         $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
         if($count >= 1){
-            Session::flash('message','tdak bisa menambahkan, Penawaran Sudah ada');
+            Session::flash('message','tidak bisa menambahkan, Penawaran Sudah ada');
             Session::flash('alert-class','alert-danger');
             return redirect('offer');
 
         }else{
             try {
+                DB::beginTransaction();
                 $offer = Offer::all();
                 $tanggal = Carbon ::now()->format('Y-m-d');
                 $now = Carbon::now();
                 $thnBulan =$now->year . $now->month;
                 $cek = Offer::count();
                 if ($cek == 0) {
-                    $urut = 10000000001;
+                    $urut = 10000001;
                     $nomer = 'MDK' . $thnBulan . $urut;
                 }else{
                     $ambil = Offer::all()->last();
                     $urut = (int)substr($ambil->number, -8) + 1;
                     $nomer ='MDK' .$thnBulan . $urut;
-
-                    $offer = [
-                        'project_id' => $request->project_id,
-                        'status'=> $request->status,
-                        'date_offer' => $request->date_offer,
-                        'number' =>  $nomer,
-                    ];
-                    Offer::create($offer);
-                    return redirect(route('offer'))
-                    ->with('success','Offer Added Successfully');
                 }
+                $offer = [
+                    'project_id' => $request->project_id,
+                    'status'=> $request->status,
+                    'date_offer' => $request->date_offer,
+                    'number' =>  $nomer,
+                ];
+                Offer::create($offer);
 
+                DB::commit();
+                return redirect('offer')
+                ->with('success','Offer Added Successfully');
             } catch (\Throwable $th) {
-             DB::rollBack();
+                DB::rollback();
+
+                return back()->withError('Gagal menambahkan Offer!');
             }
-             DB::rollBack();
-            }
-         }
+
+        }
+    }
 
     public function edit($id)
     {

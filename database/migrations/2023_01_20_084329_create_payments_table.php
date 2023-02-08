@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('payment_date');
             $table->boolean('payment_to')->default(0);
             // $table->string('status');
-            $table->boolean('status');
+            $table->boolean('status')->default(0);
             $table->string('note');
             $table->timestamps();
         });

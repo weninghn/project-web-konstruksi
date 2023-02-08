@@ -42,8 +42,8 @@
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment To</label>
-                  <select name="payment_to" id="payment_to" class="form-control">
-                    <option value="2">1</option>
+                  <select name="payment_to" id="payment_to" class="form-control " >
+                    <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
                 </div>
