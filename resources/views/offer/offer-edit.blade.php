@@ -6,9 +6,6 @@
 @endsection
 
 @section('content')
-
-
-
 <section class="content-header">
 <div class="container-fluid">
 <div class="row mb-2">
@@ -42,9 +39,7 @@
       <form action="/editoffer/{{ $offer->id }}" method="POST" enctype="multipart/form-data">
        @csrf
        @method('PUT')
-
         <div class="card-body">
-        
           <div class="form-group">
             <label for="status">Status Project</label>
             <select name="status" id="status" name="status"class="form-control " >
