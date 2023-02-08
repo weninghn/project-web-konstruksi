@@ -1,13 +1,12 @@
 <?php
 
 namespace Database\Seeders;
-
-use App\Models\payment_methods;
+use App\Models\payment_method;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class payment_method extends Seeder
+class payment_methodSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,11 +16,11 @@ class payment_method extends Seeder
     public function run()
     {
         DB::table('payment_methods')->insert([
-            'method'	=> 'cash',
+            'method'	=> 'Cash'
             
     ]);
         DB::table('payment_methods')->insert([
-            'method'	=> 'Transfer',
+            'method'	=> 'Transfer'
             
     ]);
     }
