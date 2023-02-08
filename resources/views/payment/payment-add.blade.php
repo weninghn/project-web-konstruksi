@@ -43,7 +43,7 @@
                   <select name="project_id" id="project_id" class="form-control " >
     
                     @foreach ($project as $item)
-                    <option value="{{ $item->id}}">{{ $item->name}}</option>
+                       <option value="{{ $item->id}}">{{ $item->name}}</option>
                     @endforeach
                     
                 </select>
@@ -59,21 +59,19 @@
                 <div class="form-group">
                   <label for="payment">Payment Method</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " required>
-    
-                    @foreach ($payments as $item)
-                    <option value="{{ $item->id}}">{{ $item->method}}</option>
-                    @endforeach
-                    
-                </select>
+                   
+                      @foreach ($payments as $item)
+                        <option value="{{ $item->id}}">{{ $item->method}}</option>
+                      @endforeach
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment To</label>
-
                   <select name="payment_to" id="payment_to" class="form-control " >
+                    <option value="#"></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
-
                 </div>
                 <div class="form-group">
                   <label for="status">Status Payment</label>
@@ -84,12 +82,8 @@
                 </div>
                 <div class="form-group">
                   <label for="note">Notes</label>
-
                   <textarea name="note" id="note" class="form-control" cols="20" rows="4" required></textarea>
-
                 </div>
-                
-               
               </div>
               <!-- /.card-body -->
 
