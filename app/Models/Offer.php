@@ -25,14 +25,14 @@ class Offer extends Model
     protected $appends = [
         'status_text'
     ];
-    
+
     public function project(){
         return $this->belongsTo(Project::class,'project_id','id');
     }
     // public function status(){
     //     return $this->belongsTo(Status_offer::class,'status_id','id');
     // }
-    public function offer(): HasMany
+    public function offer()
     {
         return $this->hasMany(Offer::class);
     }
@@ -59,7 +59,7 @@ class Offer extends Model
         return $array_status[$status];
     }
 
-    
+
     public function getAutoNumberOptions()
     {
         return [
