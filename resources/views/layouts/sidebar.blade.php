@@ -52,19 +52,19 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/payment" class="nav-link">
-              <i class="fa fa-credit-card"></i>
-              <p>
-                Payment
-              </p>
-            </a>
-          </li>
 		  <li class="nav-item">
             <a href="/offer" class="nav-link">
               <i class="fas fa-file-invoice-dollar"></i>
               <p>
                 Offer
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/payment" class="nav-link">
+              <i class="fa fa-credit-card"></i>
+              <p>
+                Payment
               </p>
             </a>
           </li>
