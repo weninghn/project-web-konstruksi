@@ -23,7 +23,7 @@ class OfferController extends Controller
         // } else {
             // $offer = Offer::paginate(5);
         // }
-       
+
         $search = $request->search;
         $offer = Offer::with('project')
         ->when($search, function($query) use ($search) {
@@ -76,10 +76,10 @@ class OfferController extends Controller
     {
         $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
         if($count >= 1){
-            Session::flash('message','tidak bisa menambahkan, Penawaran Sudah ada');
+            Session::flash('message','Tidak bisa menambahkan, Penawaran Sudah deal');
             Session::flash('alert-class','alert-danger');
-            return redirect('offer');     
-          
+            return redirect('offer');
+
         }else{
             try {
                 DB::beginTransaction();
@@ -97,7 +97,6 @@ class OfferController extends Controller
                     $nomer ='MDK' .$thnBulan . $urut;
                 }
 
-                
                 $offer = [
                     'project_id' => $request->project_id,
                     'status'=> $request->status,
@@ -107,15 +106,13 @@ class OfferController extends Controller
                 Offer::create($offer);
 
                 DB::commit();
-                return redirect('offer')
-                ->with('success','Offer Added Successfully');
-           
+
+                return redirect('offer')->with('success','Offer Added Successfully');
             } catch (\Throwable $th) {
                 DB::rollback();
-
-                return back()->withError('Gagal menambahkan Offer!');
+                return back()->with('error','Gagal menambahkan Offer!');
             }
-          
+
         }
     }
 
@@ -124,11 +121,11 @@ class OfferController extends Controller
         $offer = Offer::find($id);
         $status = Status_offer::all();
 
-        if(!checkStatusOffer($offer?->project_id)) {
+            if(!checkStatusOffer($offer?->project_id)) {
             Session::flash('message','Project Sudah Deal! Tidak dapat melakukan Edit!');
             Session::flash('alert-class','alert-danger');
             return back();
-        }
+            }
         return view('offer.offer-edit', compact('offer', 'status'));
     }
     public function update(Request $request,$id)
@@ -143,15 +140,15 @@ class OfferController extends Controller
             try {
                 $offer = offer::where('id', $id)->first();
                 $offer->update($request->all());
-
-
              return redirect(route('offer'))
              ->with('success','Offer Update Successfully');
+                return redirect(route('offer'))
+                ->with('success','Offer Update Successfully');
             } catch (\Throwable $th) {
-             DB::rollBack();
-            }}
+                DB::rollBack();
+            }
+        }
 
-        // return redirect('offer')->with('success','Offer Update Successfully');
     }
     public function deleteoffer($id)
     {
@@ -161,7 +158,6 @@ class OfferController extends Controller
     public function detail($id)
     {
         $offer = Offer::find($id);
-        // $detail = Detail_offer::find($id);
         return view('offer.detailoffer',['offer'=>$offer] );
     }
 
@@ -175,12 +171,9 @@ class OfferController extends Controller
         $detail_offer =[
             'offer_id'=> $request->offer_id,
             'category'=> $request->category,
-            // 'quantity'=> $detail_offer->quantity,
-            // 'total'=> $detail_offer->total,
         ];
         Detail_offer::create($detail_offer);
-        return redirect()
-        ->back();
+        return redirect()->back();
     }
     public function addfacility()
     {
@@ -195,8 +188,7 @@ class OfferController extends Controller
             'price'=> $request->price,
         ];
         Facility::create($facility);
-        return redirect()
-        ->back();
+        return redirect()->back();
 		// $total = $facility->sum('price');
     }
     public function export_pdf($id)
@@ -213,14 +205,13 @@ class OfferController extends Controller
     	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'detail'=>$detail, 'total' => $total]);
         return $pdf->stream('export-pdf');
 
-          }
-
+    }
     public function destroy($id)
     {
         $data = Facility::where('id',$id)->first();
         $data->delete();
         return redirect()
         ->back();
-
+        return redirect()->back();
     }
 }

@@ -45,21 +45,6 @@
               <div class="inner">
                 <h3>{{$offer_count}}</h3>
 
-                <p>Offer</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-file-invoice-dollar"></i>
-              </div>
-              <a href="/offer" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>{{$payment_count}}</h3>
-
                 <p>Payment</p>
               </div>
               <div class="icon">
@@ -75,6 +60,21 @@
               <div class="inner">
                 <h3>{{ $progres_count}}</h3>
 
+				<p>Offer</p>
+              </div>
+              <div class="icon">
+                <i class="fas fa-file-invoice-dollar"></i>
+              </div>
+              <a href="/offer" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+          </div>
+          <!-- ./col -->
+          <div class="col-lg-3 col-6">
+            <!-- small box -->
+            <div class="small-box bg-warning">
+              <div class="inner">
+                <h3>{{$payment_count}}</h3>
+
                 <p>Progres</p>
               </div>
               <div class="icon">
@@ -83,7 +83,7 @@
               <a href="/progres" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          
+
           <!-- ./col -->
         </div>
         <!-- /.row -->
