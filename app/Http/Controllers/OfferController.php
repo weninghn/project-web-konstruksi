@@ -137,8 +137,6 @@ class OfferController extends Controller
             try {
                 $offer = offer::where('id', $id)->first();
                 $offer->update($request->all());
-
-
              return redirect(route('offer'))
              ->with('success','Offer Update Successfully');
             } catch (\Throwable $th) {
@@ -217,3 +215,4 @@ class OfferController extends Controller
         ->back();
 
     }
+}
