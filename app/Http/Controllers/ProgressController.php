@@ -38,11 +38,19 @@ class ProgressController extends Controller
     }
     public function add()
     {
-        $projek = Project::all();
+        $projek = Project::join('offers', function($join) {
+                $join->on('offers.project_id', '=', 'projects.id')
+                    ->where('offers.status', '=', 0);
+            })
+            ->select(
+                'projects.id AS id',
+                \DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
+            )
+            ->get();
         $picture = Picture::all();
-        $offer = Offer::all();
+        // $offer = Offer::all();
         $payment = Payment::all();
-        return view('progres.progres-add',['project' => $projek, 'picture' => $picture, 'offer'=>$offer, 'payment'=>$payment]);
+        return view('progres.progres-add',['project' => $projek, 'picture' => $picture, 'payment'=>$payment]);
       
     }
 
@@ -50,16 +58,16 @@ class ProgressController extends Controller
     {
         $progres = Progres::create([
             'project_id' => $request->project_id,
-            'offer_id' => $request->offer_id,
+            // 'offer_id' => $request->$offer,
             'payment_id' => $request->payment_id,
             'presentase' => $request->presentase,
             'job_details' => $request->job_details,
             'date' => $request->date,
         ]);
+        
+        if($request->file('files')) {
+            $alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
-        $alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-
-        if($request->file('files')){
             foreach ($request->file('files') as $file) {
                 $extension = $file->getClientOriginalExtension();
                 $random = substr(str_shuffle($alphanumeric), 0, 4);

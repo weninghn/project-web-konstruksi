@@ -64,13 +64,6 @@
                       @endforeach
                   </select>
 
-
-                    @foreach ($payments as $item)
-                    <option value="{{ $item->id}}">{{ $item->method}}</option>
-                    @endforeach
-
-                </select>
-
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment To</label>
