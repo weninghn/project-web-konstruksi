@@ -23,7 +23,7 @@ class OfferController extends Controller
         // } else {
             // $offer = Offer::paginate(5);
         // }
-       
+
         $search = $request->search;
         $offer = Offer::with('project')
         ->when($search, function($query) use ($search) {
@@ -78,8 +78,8 @@ class OfferController extends Controller
         if($count >= 1){
             Session::flash('message','Tidak bisa menambahkan, Penawaran Sudah deal');
             Session::flash('alert-class','alert-danger');
-            return redirect('offer');     
-          
+            return redirect('offer');
+
         }else{
             try {
                 DB::beginTransaction();
@@ -96,7 +96,7 @@ class OfferController extends Controller
                     $urut = (int)substr($ambil->number, -8) + 1;
                     $nomer ='MDK' .$thnBulan . $urut;
                 }
- 
+
                 $offer = [
                     'project_id' => $request->project_id,
                     'status'=> $request->status,
@@ -106,13 +106,13 @@ class OfferController extends Controller
                 Offer::create($offer);
 
                 DB::commit();
+
                 return redirect('offer')->with('success','Offer Added Successfully');
-           
             } catch (\Throwable $th) {
                 DB::rollback();
                 return back()->with('error','Gagal menambahkan Offer!');
             }
-          
+
         }
     }
 
