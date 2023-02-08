@@ -64,13 +64,6 @@
                       @endforeach
                   </select>
 
-
-                    @foreach ($payments as $item)
-                    <option value="{{ $item->id}}">{{ $item->method}}</option>
-                    @endforeach
-
-                </select>
-
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment To</label>
@@ -89,6 +82,7 @@
                 </div>
                 <div class="form-group">
                   <label for="note">Notes</label>
+				  {{-- <input type="text" name="note" id="note" class="firm-control" required> --}}
                   <textarea name="note" id="note" class="form-control" cols="20" rows="4" required></textarea>
                 </div>
                 </div>
@@ -100,7 +94,7 @@
               </div>
               <!-- /.card-body -->
 
-             
+
             </form>
           </div>
         </div>
