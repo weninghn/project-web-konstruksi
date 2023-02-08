@@ -41,29 +41,18 @@
                           <label for="name">Project</label>
                           <select name="project_id" id="project_id" name="project_id"class="form-control " >
                             @foreach ($project as $item)
-                            <option value="{{ $item->id}}">{{ $item->name}}</option>
+                              <option value="{{ $item->id}}">{{ $item->name }}</option>
                             @endforeach
 
                         </select>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                           <label for="name">Number</label>
                           <select name="offer_id" id="offer_id" name="offer_id"class="form-control " >
-                            @foreach ($offer as $item)
-                            <option value="{{ $item->id}}">{{ $item->number}}</option>
-                            @endforeach
                             
-                        </select>
-                        </div>
-                        {{-- <div class="form-group">
-                          <label for="name">Payment</label>
-                          <select name="payment_id" id="payment_id" name="payment_id"class="form-control " >
-                            @foreach ($payment as $item)
-                            <option value="{{ $item->id}}">{{ $item->status}}</option>
-                            @endforeach
-                            
-                        </select>
+                          </select>
                         </div> --}}
+                    
                         <div class="form-group">
                           <label for="presentase">Persentase</label>
                           <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase" required>
