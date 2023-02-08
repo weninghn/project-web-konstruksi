@@ -3,7 +3,7 @@
     Payment Add
 @endsection
 
-@section('content') 
+@section('content')
 
 <section class="content-header">
   <div class="container-fluid">
@@ -41,11 +41,11 @@
                 <div class="form-group">
                   <label for="name">Project</label>
                   <select name="project_id" id="project_id" class="form-control " >
-    
+
                     @foreach ($project as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
                     @endforeach
-                    
+
                 </select>
                 </div>
                 <div class="form-group">
@@ -59,11 +59,11 @@
                 <div class="form-group">
                   <label for="payment">Payment Method</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " required>
-    
+
                     @foreach ($payments as $item)
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
-                    
+
                 </select>
                 </div>
                 <div class="form-group">
@@ -84,14 +84,11 @@
                 </div>
                 <div class="form-group">
                   <label for="note">Notes</label>
-
-                  <textarea name="note" id="note" class="form-control" cols="20" rows="4" required></textarea>
-
                   <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" >
-              
+
                 </div>
-                
-               
+
+
               </div>
               <!-- /.card-body -->
 

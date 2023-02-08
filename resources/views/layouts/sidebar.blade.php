@@ -1,6 +1,6 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    
+
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -26,7 +26,7 @@
               </p>
             </a>
           </li>
-          
+
           <li class="nav-item">
             <a href="{{ route('user') }}" class="nav-link">
               <i class="fas fa-user-alt" aria-hidden="true"></i>
@@ -53,18 +53,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/offer" class="nav-link">
-              <i class="fas fa-file-invoice-dollar"></i>
-              <p>
-                Offer
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="/payment" class="nav-link">
               <i class="fa fa-credit-card"></i>
               <p>
                 Payment
+              </p>
+            </a>
+          </li>
+		  <li class="nav-item">
+            <a href="/offer" class="nav-link">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <p>
+                Offer
               </p>
             </a>
           </li>
@@ -86,7 +86,7 @@
           </li>
         </ul>
       </nav>
-      
+
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->

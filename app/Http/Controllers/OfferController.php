@@ -23,7 +23,7 @@ class OfferController extends Controller
         // } else {
             // $offer = Offer::paginate(5);
         // }
-       
+
         $search = $request->search;
         $offer = Offer::with('project')
         ->when($search, function($query) use ($search) {
@@ -78,8 +78,8 @@ class OfferController extends Controller
         if($count >= 1){
             Session::flash('message','tdak bisa menambahkan, Penawaran Sudah ada');
             Session::flash('alert-class','alert-danger');
-            return redirect('offer');     
-          
+            return redirect('offer');
+
         }else{
             try {
                 $offer = Offer::all();
@@ -105,7 +105,7 @@ class OfferController extends Controller
                     return redirect(route('offer'))
                     ->with('success','Offer Added Successfully');
                 }
-           
+
             } catch (\Throwable $th) {
              DB::rollBack();
             }
@@ -217,3 +217,4 @@ class OfferController extends Controller
         ->back();
 
     }
+}

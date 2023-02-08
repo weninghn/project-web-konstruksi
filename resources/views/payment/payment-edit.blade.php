@@ -3,7 +3,7 @@
     Payment Update
 @endsection
 
-@section('content') 
+@section('content')
 <section class="content">
     <div class="container-fluid">
         <div class="content-wrapper">
@@ -21,7 +21,7 @@
                 @csrf
                 @method('PUT')
               <div class="card-body">
-                
+
                 <div class="form-group">
                   <label for="amount">Payment Amount</label>
                   <input type="text" class="form-control" id="amount" value="{{ $payment->amount_payment }}" name="amount_payment" >
@@ -33,7 +33,7 @@
                 <div class="form-group">
                   <label for="payment">Payment Method</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " >
-    
+
                     @foreach ($method as $item)
                     <option value="{{ $item->id}}">{{ $item->method}}</option>
                     @endforeach
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                   <label for="payment">Payment To</label>
-                  <select name="payment_to" id="payment_to" class="form-control " >
+                  <select name="payment_to" id="payment_to" class="form-control">
                     <option value="2">1</option>
                     <option value="2">2</option>
                   </select>
@@ -54,19 +54,18 @@
                       <option value="1">Lunas</option>
                     </select>
                   </div>
-               
+
                 <div class="form-group">
                   <label for="note">Notes</label>
-                  {{-- <textarea name="note" id="note" name="note" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
-                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" > --}}
-                  <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea>
+                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}">
+                  {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea> --}}
                 </div>
               </div>
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary">Update</button>
                   <button type="reset" class="btn btn-md btn-warning">Reset</button>
                 </div>
-              
+
             </form>
           </div>
         </div>
