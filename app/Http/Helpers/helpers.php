@@ -28,7 +28,7 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
 }
 
 function checkStatusOffer($project_id)
-{
+{ 
     $offer = Offer::where([
         ['project_id', $project_id],
         ['status', 0]

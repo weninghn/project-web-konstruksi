@@ -70,7 +70,7 @@
                   <label for="payment">Payment To</label>
 
                   <select name="payment_to" id="payment_to" class="form-control " >
-                    <option value="2">1</option>
+                    <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
 
@@ -87,8 +87,6 @@
 
                   <textarea name="note" id="note" class="form-control" cols="20" rows="4" required></textarea>
 
-                  <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" >
-              
                 </div>
                 
                
