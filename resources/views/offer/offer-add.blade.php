@@ -33,7 +33,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="offer-add" method="POST">
+            <form action="offer-add" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="card-body">
                 <div class="form-group">
@@ -67,10 +67,10 @@
                 </div>
                 <div class="form-group">
                   <input type="hidden" class="form-control" id="number" name="number" required >
-
                 </div>
 				<div class="form-group">
-					<a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a>
+					{{-- <a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a> --}}
+					<input type="file" name="file" id="file" required multiple>
 				</div>
 				{{-- <div class="form-group">
 					<label for="dokumen">Dokumen</label>

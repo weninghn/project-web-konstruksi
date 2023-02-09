@@ -50,13 +50,28 @@
               {{-- @foreach ($status as $item)
               <option value="{{ $item->id}}">{{ $item->name}}</option>
               @endforeach --}}
-              
+
           </select>
           </div>
             <div class="form-group">
             <label for="date_offer">Tanggal Penawaran</label>
             <input type="date" class="form-control" id="date_offer" name="date_offer"value="{{ $offer->date_offer }}" >
           </div>
+		  {{-- <div class="form">
+			<input type="file" name="file" id="file" required multiple>
+		  </div>
+		  <div class="form-group">
+			<div class="row">
+
+				@foreach ($progress->pictures as $picture)
+				<div class="col-md-3">
+				  <a href="{{ url("picture-destroy/".$picture->id) }}" class="btn btn-sm btn-danger float-right"><i class="fas fa-times"></i></a>
+				  <img src="{{ asset('uploads/progres/'.$picture->image) }}" class="w-100">
+				</div>
+				@endforeach
+
+			</div>
+		  </div> --}}
 
                  </div>
 
@@ -64,14 +79,14 @@
                  <div class="card-footer">
                   <button type="submit" class="btn btn-success">Update</button>
                   <button type="reset" class="btn btn-md btn-warning">Reset</button>
-                  
+
                 </div>
-          </div> 
+          </div>
         </div>
 
         <!-- </.card-body -->
 
-        
+
       </form>
     </div>
   </div>
@@ -79,4 +94,4 @@
 </div>
 </section>
 </div>
-@endsection 
+@endsection
