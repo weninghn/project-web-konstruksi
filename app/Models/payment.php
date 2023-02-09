@@ -31,8 +31,15 @@ class Payment extends Model
     public function project(){
         return $this->belongsTo(Project::class);
     }
-
-    public function payments(): HasMany
+    public function method(){
+        return $this->hasMany(Payment_method::class);
+    }
+    
+    public function price()
+    {
+        return $this->belongsTo(Facility::class);
+    }
+    public function payments()
     {
         return $this->hasMany(payments::class);
     }
