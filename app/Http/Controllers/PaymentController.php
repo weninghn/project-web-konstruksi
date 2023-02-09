@@ -35,15 +35,15 @@ class PaymentController extends Controller
 	}
 	public function add()
 	{
-		// $project = Project::join('offers', function ($join) {
-		// 	$join->on('offers.project_id', '=', 'projects.id')
-		// 		->where('offers.status', '=', 0);
-		// })
-		// 	->select(
-		// 		'projects.id AS id',
-		// 		\DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
-		// 	)
-		// 	->get();
+		$project = Project::join('offers', function ($join) {
+			$join->on('offers.project_id', '=', 'projects.id')
+				->where('offers.status', '=', 0);
+		})
+			->select(
+				'projects.id AS id',
+				\DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
+			)
+			->get();
 		$bills = Bill::all();
 		$payment = payment_method::all();
 		return view('payment.payment-add', ['bills' => $bills, 'payments' => $payment]);
