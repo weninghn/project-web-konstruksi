@@ -44,7 +44,6 @@ class PaymentController extends Controller
 		// 		\DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
 		// 	)
 		// 	->get();
-		// $bills = Bill::all();
 		$bills = Bill::all();
 		$payment = payment_method::all();
 		return view('payment.payment-add', ['bills' => $bills, 'payments' => $payment]);

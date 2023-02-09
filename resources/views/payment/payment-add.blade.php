@@ -65,14 +65,14 @@
                   </select>
 
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="payment">Pembayaran Ke </label>
                   <select name="payment_to" id="payment_to" class="form-control " >
                     <option value="#"></option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
-                </div>
+                </div> --}}
                 <div class="form-group">
                   <label for="status">Status Pembayaran</label>
                   <select name="status" id="status" class="form-control " required>
