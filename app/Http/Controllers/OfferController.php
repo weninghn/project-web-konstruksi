@@ -6,6 +6,7 @@ use PDF;
 use App\Models\Offer;
 use Carbon\Carbon;
 use App\Models\Project;
+use App\Models\Bill;
 // use App\Models\facility;
 use App\Models\Facility;
 use App\Models\Detail_offer;
@@ -16,13 +17,14 @@ use Illuminate\Support\Facades\Session;
 
 class OfferController extends Controller
 {
-    public function index(Request $request)
-    {
-        // if ($request->has('search')) {
-        //     $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
-        // } else {
-            // $offer = Offer::paginate(5);
-        // }
+	public function index(Request $request)
+	{
+		// if ($request->has('search')) {
+		//     $offer = Offer::where('name', 'LIKE', '%' .$request->search. '%')->paginate(5);
+		// } else {
+		// $offer = Offer::paginate(5);
+		// }
+
 
         $search = $request->search;
         $offer = Offer::with('project')
@@ -37,95 +39,116 @@ class OfferController extends Controller
         return view('offer.offer',['offer' => $offer ]);
     }
 	
-    public function add()
-    {
-        $project = Project::all();
-        $status = Status_offer::all();
-        // dd($status->all());
-        return view('offer.offer-add',['project' => $project , 'status' => $status]);
-    }
-    public function store(Request $request)
-    {
-        $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
-        if($count >= 1){
-            Session::flash('message','Tidak bisa menambahkan, Penawaran Sudah deal');
-            Session::flash('alert-class','alert-danger');
-            return redirect('offer');
+  
+    
 
-        }else{
-            try {
-                DB::beginTransaction();
-                $offer = Offer::all();
-                $tanggal = Carbon ::now()->format('Y-m-d');
-                $now = Carbon::now();
-                $thnBulan =$now->year . $now->month;
-                $cek = Offer::count();
-                if ($cek == 0) {
-                    $urut = 10000001;
-                    $nomer = 'MDK' . $thnBulan . $urut;
-                }else{
-                    $ambil = Offer::all()->last();
-                    $urut = (int)substr($ambil->number, -8) + 1;
-                    $nomer ='MDK' .$thnBulan . $urut;
-                }
+	public function add()
+	{
+		$project = Project::all();
+		// $status = Status_offer::all();
+		// dd($status->all());
+		return view('offer.offer-add',  ['project' => $project]);
+	}
+	public function store(Request $request)
+	{
+		// $offer = new Offer();
+		// $file = $request->file;
+		// $filename = time().'.'.$file->getClientOriginalExtension();
+		// $request->file->move('assets', $filename);
+		$count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
+		if ($count >= 1) {
+			Session::flash('message', 'Tidak bisa menambahkan, Penawaran Sudah deal');
+			Session::flash('alert-class', 'alert-danger');
+			return redirect('offer');
+		} else {
+			try {
+				DB::beginTransaction();
+				$offer = Offer::all();
+				$tanggal = Carbon::now()->format('Y-m-d');
+				$now = Carbon::now();
+				$thnBulan = $now->year . $now->month;
+				$cek = Offer::count();
+				if ($cek == 0) {
+					$urut = 10000001;
+					$nomer = 'MDK' . $thnBulan . $urut;
+				} else {
+					$ambil = Offer::all()->last();
+					$urut = (int)substr($ambil->number, -8) + 1;
+					$nomer = 'MDK' . $thnBulan . $urut;
+				}
 
-                $offer = [
-                    'project_id' => $request->project_id,
-                    'status'=> $request->status,
-                    'date_offer' => $request->date_offer,
-                    'number' =>  $nomer,
-                ];
-                Offer::create($offer);
+				$file = $request->file;
+				$filename = time().'.'.$file->getClientOriginalExtension();
+				$request->file->move('dokumen', $filename);
+				$offer = [
+					'project_id' => $request->project_id,
+					'status' => $request->status,
+					'date_offer' => $request->date_offer,
+					'number' =>  $nomer,
+					'dokumen' => $file,
+				];
+				Offer::create($offer);
 
-                DB::commit();
+				DB::commit();
 
-                return redirect('offer')->with('success','Offer Added Successfully');
-            } catch (\Throwable $th) {
-                DB::rollback();
-                return back()->with('error','Gagal menambahkan Offer!');
-            }
+				return redirect('offer')->with('success', 'Offer Added Successfully');
+			} catch (\Throwable $th) {
+				DB::rollback();
+				return back()->with('error', 'Gagal menambahkan Offer!');
+			}
+		}
+	}
 
-        }
-    }
+	public function edit($id)
+	{
+		$offer = Offer::find($id);
+		$status = Status_offer::all();
 
-    public function edit($id)
-    {
-        $offer = Offer::find($id);
-        $status = Status_offer::all();
+		if (!checkStatusOffer($offer?->project_id)) {
+			Session::flash('message', 'Project Sudah Deal! Tidak dapat melakukan Edit!');
+			Session::flash('alert-class', 'alert-danger');
+			return back();
+		}
+		return view('offer.offer-edit', compact('offer', 'status'));
+	}
+	public function update(Request $request, $id)
+	{
+		$count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
 
-            if(!checkStatusOffer($offer?->project_id)) {
-            Session::flash('message','Project Sudah Deal! Tidak dapat melakukan Edit!');
-            Session::flash('alert-class','alert-danger');
-            return back();
-            }
-        return view('offer.offer-edit', compact('offer', 'status'));
-    }
-    public function update(Request $request,$id)
-    {
-        $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
-
-        if($count >= 1){
-            Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');
-            Session::flash('alert-class','alert-danger');
-            return redirect('offer');
-        }else{
-            try {
-                $offer = offer::where('id', $id)->first();
-                $offer->update($request->all());
-             return redirect(route('offer'))
-             ->with('success','Offer Update Successfully');
-                return redirect(route('offer'))
-                ->with('success','Offer Update Successfully');
-            } catch (\Throwable $th) {
-                DB::rollBack();
-            }
-        }
-
-    }
+		if ($count >= 1) {
+			Session::flash('message', 'tdak bisa menambahkan Penawarana Sudah ada');
+			Session::flash('alert-class', 'alert-danger');
+			return redirect('offer');
+		} else {
+			try {
+				$offer = offer::where('id', $id)->first();
+				$offer->update($request->all());
+				if($request->status == 0){
+					$total = 0;
+					foreach($offer->detail_offers as $category){
+						foreach($category->facilities as $facility){
+							$total += $facility->price;
+						}
+					}
+					Bill::create([
+						'offer_id' => $offer->id,
+						'total' => $total,
+						'status' => 0
+					]);
+				}
+				return redirect(route('offer'))
+					->with('success', 'Offer Update Successfully');
+				return redirect(route('offer'))
+					->with('success', 'Offer Update Successfully');
+			} catch (\Throwable $th) {
+				DB::rollBack();
+			}
+		}
+	}
     public function deleteoffer($id)
     {
         Offer::where('id', $id)->delete();
-        return redirect()->route('offer')->with('success', 'Offer deleted successfully');
+        return redirect()->route('offer')->with('success', 'penawaran berhasil dihapus!');
     }
     public function detail($id)
     {
@@ -162,28 +185,37 @@ class OfferController extends Controller
         Facility::create($facility);
         return redirect()->back();
 		// $total = $facility->sum('price');
-    }
-    public function export_pdf($id)
-    {
-        // dd($id)
-    	$offer = Offer::find($id);
-    	$detail = $offer->detail_offers->load('facilities');
+	}
+
+	public function export_pdf($id)
+	{
+		// dd($id)
+		$offer = Offer::find($id);
+		$detail = $offer->detail_offers->load('facilities');
 		$total = 0;
-		foreach($detail as $item) {
-			foreach($item->facilities as $facility) {
+		foreach ($detail as $item) {
+			foreach ($item->facilities as $facility) {
 				$total += $facility->price;
 			}
 		}
-    	$pdf = PDF::loadview('offer.export-pdf',['offer'=>$offer, 'detail'=>$detail, 'total' => $total]);
-        return $pdf->stream('export-pdf');
-
-    }
-    public function destroy($id)
-    {
-        $data = Facility::where('id',$id)->first();
-        $data->delete();
-        return redirect()
-        ->back();
-        return redirect()->back();
-    }
+		$pdf = PDF::loadview('offer.export-pdf', ['offer' => $offer, 'detail' => $detail, 'total' => $total]);
+		return $pdf->stream('export-pdf');
+	}
+	public function destroy($id)
+	{
+		$data = Facility::where('id', $id)->first();
+		$data->delete();
+		return redirect()
+			->back();
+		return redirect()->back();
+	}
+	// public function destroyfile($id)
+	// {
+	// 	$data = Offer::where('id',$id)->first();
+	// 	$file_path = public_path()
+	// }
+	// public function uploadpage()
+	// {
+	// 	return view('offer.upload');
+	// }
 }

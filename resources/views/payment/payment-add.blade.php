@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Payment Add
+    Pembayaran Tambah
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-          <li class="breadcrumb-item active">Payment-add</li>
+          <li class="breadcrumb-item active">Pembayaran-Tambah</li>
         </ol>
       </div>
     </div>
@@ -31,7 +31,7 @@
           <!-- general form elements -->
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">Payment</h3>
+              <h3 class="card-title">Pembayaran</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -39,25 +39,25 @@
               @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Project</label>
-                  <select name="project_id" id="project_id" class="form-control " >
+                  <label for="name">Tagihan Project</label>
+                  <select name="bill_id" id="bill_id" class="form-control " >
 
-                    @foreach ($project as $item)
-                       <option value="{{ $item->id}}">{{ $item->name}}</option>
+                    @foreach ($bills as $item)
+                       <option value="{{ $item->id}}">{{ $item->project->name . ' - ' . $item->number}}</option>
                     @endforeach
 
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="amount">Payment Amount</label>
+                  <label for="amount">Jumlah Pembayaran</label>
                   <input type="text" class="form-control" id="amount" name="amount_payment" required>
                 </div>
                 <div class="form-group">
-                  <label for="date">Date Payment</label>
+                  <label for="date">Tanggal Pembayaran</label>
                   <input type="date" class="form-control" id="date" name="payment_date"  required>
                 </div>
                 <div class="form-group">
-                  <label for="payment">Payment Method</label>
+                  <label for="payment">Cara Bayar</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " required>
                       @foreach ($payments as $item)
                         <option value="{{ $item->id}}">{{ $item->method}}</option>
@@ -66,7 +66,7 @@
 
                 </div>
                 <div class="form-group">
-                  <label for="payment">Payment To</label>
+                  <label for="payment">Pembayaran Ke </label>
                   <select name="payment_to" id="payment_to" class="form-control " >
                     <option value="#"></option>
                     <option value="1">1</option>
@@ -74,14 +74,15 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="status">Status Payment</label>
+                  <label for="status">Status Pembayaran</label>
                   <select name="status" id="status" class="form-control " required>
                     <option value="0">Belum Lunas</option>
                     <option value="1">Lunas</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="note">Notes</label>
+                  <label for="note">Catatan</label>
+				  {{-- <input type="text" name="note" id="note" class="firm-control" required> --}}
                   <textarea name="note" id="note" class="form-control" cols="20" rows="4" required></textarea>
                 </div>
                 </div>
@@ -93,7 +94,7 @@
               </div>
               <!-- /.card-body -->
 
-             
+
             </form>
           </div>
         </div>

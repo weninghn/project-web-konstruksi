@@ -13,7 +13,7 @@ class Payment extends Model
     protected $primaryKey ='id';
 
     protected  $fillable= [
-        'project_id',
+        'bill_id',
         'payment_method_id',
         'amount_payment',
         'payment_date',
@@ -28,11 +28,18 @@ class Payment extends Model
     ];
 
 
-    public function project(){
-        return $this->belongsTo(Project::class);
+    public function bill(){
+        return $this->belongsTo(Bill::class);
     }
-
-    public function payments(): HasMany
+    public function method(){
+        return $this->hasMany(Payment_method::class);
+    }
+    
+    public function price()
+    {
+        return $this->belongsTo(Facility::class);
+    }
+    public function payments()
     {
         return $this->hasMany(payments::class);
     }

@@ -45,7 +45,7 @@
               <div class="inner">
                 <h3>{{$offer_count}}</h3>
 
-                <p>Payment</p>
+                <p>Pembayaran</p>
               </div>
               <div class="icon">
                 <i class="fa fa-credit-card"></i>
@@ -60,7 +60,7 @@
               <div class="inner">
                 <h3>{{ $progres_count}}</h3>
 
-				<p>Offer</p>
+				<p>Penawaran</p>
               </div>
               <div class="icon">
                 <i class="fas fa-file-invoice-dollar"></i>

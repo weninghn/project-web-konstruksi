@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Offer
+Penawaran
 @endsection
     
     @section('content')  
@@ -15,7 +15,7 @@ Offer
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-              <li class="breadcrumb-item active">Offer</li>
+              <li class="breadcrumb-item active">Penawaran</li>
             </ol>
           </div>
         </div>
@@ -30,10 +30,10 @@ Offer
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-              <h3 class="card-title">Offer</h3>
+              <h3 class="card-title">Penawaran</h3>
                 <div class="row justify-content-end">
                   @if (auth()->user()->name=="admin")
-                  <a href="add-offer" class="btn btn-success">Add Offer</a>
+                  <a href="add-offer" class="btn btn-success">Tambah</a>
                   @endif
                  </div>
                  <div class="my-3 col-12 col-sm-8 col-md-3">
@@ -60,10 +60,10 @@ Offer
                   <tr>
                     <th>No</th>
                     <th>No Penawaran</th>
-                      <th>Project</th>
-                      <th>Status Project</th>
-                      <th>Date Offer</th>
-                      <th>Action</th>
+                    <th>Project</th>
+                    <th>Status Project</th>
+                    <th>Tanggal Penawaran</th>
+                    <th>Action</th>
                   </tr>
                   @php
                   $no = 1;

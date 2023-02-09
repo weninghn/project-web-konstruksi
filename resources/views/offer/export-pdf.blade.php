@@ -38,12 +38,12 @@
   </style>
   <body>
     <div class="form-group">
-      <h2>Madang Konstruksi</h2>
+      <h2>Madyang Konstruksi</h2>
 
       <p>{{ $offer->number}}</p>
       <p>{{ $offer->project->name}}</p>
       <br>
-      <p align="center"><b>Offer Madang Konstruksi</b></p>
+      <p align="center"><b>Offer Madyang Konstruksi</b></p>
 
       <table border="1">
         <thead>
@@ -53,10 +53,10 @@
             {{-- <th colspan="4"><center>{{$offer->project->price }}</center></th> --}}
           </tr>
           <tr>
-            <th >Category</th>
+            <th >Kategori</th>
             <th colspan="2">Fasilitas</th>
-            <th>Qty</th>
-            <th>Price</th>
+            <th>Jumlah</th>
+            <th>Harga</th>
           </tr>
       </thead>
       <tbody>

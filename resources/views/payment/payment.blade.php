@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Payment
+    Pembayaran
 @endsection
 
 @section('content')  
@@ -15,7 +15,7 @@
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-            <li class="breadcrumb-item active">Payment</li>
+            <li class="breadcrumb-item active">Pembayaran</li>
           </ol>
         </div>
       </div>
@@ -30,10 +30,10 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-            <h3 class="card-title">Payment</h3>
+            <h3 class="card-title">Pembayaran</h3>
               <div class="row justify-content-end">
                 @if (auth()->user()->name=="admin")
-            <a href="add-payment" class="btn btn-success">Add</a>
+            <a href="add-payment" class="btn btn-success">Tambah</a>
             @endif
             </div>
             <div class="my-3 col-12 col-sm-8 col-md-3">
@@ -53,11 +53,11 @@
                 <tr>
                   <th>No</th>
                     <th>Project</th>
-                    <th>Amount</th>
-                    <th>Date Payment</th>
-                    <th>Payment To</th>
-                    <th>Status Payment</th>
-                    <th>Notes</th>
+                    <th>Jumlah Bayar</th>
+                    <th>Tanggal Bayar</th>
+                    <th>Pembayaran Ke</th>
+                    <th>Status Pembayaran</th>
+                    <th>Catatan</th>
                     @if (auth()->user()->name=="admin")
                     <th>Action</th>
                     @endif
@@ -79,7 +79,8 @@
                    @if (auth()->user()->name=="admin")
                     <td>
                       <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |                              
-                      <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> 
+                      <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> |
+                      <a href="{{ route('payment.detail', $item->id) }}">Detail</button>
                       </td>
                       @endif
                   </tr>

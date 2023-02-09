@@ -36,7 +36,7 @@ Project
                 <div class="row justify-content-end">
                   <br>
                   @if (auth()->user()->name=="admin")
-              <a href="{{route('project.create')}}" class="btn btn-success">Add Project</a>
+              <a href="{{route('project.create')}}" class="btn btn-success">Tambah</a>
               @endif
               </div>
               <div class="my-3 col-12 col-sm-8 col-md-3">
@@ -56,12 +56,12 @@ Project
                         <tr>
                           <th>No</th>
                           <th>Client</th>
-                          <th>Work Date</th>
-                          <th>Date End</th>
-                          <th>Name Project</th>
-                          <th>Location</th>
-                          <th>Date offer</th>
-                          <th>Price</th>
+                          <th>Tanggal Pengerjaan</th>
+                          <th>Tanggal Selesai</th>
+                          <th>Nama Project</th>
+                          <th>Lokasi</th>
+                          <th>Tanggal Penawaran</th>
+                          <th>Harga</th>
                           <th>Status Project</th>
                           {{-- <th>Status</th>
                           <th>Status Payment</th> --}}

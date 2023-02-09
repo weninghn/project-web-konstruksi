@@ -87,11 +87,12 @@ Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');
 Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');
-Route::get('sum', function(){
-	$facility = Facility::sum('price');
-	// dd($facility);
-});
+// Route::get('sum', function(){
+// 	$facility = Facility::sum('price');
+// 	// dd($facility);
+// });
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');
+Route::get('/uploadpage', [OfferController::class, 'uploadpage']);
 
 
 
@@ -119,6 +120,8 @@ Route::post('payment-add',[PaymentController::class,'store'])->middleware('auth'
 Route::get('payment-edit/{id}',[PaymentController::class,'edit'])->name('payment.edit')->middleware('auth');
 Route::put('payment-update/{id}',[PaymentController::class,'update'])->name('payment.update')->middleware('auth');
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete')->middleware('auth');
+Route::get('/detail-payment/{payment}', [PaymentController::class, 'detail'])->name('payment.detail');
+
 //Detail
 
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');

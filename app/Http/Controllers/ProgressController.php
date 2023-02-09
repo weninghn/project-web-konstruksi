@@ -84,7 +84,7 @@ class ProgressController extends Controller
             }
         }
         // $progres->pictures()->sync($request->pictures);
-        return redirect('progres')->with('success','Progres Added Successfully');
+        return redirect('progres')->with('success','Progres berhasil ditambahkan!');
     }
     public function edit($slug)
     {
@@ -123,14 +123,14 @@ class ProgressController extends Controller
         }
      
     
-        return redirect('progres')->with('success','Progres Edited Successfully');
+        return redirect('progres')->with('success','Progres berhasil di update!');
    
     }
 
     public function progresdelete($id)
     {
         Progres::where('id', $id)->delete();
-        return redirect()->route('progres')->with('success', 'Progress Deleted Successfully');
+        return redirect()->route('progres')->with('success', 'Progress berhasil dihapus!');
     }
 
     public function detail($id)
