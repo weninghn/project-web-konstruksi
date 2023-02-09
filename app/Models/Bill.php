@@ -21,8 +21,8 @@ class Bill extends Model
     {
         return $this->belongsTo(Offer::class);
     }
-    
-    public function payment()
+
+    public function payments()
     {
         return $this->hasMany(payment::class);
     }

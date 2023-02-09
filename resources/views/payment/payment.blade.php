@@ -3,7 +3,7 @@
     Pembayaran
 @endsection
 
-@section('content')  
+@section('content')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -47,7 +47,7 @@
             </div>
             <div class="row g-3 align-items-center mt-2">
             <!-- .card-header -->
-            <div class="card-body"> 
+            <div class="card-body">
               <table id="example2" class="table table-bordered table-hover">
                 <thead>
                 <tr>
@@ -56,7 +56,7 @@
                     <th>Jumlah Bayar</th>
                     <th>Tanggal Bayar</th>
                     <th>Pembayaran Ke</th>
-                    <th>Status Pembayaran</th>
+                    {{-- <th>Status Pembayaran</th> --}}
                     <th>Catatan</th>
                     @if (auth()->user()->name=="admin")
                     <th>Action</th>
@@ -64,21 +64,21 @@
                 </tr>
                 </thead>
                 <tbody>
-                 
+
                  @foreach ($payment as $item)
-                     
-              
+
+
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                   <td>{{ $item->project->name }}</td>
+                   <td>{{ $item->bill->offer->project->name . ' - ' . $item->bill->offer->number }}</td>
                    <td>@currency($item->amount_payment)</td>
                    <td>{{ $item->payment_date }}</td>
                    <td>{{ $item->payment_to }}</td>
-                   <td>{{ $item->status_text }}</td>
+                   {{-- <td>{{ $item->status_text }}</td> --}}
                    <td>{{ $item->note }}</td>
                    @if (auth()->user()->name=="admin")
                     <td>
-                      <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |                              
+                      <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |
                       <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> |
                       <a href="{{ route('payment.detail', $item->id) }}">Detail</button>
                       </td>
@@ -86,7 +86,7 @@
                   </tr>
                   @endforeach
                 </tbody>
-              
+
 
               </table>
             </div>
@@ -103,5 +103,5 @@
   <!-- /.content -->
 </div>
 
- 
+
 @endsection
