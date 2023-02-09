@@ -15,12 +15,12 @@ class PaymentController extends Controller
 	public function index(Request $request)
 	{
 		$search = $request->search;
-		$payment = Payment::with('project')
+		$payment = Payment::with('bill')
 			->when($search, function ($query) use ($search) {
-				$query->whereHas('project', function ($query) use ($search) {
-					$query->where('name', 'LIKE', '%' . $search . '%');
-				})
-					->orWhere('payment_method_id', 'LIKE', '%' . $search . '%')
+				// $query->whereHas('project', function ($query) use ($search) {
+				// 	$query->where('name', 'LIKE', '%' . $search . '%');
+				// })
+				$query->orWhere('payment_method_id', 'LIKE', '%' . $search . '%')
 					->orWhere('amount_payment', 'LIKE', '%' . $search . '%')
 					->orWhere('payment_date', 'LIKE', '%' . $search . '%')
 					->orWhere('payment_to', 'LIKE', '%' . $search . '%')
@@ -51,16 +51,22 @@ class PaymentController extends Controller
 	public function store(Request $request)
 	{
 		// dd($request->all());
+		$bill = Bill::findOrFail($request->bill_id);
+		$payment_to = count($bill->payments) + 1;
 		$payment = [
 			'bill_id' => $request->bill_id,
 			'payment_method_id' => $request->payment_method_id,
 			'amount_payment' => $request->amount_payment,
 			'payment_date' => $request->payment_date,
-			'payment_to' => $request->payment_to,
-			'status' => $request->status,
+			'payment_to' => $payment_to,
 			'note' => $request->note,
 		];
 		Payment::create($payment);
+		$bill->total;
+		$status = 0;
+		$bill->update([
+			// 'status' => $status;
+		]);
 		return redirect('payment')->with('success', 'payment Added Successfully');
 	}
 	public function edit($id)

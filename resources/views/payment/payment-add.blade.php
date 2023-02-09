@@ -43,7 +43,7 @@
                   <select name="bill_id" id="bill_id" class="form-control " >
 
                     @foreach ($bills as $item)
-                       <option value="{{ $item->id}}">{{ $item->project->name . ' - ' . $item->number}}</option>
+                       <option value="{{ $item->id}}">{{ $item->offer->project->name . ' - ' . $item->offer->number . ' | Rp' . $item->total}}</option>
                     @endforeach
 
                 </select>
@@ -73,13 +73,13 @@
                     <option value="2">2</option>
                   </select>
                 </div> --}}
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="status">Status Pembayaran</label>
                   <select name="status" id="status" class="form-control " required>
                     <option value="0">Belum Lunas</option>
                     <option value="1">Lunas</option>
                   </select>
-                </div>
+                </div> --}}
                 <div class="form-group">
                   <label for="note">Catatan</label>
 				  {{-- <input type="text" name="note" id="note" class="firm-control" required> --}}
