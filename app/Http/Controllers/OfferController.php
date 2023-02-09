@@ -25,45 +25,23 @@ class OfferController extends Controller
 		// $offer = Offer::paginate(5);
 		// }
 
-		$search = $request->search;
-		$offer = Offer::with('project')
-			->when($search, function ($query) use ($search) {
-				$query->whereHas('project', function ($query) use ($search) {
-					$query->where('name', 'LIKE', '%' . $search . '%');
-				})
-					->orWhere('status', 'LIKE', '%' . $search . '%')
-					->orWhere('date_offer', 'LIKE', '%' . $search . '%');
-			})
-			->paginate(5);
-		return view('offer.offer', ['offer' => $offer]);
-	}
-	public function data($id)
-	{
-		$detail = Detail_offer::with('facilities')
-			->where('offer_id', $id)
-			->get();
 
-		$data = array();
-		$total = 0;
+        $search = $request->search;
+        $offer = Offer::with('project')
+        ->when($search, function($query) use ($search) {
+            $query->whereHas('project', function($query) use($search) {
+                $query->where('name', 'LIKE', '%'.$search.'%');
+            })
+            ->orWhere('status', 'LIKE', '%' .$search. '%')
+            ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
+        })
+        ->paginate(5);
+        return view('offer.offer',['offer' => $offer ]);
+    }
+	
+  
+    
 
-		foreach ($detail as $item) {
-			$row = array();
-			$row['category'] = $item->category['category'];
-			$row['nama'] = $item->nama['nama'];
-			$row['quantity'] = $item->quantity['quantity'];
-			$row['price'] = $item->price['price'];
-
-			$data[] = $row;
-
-			$total;
-		}
-		$data[] = [
-			'category' => '',
-			'nama' => '',
-			'quantity' => '',
-			'price' => '',
-		];
-	}
 	public function add()
 	{
 		$project = Project::all();
