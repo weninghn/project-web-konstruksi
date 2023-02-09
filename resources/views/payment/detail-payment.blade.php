@@ -42,7 +42,7 @@ Detail payment
                                 </tr>
                                 {{-- <tr>
                                   <td>Cara Pembayaran</td>
-                                  <td>{{ $payment->}}</td>
+                                  <td>{{ $payment->method->method}}</td>
                                 </tr> --}}
                                 <tr>
                                   <td>Jumlah Dibayar</td>
@@ -64,6 +64,10 @@ Detail payment
                                     <td>Catatan</td>
                                     <td>{{ $payment->note}}</td>
                                 </tr>
+                                {{-- <tr>
+                                    <td>Harga</td>
+                                    <td>{{ $total }}</td>
+                                </tr> --}}
                                
                               
                                
