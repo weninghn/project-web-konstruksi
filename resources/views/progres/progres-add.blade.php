@@ -49,10 +49,10 @@
                         {{-- <div class="form-group">
                           <label for="name">Number</label>
                           <select name="offer_id" id="offer_id" name="offer_id"class="form-control " >
-                            
+
                           </select>
                         </div> --}}
-                    
+
                         <div class="form-group">
                           <label for="presentase">Persentase</label>
                           <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase" required>

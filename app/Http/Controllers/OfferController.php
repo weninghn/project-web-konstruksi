@@ -73,11 +73,12 @@ class OfferController extends Controller
 	}
 	public function store(Request $request)
 	{
+		// $offer = new Offer();
+		// $file = $request->file;
+		// $filename = time().'.'.$file->getClientOriginalExtension();
+		// $request->file->move('assets', $filename);
 		$count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
 		if ($count >= 1) {
-			// $dokumen = $request->file('dokumen');
-			// 	$nama_dokumen = 'FT'.date('Ymdhis').'.'.$request->file('dokumen')->getClientOriginalExtension();
-			// 	$dokumen->move('public/dokumen/', $nama_dokumen);
 			Session::flash('message', 'Tidak bisa menambahkan, Penawaran Sudah deal');
 			Session::flash('alert-class', 'alert-danger');
 			return redirect('offer');
@@ -97,19 +98,16 @@ class OfferController extends Controller
 					$urut = (int)substr($ambil->number, -8) + 1;
 					$nomer = 'MDK' . $thnBulan . $urut;
 				}
-				$this->validate($request, [
-					'dokumen' => 'mimes:doc,docx,pdf',
-				]);
-				$dokumen = $request->file('dokumen');
-				$nama_dokumen = 'FT' . date('Ymdhis') . '.' . $request->file('dokumen')->getClientOriginalExtension();
-				$dokumen->move('public/dokumen/', $nama_dokumen);
 
+				$file = $request->file;
+				$filename = time().'.'.$file->getClientOriginalExtension();
+				$request->file->move('dokumen', $filename);
 				$offer = [
 					'project_id' => $request->project_id,
 					'status' => $request->status,
 					'date_offer' => $request->date_offer,
 					'number' =>  $nomer,
-					'dokumen' => $dokumen,
+					'dokumen' => $file,
 				];
 				Offer::create($offer);
 
@@ -119,9 +117,7 @@ class OfferController extends Controller
 			} catch (\Throwable $th) {
 				DB::rollback();
 				return back()->with('error', 'Gagal menambahkan Offer!');
-				// return redirect('offer')->with('success','Offer Added Successfully');
 			}
-			// return redirect('offer')->with('success','Offer Added Successfully');
 		}
 	}
 
@@ -171,64 +167,48 @@ class OfferController extends Controller
 			}
 		}
 	}
-	public function deleteoffer($id)
-	{
-		Offer::where('id', $id)->delete();
-		return redirect()->route('offer')->with('success', 'Offer deleted successfully');
-	}
-	public function detail($id)
-	{
-		$offer = Offer::find($id);
-		return view('offer.detailoffer', ['offer' => $offer]);
-	}
-
-	public function addcategory()
-	{
-		return view('offer.detailoffer');
-	}
-	public function insertcategory(Request $request)
-	{
-
-
-		$detail_offer = [
-			'offer_id' => $request->offer_id,
-			'category' => $request->category,
-		];
-		Detail_offer::create($detail_offer);
-		return redirect()->back();
-	}
-	public function addfacility()
-	{
-		return view('offer.detailoffer');
-	}
-	public function insertfacility(Request $request)
-	{
-		$facility = [
-			'detail_offer_id' => $request->detail_offer_id,
-			'nama' => $request->nama,
-			'quantity' => $request->quantity,
-			'price' => $request->price,
-		];
-		Facility::create($facility);
-		return redirect()->back();
-        if($count >= 1){
-            Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');
-            Session::flash('alert-class','alert-danger');
-            return redirect('offer');
-        }else{
-            try {
-                $offer = offer::where('id', $id)->first();
-                $offer->update($request->all());
-             return redirect(route('offer'))
-             ->with('success','Penawaran berhasil diupdate!');
-                return redirect(route('offer'))
-                ->with('success','Penawaran berhasil diupdate!');
-            } catch (\Throwable $th) {
-                DB::rollBack();
-            }
-        }
-
+    public function deleteoffer($id)
+    {
+        Offer::where('id', $id)->delete();
+        return redirect()->route('offer')->with('success', 'penawaran berhasil dihapus!');
     }
+    public function detail($id)
+    {
+        $offer = Offer::find($id);
+        return view('offer.detailoffer',['offer'=>$offer] );
+    }
+
+    public function addcategory()
+    {
+        return view('offer.detailoffer');
+    }
+    public function insertcategory(Request $request)
+    {
+
+        $detail_offer =[
+            'offer_id'=> $request->offer_id,
+            'category'=> $request->category,
+        ];
+        Detail_offer::create($detail_offer);
+        return redirect()->back();
+    }
+    public function addfacility()
+    {
+        return view('offer.detailoffer');
+    }
+    public function insertfacility(Request $request)
+    {
+        $facility =[
+            'detail_offer_id'=>$request->detail_offer_id,
+            'nama'=> $request->nama,
+            'quantity'=> $request->quantity,
+            'price'=> $request->price,
+        ];
+        Facility::create($facility);
+        return redirect()->back();
+		// $total = $facility->sum('price');
+	}
+
 	public function export_pdf($id)
 	{
 		// dd($id)
@@ -251,4 +231,13 @@ class OfferController extends Controller
 			->back();
 		return redirect()->back();
 	}
+	// public function destroyfile($id)
+	// {
+	// 	$data = Offer::where('id',$id)->first();
+	// 	$file_path = public_path()
+	// }
+	// public function uploadpage()
+	// {
+	// 	return view('offer.upload');
+	// }
 }
