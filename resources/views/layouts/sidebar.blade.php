@@ -9,7 +9,7 @@
           <img src="{{asset('AdminLTE')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">PT Madang Konstruksi</a>
+          <a href="#" class="d-block">PT Madyang Konstruksi</a>
         </div>
       </div>
 
@@ -56,7 +56,7 @@
             <a href="/offer" class="nav-link">
               <i class="fas fa-file-invoice-dollar"></i>
               <p>
-                Offer
+                Penawaran
               </p>
             </a>
           </li>
@@ -64,7 +64,7 @@
             <a href="/payment" class="nav-link">
               <i class="fa fa-credit-card"></i>
               <p>
-                Payment
+                Pembayaran
               </p>
             </a>
           </li>

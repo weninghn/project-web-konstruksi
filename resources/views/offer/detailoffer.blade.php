@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Detail Offer
+Detail|Penawaran
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@ Detail Offer
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Detail Offer</h1>
+            <h1>Detail Penawaran</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">Detail Offer</li>
+              <li class="breadcrumb-item active">Detail Penawaran</li>
             </ol>
           </div>
         </div>
@@ -41,7 +41,7 @@ Detail Offer
                                           <td>{{ $offer->facilitys->category}}</td> --}}
                                       </tr>
                                       <tr>
-                                          <td>Date Offer</td>
+                                          <td>Tanggal Penawaran</td>
                                           <td>{{ $offer->date_offer }}</td>
                                       </tr>
                                       <tr>
@@ -49,19 +49,19 @@ Detail Offer
                                           <td>{{ $offer->status_text}}</td>
                                       </tr>
                                       <tr>
-                                          <td>Number</td>
+                                          <td>No Penawaran</td>
                                           <td>{{ $offer->number}}</td>
                                       </tr>
 									  {{-- <p class="subtotal">IDR {{ $facility->facilities->price * $facility->quantity }}</p> --}}
                                   </table>
 
-                                  <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category">Add Category</button>
+                                  <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category">Tambah Kategori</button>
                                   <table class="table table-sm table-striped">
                                     @forelse($offer->detail_offers as $category)
                                     <tr>
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $category->category }}
-                                      <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;">Add Facility</button>
+                                      <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;">Tambah Fasilitas</button>
                                       </td>
                                       <td>
                                         <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
@@ -72,9 +72,9 @@ Detail Offer
                                       <td>
                                         <table class="table">
                                           <tr>
-                                         <th>Facility</th>
-                                         <th>Quantity</th>
-                                         <th>Price</th>
+                                         <th>Fasilitas</th>
+                                         <th>Jumlah</th>
+                                         <th>Harga</th>
                                          <th></th>
                                        </tr>
                                           @forelse ($category->facilities as $facility)
@@ -88,7 +88,7 @@ Detail Offer
                                           </tr>
                                           @empty
                                           <tr>
-                                            <td rowspan="4">Tidak ada Facility</td>
+                                            <td rowspan="4">Tidak ada Fasilitas</td>
                                           </tr>
                                           @endforelse
                                         </table>
@@ -96,7 +96,7 @@ Detail Offer
                                     </tr>
                                     @empty
                                     <tr>
-                                      <td>Tidak ada category</td>
+                                      <td>Tidak ada Kategori</td>
                                     </tr>
                                     @endforelse
                                   </table>
@@ -115,7 +115,7 @@ Detail Offer
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Add Category</h4>
+              <h4 class="modal-title">Tambah Kategori</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -123,7 +123,7 @@ Detail Offer
             <div class="modal-body">
               <input type="hidden" value="{{ $offer->id }}" name="offer_id">
               <div class="form-group">
-                <label for="category">Category</label>
+                <label for="category">Kategori</label>
                 <input type="text" class="form-control" id="category" name="category" >
               </div>
             </div>

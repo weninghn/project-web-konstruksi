@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-  Tambah Data User
+  Tambah User
 @endsection
 @section('content');
 <section class="content-header">
@@ -26,13 +26,13 @@
         <div class="col-md-12">
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">User Add</h3>
+              <h3 class="card-title">User Tambah</h3>
             </div>
             <form action="/insertuser" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Name</label>
+                  <label for="name">Nama</label>
                   <input type="text" name="name" class="form-control" id="name">
                 </div>
                 <div class="form-group">
@@ -44,11 +44,11 @@
                   <input type="text" name="password" class="form-control" id="password">
                 </div>
                 <div class="form-group">
-                  <label for="phone">Phone</label>
+                  <label for="phone">Telepon</label>
                   <input type="text" name="phone" class="form-control" id="phone">
                 </div>
                 <div class="form-group">
-                  <label for="addres">Addres</label>
+                  <label for="addres">Alamat</label>
                   <input type="text" name="addres" class="form-control" id="addres">
                 </div>
                 <div class="form-group">

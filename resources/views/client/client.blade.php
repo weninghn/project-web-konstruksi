@@ -36,8 +36,8 @@
                   <a href="/cetak-form" class="btn btn-primary"><i class="fa fa-file-excel-o"></i>Cetak Client</a>
                   {{-- <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a> --}}
                   @if (auth()->user()->name=="admin")
-              <a href="/tambahdata" class="btn btn-success">Add Client</a>
-              <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a>
+              <a href="/tambahdata" class="btn btn-success">Tambah</a>
+              {{-- <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a> --}}
               @endif
               </div>
               <div class="my-3 col-12 col-sm-8 col-md-3">
@@ -60,10 +60,10 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Name</th>
-                    <th>Phone</th>
+                    <th>Nama</th>
+                    <th>Telepon</th>
                     <th>Email</th>
-                    <th>Address</th>
+                    <th>Alamat</th>
                     @if (auth()->user()->name=="admin")
                     <th>Action</th>
                     @endif

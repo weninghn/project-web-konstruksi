@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Progress-Add
+    Progress-Tambah
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-          <li class="breadcrumb-item active">Progres-add</li>
+          <li class="breadcrumb-item active">Progres-Tambah</li>
         </ol>
       </div>
     </div>
@@ -30,7 +30,7 @@
                   <!-- general form elements -->
                   <div class="card card-success">
                     <div class="card-header">
-                      <h3 class="card-title">Progress Add</h3>
+                      <h3 class="card-title">Progress Tambah</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -58,11 +58,11 @@
                           <input type="text" class="form-control" id="presentase" name="presentase" placeholder="presentase" required>
                         </div>
                         <div class="form-group">
-                          <label for="job">Job Detail</label>
+                          <label for="job">Detail Pekerjaan</label>
                           <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="Job_Details" required>
                         </div>
                         <div class="form-group">
-                          <label for="date">Date Progres</label>
+                          <label for="date">Tanggal Progres</label>
                           <input type="date" class="form-control" id="date" name="date" placeholder="date" required>
                         </div>
 
@@ -86,7 +86,7 @@
                           <div class="input-group">
                             <div class="custom-file">
                               <input type="file" name="files[]" class="custom-file-input" id="upload_file" multiple>
-                              <label class="custom-file-label" for="upload_file">Choose file</label>
+                              <label class="custom-file-label" for="upload_file">Pilih file</label>
                             </div>
                             {{-- @foreach ($progress->pictures as $picture)
                             <div class="col-md-3">

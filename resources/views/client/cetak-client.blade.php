@@ -44,9 +44,9 @@
             <thead>
                 <tr>
                     <th width="5%">NO</th>
-                    <th>NAME</th>
-                    <th>PHONE</th>
-                    <th>ADDRESS</th>
+                    <th>Nama</th>
+                    <th>Telepon</th>
+                    <th>Alamat</th>
                 </tr>
             </thead>
             <tbody>

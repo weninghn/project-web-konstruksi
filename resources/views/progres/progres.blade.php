@@ -33,7 +33,7 @@ Progress
               <h3 class="card-title">Progress</h3>
                 <div class="row justify-content-end">
                   @if (auth()->user()->name=="admin")
-                  <a href="add-progres" class="btn btn-success">Add Progres</a>
+                  <a href="add-progres" class="btn btn-success">Tambah</a>
                   @endif
                  </div>
                  <div class="my-3 col-12 col-sm-8 col-md-3">
@@ -51,13 +51,13 @@ Progress
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>No</th>
-                    <th>No Offer</th>
+                      <th>No</th>
+                      <th>No Penawaran</th>
                       <th>Project</th>
-                      <th>Payment</th>
+                      <th>Pembayaran</th>
                       <th>Persentase</th>
-                      <th>Job Detail</th>
-                      <th>Date Progres</th>
+                      <th>Detail Pekerjaan</th>
+                      <th>Tangggal Progres</th>
                       <th>Action</th>
                   </tr>
                   @php

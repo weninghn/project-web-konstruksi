@@ -107,7 +107,7 @@ class OfferController extends Controller
 
                 DB::commit();
 
-                return redirect('offer')->with('success','Offer Added Successfully');
+                return redirect('offer')->with('success','Berhasil menambahakan penawaran!');
             } catch (\Throwable $th) {
                 DB::rollback();
                 return back()->with('error','Gagal menambahkan Offer!');
@@ -141,9 +141,9 @@ class OfferController extends Controller
                 $offer = offer::where('id', $id)->first();
                 $offer->update($request->all());
              return redirect(route('offer'))
-             ->with('success','Offer Update Successfully');
+             ->with('success','Penawaran berhasil diupdate!');
                 return redirect(route('offer'))
-                ->with('success','Offer Update Successfully');
+                ->with('success','Penawaran berhasil diupdate!');
             } catch (\Throwable $th) {
                 DB::rollBack();
             }
@@ -153,7 +153,7 @@ class OfferController extends Controller
     public function deleteoffer($id)
     {
         Offer::where('id', $id)->delete();
-        return redirect()->route('offer')->with('success', 'Offer deleted successfully');
+        return redirect()->route('offer')->with('success', 'penawaran berhasil dihapus!');
     }
     public function detail($id)
     {
