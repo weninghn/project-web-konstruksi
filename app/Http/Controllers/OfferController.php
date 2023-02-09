@@ -76,7 +76,7 @@ class OfferController extends Controller
     {
         $count = Offer::where('project_id',$request->project_id)->where('status',0)->count();
         if($count >= 1){
-            Session::flash('message','Tidak bisa menambahkan, Penawaran Sudah deal');
+            Session::flash ('message','Tidak bisa menambahkan, Penawaran Sudah deal');
             Session::flash('alert-class','alert-danger');
             return redirect('offer');
 

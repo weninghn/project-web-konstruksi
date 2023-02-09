@@ -49,15 +49,15 @@
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="amount">Payment Amount</label>
+                  <label for="amount">Jumalh Pembayaran</label>
                   <input type="text" class="form-control" id="amount" name="amount_payment" required>
                 </div>
                 <div class="form-group">
-                  <label for="date">Date Payment</label>
+                  <label for="date">Tanggal Pembayaran</label>
                   <input type="date" class="form-control" id="date" name="payment_date"  required>
                 </div>
                 <div class="form-group">
-                  <label for="payment">Payment Method</label>
+                  <label for="payment">Cara Bayar</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " required>
                       @foreach ($payments as $item)
                         <option value="{{ $item->id}}">{{ $item->method}}</option>
@@ -66,7 +66,7 @@
 
                 </div>
                 <div class="form-group">
-                  <label for="payment">Payment To</label>
+                  <label for="payment">Pembayaran Ke </label>
                   <select name="payment_to" id="payment_to" class="form-control " >
                     <option value="#"></option>
                     <option value="1">1</option>
@@ -74,14 +74,14 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="status">Status Payment</label>
+                  <label for="status">Status Pembayaran</label>
                   <select name="status" id="status" class="form-control " required>
                     <option value="0">Belum Lunas</option>
                     <option value="1">Lunas</option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="note">Notes</label>
+                  <label for="note">Catatan</label>
 				  {{-- <input type="text" name="note" id="note" class="firm-control" required> --}}
                   <textarea name="note" id="note" class="form-control" cols="20" rows="4" required></textarea>
                 </div>

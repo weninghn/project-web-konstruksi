@@ -57,12 +57,6 @@ Detail Offer
 
                                   <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category">Add Category</button>
                                   <table class="table table-sm table-striped">
-                                    {{-- @foreach($offer->detail_offers as $category)
-                                    <tr>
-                                      <td>Category</td>
-                                      <td>{{ $category->category }}</td>
-                                    </tr>
-                                    @endforeach --}}
                                     @forelse($offer->detail_offers as $category)
                                     <tr>
                                       <td>{{ $loop->iteration }}</td>

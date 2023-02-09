@@ -119,6 +119,8 @@ Route::post('payment-add',[PaymentController::class,'store'])->middleware('auth'
 Route::get('payment-edit/{id}',[PaymentController::class,'edit'])->name('payment.edit')->middleware('auth');
 Route::put('payment-update/{id}',[PaymentController::class,'update'])->name('payment.update')->middleware('auth');
 Route::get('paymentdelete/{id}', [PaymentController::class, 'paymentdelete'])->name('paymentdelete')->middleware('auth');
+Route::get('/detail-payment/{payment}', [PaymentController::class, 'detail'])->name('payment.detail');
+
 //Detail
 
 Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('offer.detail');

@@ -75,4 +75,10 @@ class PaymentController extends Controller
         Payment::where('id', $id)->delete();
         return redirect()->route('payment')->with('Success', 'Payment Deleted Successfully');
     }
+    public function detail($id)
+    {
+        
+        $payment = Payment::find($id);
+        return view('payment.detail-payment',['payment'=>$payment] );
+    }
 }

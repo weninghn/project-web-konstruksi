@@ -53,11 +53,11 @@
                 <tr>
                   <th>No</th>
                     <th>Project</th>
-                    <th>Amount</th>
-                    <th>Date Payment</th>
-                    <th>Payment To</th>
-                    <th>Status Payment</th>
-                    <th>Notes</th>
+                    <th>Jumlah Bayar</th>
+                    <th>Tanggal Bayar</th>
+                    <th>Pembayaran Ke</th>
+                    <th>Status Pembayaran</th>
+                    <th>Catatan</th>
                     @if (auth()->user()->name=="admin")
                     <th>Action</th>
                     @endif
@@ -79,7 +79,8 @@
                    @if (auth()->user()->name=="admin")
                     <td>
                       <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |                              
-                      <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> 
+                      <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> |
+                      <a href="{{ route('payment.detail', $item->id) }}">Detail</button>
                       </td>
                       @endif
                   </tr>

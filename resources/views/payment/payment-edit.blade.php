@@ -23,15 +23,15 @@
               <div class="card-body">
 
                 <div class="form-group">
-                  <label for="amount">Payment Amount</label>
+                  <label for="amount">Jumlah Pembayaran</label>
                   <input type="text" class="form-control" id="amount" value="{{ $payment->amount_payment }}" name="amount_payment" >
                 </div>
                 <div class="form-group">
-                  <label for="date">Date Payment</label>
+                  <label for="date">Tanggal Pembayaran</label>
                   <input type="date" class="form-control" id="date" value="{{ $payment->payment_date }}" name="payment_date" >
                 </div>
                 <div class="form-group">
-                  <label for="payment">Payment Method</label>
+                  <label for="payment">Cara Bayar</label>
                   <select name="payment_method_id" id="payment_method_id" class="form-control " >
 
                     @foreach ($method as $item)
@@ -41,14 +41,14 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="payment">Payment To</label>
+                  <label for="payment">Pembayaran Ke </label>
                   <select name="payment_to" id="payment_to" class="form-control " >
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
                 </div>
                   <div class="form-group">
-                    <label for="status">Status Payment</label>
+                    <label for="status">Status pembayaran</label>
                     <select name="status" id="status" class="form-control " >
                       <option value="0">Belum Lunas</option>
                       <option value="1">Lunas</option>
@@ -56,7 +56,7 @@
                   </div>
 
                 <div class="form-group">
-                  <label for="note">Notes</label>
+                  <label for="note">Catatan</label>
                   <input type="textarea" name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}">
                   {{-- <textarea name="note" id="note" class="form-control" cols="20" rows="4" value="{{ $payment->note }}"></textarea> --}}
                 </div>
