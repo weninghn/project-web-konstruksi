@@ -45,12 +45,12 @@ Detail Progres
                                   <td>{{ $progres->presentase }}</td>
                                 </tr>
                                 <tr>
-                                  <td>Date </td>
+                                  <td>Tanggal Penawaran </td>
                                   <td>{{ $progres->date}}</td>
                                 </tr>
                           
                                 <tr>
-                                    <td>Job Details</td>
+                                    <td>Detail Pekerjaan</td>
                                     <td>{{ $progres->job_details}}</td>
                                 </tr>
                                

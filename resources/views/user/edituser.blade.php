@@ -32,7 +32,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <div class="form-group">
-                                            <label for="name">Name</label>
+                                            <label for="name">Nama</label>
                                             <input type="text" name="name" class="form-control" id="name" value="{{ $user->name }}">
                                         </div>
                                         <div class="form-group">
@@ -40,11 +40,11 @@
                                             <input type="text" name="email" class="form-control" id="email" value="{{ $user->email }}">
                                         </div>
                                         <div class="form-group">
-                                            <label for="phone">Phone</label>
+                                            <label for="phone">Telepon</label>
                                             <input type="text" name="phone" class="form-control" id="phone" value="{{ $user->phone }}">
                                         </div>
                                         <div class="form-group">
-                                            <label for="addres">Address</label>
+                                            <label for="addres">Alamat</label>
                                             <input type="text" name="addres" class="form-control" id="addres" value="{{ $user->addres }}">
                                         </div>
                                         </div>

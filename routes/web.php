@@ -87,11 +87,12 @@ Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');
 Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');
-Route::get('sum', function(){
-	$facility = Facility::sum('price');
-	// dd($facility);
-});
+// Route::get('sum', function(){
+// 	$facility = Facility::sum('price');
+// 	// dd($facility);
+// });
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');
+Route::get('/uploadpage', [OfferController::class, 'uploadpage']);
 
 
 

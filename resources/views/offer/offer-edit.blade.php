@@ -2,7 +2,7 @@
         @extends('layouts.master')
 
 @section('title')
-    Edit Data Offer
+    Edit Penawaran
 @endsection
 
 @section('content')
@@ -14,7 +14,7 @@
 <div class="col-sm-6">
   <ol class="breadcrumb float-sm-right">
     <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-    <li class="breadcrumb-item active">Offer-edit</li>
+    <li class="breadcrumb-item active">Penawaran-edit</li>
   </ol>
 </div>
 </div>
@@ -32,7 +32,7 @@
     <!-- general form elements -->
     <div class="card card-success">
       <div class="card-header">
-        <h3 class="card-title">Offer Edit</h3>
+        <h3 class="card-title">Penawaran Edit</h3>
       </div>
       <!-- /.card-header -->
       <!-- form start -->
@@ -54,7 +54,7 @@
           </select>
           </div>
             <div class="form-group">
-            <label for="date_offer">Date Offer</label>
+            <label for="date_offer">Tanggal Penawaran</label>
             <input type="date" class="form-control" id="date_offer" name="date_offer"value="{{ $offer->date_offer }}" >
           </div>
 

@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('title')
-    Offer Add
+    Tambah|penawaran
 @endsection
 
-@section('content') 
+@section('content')
 
 <section class="content-header">
   <div class="container-fluid">
@@ -13,7 +13,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-          <li class="breadcrumb-item active">Offer Add</li>
+          <li class="breadcrumb-item active">Penawaran-tambah</li>
         </ol>
       </div>
     </div>
@@ -29,7 +29,7 @@
           <!-- general form elements -->
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">Offer</h3>
+              <h3 class="card-title">Penawaran</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -43,11 +43,11 @@
                     @foreach ($project as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
                     @endforeach
-                    
+
                 </select>
                 </div>
-        
-              
+
+
                 <div class="form-group">
                   <label for="status">Status Project</label>
                   <select name="status" id="status" name="status"class="form-control " >
@@ -58,24 +58,35 @@
                     {{-- @foreach ($status as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
                     @endforeach --}}
-                    
+
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="date">Date Offer</label>
+                  <label for="date">Tanggal Penawaran</label>
                   <input type="date" class="form-control" id="date" name="date_offer" required >
                 </div>
                 <div class="form-group">
                   <input type="hidden" class="form-control" id="number" name="number" required >
 
                 </div>
-              </div>
-              
+				<div class="form-group">
+					<a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a>
+				</div>
+				{{-- <div class="form-group">
+					<label for="dokumen">Dokumen</label>
+					<a href="{{ url('/uploadpage')}}">
+						<input type="file" class="form-control">
+					</a>
+				</div> --}}
+			  </div>
+
               <div class="card-footer">
                 {{-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">tambah detail
                 </button> --}}
                 <button type="submit" class="btn btn-success">Save</button>
                 <button type="reset" class="btn btn-warning">Reset</button>
+				{{-- <button class="btn btn-primary" href="{{ url('/uploadpage') }}">Upload File</button> --}}
+				{{-- <a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a> --}}
               </div>
             </form>
           </div>

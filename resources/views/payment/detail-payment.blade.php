@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Detail payment
+Detail Pembayaran
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@ Detail payment
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Detail payment</h1>
+            <h1>Detail Pembayaran</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">Detail payment</li>
+              <li class="breadcrumb-item active">Detail Pembayaran</li>
             </ol>
           </div>
         </div>

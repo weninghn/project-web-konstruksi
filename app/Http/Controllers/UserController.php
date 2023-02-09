@@ -57,7 +57,7 @@ class UserController extends Controller
         }
     
         Users::create($user);
-        return redirect('user')->with('success','User Added Successfully');
+        return redirect('user')->with('success','User berhasil ditambahkan');
     }
 
     public function edituser($id)
@@ -69,7 +69,7 @@ class UserController extends Controller
     {
         $user = Users::find($id);
         $user->update($request->all());
-        return redirect()->route('user')->with('success', 'User Update Successfully');
+        return redirect()->route('user')->with('success', 'User berhasil diupdate!');
     }
 
     public function deleteuser($id)
@@ -77,7 +77,7 @@ class UserController extends Controller
         User::where('id', $id)->delete();
         // $user = Users::find($id);
         // $user->delete();
-        return redirect()->route('user')->with('success', 'User Delete Successfully');
+        return redirect()->route('user')->with('success', 'User berhasil dihapus');
     }
 
     public function exportpdf()

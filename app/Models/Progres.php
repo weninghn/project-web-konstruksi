@@ -12,17 +12,17 @@ class Progres extends Model
     use HasFactory;
     use Sluggable;
     use SoftDeletes;
-    
+
     protected  $fillable= [
         'project_id',
-        'offer_id',
+        // 'offer_id',
         // 'payment_id',
         'presentase',
         'job_details',
         // 'photos',
         'date',
     ];
-    
+
     public function sluggable(): array
     {
         return [
@@ -35,19 +35,19 @@ class Progres extends Model
     {
         return $this->belongsTo(Project::class,'project_id','id');
     }
-    
+
     public function payment()
     {
         return $this->belongsTo(Payment::class,'payment_id','id');
     }
-    
+
     public function offer()
     {
         return $this->belongsTo(Offer::class, 'offer_id', 'id');
     }
-    
+
     public function pictures()
-    { 
+    {
         return $this->hasMany(Picture::class);
     }
 }

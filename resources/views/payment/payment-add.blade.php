@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Payment Add
+    Pembayaran Tambah
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-          <li class="breadcrumb-item active">Payment-add</li>
+          <li class="breadcrumb-item active">Pembayaran-Tambah</li>
         </ol>
       </div>
     </div>
@@ -31,7 +31,7 @@
           <!-- general form elements -->
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">Payment</h3>
+              <h3 class="card-title">Pembayaran</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -39,17 +39,17 @@
               @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Project</label>
-                  <select name="project_id" id="project_id" class="form-control " >
+                  <label for="name">Tagihan Project</label>
+                  <select name="bill_id" id="bill_id" class="form-control " >
 
-                    @foreach ($project as $item)
-                       <option value="{{ $item->id}}">{{ $item->name}}</option>
+                    @foreach ($bills as $item)
+                       <option value="{{ $item->id}}">{{ $item->project->name . ' - ' . $item->number}}</option>
                     @endforeach
 
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="amount">Jumalh Pembayaran</label>
+                  <label for="amount">Jumlah Pembayaran</label>
                   <input type="text" class="form-control" id="amount" name="amount_payment" required>
                 </div>
                 <div class="form-group">

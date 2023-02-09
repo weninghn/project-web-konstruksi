@@ -10,7 +10,7 @@ class PictureController extends Controller
     public function index()
     {
         $data = Picture::all();
-        return view('progtres.progres',['data' => $datas ]);
+        return view('progtres.progres',['data' => $data ]);
     }
     public function destroy($id)
     {
@@ -18,7 +18,6 @@ class PictureController extends Controller
         $file_path = public_path('uploads/progres/'.$data->image);
         unlink($file_path);
         $data->delete();
-        return redirect()->route('progres')->with('success', 'Picture Delete Successfully');
-
+        return redirect()->route('progres')->with('success', 'Gambar berhasil dihapus!');
     }
-}   
+}

@@ -44,25 +44,25 @@
                           <input type="persentase" class="form-control" id="persentase" name="persentase" placeholder="Persentase" value="{{ $progress->presentase }}">
                         </div>
                         <div class="form-group">
-                          <label for="date">Date</label>
+                          <label for="date">Tanggal Progres</label>
                           <input type="date" class="form-control" id="date" name="date" placeholder="Persentase" value="{{ $progress->date}}">
                         </div>
                         <div class="form-group">
-                          <label for="job detail">Job Detail</label>
-                          <input type="text" class="form-control" id="job_details" name="job_details" placeholder="Job Detail" value="{{ $progress->job_details}}">
+                          <label for="job detail">Detail Pekerjaan</label>
+                          <input type="text" class="form-control" id="job_details" name="job_details" placeholder="Detail Pekerjaan" value="{{ $progress->job_details}}">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputFile">File input</label>
                           <div class="input-group">
                             <div class="custom-file">
                               <input type="file" name="files[]" class="custom-file-input" id="exampleInputFile" multiple>
-                              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                              <label class="custom-file-label" for="exampleInputFile">Pilih file</label>
                             </div>
                       
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="Gambar">Progres Pictures</label>
+                          <label for="Gambar">Gambar</label>
                           <div class="row">
                             
                               @foreach ($progress->pictures as $picture)
