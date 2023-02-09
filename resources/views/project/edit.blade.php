@@ -20,15 +20,15 @@
                   <div class="row">
                     <div class="col-md-6">
                       <div class="form-group">
-                        <label for="work_date">Work Date</label>
+                        <label for="work_date">Tanggal Pengerjaan</label>
                         <input type="date" id="work_date" name="work_date" value="{{ $project->work_date }}" class="form-control" required>
                       </div>
                       <div class="form-group">
-                        <label for="date_end">Date end</label>
+                        <label for="date_end">Tanggal Selesai</label>
                         <input type="date" id="date_end" name="date_end" value="{{ $project->date_end }}" class="form-control" required>
                       </div>
                       <div class="form-group">
-                        <label for="name">Name</label>
+                        <label for="name">Nama Project</label>
                         <input type="text" id="name" name="name" value="{{ $project->name }}" class="form-control" required>
                         </div>
                        
@@ -39,16 +39,16 @@
                      
                       <!-- /.form-group -->
                       <div class="form-group">
-                        <label for="location">Location</label>
+                        <label for="location">Lokasi</label>
                         <input type="text" id="location" name="location" value="{{ $project->location }}" class="form-control" required>
                         </div>
                       <div class="form-group">
-                        <label for="date_offer" class="form-label">Date Offer</label>
+                        <label for="date_offer" class="form-label">Tanggal Penawaran</label>
                         <input type="text" id="date_offer" name="date_offer" value="{{ $project->date_offer }}" class="form-control" required>
                         </div>
                         <div class="form-group">
                       <div class="form-group">
-                        <label for="price" class="form-label">Price</label>
+                        <label for="price" class="form-label">Harga</label>
                         <input type="text" id="price" name="price" value="{{ $project->price }}" class="form-control" required>
                         </div>
                        

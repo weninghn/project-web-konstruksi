@@ -35,7 +35,7 @@
                 <div class="row justify-content-end">
                   <br>
                   @if (auth()->user()->name=="admin")
-                  <a href="/adduser" class="btn btn-success">Add User</a>
+                  <a href="/adduser" class="btn btn-success">Tambah</a>
                   @endif
                 </div>
                 <div class="my-3 col-12 col-sm-8 col-md-3">
@@ -61,11 +61,11 @@
                   <thead>
                   <tr>
                     <th>No</th>
-                    <th>Name</th>
+                    <th>Nama</th>
                     <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>user</th>
+                    <th>Telepon</th>
+                    <th>Alamat</th>
+                    <th>User</th>
                     @if (auth()->user()->name=="admin")
                     <th>Action</th>
                     @endif

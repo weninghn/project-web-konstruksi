@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Project-Add
+    Project-Tambah
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
         <div class="col-md-12">
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">Project Add</h3>
+              <h3 class="card-title">Project Tambah</h3>
             </div>
             <form class="js-validation-material" action= "{{ route('project.add')}}" method="POST" enctype="multipart/form-data">
               @csrf
@@ -30,16 +30,16 @@
                       </div>
                       <!-- /.form-group -->
                       <div class="form-group">
-                        <label for="work_date">Work Date</label>
+                        <label for="work_date">Tanggal Pengerjaan</label>
                         <input type="date" class="form-control" id="work_date" name="work_date">
                       </div>
                       <div class="form-group">
-                        <label for="date_end">Finish Date</label>
+                        <label for="date_end">Tanggal Selesai</label>
                         <input type="date" class="form-control" id="date_end" name="date_end" >
                       </div>
                       <div class="form-group">
-                        <label for="location">Location</label>
-                        <input type="text" class="form-control" id="location" name="location" placeholder="location">
+                        <label for="location">Lokasi</label>
+                        <input type="text" class="form-control" id="location" name="location" placeholder="Lokasi">
                       </div>
                       <!-- /.form-group -->
                     </div>
@@ -48,17 +48,17 @@
                      
                       <!-- /.form-group -->
                       <div class="form-group">
-                        <label for="name">Name Project</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name" required>
+                        <label for="name">Nama Project</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="nama" required>
                       </div>
                       <div class="form-group">
-                        <label for="price">Price</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="price" required>
+                        <label for="price">Harga</label>
+                        <input type="text" class="form-control" id="price" name="price" placeholder="Harga" required>
                       </div>
                       
                        <div class="form-group">
-                          <label for="date_offer">Date Offer</label>
-                          <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer" required>
+                          <label for="date_offer">Tanggal Penawaran</label>
+                          <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="Tanggal Penawaran" required>
                         </div>
                         
                       </div>

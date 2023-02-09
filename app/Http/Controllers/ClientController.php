@@ -102,7 +102,7 @@ class ClientController extends Controller
         } 
        
         Clients::create($client);
-        return redirect('client')->with('success','Client Added Successfully'); 
+        return redirect('client')->with('success','Client sudah berhasil di tambahkan!'); 
     }
 
     public function tampilkandata($slug){
@@ -117,14 +117,14 @@ class ClientController extends Controller
         $data->slug = null;
         $data->update($request->all());
 
-        return redirect()->route('client')->with('success', 'Client Update Successfully');
+        return redirect()->route('client')->with('success', 'Client behasil update!');
     }
 
     public function destroy($slug)
     {
         $data = Clients::where('slug',$slug)->first();
         $data->delete(); 
-        return redirect()->route('client')->with('success', 'Client Delete Successfully');
+        return redirect()->route('client')->with('success', 'Client berhasil dihapus!');
       
     }
     public function deletedClients()

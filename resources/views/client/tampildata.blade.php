@@ -43,15 +43,15 @@
                @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Nama</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ $data->name }}">
                   </div>
                   <div class="form-group">
-                    <label for="name">Phone</label>
+                    <label for="name">Telepon</label>
                     <input type="number" class="form-control" id="phone" name="phone"value="{{ $data->phone }}" >
                   </div>
                   <div class="form-group">
-                    <label for="date">Address</label>
+                    <label for="date">Alamat</label>
                     <input type="text" class="form-control" id="address" name="address" value="{{ $data->address }} ">
                   </div> 
                   <div class="form-group">

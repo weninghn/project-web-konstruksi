@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Offer Add
+    Tambah|penawaran
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-          <li class="breadcrumb-item active">Offer Add</li>
+          <li class="breadcrumb-item active">Penawaran-tambah</li>
         </ol>
       </div>
     </div>
@@ -29,7 +29,7 @@
           <!-- general form elements -->
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">Offer</h3>
+              <h3 class="card-title">Penawaran</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -62,7 +62,7 @@
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="date">Date Offer</label>
+                  <label for="date">Tanggal Penawaran</label>
                   <input type="date" class="form-control" id="date" name="date_offer" required >
                 </div>
                 <div class="form-group">
