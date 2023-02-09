@@ -15,7 +15,7 @@ class Progres extends Model
     
     protected  $fillable= [
         'project_id',
-        'offer_id',
+        // 'offer_id',
         // 'payment_id',
         'presentase',
         'job_details',

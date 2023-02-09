@@ -36,35 +36,7 @@ class OfferController extends Controller
         ->paginate(5);
         return view('offer.offer',['offer' => $offer ]);
     }
-	public function data($id)
-	{
-		$detail = Detail_offer::with('facilities')
-			->where('offer_id', $id)
-			->get();
-
-		$data = array();
-		$total = 0;
-
-		foreach ($detail as $item)
-		{
-			$row = array();
-			$row['category'] = $item->category['category'];
-			$row['nama'] = $item->nama['nama'];
-			$row['quantity'] = $item->quantity['quantity'];
-			$row['price'] = $item->price['price'];
-
-			$data[] = $row;
-
-			$total;
-		}
-		$data[] = [
-			'category' => '',
-			'nama' => '',
-			'quantity' => '',
-			'price' => '',
-		];
-
-	}
+	
     public function add()
     {
         $project = Project::all();
