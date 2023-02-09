@@ -6,6 +6,7 @@ use PDF;
 use App\Models\Offer;
 use Carbon\Carbon;
 use App\Models\Project;
+use App\Models\Bill;
 // use App\Models\facility;
 use App\Models\Facility;
 use App\Models\Detail_offer;
@@ -66,9 +67,9 @@ class OfferController extends Controller
 	public function add()
 	{
 		$project = Project::all();
-		$status = Status_offer::all();
+		// $status = Status_offer::all();
 		// dd($status->all());
-		return view('offer.offer-add', ['project' => $project, 'status' => $status]);
+		return view('offer.offer-add',  ['project' => $project]);
 	}
 	public function store(Request $request)
 	{
@@ -188,7 +189,7 @@ class OfferController extends Controller
 	public function insertcategory(Request $request)
 	{
 
-<<<<<<< HEAD
+
 		$detail_offer = [
 			'offer_id' => $request->offer_id,
 			'category' => $request->category,
@@ -210,7 +211,6 @@ class OfferController extends Controller
 		];
 		Facility::create($facility);
 		return redirect()->back();
-=======
         if($count >= 1){
             Session::flash('message','tdak bisa menambahkan Penawarana Sudah ada');
             Session::flash('alert-class','alert-danger');
@@ -229,48 +229,6 @@ class OfferController extends Controller
         }
 
     }
-    public function deleteoffer($id)
-    {
-        Offer::where('id', $id)->delete();
-        return redirect()->route('offer')->with('success', 'penawaran berhasil dihapus!');
-    }
-    public function detail($id)
-    {
-        $offer = Offer::find($id);
-        return view('offer.detailoffer',['offer'=>$offer] );
-    }
-
-    public function addcategory()
-    {
-        return view('offer.detailoffer');
-    }
-    public function insertcategory(Request $request)
-    {
-
-        $detail_offer =[
-            'offer_id'=> $request->offer_id,
-            'category'=> $request->category,
-        ];
-        Detail_offer::create($detail_offer);
-        return redirect()->back();
-    }
-    public function addfacility()
-    {
-        return view('offer.detailoffer');
-    }
-    public function insertfacility(Request $request)
-    {
-        $facility =[
-            'detail_offer_id'=>$request->detail_offer_id,
-            'nama'=> $request->nama,
-            'quantity'=> $request->quantity,
-            'price'=> $request->price,
-        ];
-        Facility::create($facility);
-        return redirect()->back();
->>>>>>> 076f61519493e560118f43b17ef196a5834beb1c
-		// $total = $facility->sum('price');
-	}
 	public function export_pdf($id)
 	{
 		// dd($id)

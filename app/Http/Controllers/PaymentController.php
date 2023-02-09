@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Offer;
 use App\Models\Payment;
 use App\Models\Project;
+use App\Models\Bill;
 use App\Models\paymemt_method;
 use Illuminate\Http\Request;
 use App\Models\payment_method;
@@ -44,7 +45,7 @@ class PaymentController extends Controller
 		// 	)
 		// 	->get();
 		// $bills = Bill::all();
-		$bills = [];
+		$bills = Bill::all();
 		$payment = payment_method::all();
 		return view('payment.payment-add', ['bills' => $bills, 'payments' => $payment]);
 	}
@@ -52,7 +53,7 @@ class PaymentController extends Controller
 	{
 		// dd($request->all());
 		$payment = [
-			'project_id' => $request->project_id,
+			'bill_id' => $request->bill_id,
 			'payment_method_id' => $request->payment_method_id,
 			'amount_payment' => $request->amount_payment,
 			'payment_date' => $request->payment_date,
