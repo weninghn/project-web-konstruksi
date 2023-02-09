@@ -20,6 +20,7 @@ class Offer extends Model
         'date_offer',
         'status',
         'number',
+		'dokumen',
     ];
 
     protected $appends = [

@@ -19,6 +19,5 @@ class PictureController extends Controller
         unlink($file_path);
         $data->delete();
         return redirect()->route('progres')->with('success', 'Picture Delete Successfully');
-
     }
-}   
+}

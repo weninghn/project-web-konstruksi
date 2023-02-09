@@ -52,6 +52,21 @@ Detail Offer
                                           <td>Number</td>
                                           <td>{{ $offer->number}}</td>
                                       </tr>
+									  {{-- <tr>
+										<td>Dokumen</td>
+										<td>
+											<div class="form-group row">
+												<div class="col-md-8">
+													<input type="file" class="form-control" name="dokumen" value="{{ old('dokumen')}}">
+													@error('dokumen')
+														<span class="invalid-feedback" role="alert">
+															<strong>{{ $message }}</strong>
+														</span>
+													@enderror
+												</div>
+											  </div>
+										</td>
+									  </tr> --}}
 									  {{-- <p class="subtotal">IDR {{ $facility->facilities->price * $facility->quantity }}</p> --}}
                                   </table>
 

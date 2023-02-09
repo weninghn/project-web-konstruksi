@@ -39,11 +39,11 @@
               @csrf
               <div class="card-body">
                 <div class="form-group">
-                  <label for="name">Project</label>
-                  <select name="project_id" id="project_id" class="form-control " >
+                  <label for="name">Tagihan Project</label>
+                  <select name="bill_id" id="bill_id" class="form-control " >
 
-                    @foreach ($project as $item)
-                       <option value="{{ $item->id}}">{{ $item->name}}</option>
+                    @foreach ($bills as $item)
+                       <option value="{{ $item->id}}">{{ $item->project->name . ' - ' . $item->number}}</option>
                     @endforeach
 
                 </select>

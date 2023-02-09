@@ -3,7 +3,7 @@
     Offer Add
 @endsection
 
-@section('content') 
+@section('content')
 
 <section class="content-header">
   <div class="container-fluid">
@@ -43,11 +43,11 @@
                     @foreach ($project as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
                     @endforeach
-                    
+
                 </select>
                 </div>
-        
-              
+
+
                 <div class="form-group">
                   <label for="status">Status Project</label>
                   <select name="status" id="status" name="status"class="form-control " >
@@ -58,7 +58,7 @@
                     {{-- @foreach ($status as $item)
                     <option value="{{ $item->id}}">{{ $item->name}}</option>
                     @endforeach --}}
-                    
+
                 </select>
                 </div>
                 <div class="form-group">
@@ -69,13 +69,24 @@
                   <input type="hidden" class="form-control" id="number" name="number" required >
 
                 </div>
-              </div>
-              
+				<div class="form-group">
+					<a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a>
+				</div>
+				{{-- <div class="form-group">
+					<label for="dokumen">Dokumen</label>
+					<a href="{{ url('/uploadpage')}}">
+						<input type="file" class="form-control">
+					</a>
+				</div> --}}
+			  </div>
+
               <div class="card-footer">
                 {{-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">tambah detail
                 </button> --}}
                 <button type="submit" class="btn btn-success">Save</button>
                 <button type="reset" class="btn btn-warning">Reset</button>
+				{{-- <button class="btn btn-primary" href="{{ url('/uploadpage') }}">Upload File</button> --}}
+				{{-- <a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a> --}}
               </div>
             </form>
           </div>
