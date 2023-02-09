@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Payment Add
+    Pembayaran Tambah
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
-          <li class="breadcrumb-item active">Payment-add</li>
+          <li class="breadcrumb-item active">Pembayaran-Tambah</li>
         </ol>
       </div>
     </div>
@@ -31,7 +31,7 @@
           <!-- general form elements -->
           <div class="card card-success">
             <div class="card-header">
-              <h3 class="card-title">Payment</h3>
+              <h3 class="card-title">Pembayaran</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
@@ -49,7 +49,7 @@
                 </select>
                 </div>
                 <div class="form-group">
-                  <label for="amount">Jumalh Pembayaran</label>
+                  <label for="amount">Jumlah Pembayaran</label>
                   <input type="text" class="form-control" id="amount" name="amount_payment" required>
                 </div>
                 <div class="form-group">

@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group">
                           <label for="job detail">Detail Pekerjaan</label>
-                          <input type="text" class="form-control" id="job_details" name="job_details" placeholder="Job Detail" value="{{ $progress->job_details}}">
+                          <input type="text" class="form-control" id="job_details" name="job_details" placeholder="Detail Pekerjaan" value="{{ $progress->job_details}}">
                         </div>
                         <div class="form-group">
                           <label for="exampleInputFile">File input</label>

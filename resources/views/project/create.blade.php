@@ -39,7 +39,7 @@
                       </div>
                       <div class="form-group">
                         <label for="location">Lokasi</label>
-                        <input type="text" class="form-control" id="location" name="location" placeholder="location">
+                        <input type="text" class="form-control" id="location" name="location" placeholder="Lokasi">
                       </div>
                       <!-- /.form-group -->
                     </div>
@@ -49,16 +49,16 @@
                       <!-- /.form-group -->
                       <div class="form-group">
                         <label for="name">Nama Project</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="nama" required>
                       </div>
                       <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="price" required>
+                        <input type="text" class="form-control" id="price" name="price" placeholder="Harga" required>
                       </div>
                       
                        <div class="form-group">
                           <label for="date_offer">Tanggal Penawaran</label>
-                          <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="date_offer" required>
+                          <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="Tanggal Penawaran" required>
                         </div>
                         
                       </div>

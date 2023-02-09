@@ -59,11 +59,11 @@
                         </div>
                         <div class="form-group">
                           <label for="job">Detail Pekerjaan</label>
-                          <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="Job_Details" required>
+                          <input type="job_details" class="form-control" id="job_details" name="job_details" placeholder="Detail Pekerjaan" required>
                         </div>
                         <div class="form-group">
                           <label for="date">Tanggal Progres</label>
-                          <input type="date" class="form-control" id="date" name="date" placeholder="date" required>
+                          <input type="date" class="form-control" id="date" name="date" placeholder="Tanggal Progres" required>
                         </div>
 
 						<div class="row" id="image-preview-container">

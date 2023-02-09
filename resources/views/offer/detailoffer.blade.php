@@ -146,7 +146,7 @@ Detail|Penawaran
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Add  Facilty</h4>
+              <h4 class="modal-title">Tambah  Fasilitas</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -159,15 +159,15 @@ Detail|Penawaran
             <div class="modal-body">
               <input type="hidden" id="detail_offer_id" name="detail_offer_id">
             <div class="form-group">
-              <label for="nama">Facility</label>
+              <label for="nama">Fasilitas</label>
               <input type="text" class="form-control" id="nama" name="nama" >
             </div>
             <div class="form-group">
-              <label for="quantity">Quantity </label>
+              <label for="quantity">Jumlah </label>
               <input type="number" class="form-control" id="quantity" name="quantity" >
             </div>
             <div class="form-group">
-              <label for="price">Price </label>
+              <label for="price">Harga </label>
               <input type="price" class="form-control" id="price" name="price" >
             </div>
             <div class="modal-footer justify-content-between">
