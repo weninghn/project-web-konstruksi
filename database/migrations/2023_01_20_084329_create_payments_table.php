@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('payment_method_id')->references('id')->on('payment_methods');
             $table->string('amount_payment',255);
             $table->date('payment_date');
-            $table->boolean('payment_to');
+            // $table->boolean('payment_to');
             // $table->string('status');
             $table->boolean('status')->default(0);
             $table->string('note');
