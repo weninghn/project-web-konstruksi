@@ -14,6 +14,7 @@ use App\Models\Status_offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class OfferController extends Controller
 {
@@ -55,6 +56,52 @@ class OfferController extends Controller
 		// $file = $request->file;
 		// $filename = time().'.'.$file->getClientOriginalExtension();
 		// $request->file->move('assets', $filename);
+		// $this->validate($request, [
+		// 	'dokumen' => 'required',
+		// 	'project_id' => 'required',
+		// 	'status' => 'required',
+		// 	'date_offer' => 'required',
+		// 	'number' =>  'required',
+		// 	'dokumen' => 'required',
+		// ]);
+		// $count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
+		// if ($count >= 1) {
+		// 	Session::flash('message', 'Tidak bisa menambahkan, Penawaran Sudah deal');
+		// 	Session::flash('alert-class', 'alert-danger');
+		// 	return redirect('offer');
+		// } else {
+		// 	try {
+		// 		DB::beginTransaction();
+		// 		$offer = Offer::all();
+		// 		$tanggal = Carbon::now()->format('Y-m-d');
+		// 		$now = Carbon::now();
+		// 		$thnBulan = $now->year . $now->month;
+		// 		$cek = Offer::count();
+		// 		if ($cek == 0) {
+		// 			$urut = 10000001;
+		// 			$nomer = 'MDK' . $thnBulan . $urut;
+		// 		} else {
+		// 			$ambil = Offer::all()->last();
+		// 			$urut = (int)substr($ambil->number, -8) + 1;
+		// 			$nomer = 'MDK' . $thnBulan . $urut;
+		// 		}
+		// $file = $request->file('dokumen');
+		// $nama_file = $file->getClientOriginalName();
+		// $file->move('dokumen', $file->getClientOriginalName());
+		// $upload = new Offer();
+		// $upload->file = $nama_file;
+		// // $upload->keterangan = $request->input('keterangan');
+		// $upload->save();
+		// Offer::create($offer);
+
+		// 		DB::commit();
+
+		// 		return redirect('offer')->with('success', 'Offer Added Successfully');
+		// 	} catch (\Throwable $th) {
+		// 		DB::rollback();
+		// 		return back()->with('error', 'Gagal menambahkan Offer!');
+		// 	}
+		// return back();
 		$count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
 		if ($count >= 1) {
 			Session::flash('message', 'Tidak bisa menambahkan, Penawaran Sudah deal');
@@ -77,15 +124,35 @@ class OfferController extends Controller
 					$nomer = 'MDK' . $thnBulan . $urut;
 				}
 
+				// if($request->file('file')) {
+				// 	$alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+
+				// 	foreach ($request->file('file') as $file) {
+				// 		$extension = $file->getClientOriginalExtension();
+				// 		$random = substr(str_shuffle($alphanumeric), 0, 4);
+				// 		$filename = $offer->dokumen.'-'.$random.now()->timestamp.'.'.$extension;
+				// 		$file->move(public_path('dokumen'), $filename);
+						// $progres->pictures()->create([
+						//     'image' => $filename
+						// ]);
+
+						// Picture::create([
+						// 	'progres_id' => $progres->id,
+						// 	'image' => $filename
+						// ]);
+				// 	}
+				// }
+				$data = new Offer();
 				$file = $request->file;
-				$filename = time().'.'.$file->getClientOriginalExtension();
-				$request->file->move('dokumen', $filename);
+				$filename = 'dokumen/'.time().'.'.$file->getClientOriginalName();
+				$request->file->move(public_path('dokumen'), $filename);
+				// $data->file = $filename;
 				$offer = [
 					'project_id' => $request->project_id,
 					'status' => 2,
 					'date_offer' => $request->date_offer,
 					'number' =>  $nomer,
-					'dokumen' => $file,
+					'dokumen' => $filename,
 				];
 				Offer::create($offer);
 
@@ -98,6 +165,7 @@ class OfferController extends Controller
 			}
 		}
 	}
+
 
 	public function edit($id)
 	{
@@ -170,24 +238,44 @@ class OfferController extends Controller
         Detail_offer::create($detail_offer);
         return redirect()->back();
     }
-    public function addfacility()
+    public function addfacility($id)
     {
+		// $offer = Offer::find($id);
+		// $detail = $offer->detail_offers->load('facilities');
+		// $price = 0;
+		// foreach ($detail as $item) {
+		// 	foreach ($item->facilities as $facility) {
+		// 		$price += $facility->price;
+		// 	}
+		// }
         return view('offer.detailoffer');
     }
-    public function insertfacility(Request $request)
+    public function insertfacility(Request $request, $id)
     {
+		$facility = Facility::find($id);
+		$detail = $facility->Detail_offer->load('facilities');
+		$price = 0;
+		foreach ($detail as $item) {
+			foreach ($item->facilities as $facility) {
+				$price += $facility->price;
+			}
+		}
+		$price = $facility->price * $request->quantity;
         $facility =[
             'detail_offer_id'=>$request->detail_offer_id,
             'nama'=> $request->nama,
             'quantity'=> $request->quantity,
             'price'=> $request->price,
+
+			// $price = $facility->price * $request->quantity
         ];
+
         Facility::create($facility);
         return redirect()->back();
 		// $total = $facility->sum('price');
 	}
 
-	public function export_pdf($id)
+	public function export_pdf($id, $price)
 	{
 		// dd($id)
 		$offer = Offer::find($id);
@@ -208,6 +296,21 @@ class OfferController extends Controller
 		return redirect()
 			->back();
 		return redirect()->back();
+	}
+	public function show()
+	{
+		$offer = Offer::all();
+		return view('offer.detailoffer', compact('offer'));
+	}
+	public function download(Request $request, Offer $offer)
+	{
+		return response()->download(public_path($offer->dokumen));
+		// return $offer->download('tugasss');
+	}
+	public function view($id)
+	{
+		$offer = Offer::find($id);
+		return view('offer.view', compact('offer'));
 	}
 	// public function destroyfile($id)
 	// {

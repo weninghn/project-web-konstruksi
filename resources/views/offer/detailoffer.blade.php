@@ -52,6 +52,12 @@ Detail|Penawaran
                                           <td>No Penawaran</td>
                                           <td>{{ $offer->number}}</td>
                                       </tr>
+										  <tr>
+											<td>Dokumen Lampiran</td>
+											{{-- <td>{{$offer->dokumen}}</td> --}}
+											{{-- <td><a href="">View</a></td> --}}
+											<td><a href="{{ asset($offer->dokumen) }}" target="_blank">View</a> | <a href="{{ route('offers.download', $offer->id )}}"  target="_blank">Download</a></td>
+										  </tr>
 									  {{-- <tr>
 										<td>Dokumen</td>
 										<td>

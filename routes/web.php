@@ -93,7 +93,9 @@ Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('d
 // });
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer');
 Route::get('/uploadpage', [OfferController::class, 'uploadpage']);
-
+Route::get('/show', [OfferController::class, 'show']);
+Route::get('/download/{offer}', [OfferController::class, 'download'])->name('offers.download');
+Route::get('/view/{id}', [OfferController::class, 'view']);
 
 
 Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');;

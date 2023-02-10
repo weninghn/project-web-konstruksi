@@ -17,8 +17,9 @@ class Facility extends Model
         'nama',
         'quantity',
         'price',
+		'total',
     ];
-    
+
     public function Detail_offer(): BelongsTo
     {
         return $this->belongsTo(Detail_offer::class,'detail_offer_id','id' );

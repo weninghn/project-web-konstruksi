@@ -57,6 +57,7 @@
             <th colspan="2">Fasilitas</th>
             <th>Jumlah</th>
             <th>Harga</th>
+			<th>Total</th>
           </tr>
       </thead>
       <tbody>
@@ -75,6 +76,9 @@
               <td>
                 Rp.    {{ $facility->price }}
               </td>
+			  <td>
+				{{-- RP. {{ $price }} --}}
+			  </td>
               @endforeach
                 @endforeach
               {{-- <td>

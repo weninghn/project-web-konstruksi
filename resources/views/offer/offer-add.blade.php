@@ -66,8 +66,9 @@
                   <input type="hidden" class="form-control" id="number" name="number" required >
                 </div>
 				<div class="form-group">
+					<label for="file">Upload File .pdf*</label>
 					{{-- <a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a> --}}
-					<input type="file" name="file" id="file" required multiple>
+					<input type="file" class="form-control" name="file">
 				</div>
 				{{-- <div class="form-group">
 					<label for="dokumen">Dokumen</label>
