@@ -51,18 +51,35 @@ class PaymentController extends Controller
 	}
 	public function store(Request $request)
 	{
-		// dd($request->all());
-		$payment = [
-			'bill_id' => $request->bill_id,
-			'payment_method_id' => $request->payment_method_id,
-			'amount_payment' => $request->amount_payment,
-			'payment_date' => $request->payment_date,
-			'payment_to' => $request->payment_to,
-			'status' => $request->status,
-			'note' => $request->note,
-		];
-		Payment::create($payment);
-		return redirect('payment')->with('success', 'payment Added Successfully');
+		
+        $newName = '';
+
+        if($request->file('image')){
+            $file = $request->image;
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
+            // $request->file('image')->storeAs('cover', $newName);
+            $file->move('storage/image/', $newName);
+
+          
+        }
+        $request['image'] = $newName;
+         
+        $payment = Payment::create($request->all());
+        return redirect('books')->with('status','Book Added Successfully');
+    
+
+		// $payment = [
+		// 	'bill_id' => $request->bill_id,
+		// 	'payment_method_id' => $request->payment_method_id,
+		// 	'amount_payment' => $request->amount_payment,
+		// 	'payment_date' => $request->payment_date,
+		// 	'payment_to' => $request->payment_to,
+		// 	'status' => $request->status,
+		// 	'note' => $request->note,
+		// ];
+		// Payment::create($payment);
+		// return redirect('payment')->with('success', 'payment Added Successfully');
 	}
 	public function edit($id)
 	{
