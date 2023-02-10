@@ -42,7 +42,7 @@ Detail Pembayaran
                                 </tr>
                                 <tr>
                                     <td style="width:20%">Harga Project</td>
-                                    <td>{{ $payment->project->Price}}</td>
+                                    <td>@currency($payment->bill->offer->project->price)</td>
                                 </tr>
                                 {{-- <tr>
                                   <td>Cara Pembayaran</td>

@@ -17,7 +17,7 @@ class Payment extends Model
         'payment_method_id',
         'amount_payment',
         'payment_date',
-        'payment_to',
+        // 'payment_to',
         'status',
         'note',
         'image',
