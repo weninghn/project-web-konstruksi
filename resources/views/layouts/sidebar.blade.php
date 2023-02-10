@@ -60,6 +60,14 @@
               </p>
             </a>
           </li>
+		  <li class="nav-item">
+            <a href="/bill" class="nav-link">
+              <i class="fas fa-file-invoice-dollar"></i>
+              <p>
+                Tagihan
+              </p>
+            </a>
+          </li>
           <li class="nav-item">
             <a href="/payment" class="nav-link">
               <i class="fa fa-credit-card"></i>

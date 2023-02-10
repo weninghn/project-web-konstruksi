@@ -65,6 +65,11 @@
                   </select>
 
                 </div>
+              
+                <div class="mb-3">
+                  <label for="image" class="form-label">Image</label>
+                  <input type="file" name="image" class="form-control" >
+              </div>
                 {{-- <div class="form-group">
                   <label for="payment">Pembayaran Ke </label>
                   <select name="payment_to" id="payment_to" class="form-control " >

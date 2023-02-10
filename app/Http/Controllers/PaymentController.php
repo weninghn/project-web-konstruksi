@@ -50,7 +50,19 @@ class PaymentController extends Controller
 	}
 	public function store(Request $request)
 	{
-		// dd($request->all());
+
+		
+        $newName = '';
+
+        if($request->file('image')){
+            $file = $request->image;
+            $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
+            $file->move('storage/image/', $newName);
+
+          
+        }
+        $request['image'] = $newName;
 		$bill = Bill::findOrFail($request->bill_id);
 		$payment_to = count($bill->payments) + 1;
 		$payment = [
@@ -58,8 +70,8 @@ class PaymentController extends Controller
 			'payment_method_id' => $request->payment_method_id,
 			'amount_payment' => $request->amount_payment,
 			'payment_date' => $request->payment_date,
-			'payment_to' => $payment_to,
 			'note' => $request->note,
+			'image' => $request->image,
 		];
 		Payment::create($payment);
 		$bill->total;
@@ -68,6 +80,7 @@ class PaymentController extends Controller
 			// 'status' => $status;
 		]);
 		return redirect('payment')->with('success', 'payment Added Successfully');
+
 	}
 	public function edit($id)
 	{
