@@ -44,13 +44,13 @@ class PaymentController extends Controller
 				\DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
 			)
 			->get();
-		$bills = Bill::all();
+		$bills = Bill::where('status', 0)->get();
 		$payment = payment_method::all();
 		return view('payment.payment-add', ['bills' => $bills, 'payments' => $payment]);
 	}
 	public function store(Request $request)
 	{
-
+		$bill = Bill::findOrFail($request->bill_id);
 
         $newName = '';
 
@@ -59,27 +59,34 @@ class PaymentController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
             $file->move('storage/image/', $newName);
-
-
+			$newName = 'proof_payment/'.$bill->offer->number.'-'.now()->timestamp.'.'.$extension;
+            $file->move(public_path('proof_payment'), $newName);
         }
-        $request['image'] = $newName;
-		$bill = Bill::findOrFail($request->bill_id);
 		$payment_to = count($bill->payments) + 1;
+
+		$remaining = $bill->remainingAmount();
+
+		if($request->amount_payment >= $remaining ) {
+			$status = 1;
+		} else {
+			$status = 0;
+		}
+		// dd($remaining, $request->amount_payment, $status);
 		$payment = [
 			'bill_id' => $request->bill_id,
 			'payment_method_id' => $request->payment_method_id,
 			'amount_payment' => $request->amount_payment,
 			'payment_date' => $request->payment_date,
 			'note' => $request->note,
-			'image' => $request->image,
+			'image' => $newName,
 		];
 		Payment::create($payment);
-		$bill->total;
-		$status = 0;
+
 		$bill->update([
-			// 'status' => $status;
+			'status' => $status
 		]);
-		return redirect('payment')->with('success', 'payment Added Successfully');
+
+		return redirect(route('payment'))->with('success', 'payment Added Successfully');
 
 	}
 	public function edit($id)
@@ -94,14 +101,46 @@ class PaymentController extends Controller
 	}
 	public function update(Request $request, $id)
 	{
-		$payment = Payment::where('id', $id)->first();
-		$payment->update($request->all());
+		$payment = Payment::findOrFail($id);
+		$bill = $payment->bill;
+
+		$remaining = $bill->remainingAmount()+$payment->payment_amount;
+
+		if($request->amount_payment >= $remaining ) {
+			$status = 1;
+		} else {
+			$status = 0;
+		}
+
+		// $payment->update($request->all());
+
+		//update bill
+		$payment = [
+			'payment_method_id' => $request->payment_method_id,
+			'amount_payment' => $request->amount_payment,
+			'payment_date' => $request->payment_date,
+			'note' => $request->note,
+		];
+		Payment::update($payment);
+
 		return redirect('payment')->with('success', 'Payment Updated Successfully');
 	}
 
 	public function paymentdelete($id)
 	{
+		$payment = Payment::findOrFail($id);
+		$bill = $payment->bill;
+
+		$remaining = $bill->remainingAmount()+$payment->payment_amount;
+
+		if($request->amount_payment >= $remaining ) {
+			$status = 1;
+		} else {
+			$status = 0;
+		}
 		Payment::where('id', $id)->delete();
+
+
 		return redirect()->route('payment')->with('Success', 'Payment Deleted Successfully');
 	}
 	public function detail($id)
