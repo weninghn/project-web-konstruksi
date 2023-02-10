@@ -52,9 +52,9 @@ Progress
                   <thead>
                   <tr>
                       <th>No</th>
-                      <th>No Penawaran</th>
+                      {{-- <th>No Penawaran</th> --}}
                       <th>Project</th>
-                      <th>Pembayaran</th>
+                      {{-- <th>Pembayaran</th> --}}
                       <th>Persentase</th>
                       <th>Detail Pekerjaan</th>
                       <th>Tangggal Progres</th>
@@ -67,8 +67,8 @@ Progress
                     <tr>
                     <td>{{ $index + $progress->firstItem() }}</td>
                     <td>{{ $item->project->offer()->where('status', 0)->first()?->number ?? '-' }}</td>
-                    <td>{{ $item->project->name }}</td>
-                    <td>{{ $item->project?->payments()->latest()->first()?->status_text ?? '-' }}</td>
+                    {{-- <td>{{ $item->project->name }}</td> --}}
+                    {{-- <td>{{ $item->project?->payments()->latest()->first()?->status_text ?? '-' }}</td> --}}
                     {{-- <td>{{ $item->payment->status}}</td> --}}
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>

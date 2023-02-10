@@ -56,10 +56,11 @@ class ProgressController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $progres = Progres::create([
             'project_id' => $request->project_id,
-            // 'offer_id' => $request->$offer,
-            'payment_id' => $request->payment_id,
+            // 'offer_id' => $request->$offer_id,
+            // 'payment_id' => $request->payment_id,
             'presentase' => $request->presentase,
             'job_details' => $request->job_details,
             'date' => $request->date,
