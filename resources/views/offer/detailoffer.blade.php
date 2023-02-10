@@ -42,7 +42,7 @@ Detail|Penawaran
                                       </tr>
                                       <tr>
                                           <td>Harga Projek</td>
-                                          <td>@currency($offer->project->price)</td> 
+                                          <td>@currency($offer->project->price)</td>
                                       </tr>
                                       <tr>
                                           <td>Tanggal Penawaran</td>
@@ -90,10 +90,10 @@ Detail|Penawaran
                                       </td>
                                       <td>
                                         <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+
+										<a href="/editcategory/{id}" data-toggle="modal" data-target="#modal-edit-category" class="btn btn-sm btn-primary" ><i class="fas fa-edit"></i></a>
                                       </td>
-                                      {{-- <td>
-                                        <a href="/editcategory/{{$category->id}}">Edit</a>
-                                      </td> --}}
+
                                       <td>
                                         <table class="table">
                                           <tr>
@@ -134,6 +134,7 @@ Detail|Penawaran
               </section>
           </div>
       </div>
+	  <!-- MODAL TAMBAH -->
       <div class="modal fade" id="modal-add-category">
         <form class="js-validation-material" action= "{{ route('offer.insertcategory')}}" method="POST" enctype="multipart/form-data">
           @csrf
@@ -155,6 +156,39 @@ Detail|Penawaran
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
               <button type="submit" class="btn btn-success">Save</button>
+
+              {{-- <button type="" class="btn btn-primary">Save</button> --}}
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+        </form>
+      </div>
+
+
+	  <!--Edit Modal -->
+      <div class="modal fade" id="modal-edit-category">
+        <form action= "/update/{id}" method="POST" enctype="multipart/form-data">
+          @csrf
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">Edit Kategori</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <input type="hidden" value="{{ $offer->id }}" name="offer_id">
+              <div class="form-group">
+                <label for="category">Kategori</label>
+                <input type="text" class="form-control" id="category" name="category" value="{{ $offer->category}}" >
+              </div>
+            </div>
+            <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="simpan" class="btn btn-success">Save</button>
 
               {{-- <button type="" class="btn btn-primary">Save</button> --}}
             </div>

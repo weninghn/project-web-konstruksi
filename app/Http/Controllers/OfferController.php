@@ -52,56 +52,6 @@ class OfferController extends Controller
 	}
 	public function store(Request $request)
 	{
-		// $offer = new Offer();
-		// $file = $request->file;
-		// $filename = time().'.'.$file->getClientOriginalExtension();
-		// $request->file->move('assets', $filename);
-		// $this->validate($request, [
-		// 	'dokumen' => 'required',
-		// 	'project_id' => 'required',
-		// 	'status' => 'required',
-		// 	'date_offer' => 'required',
-		// 	'number' =>  'required',
-		// 	'dokumen' => 'required',
-		// ]);
-		// $count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
-		// if ($count >= 1) {
-		// 	Session::flash('message', 'Tidak bisa menambahkan, Penawaran Sudah deal');
-		// 	Session::flash('alert-class', 'alert-danger');
-		// 	return redirect('offer');
-		// } else {
-		// 	try {
-		// 		DB::beginTransaction();
-		// 		$offer = Offer::all();
-		// 		$tanggal = Carbon::now()->format('Y-m-d');
-		// 		$now = Carbon::now();
-		// 		$thnBulan = $now->year . $now->month;
-		// 		$cek = Offer::count();
-		// 		if ($cek == 0) {
-		// 			$urut = 10000001;
-		// 			$nomer = 'MDK' . $thnBulan . $urut;
-		// 		} else {
-		// 			$ambil = Offer::all()->last();
-		// 			$urut = (int)substr($ambil->number, -8) + 1;
-		// 			$nomer = 'MDK' . $thnBulan . $urut;
-		// 		}
-		// $file = $request->file('dokumen');
-		// $nama_file = $file->getClientOriginalName();
-		// $file->move('dokumen', $file->getClientOriginalName());
-		// $upload = new Offer();
-		// $upload->file = $nama_file;
-		// // $upload->keterangan = $request->input('keterangan');
-		// $upload->save();
-		// Offer::create($offer);
-
-		// 		DB::commit();
-
-		// 		return redirect('offer')->with('success', 'Offer Added Successfully');
-		// 	} catch (\Throwable $th) {
-		// 		DB::rollback();
-		// 		return back()->with('error', 'Gagal menambahkan Offer!');
-		// 	}
-		// return back();
 		$count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
 		if ($count >= 1) {
 			Session::flash('message', 'Tidak bisa menambahkan, Penawaran Sudah deal');
@@ -123,25 +73,6 @@ class OfferController extends Controller
 					$urut = (int)substr($ambil->number, -8) + 1;
 					$nomer = 'MDK' . $thnBulan . $urut;
 				}
-
-				// if($request->file('file')) {
-				// 	$alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-
-				// 	foreach ($request->file('file') as $file) {
-				// 		$extension = $file->getClientOriginalExtension();
-				// 		$random = substr(str_shuffle($alphanumeric), 0, 4);
-				// 		$filename = $offer->dokumen.'-'.$random.now()->timestamp.'.'.$extension;
-				// 		$file->move(public_path('dokumen'), $filename);
-						// $progres->pictures()->create([
-						//     'image' => $filename
-						// ]);
-
-						// Picture::create([
-						// 	'progres_id' => $progres->id,
-						// 	'image' => $filename
-						// ]);
-				// 	}
-				// }
 				$data = new Offer();
 				$file = $request->file;
 				$filename = 'dokumen/'.time().'.'.$file->getClientOriginalName();
@@ -250,17 +181,17 @@ class OfferController extends Controller
 		// }
         return view('offer.detailoffer');
     }
-    public function insertfacility(Request $request, $id)
+    public function insertfacility(Request $request)
     {
-		$facility = Facility::find($id);
-		$detail = $facility->Detail_offer->load('facilities');
-		$price = 0;
-		foreach ($detail as $item) {
-			foreach ($item->facilities as $facility) {
-				$price += $facility->price;
-			}
-		}
-		$price = $facility->price * $request->quantity;
+	// 	$facility = Facility::find($id);
+	// 	$detail = $facility->Detail_offer->load('facilities');
+	// 	$price = 0;
+	// 	foreach ($detail as $item) {
+	// 		foreach ($item->facilities as $facility) {
+	// 			$price += $facility->price;
+	// 		}
+	// 	}
+		// $price = $facility->price * $request->quantity;
         $facility =[
             'detail_offer_id'=>$request->detail_offer_id,
             'nama'=> $request->nama,

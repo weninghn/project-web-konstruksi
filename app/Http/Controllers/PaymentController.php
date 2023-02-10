@@ -57,6 +57,8 @@ class PaymentController extends Controller
         if($request->file('image')){
             $file = $request->image;
             $extension = $request->file('image')->getClientOriginalExtension();
+            $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
+            $file->move('storage/image/', $newName);
 			$newName = 'proof_payment/'.$bill->offer->number.'-'.now()->timestamp.'.'.$extension;
             $file->move(public_path('proof_payment'), $newName);
         }
@@ -79,7 +81,7 @@ class PaymentController extends Controller
 			'image' => $newName,
 		];
 		Payment::create($payment);
-		
+
 		$bill->update([
 			'status' => $status
 		]);
@@ -135,7 +137,7 @@ class PaymentController extends Controller
 			$status = 1;
 		} else {
 			$status = 0;
-		}   
+		}
 		Payment::where('id', $id)->delete();
 
 
