@@ -88,6 +88,9 @@ Route::post('offer-add',[OfferController::class,'store'])->name('offer.store');
 Route::get('editoffer/{id}',[OfferController::class,'edit'])->name('offer.edit');
 Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.update');
 Route::get('/detail-offer/{offer}', [OfferController::class, 'detail'])->name('detail-offer');
+Route::get('/editcategory/{id}',[CategoryController::class,'edit'])->name('offer.edit')->middleware('auth');
+Route::put('/update/{id}',[CategoryController::class,'update'])->name('category.update')->middleware('auth');
+
 // Route::get('sum', function(){
 // 	$facility = Facility::sum('price');
 // 	// dd($facility);
@@ -113,9 +116,10 @@ Route::put('editoffer/{id}',[OfferController::class,'update'])->name('offer.upda
 Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('deleteoffer')->middleware('auth');
 Route::get('/deletefacility/{id}', [OfferController::class, 'destroy'])->name('destroy')->middleware('auth');
 Route::get('/detailoffer/{id}', [OfferController::class, 'detail'])->name('offer.detail')->middleware('auth');
+// Route::post('/update/{id}', [OfferController::class, 'update']);
 // Route::get('export/{$id}',[OfferController::class, 'export_pdf'])->name('export_pdf');
 
-//tagihan 
+//tagihan
 Route::get('/bill',[BillController::class,'index'])->name('bill')->middleware('auth')->middleware('auth');
 
 
@@ -134,7 +138,6 @@ Route::get('/detailoffer/{offer}', [OfferController::class, 'detail'])->name('of
 route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addcategory')->name('offer.addcategory');
 route::get('/offer/add','App\Http\Controllers\OfferController@addfacility')->name('offer.addfacility');
 route::post('/offer/insertcategory','App\Http\Controllers\OfferController@insertcategory')->name('offer.insertcategory');
-route::post('/offer/insertfacility','App\Http\Controllers\OfferController@insertfacility')->name('offer.insertfacility');
 
 
 Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
@@ -200,8 +203,7 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin']], function() {
     Route::get('/offer/detailoffer','App\Http\Controllers\OfferController@addcategory')->name('offer.addcategory')->middleware('auth');
     Route::get('/offer/add','App\Http\Controllers\CategoryController@addfacility')->name('offer.addfacility')->middleware('auth');
     Route::post('/offer/insertcategory','App\Http\Controllers\CategoryController@insertcategory')->name('offer.insertcategory')->middleware('auth');
-    // Route::get('/editcategory/{id}',[CategoryController::class,'edit'])->name('offer.edit')->middleware('auth');
-    // Route::put('/update/{id}',[CategoryController::class,'update'])->name('category.update')->middleware('auth');
+
     Route::post('/offer/insertfacility','App\Http\Controllers\OfferController@insertfacility')->name('offer.insertfacility')->middleware('auth');
     Route::get('/deletefacility/{id}', [OfferController::class, 'destroy'])->name('destroy')->middleware('auth');
     Route::get('/deletecategory/{id}', [CategoryController::class, 'delete'])->name('delete')->middleware('auth');

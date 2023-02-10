@@ -51,7 +51,7 @@ class PaymentController extends Controller
 	public function store(Request $request)
 	{
 
-		
+
         $newName = '';
 
         if($request->file('image')){
@@ -60,7 +60,7 @@ class PaymentController extends Controller
             $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
             $file->move('storage/image/', $newName);
 
-          
+
         }
         $request['image'] = $newName;
 		$bill = Bill::findOrFail($request->bill_id);
