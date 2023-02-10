@@ -22,7 +22,7 @@ Detail Pembayaran
         </div>
       </div><!-- /.container-fluid -->
     </section>
-    
+
 
     <!-- Main content -->
     <section class="content">
@@ -35,10 +35,10 @@ Detail Pembayaran
                         <!-- /.box-header -->
                         <div class="box-body">
                             <table class="table table-striped table-bordered">
-                            
+
                                 <tr>
                                     <td style="width:20%">Project</td>
-                                    <td>{{ $payment->project->name}}</td>
+                                    <td>{{ $payment->bill->offer->project->name}}</td>
                                 </tr>
                                 <tr>
                                     <td style="width:20%">Harga Project</td>
@@ -60,10 +60,10 @@ Detail Pembayaran
                                   <td>Tanggal Bayar</td>
                                   <td>{{ $payment->payment_date}}</td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                     <td>Status</td>
                                     <td>{{ $payment->status_text}}</td>
-                                </tr>
+                                </tr> --}}
                                 <tr>
                                     <td>Catatan</td>
                                     <td>{{ $payment->note}}</td>
@@ -72,9 +72,9 @@ Detail Pembayaran
                                     <td>Harga</td>
                                     <td>{{ $total }}</td>
                                 </tr> --}}
-                               
-                              
-                               
+
+
+
                             </table>
                         </div>
                     </div>

@@ -55,6 +55,7 @@ class Offer extends Model
         $array_status = [
             0 => 'Deal',
             1 => 'Revisi',
+            2 => 'Tahap Penawaran',
         ];
 
         return $array_status[$status];

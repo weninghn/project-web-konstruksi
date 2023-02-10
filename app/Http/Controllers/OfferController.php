@@ -38,9 +38,9 @@ class OfferController extends Controller
         ->paginate(5);
         return view('offer.offer',['offer' => $offer ]);
     }
-	
-  
-    
+
+
+
 
 	public function add()
 	{
@@ -82,7 +82,7 @@ class OfferController extends Controller
 				$request->file->move('dokumen', $filename);
 				$offer = [
 					'project_id' => $request->project_id,
-					'status' => $request->status,
+					'status' => 2,
 					'date_offer' => $request->date_offer,
 					'number' =>  $nomer,
 					'dokumen' => $file,

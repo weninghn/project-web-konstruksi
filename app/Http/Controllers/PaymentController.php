@@ -15,12 +15,12 @@ class PaymentController extends Controller
 	public function index(Request $request)
 	{
 		$search = $request->search;
-		$payment = Payment::with('project')
+		$payment = Payment::with('bill')
 			->when($search, function ($query) use ($search) {
-				$query->whereHas('project', function ($query) use ($search) {
-					$query->where('name', 'LIKE', '%' . $search . '%');
-				})
-					->orWhere('payment_method_id', 'LIKE', '%' . $search . '%')
+				// $query->whereHas('project', function ($query) use ($search) {
+				// 	$query->where('name', 'LIKE', '%' . $search . '%');
+				// })
+				$query->orWhere('payment_method_id', 'LIKE', '%' . $search . '%')
 					->orWhere('amount_payment', 'LIKE', '%' . $search . '%')
 					->orWhere('payment_date', 'LIKE', '%' . $search . '%')
 					->orWhere('payment_to', 'LIKE', '%' . $search . '%')
@@ -35,22 +35,22 @@ class PaymentController extends Controller
 	}
 	public function add()
 	{
-		// $project = Project::join('offers', function ($join) {
-		// 	$join->on('offers.project_id', '=', 'projects.id')
-		// 		->where('offers.status', '=', 0);
-		// })
-		// 	->select(
-		// 		'projects.id AS id',
-		// 		\DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
-		// 	)
-		// 	->get();
-		// $bills = Bill::all();
+		$project = Project::join('offers', function ($join) {
+			$join->on('offers.project_id', '=', 'projects.id')
+				->where('offers.status', '=', 0);
+		})
+			->select(
+				'projects.id AS id',
+				\DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
+			)
+			->get();
 		$bills = Bill::all();
 		$payment = payment_method::all();
 		return view('payment.payment-add', ['bills' => $bills, 'payments' => $payment]);
 	}
 	public function store(Request $request)
 	{
+
 		
         $newName = '';
 
@@ -80,6 +80,26 @@ class PaymentController extends Controller
 		// ];
 		// Payment::create($payment);
 		// return redirect('payment')->with('success', 'payment Added Successfully');
+
+		// dd($request->all());
+		$bill = Bill::findOrFail($request->bill_id);
+		$payment_to = count($bill->payments) + 1;
+		$payment = [
+			'bill_id' => $request->bill_id,
+			'payment_method_id' => $request->payment_method_id,
+			'amount_payment' => $request->amount_payment,
+			'payment_date' => $request->payment_date,
+			'payment_to' => $payment_to,
+			'note' => $request->note,
+		];
+		Payment::create($payment);
+		$bill->total;
+		$status = 0;
+		$bill->update([
+			// 'status' => $status;
+		]);
+		return redirect('payment')->with('success', 'payment Added Successfully');
+
 	}
 	public function edit($id)
 	{
