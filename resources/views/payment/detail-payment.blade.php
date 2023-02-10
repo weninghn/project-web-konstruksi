@@ -40,6 +40,10 @@ Detail Pembayaran
                                     <td style="width:20%">Project</td>
                                     <td>{{ $payment->bill->offer->project->name}}</td>
                                 </tr>
+                                <tr>
+                                    <td style="width:20%">Harga Project</td>
+                                    <td>{{ $payment->project->Price}}</td>
+                                </tr>
                                 {{-- <tr>
                                   <td>Cara Pembayaran</td>
                                   <td>{{ $payment->method->method}}</td>

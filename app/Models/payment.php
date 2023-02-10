@@ -20,6 +20,7 @@ class Payment extends Model
         // 'payment_to',
         'status',
         'note',
+        'image',
     ];
 
     protected $appends = [
