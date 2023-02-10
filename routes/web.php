@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OfferController;
+use App\Http\Controllers\BillController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PaymentController;
@@ -111,6 +112,9 @@ Route::get('/deleteoffer/{id}', [OfferController::class, 'deleteoffer'])->name('
 Route::get('/deletefacility/{id}', [OfferController::class, 'destroy'])->name('destroy')->middleware('auth');
 Route::get('/detailoffer/{id}', [OfferController::class, 'detail'])->name('offer.detail')->middleware('auth');
 // Route::get('export/{$id}',[OfferController::class, 'export_pdf'])->name('export_pdf');
+
+//tagihan 
+Route::get('/bill',[BillController::class,'index'])->name('bill')->middleware('auth')->middleware('auth');
 
 
 //Pembayaran

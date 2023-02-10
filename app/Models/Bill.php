@@ -19,11 +19,22 @@ class Bill extends Model
     ];
     public function offer()
     {
-        return $this->belongsTo(Offer::class);
+        return $this->belongsTo(Offer::class,'offer_id','id');
     }
 
     public function payments()
     {
         return $this->hasMany(payment::class);
+    }
+    public function  getStatusTextAttribute() {
+        $status = $this->status ?? 0;
+
+        $array_status = [
+            0 => 'belum Lunas',
+            1 => 'Lunas',
+            
+        ];
+
+        return $array_status[$status];
     }
 }
