@@ -26,6 +26,15 @@ class Bill extends Model
     {
         return $this->hasMany(payment::class);
     }
+
+    public function remainingAmount()
+    {
+        $total = $this->total;
+        $total_paid = $this->payments()->sum('amount_payment');
+
+        return $total - $total_paid;
+    }
+
     public function  getStatusTextAttribute() {
         $status = $this->status ?? 0;
 

@@ -68,10 +68,19 @@ Detail Pembayaran
                                     <td>Catatan</td>
                                     <td>{{ $payment->note}}</td>
                                 </tr>
-                                {{-- <tr>
-                                    <td>Harga</td>
-                                    <td>{{ $total }}</td>
-                                </tr> --}}
+                            
+                                <tr>
+                                  <td>Bukti Bayar</td>
+                                  @if ($payment->image)
+                                    <td>
+                                      <img src="{{ asset($payment->image) }}" style="width: 150px; margin-right: 20px" alt="">
+                                    </td>
+                                  @else
+                                      <td>
+                                        Tidak Ada Bukti Bayar
+                                      </td>
+                                  @endif
+                              </tr>
 
 
 

@@ -39,7 +39,7 @@ Tagihan
               {{-- <a href="{{route('project.create')}}" class="btn btn-success">Tambah</a> --}}
               @endif
               </div>
-              <div class="my-3 col-12 col-sm-8 col-md-3">
+              {{-- <div class="my-3 col-12 col-sm-8 col-md-3">
                 <form action="" method="GET">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" id="inputPassword6" name="search">
@@ -47,7 +47,7 @@ Tagihan
                   </div>
                 </form>
                </div>
-              </div>
+              </div> --}}
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
               <div class="card-body"> 
@@ -72,7 +72,6 @@ Tagihan
                               @foreach($emp as $index)
                               <tr>
                                 <td>{{ $index->offer->project->name . ' - ' . $index->offer->number }}</td>
-                                  </td>
                                   <td>
                                       {{ $index->total }}
                                   </td>

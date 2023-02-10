@@ -22,10 +22,10 @@
                 @method('PUT')
               <div class="card-body">
 
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="amount">Jumlah Pembayaran</label>
                   <input type="text" class="form-control" id="amount" value="{{ $payment->amount_payment }}" name="amount_payment" >
-                </div>
+                </div> --}}
                 <div class="form-group">
                   <label for="date">Tanggal Pembayaran</label>
                   <input type="date" class="form-control" id="date" value="{{ $payment->payment_date }}" name="payment_date" >
@@ -40,20 +40,20 @@
 
                   </select>
                 </div>
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <label for="payment">Pembayaran Ke </label>
                   <select name="payment_to" id="payment_to" class="form-control " >
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select>
-                </div>
-                  <div class="form-group">
+                </div> --}}
+                  {{-- <div class="form-group">
                     <label for="status">Status pembayaran</label>
                     <select name="status" id="status" class="form-control " >
                       <option value="0">Belum Lunas</option>
                       <option value="1">Lunas</option>
                     </select>
-                  </div>
+                  </div> --}}
 
                 <div class="form-group">
                   <label for="note">Catatan</label>
