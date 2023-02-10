@@ -61,7 +61,7 @@ Tagihan
                           {{-- <th>Status</th>
                           <th>Status Payment</th> --}}
                           @if (auth()->user()->name=="admin")
-                          <th>Action</th>
+                          {{-- <th>Action</th> --}}
                           @endif
                         </tr>
                         </thead>
@@ -69,16 +69,15 @@ Tagihan
                               @php
                               $no=1; 
                               @endphp
-                              @foreach($bill as $bill)
+                              @foreach($emp as $index)
                               <tr>
-                                 
-                                      {{ $bill->offer?->name }}
+                                <td>{{ $index->offer->project->name . ' - ' . $index->offer->number }}</td>
                                   </td>
                                   <td>
-                                      {{ $bill->harga }}
+                                      {{ $index->total }}
                                   </td>
                                   <td>
-                                      {{ $bill->status }}
+                                      {{ $index->status_text}}
                                   </td>
                                 @if (auth()->user()->name=="admin")
                                   

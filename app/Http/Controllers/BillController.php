@@ -9,7 +9,10 @@ class BillController extends Controller
 {
     public function index()
     {
-        $data=Bill::all();
-        return view('Bill.bill',['bill'=>$data]);
+        $bill = Bill::orderby('id','asc')->get();
+        return view ('Bill.bill', [
+            'emp'=>$bill
+        ]);
+        
     }
 }
