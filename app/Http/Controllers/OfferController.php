@@ -250,17 +250,8 @@ class OfferController extends Controller
 		// }
         return view('offer.detailoffer');
     }
-    public function insertfacility(Request $request, $id)
+    public function insertfacility(Request $request)
     {
-		$facility = Facility::find($id);
-		$detail = $facility->Detail_offer->load('facilities');
-		$price = 0;
-		foreach ($detail as $item) {
-			foreach ($item->facilities as $facility) {
-				$price += $facility->price;
-			}
-		}
-		$price = $facility->price * $request->quantity;
         $facility =[
             'detail_offer_id'=>$request->detail_offer_id,
             'nama'=> $request->nama,

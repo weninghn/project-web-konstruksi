@@ -60,9 +60,7 @@
                           <label for="date_offer">Tanggal Penawaran</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="Tanggal Penawaran" required>
                         </div>
-                        
                       </div>
-                     
                      </div>
                      <div class="card-footer">
                       <button type="submit" class="btn btn-success">Save</button>
@@ -73,7 +71,4 @@
         </div>
       </div>
     </div>
-
-
-
 @endsection
