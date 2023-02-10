@@ -35,7 +35,7 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="payment-add" method="POST">
+            <form action="payment-add" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="card-body">
                 <div class="form-group">
@@ -43,7 +43,7 @@
                   <select name="bill_id" id="bill_id" class="form-control " >
 
                     @foreach ($bills as $item)
-                       <option value="{{ $item->id}}">{{ $item->offer->project->name . ' - ' . $item->offer->number . ' | Rp' . $item->total}}</option>
+                       <option value="{{ $item->id}}">{{ $item->offer->project->name . ' - ' . $item->offer->number . ' | Total Rp' . $item->total. ' | Belum Dibayarkan Rp '.$item->remainingAmount()}}</option>
                     @endforeach
 
                 </select>
