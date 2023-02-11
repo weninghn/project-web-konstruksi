@@ -50,7 +50,7 @@ Detail Pembayaran
                                 </tr> --}}
                                 <tr>
                                   <td>Jumlah Dibayar</td>
-                                  <td>{{ $payment->amount_payment }}</td>
+                                  <td>@currency($payment->amount_payment)</td>
                                 </tr>
                                 <tr>
                                   <td>Pembayaran ke</td>
