@@ -124,7 +124,7 @@ class PaymentController extends Controller
 		return redirect('payment')->with('success', 'Payment Updated Successfully');
 	}
 
-	public function paymentdelete($id)
+	public function paymentdelete(Request $request, $id)
 	{
 		$payment = Payment::findOrFail($id);
 		$bill = $payment->bill;

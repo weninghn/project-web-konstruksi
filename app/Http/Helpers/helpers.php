@@ -2,6 +2,10 @@
 
 use App\Models\Offer;
 
+function format_uang ($angka) {
+    return number_format($angka, 0, ',', '.');
+}
+
 function tanggal_indonesia($tgl, $tampil_hari = true)
 {
     $nama_hari  = array(
@@ -23,12 +27,12 @@ function tanggal_indonesia($tgl, $tampil_hari = true)
     } else {
         $text       .= "$tanggal $bulan $tahun";
     }
-    
-    return $text; 
+
+    return $text;
 }
 
 function checkStatusOffer($project_id)
-{ 
+{
     $offer = Offer::where([
         ['project_id', $project_id],
         ['status', 0]
