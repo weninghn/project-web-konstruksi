@@ -44,7 +44,7 @@ class ProgressController extends Controller
             })
             ->select(
                 'projects.id AS id',
-                \DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
+                DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
             )
             ->get();
         $picture = Picture::all();
@@ -56,6 +56,7 @@ class ProgressController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $progres = Progres::create([
             'project_id' => $request->project_id,
             // 'offer_id' => $request->$offer,

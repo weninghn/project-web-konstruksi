@@ -52,8 +52,7 @@ Progress
                   <thead>
                   <tr>
                       <th>No</th>
-                      <th>No Penawaran</th>
-                      {{-- <th>Project</th> --}}
+                      <th>Project</th>
                       {{-- <th>Pembayaran</th> --}}
                       <th>Persentase</th>
                       <th>Detail Pekerjaan</th>
@@ -66,19 +65,11 @@ Progress
                   @foreach($progress as $index => $item)
                     <tr>
                     <td>{{ $index + $progress->firstItem() }}</td>
-                    <td>{{ $item->offer()->where('status', 0)->first()?->number ?? '-' }}</td>
-					{{-- <td>{{ $item->project->status}}</td> --}}
-                    {{-- <td>{{ $item->project->name }}</td>
-                    <td>{{ $item->project?->payments()->latest()->first()?->status_text ?? '-' }}</td> --}}
-                    {{-- <td>{{ $item->payment->status}}</td> --}}
+                    <td>{{ $item->project->offer()->where('status', 0)->first()?->number ?? '-' }}</td>
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
                     <td>{{ $item->date }}</td>
-                    {{-- <td>
-                      @foreach ($item->pictures as $picture)
-                        <img src="{{asset('uploads/progres/'.$picture->image) }}" alt="" width="170px">
-                        @endforeach
-                      </td> --}}
+
                       <td>
                         @if (auth()->user()->name=="admin")
                         <a href="/progres-edit/{{ $item->slug }}">Edit</a>  |
