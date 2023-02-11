@@ -15,4 +15,10 @@ class BillController extends Controller
         ]);
         
     }
+   public function detail($id)
+   {
+    $bill = Bill::find($id);
+    return view('bill.detail-bill',['bill'=>$bill]);
+   }
+
 }

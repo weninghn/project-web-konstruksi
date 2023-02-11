@@ -58,10 +58,8 @@ Tagihan
                           <th>Tagihan</th>
                           <th>Harga</th>
                           <th>Status</th>
-                          {{-- <th>Status</th>
-                          <th>Status Payment</th> --}}
                           @if (auth()->user()->name=="admin")
-                          {{-- <th>Action</th> --}}
+                          <th>Action</th>
                           @endif
                         </tr>
                         </thead>
@@ -77,6 +75,9 @@ Tagihan
                                   </td>
                                   <td>
                                       {{ $index->status_text}}
+                                  </td>
+                                  <td>
+                                    <a href="{{ route('bill.detail', $index->id) }}">Detail</button>
                                   </td>
                                 @if (auth()->user()->name=="admin")
                                   

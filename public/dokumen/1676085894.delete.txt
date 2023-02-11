@@ -1,0 +1,5 @@
+function deletesiswa{
+mysqli_query(mysqli,"delete from siswa where nis = $nis);
+}
+
+< a href="delete/deletesiswa()"/><a>
