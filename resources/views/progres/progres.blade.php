@@ -2,8 +2,8 @@
 @section('title')
 Progress
 @endsection
-    
-    @section('content')  
+
+    @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -47,13 +47,17 @@ Progress
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
-              <div class="card-body"> 
+              <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                   <tr>
                       <th>No</th>
+<<<<<<< HEAD
                       <th>No Penawaran</th>
                       {{-- <th>Project</th> --}}
+=======
+                      <th>Project</th>
+>>>>>>> fdf7242f3643796564fe8a13caa5ae5548d42a70
                       {{-- <th>Pembayaran</th> --}}
                       <th>Persentase</th>
                       <th>Detail Pekerjaan</th>
@@ -67,17 +71,10 @@ Progress
                     <tr>
                     <td>{{ $index + $progress->firstItem() }}</td>
                     <td>{{ $item->project->offer()->where('status', 0)->first()?->number ?? '-' }}</td>
-                    {{-- <td>{{ $item->project->name }}</td>
-                    <td>{{ $item->project?->payments()->latest()->first()?->status_text ?? '-' }}</td> --}}
-                    {{-- <td>{{ $item->payment->status}}</td> --}}
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
                     <td>{{ $item->date }}</td>
-                    {{-- <td>
-                      @foreach ($item->pictures as $picture)
-                        <img src="{{asset('uploads/progres/'.$picture->image) }}" alt="" width="170px">
-                        @endforeach
-                      </td> --}}
+
                       <td>
                         @if (auth()->user()->name=="admin")
                         <a href="/progres-edit/{{ $item->slug }}">Edit</a>  |
@@ -105,5 +102,5 @@ Progress
     </section>
     <!-- /.content -->
   </div>
-   
+
 @endsection

@@ -17,6 +17,8 @@ class Bill extends Model
         'total',
         'status',
     ];
+
+   
     public function offer()
     {
         return $this->belongsTo(Offer::class,'offer_id','id');

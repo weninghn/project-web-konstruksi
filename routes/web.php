@@ -121,6 +121,8 @@ Route::get('/detailoffer/{id}', [OfferController::class, 'detail'])->name('offer
 
 //tagihan
 Route::get('/bill',[BillController::class,'index'])->name('bill')->middleware('auth')->middleware('auth');
+Route::get('/detail-bill/{bill}', [BillController::class, 'detail'])->name('bill.detail');
+
 
 
 //Pembayaran

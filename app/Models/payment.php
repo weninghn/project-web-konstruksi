@@ -35,7 +35,7 @@ class Payment extends Model
     public function method(){
         return $this->hasMany(Payment_method::class);
     }
-    
+  
     public function price()
     {
         return $this->belongsTo(Facility::class);

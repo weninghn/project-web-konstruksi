@@ -55,6 +55,7 @@
                     <th>Project</th>
                     <th>Jumlah Bayar</th>
                     <th>Tanggal Bayar</th>
+                    <th>Status</th>
                    
                     {{-- <th>Status Pembayaran</th> --}}
                     <th>Catatan</th>
@@ -71,7 +72,7 @@
                    <td>{{ $item->bill->offer->project->name . ' - ' . $item->bill->offer->number }}</td>
                    <td>@currency($item->amount_payment)</td>
                    <td>{{ $item->payment_date }}</td>
-                   {{-- <td>{{ $item->status_text }}</td> --}}
+                   <td>{{ $item->bill->status_text}}</td>
                    <td>{{ $item->note }}</td>
                     <td>
                       @if (auth()->user()->name=="admin")

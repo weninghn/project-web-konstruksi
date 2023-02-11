@@ -36,8 +36,8 @@ class OfferController extends Controller
             ->orWhere('status', 'LIKE', '%' .$search. '%')
             ->orWhere('date_offer', 'LIKE', '%' .$search. '%');
         })
-        ->paginate(5);
-        return view('offer.offer',['offer' => $offer ]);
+        ->paginate(20);
+        return view('offer.offer', ['offer' => $offer ]);
     }
 
 
