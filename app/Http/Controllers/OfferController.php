@@ -198,7 +198,7 @@ class OfferController extends Controller
 		// $total = $facility->sum('price');
 	}
 
-	public function export_pdf($id, $price)
+	public function export_pdf($id)
 	{
 		// dd($id)
 		$offer = Offer::find($id);

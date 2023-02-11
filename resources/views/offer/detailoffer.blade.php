@@ -79,21 +79,23 @@ Detail|Penawaran
 									  </tr> --}}
 									  {{-- <p class="subtotal">IDR {{ $facility->facilities->price * $facility->quantity }}</p> --}}
                                   </table>
-
+                                  @if (auth()->user()->name=="admin")
                                   <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category">Tambah Kategori</button>
+                                  @endif
                                   <table class="table table-sm table-striped">
                                     @forelse($offer->detail_offers as $category)
                                     <tr>
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $category->category }}
+                                        @if (auth()->user()->name=="admin")
                                       <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;">Tambah Fasilitas</button>
-                                      </td>
+                                    </td>
                                       <td>
                                         <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
 
 										<a href="/editcategory/{id}" data-toggle="modal" data-target="#modal-edit-category" class="btn btn-sm btn-primary" ><i class="fas fa-edit"></i></a>
                                       </td>
-
+                                      @endif
                                       <td>
                                         <table class="table">
                                           <tr>
@@ -107,9 +109,11 @@ Detail|Penawaran
                                             <td>{{ $facility->nama }}</td>
                                             <td>{{ $facility->quantity }}</td>
                                             <td>@currency($facility->price)</td>
+                                            @if (auth()->user()->name=="admin")
                                             <td>
                                               <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
+                                            @endif
                                           </tr>
                                           @empty
                                           <tr>

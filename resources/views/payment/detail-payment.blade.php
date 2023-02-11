@@ -52,10 +52,10 @@ Detail Pembayaran
                                   <td>Jumlah Dibayar</td>
                                   <td>{{ $payment->amount_payment }}</td>
                                 </tr>
-                                <tr>
+                                {{-- <tr>
                                   <td>Pembayaran ke</td>
                                   <td>{{ $payment->payment_to}}</td>
-                                </tr>
+                                </tr> --}}
                                 <tr>
                                   <td>Tanggal Bayar</td>
                                   <td>{{ $payment->payment_date}}</td>

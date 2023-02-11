@@ -57,8 +57,6 @@ class PaymentController extends Controller
         if($request->file('image')){
             $file = $request->image;
             $extension = $request->file('image')->getClientOriginalExtension();
-            $newName = $request->title.'-'.now()->timestamp.'.'.$extension;
-            $file->move('storage/image/', $newName);
 			$newName = 'proof_payment/'.$bill->offer->number.'-'.now()->timestamp.'.'.$extension;
             $file->move(public_path('proof_payment'), $newName);
         }

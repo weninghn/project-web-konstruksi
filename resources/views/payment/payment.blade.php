@@ -58,9 +58,7 @@
                    
                     {{-- <th>Status Pembayaran</th> --}}
                     <th>Catatan</th>
-                    @if (auth()->user()->name=="admin")
                     <th>Action</th>
-                    @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -75,13 +73,14 @@
                    <td>{{ $item->payment_date }}</td>
                    {{-- <td>{{ $item->status_text }}</td> --}}
                    <td>{{ $item->note }}</td>
-                   @if (auth()->user()->name=="admin")
                     <td>
+                      @if (auth()->user()->name=="admin")
                       <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |
                       <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> |
+                      @endif
                       <a href="{{ route('payment.detail', $item->id) }}">Detail</button>
                       </td>
-                      @endif
+                      
                   </tr>
                   @endforeach
                 </tbody>
