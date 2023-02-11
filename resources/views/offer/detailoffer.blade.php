@@ -42,7 +42,8 @@ Detail|Penawaran
                                       </tr>
                                       <tr>
                                           <td>Harga Projek</td>
-                                          <td>@currency($offer->project->price)</td>
+                                          {{-- <td>@currency($offer->project->price)</td> --}}
+										  <td>{{ 'Rp. '. format_uang($offer->project->price) }}</td>
                                       </tr>
                                       <tr>
                                           <td>Tanggal Penawaran</td>
@@ -106,7 +107,8 @@ Detail|Penawaran
                                           <tr>
                                             <td>{{ $facility->nama }}</td>
                                             <td>{{ $facility->quantity }}</td>
-                                            <td>@currency($facility->price)</td>
+											<td>{{ 'Rp. '. format_uang($facility->price) }}</td>
+                                            {{-- <td>@currency($facility->price)</td> --}}
                                             <td>
                                               <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>

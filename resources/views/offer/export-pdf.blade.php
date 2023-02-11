@@ -49,7 +49,7 @@
         <thead>
           <tr>
             <th>Harga</th>
-			<th colspan="4"><center>@currency($total)  </center></th>
+			<th colspan="4"><center>{{ 'Rp. '. format_uang($total) }}  </center></th>
             {{-- <th colspan="4"><center>{{$offer->project->price }}</center></th> --}}
           </tr>
           <tr>
@@ -73,7 +73,8 @@
                     {{ $facility->quantity }}
               </td>
               <td>
-               @currency($facility->price)
+				{{ 'Rp. '. format_uang($facility->price) }}
+               {{-- @currency($facility->price) --}}
               </td>
               @endforeach
                 @endforeach

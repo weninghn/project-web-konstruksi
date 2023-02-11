@@ -45,7 +45,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-6">
-                     
+
                       <!-- /.form-group -->
                       <div class="form-group">
                         <label for="name">Nama Project</label>
@@ -54,8 +54,9 @@
                       <div class="form-group">
                         <label for="price">Harga</label>
                         <input type="text" class="form-control" id="price" name="price" placeholder="Harga" required>
+						{{-- <input type="text" aria-label="telp" autocomplete="off" name="price" id="price" class="form-control" onkeypress="return number(event)"> --}}
                       </div>
-                      
+
                        <div class="form-group">
                           <label for="date_offer">Tanggal Penawaran</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="Tanggal Penawaran" required>

@@ -43,7 +43,7 @@
                   <select name="bill_id" id="bill_id" class="form-control " >
 
                     @foreach ($bills as $item)
-                       <option value="{{ $item->id}}">{{ $item->offer->project->name . ' - ' . $item->offer->number . ' | Total Rp' . $item->total. ' | Belum Dibayarkan Rp '.$item->remainingAmount()}}</option>
+                       <option value="{{ $item->id}}">{{ $item->offer->project->name . ' - ' . $item->offer->number . ' | Total Rp. ' . format_uang($item->total). ' | Belum Dibayarkan Rp. '.format_uang($item->remainingAmount())	}}</option>
                     @endforeach
 
                 </select>
@@ -65,7 +65,7 @@
                   </select>
 
                 </div>
-              
+
                 <div class="mb-3">
                   <label for="image" class="form-label">Image *</label>
                   <input type="file" name="image" class="form-control" >

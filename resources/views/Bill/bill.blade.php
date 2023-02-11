@@ -73,7 +73,8 @@ Tagihan
                               <tr>
                                 <td>{{ $index->offer->project->name . ' - ' . $index->offer->number }}</td>
                                   <td>
-									@currency($index->total)
+									{{-- @currency($index->total) --}}
+									{{'Rp. '. format_uang($index->total)}}
                                       {{-- @currency{{ $index->total }} --}}
                                   </td>
                                   <td>
