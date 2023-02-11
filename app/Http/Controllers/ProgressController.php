@@ -59,7 +59,7 @@ class ProgressController extends Controller
         // dd($request->all());
         $progres = Progres::create([
             'project_id' => $request->project_id,
-            
+
             'presentase' => $request->presentase,
             'job_details' => $request->job_details,
             'date' => $request->date,
