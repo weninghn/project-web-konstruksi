@@ -52,18 +52,15 @@ Detail Pembayaran
                                   <td>Jumlah Dibayar</td>
                                   <td>@currency($payment->amount_payment)</td>
                                 </tr>
-                                <tr>
-                                  <td>Pembayaran ke</td>
-                                  <td>{{ $payment->payment_to}}</td>
-                                </tr>
+                                
                                 <tr>
                                   <td>Tanggal Bayar</td>
                                   <td>{{ $payment->payment_date}}</td>
                                 </tr>
-                                {{-- <tr>
+                                <tr>
                                     <td>Status</td>
-                                    <td>{{ $payment->status_text}}</td>
-                                </tr> --}}
+                                    <td>{{ $payment->bill->status_text}}</td>
+                                </tr>
                                 <tr>
                                     <td>Catatan</td>
                                     <td>{{ $payment->note}}</td>
