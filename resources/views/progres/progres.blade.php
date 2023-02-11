@@ -66,9 +66,9 @@ Progress
                   @foreach($progress as $index => $item)
                     <tr>
                     <td>{{ $index + $progress->firstItem() }}</td>
-                    <td>{{ $item->project->offer()->where('status', 0)->first()?->number ?? '-' }}</td>
-                    <td>{{ $item->project->name }}</td>
-                    <td>{{ $item->project?->payments()->latest()->first()?->status_text ?? '-' }}</td>
+                    <td>{{ $item->offer()->where('status', 0)->first()?->number ?? '-' }}</td>
+                    {{-- <td>{{ $item->project->name }}</td> --}}
+                    {{-- <td>{{ $item->project?->payments()->latest()->first()?->status_text ?? '-' }}</td> --}}
                     {{-- <td>{{ $item->payment->status}}</td> --}}
                     <td>{{ $item->presentase }}</td>
                     <td>{{ $item->job_details }}</td>
