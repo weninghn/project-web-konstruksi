@@ -5,7 +5,7 @@ Tagihan
     {{-- @section('content')
 
     </section> --}}
-    @section('content')  
+    @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -50,7 +50,7 @@ Tagihan
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
-              <div class="card-body"> 
+              <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                         <tr>
@@ -67,20 +67,21 @@ Tagihan
                         </thead>
                         <tbody>
                               @php
-                              $no=1; 
+                              $no=1;
                               @endphp
                               @foreach($emp as $index)
                               <tr>
                                 <td>{{ $index->offer->project->name . ' - ' . $index->offer->number }}</td>
                                   </td>
                                   <td>
-                                      {{ $index->total }}
+									@currency($index->total)
+                                      {{-- @currency{{ $index->total }} --}}
                                   </td>
                                   <td>
                                       {{ $index->status_text}}
                                   </td>
                                 @if (auth()->user()->name=="admin")
-                                  
+
                                   @endif
                     </tr>
                   </tbody>
@@ -100,7 +101,7 @@ Tagihan
     </section>
     <!-- /.content -->
   </div>
-  
+
 </body>
 </html>
 @endsection

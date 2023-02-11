@@ -52,7 +52,7 @@ class ProjectController extends Controller
     }
     public function add(Request $request)
     {
-        
+
         $project =[
             'client_id'=> $request->client_id,
             'work_date'=> $request->work_date,
@@ -65,7 +65,7 @@ class ProjectController extends Controller
             // 'status_payment_id'=> $request->status_payment_id,
         ];
         Project::create($project);
-        return redirect('project')->with('success','Project berhasil ditambahkan');    
+        return redirect('project')->with('success','Project berhasil ditambahkan');
     }
     public function edit($slug)
     {
@@ -87,14 +87,14 @@ class ProjectController extends Controller
         // $project->status_payment = $request->status_payment;
         // $project->save();
 
-      
+
         return redirect()->route('project')->with('success', 'Project berhasil diupdate!');
 
        }
     public function delete($slug)
     {
         $data = Project::where('slug',$slug)->first();
-        $data->delete(); 
+        $data->delete();
         return redirect()->route('project')->with('success', 'Project berhasil dihapus');
 
     }

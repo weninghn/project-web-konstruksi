@@ -33,7 +33,7 @@ class ProgressController extends Controller
         // $projek = Project::where('name', 'LIKE', '%'. $search. '%')->paginate(2);
         // $progres = Progres::paginate(5);
     // return view('user.user',['user' => $data]);
-    
+
        return view('progres.progres ',['progress' => $progres]);
     }
     public function add()
@@ -51,7 +51,7 @@ class ProgressController extends Controller
         // $offer = Offer::all();
         $payment = Payment::all();
         return view('progres.progres-add',['project' => $projek, 'picture' => $picture, 'payment'=>$payment]);
-      
+
     }
 
     public function store(Request $request)
@@ -59,12 +59,12 @@ class ProgressController extends Controller
         $progres = Progres::create([
             'project_id' => $request->project_id,
             // 'offer_id' => $request->$offer,
-            'payment_id' => $request->payment_id,
+            // 'payment_id' => $request->payment_id,
             'presentase' => $request->presentase,
             'job_details' => $request->job_details,
             'date' => $request->date,
         ]);
-        
+
         if($request->file('files')) {
             $alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
@@ -94,7 +94,7 @@ class ProgressController extends Controller
 
     public function update(Request $request,$slug)
     {
-        
+
         $progres = Progres::where('slug',$slug)->first();
         $progres->update([
             'presentase' => $request->persentase,
@@ -102,7 +102,7 @@ class ProgressController extends Controller
             'date' => $request->date,
         ]);
 
-        
+
         $alphanumeric = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
         if($request->file('files')){
@@ -121,10 +121,10 @@ class ProgressController extends Controller
                 ]);
             }
         }
-     
-    
+
+
         return redirect('progres')->with('success','Progres berhasil di update!');
-   
+
     }
 
     public function progresdelete($id)
@@ -135,9 +135,9 @@ class ProgressController extends Controller
 
     public function detail($id)
     {
-      
+
         $progres = Progres::find($id);
         // $pictures = Picture::all();
         return view('progres.detailprogres', compact('progres'));
-    } 
+    }
 }
