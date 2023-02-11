@@ -6,6 +6,7 @@ use App\Models\Offer;
 use App\Models\Progres;
 use App\Models\Project;
 use App\Models\Payment;
+use App\Models\Bill;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -16,6 +17,7 @@ class DashboardController extends Controller
         $projectcount = Project::count();
         $progrescount = Progres::count();
         $paymentcount = Payment::count();
-        return view('admin.dashboard',['offer_count'=>$offercount, 'project_count' => $projectcount, 'progres_count' => $progrescount, 'payment_count' => $progrescount]);
+        $jumlahpendapatan = Payment::sum('amount_payment');
+        return view('admin.dashboard',['offer_count'=>$offercount, 'project_count' => $projectcount, 'progres_count' => $progrescount, 'payment_count' => $progrescount, 'jumlah_pendapatan' => $jumlahpendapatan]);
     }
 }

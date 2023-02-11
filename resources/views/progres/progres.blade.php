@@ -52,7 +52,8 @@ Progress
                   <thead>
                   <tr>
                       <th>No</th>
-                      <th>Project</th>
+                      <th>No Penawaran</th>
+                      {{-- <th>Project</th> --}}
                       {{-- <th>Pembayaran</th> --}}
                       <th>Persentase</th>
                       <th>Detail Pekerjaan</th>

@@ -55,12 +55,10 @@
                     <th>Project</th>
                     <th>Jumlah Bayar</th>
                     <th>Tanggal Bayar</th>
-
+                    <th>Status</th>
                     {{-- <th>Status Pembayaran</th> --}}
                     <th>Catatan</th>
-                    @if (auth()->user()->name=="admin")
                     <th>Action</th>
-                    @endif
                 </tr>
                 </thead>
                 <tbody>
@@ -74,15 +72,16 @@
                    {{-- <td>@currency($item->amount_payment)</td> --}}
 				   <td>{{ 'Rp. '. format_uang($item->amount_payment) }}</td>
                    <td>{{ $item->payment_date }}</td>
-                   {{-- <td>{{ $item->status_text }}</td> --}}
+                   <td>{{ $item->bill->status_text}}</td>
                    <td>{{ $item->note }}</td>
-                   @if (auth()->user()->name=="admin")
                     <td>
+                      @if (auth()->user()->name=="admin")
                       <a href="{{ route('payment.edit', $item->id) }}">Edit</button> |
                       <a href="/paymentdelete/{{ $item->id }}" data-name="{{ $item->name }}">Delete</a> |
+                      @endif
                       <a href="{{ route('payment.detail', $item->id) }}">Detail</button>
                       </td>
-                      @endif
+
                   </tr>
                   @endforeach
                 </tbody>

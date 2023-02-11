@@ -33,7 +33,9 @@
               <div class="card-header">
               <h3 class="card-title">Data Client</h3>
                 <div class="row justify-content-end">
+                  @if (auth()->user()->name=="admin")
                   <a href="/cetak-form" class="btn btn-primary"><i class="fa fa-file-excel-o"></i>Cetak Client</a>
+                  @endif
                   {{-- <a href="client-deleted" class="btn btn-secondary me-3">View Deleted</a> --}}
                   @if (auth()->user()->name=="admin")
               <a href="/tambahdata" class="btn btn-success">Tambah</a>

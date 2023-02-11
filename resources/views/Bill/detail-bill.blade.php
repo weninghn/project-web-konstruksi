@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-Detail Pembayaran
+Detail Tagihan
 @endsection
 
 @section('content')
@@ -11,12 +11,12 @@ Detail Pembayaran
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Detail Pembayaran</h1>
+            <h1>Detail Tagihan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="/">Home</a></li>
-              <li class="breadcrumb-item active">Detail Pembayaran</li>
+              <li class="breadcrumb-item active">Detail Tagihan</li>
             </ol>
           </div>
         </div>
@@ -38,48 +38,31 @@ Detail Pembayaran
 
                                 <tr>
                                     <td style="width:20%">Project</td>
-                                    <td>{{ $payment->bill->offer->project->name}}</td>
+                                    <td>{{ $bill->offer->project->name . ' - ' . $bill->offer->number }}</td>
                                 </tr>
-                                <tr>
-                                    <td style="width:20%">Harga Project</td>
-                                    {{-- <td>@currency($payment->bill->offer->project->price)</td> --}}
-									<td>{{ 'Rp. '. format_uang($payment->bill->offer->project->price) }}</td>
-                                </tr>
-                                {{-- <tr>
-                                  <td>Cara Pembayaran</td>
-                                  <td>{{ $payment->method->method}}</td>
-                                </tr> --}}
-                                <tr>
+                               
+                                 <tr>
                                   <td>Jumlah Dibayar</td>
-								  <td>{{ 'Rp. '. format_uang($payment->amount_payment) }}</td>
-                                  {{-- <td>@currency($payment->amount_payment)</td> --}}
+                                  <td>@currency($bill->payments()->latest()->first()->amount_payment)</td>
                                 </tr>
-                                <tr>
+                                
+                               <tr>
                                   <td>Tanggal Bayar</td>
-                                  <td>{{ $payment->payment_date}}</td>
+                                  <td>{{ $bill->payments()->latest()->first()->payment_date}}</td>
                                 </tr>
-                                <tr>
-                                    <td>Status</td>
-                                    <td>{{ $payment->bill->status_text}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Catatan</td>
-                                    <td>{{ $payment->note}}</td>
-                                </tr>
-
+                         
                                 <tr>
                                   <td>Bukti Bayar</td>
-                                  @if ($payment->image)
+                                  @if ($bill->payments()->latest()->first()->image)
                                     <td>
-                                      <img src="{{ asset($payment->image) }}" style="width: 150px; margin-right: 20px" alt="">
+                                      <img src="{{ asset($bill->payments()->latest()->first()->image) }}" style="width: 150px; margin-right: 20px" alt="">
                                     </td>
                                   @else
                                       <td>
                                         Tidak Ada Bukti Bayar
                                       </td>
                                   @endif
-                              </tr>
-
+                              </tr>  
 
 
                             </table>

@@ -121,6 +121,8 @@ Route::get('/detailoffer/{id}', [OfferController::class, 'detail'])->name('offer
 
 //tagihan
 Route::get('/bill',[BillController::class,'index'])->name('bill')->middleware('auth')->middleware('auth');
+Route::get('/detail-bill/{bill}', [BillController::class, 'detail'])->name('bill.detail');
+
 
 
 //Pembayaran
@@ -217,6 +219,8 @@ Route::group(['middleware' => ['auth', 'CekLevel:admin,owner']], function() {
     Route::get('/progres', [ProgressController::class, 'index'])->name('progres')->middleware('auth');
     Route::get('/offer',[OfferController::class,'index'])->name('offer')->middleware('auth')->middleware('auth');
     Route::get('/payment', [PaymentController::class, 'index'])->name('payment')->middleware('auth');
+    Route::get('/detailprogres/{id}', [ProgressController::class, 'detail']);
+
 });
 
 //login
