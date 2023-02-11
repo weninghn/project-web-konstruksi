@@ -40,28 +40,29 @@ Detail Tagihan
                                     <td style="width:20%">Project</td>
                                     <td>{{ $bill->offer->project->name . ' - ' . $bill->offer->number }}</td>
                                 </tr>
-                                <tr>
+                               
+                                 <tr>
                                   <td>Jumlah Dibayar</td>
-                                  <td>@currency($bill->payment->amount_payment)</td>
+                                  <td>@currency($bill->payments()->latest()->first()->amount_payment)</td>
                                 </tr>
-                               {{-- <tr>
+                                
+                               <tr>
                                   <td>Tanggal Bayar</td>
-                                  <td>{{ $bill->payments->payment_date}}</td>
+                                  <td>{{ $bill->payments()->latest()->first()->payment_date}}</td>
                                 </tr>
-                            
+                         
                                 <tr>
                                   <td>Bukti Bayar</td>
-                                  @if ($payment->payments->image)
+                                  @if ($bill->payments()->latest()->first()->image)
                                     <td>
-                                      <img src="{{ asset($payment->image) }}" style="width: 150px; margin-right: 20px" alt="">
+                                      <img src="{{ asset($bill->payments()->latest()->first()->image) }}" style="width: 150px; margin-right: 20px" alt="">
                                     </td>
                                   @else
                                       <td>
                                         Tidak Ada Bukti Bayar
                                       </td>
                                   @endif
-                              </tr> --}}  
-
+                              </tr>  
 
 
                             </table>

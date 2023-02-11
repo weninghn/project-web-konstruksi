@@ -18,10 +18,7 @@ class Bill extends Model
         'status',
     ];
 
-    public function payment()
-    {
-        return $this->belongsTo(payment::class);
-    }
+   
     public function offer()
     {
         return $this->belongsTo(Offer::class,'offer_id','id');
