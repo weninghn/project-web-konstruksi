@@ -45,7 +45,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-6">
-                     
+
                       <!-- /.form-group -->
                       <div class="form-group">
                         <label for="name">Nama Project</label>
@@ -59,7 +59,7 @@
                           </div>
                         <input type="text" class="form-control price" id="price" name="price" placeholder="Harga" required>
                       </div>
-                      
+
                        <div class="form-group">
                           <label for="date_offer">Tanggal Penawaran</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="Tanggal Penawaran" required>

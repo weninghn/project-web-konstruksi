@@ -72,7 +72,6 @@ Tagihan
                                 <td>{{ $index->offer->project->name . ' - ' . $index->offer->number }}</td>
                                   <td>
 									                  Rp.{{$index->total}}
-                                      {{-- @currency{{ $index->total }} --}}
                                   </td>
                                   <td>
                                       {{ $index->status_text}}

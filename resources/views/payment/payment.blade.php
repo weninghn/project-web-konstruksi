@@ -56,7 +56,6 @@
                     <th>Jumlah Bayar</th>
                     <th>Tanggal Bayar</th>
                     <th>Status</th>
-                   
                     {{-- <th>Status Pembayaran</th> --}}
                     <th>Catatan</th>
                     <th>Action</th>
@@ -70,7 +69,8 @@
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                    <td>{{ $item->bill->offer->project->name . ' - ' . $item->bill->offer->number }}</td>
-                   <td>@currency($item->amount_payment)</td>
+                   {{-- <td>@currency($item->amount_payment)</td> --}}
+				   <td>{{ 'Rp. '. format_uang($item->amount_payment) }}</td>
                    <td>{{ $item->payment_date }}</td>
                    <td>{{ $item->bill->status_text}}</td>
                    <td>{{ $item->note }}</td>
@@ -81,7 +81,7 @@
                       @endif
                       <a href="{{ route('payment.detail', $item->id) }}">Detail</button>
                       </td>
-                      
+
                   </tr>
                   @endforeach
                 </tbody>

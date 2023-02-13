@@ -5,7 +5,7 @@ Project
     {{-- @section('content')
 
     </section> --}}
-    @section('content')  
+    @section('content')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -50,7 +50,7 @@ Project
               </div>
               <div class="row g-3 align-items-center mt-2">
               <!-- .card-header -->
-              <div class="card-body"> 
+              <div class="card-body">
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                         <tr>
@@ -72,7 +72,7 @@ Project
                         </thead>
                         <tbody>
                               @php
-                              $no=1; 
+                              $no=1;
                               @endphp
                               @foreach($pro as $index => $project)
                               <tr>
@@ -97,14 +97,13 @@ Project
                                   </td>
                                   <td>
                                     Rp.{{ $project->price }}
-                                    {{-- {{ $project->price }} --}}
                                 </td>
-                                <td> 
+                                <td>
                                   {{ $project->offer()->latest()->first()?->status_text ?? '-' }}
                                 </td>
                                 @if (auth()->user()->name=="admin")
                                   <td>
-                                  <a href="/edit/{{ $project->id }}">Edit</button> | 
+                                  <a href="/edit/{{ $project->id }}">Edit</button> |
                                   <a href="/delete/{{ $project->slug }}" data-name="{{ $project->name }}">Delete</a>
                                   </td>
                                   @endif
@@ -126,7 +125,7 @@ Project
     </section>
     <!-- /.content -->
   </div>
-  
+
 </body>
 </html>
 @endsection
