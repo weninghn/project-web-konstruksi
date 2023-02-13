@@ -53,7 +53,11 @@
                       </div>
                       <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="Harga" required>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                          <span class="input-group-text">Rp</span>
+                          </div>
+                        <input type="text" class="form-control price" id="price" name="price" placeholder="Harga" required>
                       </div>
                       
                        <div class="form-group">
@@ -72,3 +76,14 @@
       </div>
     </div>
 @endsection
+@push('script')
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('js/jquery.masknumber.js') }}"></script>
+<script>
+  $(document).ready(function(){
+    $(".price").keyup(function(){
+      $(this).maskNumber({integer: true, thousands: "."})
+    })
+  })
+  </script>
+@endpush

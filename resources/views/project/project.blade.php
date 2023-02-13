@@ -96,7 +96,7 @@ Project
                                       {{ $project->date_offer }}
                                   </td>
                                   <td>
-                                    @currency($project->price)
+                                    Rp.{{ $project->price }}
                                     {{-- {{ $project->price }} --}}
                                 </td>
                                 <td> 

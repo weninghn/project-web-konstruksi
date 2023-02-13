@@ -50,7 +50,15 @@
                 </div>
                 <div class="form-group">
                   <label for="amount">Jumlah Pembayaran</label>
-                  <input type="text" class="form-control" id="amount" name="amount_payment" required>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                    </div>
+                    <input type="text" class="form-control amount" name="amount_payment" required>
+                  </div>
+                  
+                  
+                  
                 </div>
                 <div class="form-group">
                   <label for="date">Tanggal Pembayaran</label>
@@ -108,3 +116,15 @@
 </section>
 </div>
 @endsection
+
+@push('script')
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('js/jquery.masknumber.js') }}"></script>
+<script>
+  $(document).ready(function(){
+    $(".amount").keyup(function(){
+      $(this).maskNumber({integer: true, thousands: "."})
+    })
+  })
+  </script>
+@endpush
