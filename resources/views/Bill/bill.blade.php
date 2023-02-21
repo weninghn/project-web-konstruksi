@@ -71,8 +71,7 @@ Tagihan
                               <tr>
                                 <td>{{ $index->offer->project->name . ' - ' . $index->offer->number }}</td>
                                   <td>
-									@currency($index->total)
-                                      {{-- @currency{{ $index->total }} --}}
+									                  Rp.{{$index->total}}
                                   </td>
                                   <td>
                                       {{ $index->status_text}}
@@ -105,3 +104,14 @@ Tagihan
 </body>
 </html>
 @endsection
+@push('script')
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('js/jquery.masknumber.js') }}"></script>
+<script>
+  $(document).ready(function(){
+    $(".price").keyup(function(){
+      $(this).maskNumber({integer: true, thousands: "."})
+    })
+  })
+  </script>
+@endpush

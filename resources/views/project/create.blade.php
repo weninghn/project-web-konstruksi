@@ -45,7 +45,7 @@
                     </div>
                     <!-- /.col -->
                     <div class="col-md-6">
-                     
+
                       <!-- /.form-group -->
                       <div class="form-group">
                         <label for="name">Nama Project</label>
@@ -53,9 +53,13 @@
                       </div>
                       <div class="form-group">
                         <label for="price">Harga</label>
-                        <input type="text" class="form-control" id="price" name="price" placeholder="Harga" required>
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                          <span class="input-group-text">Rp</span>
+                          </div>
+                        <input type="text" class="form-control price" id="price" name="price" placeholder="Harga" required>
                       </div>
-                      
+
                        <div class="form-group">
                           <label for="date_offer">Tanggal Penawaran</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="Tanggal Penawaran" required>
@@ -72,3 +76,14 @@
       </div>
     </div>
 @endsection
+@push('script')
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('js/jquery.masknumber.js') }}"></script>
+<script>
+  $(document).ready(function(){
+    $(".price").keyup(function(){
+      $(this).maskNumber({integer: true, thousands: "."})
+    })
+  })
+  </script>
+@endpush

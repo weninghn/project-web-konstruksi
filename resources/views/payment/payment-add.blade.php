@@ -43,14 +43,22 @@
                   <select name="bill_id" id="bill_id" class="form-control " >
 
                     @foreach ($bills as $item)
-                       <option value="{{ $item->id}}">{{ $item->offer->project->name . ' - ' . $item->offer->number . ' | Total Rp' . $item->total. ' | Belum Dibayarkan Rp '.$item->remainingAmount()}}</option>
+                       <option value="{{ $item->id}}">{{ $item->offer->project->name . ' - ' . $item->offer->number . ' | Total Rp. ' . format_uang($item->total). ' | Belum Dibayarkan Rp. '.format_uang($item->remainingAmount())	}}</option>
                     @endforeach
 
                 </select>
                 </div>
                 <div class="form-group">
                   <label for="amount">Jumlah Pembayaran</label>
-                  <input type="text" class="form-control" id="amount" name="amount_payment" required>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                    </div>
+                    <input type="text" class="form-control amount" name="amount_payment" required>
+                  </div>
+                  
+                  
+                  
                 </div>
                 <div class="form-group">
                   <label for="date">Tanggal Pembayaran</label>
@@ -65,7 +73,7 @@
                   </select>
 
                 </div>
-              
+
                 <div class="mb-3">
                   <label for="image" class="form-label">Image *</label>
                   <input type="file" name="image" class="form-control" >
@@ -108,3 +116,15 @@
 </section>
 </div>
 @endsection
+
+@push('script')
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{{ asset('js/jquery.masknumber.js') }}"></script>
+<script>
+  $(document).ready(function(){
+    $(".amount").keyup(function(){
+      $(this).maskNumber({integer: true, thousands: "."})
+    })
+  })
+  </script>
+@endpush

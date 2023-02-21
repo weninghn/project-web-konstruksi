@@ -44,7 +44,7 @@ class ProgressController extends Controller
             })
             ->select(
                 'projects.id AS id',
-                DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
+                \DB::raw("CONCAT(projects.name,' - ',offers.number) AS name")
             )
             ->get();
         $picture = Picture::all();
