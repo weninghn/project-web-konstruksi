@@ -43,8 +43,8 @@
                         <input type="date" name="tglakhir" id="tglakhir" class="form-control">
                     </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="input-group mb-3">
+                    <div class="input-group mb-3">
+                    <div class="col-md-3">
                             <a href="" onclick="this.href='/cetak-data-pertanggal/'+document.getElementById('tglawal').value +
                             '/' + document.getElementById('tglakhir').value" target="_blank" class="btn btn-primary col-md-12">
                             Cetak Data Client   <i class="fas fa-print"></i></a>

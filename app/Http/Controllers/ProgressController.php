@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Models\Picture;
 use App\Models\Progres;
 use App\Models\Offer;
