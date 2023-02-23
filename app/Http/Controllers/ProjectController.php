@@ -59,7 +59,7 @@ class ProjectController extends Controller
             'date_end'=> $request->date_end,
             'name'=> $request->name,
             'location'=> $request->location,
-            'date_offer'=> $request->date_offer,
+            // 'date_offer'=> $request->date_offer,
             'price'=> $request->price,
             // 'status_id'=> $request->status_id,
             // 'status_payment_id'=> $request->status_payment_id,

@@ -40,7 +40,7 @@
               <form action="" method="GET">
                 <div class="input-group mb-3">
                   <input type="text" class="form-control" id="inputPassword6" name="search">
-                  <button class="input-group-text btn btn-primary">Search</button>
+                  <button class="input-group-text btn btn-primary"><i class="fas fa-search"></i></button>
                 </div>
               </form>
              </div>
