@@ -42,10 +42,10 @@
                         <label for="location">Lokasi</label>
                         <input type="text" id="location" name="location" value="{{ $project->location }}" class="form-control" required>
                         </div>
-                      <div class="form-group">
+                      {{-- <div class="form-group">
                         <label for="date_offer" class="form-label">Tanggal Penawaran</label>
                         <input type="text" id="date_offer" name="date_offer" value="{{ $project->date_offer }}" class="form-control" required>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                       <div class="form-group">
                         <label for="price" class="form-label">Harga</label>

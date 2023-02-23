@@ -43,7 +43,7 @@ Project
                 <form action="" method="GET">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" id="inputPassword6" name="search">
-                    <button class="input-group-text btn btn-primary">Search</button>
+                    <button class="input-group-text btn btn-primary"><i class="fas fa-search"></i></button>
                   </div>
                 </form>
                </div>
@@ -71,12 +71,10 @@ Project
                         </tr>
                         </thead>
                         <tbody>
-                              @php
-                              $no=1;
-                              @endphp
+                             
                               @foreach($pro as $index => $project)
                               <tr>
-                                  <td scope="project">{{$index + $pro->firstItem() }} </td>
+                                  <td >{{$loop ->iteration}} </td>
                                   <td>
                                       {{ $project->client?->name }}
                                   </td>
@@ -93,7 +91,7 @@ Project
                                       {{ $project->location }}
                                   </td>
                                   <td>
-                                      {{ $project->date_offer }}
+                                      {{ $project->offer()->first()?->date_offer ?? '-' }}
                                   </td>
                                   <td>
                                     Rp.{{ $project->price }}

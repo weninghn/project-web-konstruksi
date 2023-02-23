@@ -31,7 +31,7 @@ Penawaran
             <div class="card">
               <div class="card-header">
               <h3 class="card-title">Penawaran</h3>
-                <div class="row justify-content-end">
+                <div class="row justify-content-end ">
                   @if (auth()->user()->name=="admin")
                   <a href="add-offer" class="btn btn-success">Tambah</a>
                   @endif
@@ -40,7 +40,7 @@ Penawaran
                   <form action="" method="GET">
                     <div class="input-group mb-3">
                       <input type="text" class="form-control" id="inputPassword6" name="search">
-                      <button class="input-group-text btn btn-primary">Search</button>
+                      <button class="input-group-text btn btn-primary"><i class="fas fa-search"></i></button>
                     </div>
                   </form>
                  </div>

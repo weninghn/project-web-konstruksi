@@ -69,7 +69,7 @@ Tagihan
                               @endphp
                               @foreach($emp as $index)
                               <tr>
-                                <td>{{ $index->offer->project->name . ' - ' . $index->offer->number }}</td>
+                                <td>{{ $index->offer->project?->name . ' - ' . $index->offer->number }}</td>
                                   <td>
 									                  Rp.{{$index->total}}
                                   </td>
@@ -109,7 +109,7 @@ Tagihan
 <script src="{{ asset('js/jquery.masknumber.js') }}"></script>
 <script>
   $(document).ready(function(){
-    $(".price").keyup(function(){
+    $("price").keyup(function(){
       $(this).maskNumber({integer: true, thousands: "."})
     })
   })
