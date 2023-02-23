@@ -161,7 +161,12 @@ class OfferController extends Controller
     }
     public function insertcategory(Request $request)
     {
-
+		$count = Offer::where('project_id', $request->project_id)->where('status', 0)->count();
+		if ($count >= 1) {
+			Session::flash('message', 'Tidak bisa menambahkan kategori, Penawaran Sudah deal');
+			Session::flash('alert-class', 'alert-danger');
+			return redirect('offer');
+		}
         $detail_offer =[
             'offer_id'=> $request->offer_id,
             'category'=> $request->category,
