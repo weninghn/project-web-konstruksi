@@ -43,7 +43,7 @@ Detail Pembayaran
                                 <tr>
                                     <td style="width:20%">Harga Project</td>
                                     {{-- <td>@currency($payment->bill->offer->project->price)</td> --}}
-									<td>{{ 'Rp. '. format_uang($payment->bill->offer->project->price) }}</td>
+									<td>{{ 'Rp. '. ($payment->bill->offer->project->price) }}</td>
                                 </tr>
                                 {{-- <tr>
                                   <td>Cara Pembayaran</td>
@@ -51,7 +51,7 @@ Detail Pembayaran
                                 </tr> --}}
                                 <tr>
                                   <td>Jumlah Dibayar</td>
-								  <td>{{ 'Rp. '. format_uang($payment->amount_payment) }}</td>
+								  <td>{{ 'Rp. '. ($payment->amount_payment) }}</td>
                                   {{-- <td>@currency($payment->amount_payment)</td> --}}
                                 </tr>
                                 <tr>

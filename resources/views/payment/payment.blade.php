@@ -68,9 +68,9 @@
 
                   <tr>
                     <td>{{ $loop->iteration }}</td>
-                   <td>{{ $item->bill->offer->project->name . ' - ' . $item->bill->offer->number }}</td>
+                   <td>{{ $item->bill->offer->project?->name . ' - ' . $item->bill->offer->number }}</td>
                    {{-- <td>@currency($item->amount_payment)</td> --}}
-				   <td>{{ 'Rp. '. format_uang($item->amount_payment) }}</td>
+				   <td>{{ 'Rp. '. ($item->amount_payment) }}</td>
                    <td>{{ $item->payment_date }}</td>
                    <td>{{ $item->bill->status_text}}</td>
                    <td>{{ $item->note }}</td>
