@@ -40,17 +40,17 @@ Detail Tagihan
                                     <td style="width:20%">Project</td>
                                     <td>{{ $bill->offer->project->name . ' - ' . $bill->offer->number }}</td>
                                 </tr>
-                               
+
                                  <tr>
                                   <td>Jumlah Dibayar</td>
                                   <td>@currency($bill->payments()->latest()->first()->amount_payment)</td>
                                 </tr>
-                                
+
                                <tr>
                                   <td>Tanggal Bayar</td>
                                   <td>{{ $bill->payments()->latest()->first()->payment_date}}</td>
                                 </tr>
-                         
+
                                 <tr>
                                   <td>Bukti Bayar</td>
                                   @if ($bill->payments()->latest()->first()->image)
@@ -62,7 +62,7 @@ Detail Tagihan
                                         Tidak Ada Bukti Bayar
                                       </td>
                                   @endif
-                              </tr>  
+                              </tr>
 
                             </table>
                         </div>
