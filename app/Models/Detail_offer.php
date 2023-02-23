@@ -15,6 +15,7 @@ class Detail_offer extends Model
     protected $fillable = [
         'offer_id',
         'category',
+		'total',
         // 'quantity',
         // 'total',
     ];

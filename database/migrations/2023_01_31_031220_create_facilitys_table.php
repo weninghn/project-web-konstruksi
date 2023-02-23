@@ -19,8 +19,8 @@ return new class extends Migration
             $table->foreign('detail_offer_id')->references('id')->on('detail_offers');
             $table ->string('nama',255);
             // $table->string('category');
-            $table->string('quantity');
-            $table->string('price');
+            $table->integer('quantity');
+            $table->integer('price');
             // $table->string('total');
             $table->timestamps();
         });

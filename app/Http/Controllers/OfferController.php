@@ -165,6 +165,7 @@ class OfferController extends Controller
         $detail_offer =[
             'offer_id'=> $request->offer_id,
             'category'=> $request->category,
+			'total' => $request->subtotal,
         ];
         Detail_offer::create($detail_offer);
         return redirect()->back();
@@ -184,16 +185,20 @@ class OfferController extends Controller
     public function insertfacility(Request $request)
     {
 
-        $facility =[
+        $facility = Facility::create([
             'detail_offer_id'=>$request->detail_offer_id,
             'nama'=> $request->nama,
             'quantity'=> $request->quantity,
             'price'=> $request->price,
 
 			// $price = $facility->price * $request->quantity
-        ];
+        ]);
 
-        Facility::create($facility);
+        // Facility::create($facility);
+		$detail_offer = Detail_offer::findOrFail($request->detail_offer_id);
+		$detail_offer->update([
+			'total' => $detail_offer->total + ($facility->quantity * $facility->price)
+		]);
         return redirect()->back();
 		// $total = $facility->sum('price');
 	}

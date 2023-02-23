@@ -38,30 +38,41 @@
   </style>
   <body>
     <div class="form-group">
-      <h2>Madyang Konstruksi</h2>
-
-      <p>{{ $offer->number}}</p>
-      <p>{{ $offer->project->name}}</p>
+      <p align="center"><b>Madyang Konstruksi</b></p>
       <br>
-      <p align="center"><b>Offer Madyang Konstruksi</b></p>
-
+      <br>
+      <table align="center" cellpadding="5" width="500">
+        <tr>
+          <td>No Penawaran</td>
+          <td>: {{ $offer->number}}</td>
+        </tr>
+        <tr>
+          <td>Nama Projek</td>
+          <td>: {{ $offer->project->name}}</td>
+        </tr>
+      </table>
+      <br>
       <table border="1">
         <thead>
           <tr>
             <th>Harga</th>
-			<th colspan="4"><center>{{ 'Rp. '. format_uang($total) }}  </center></th>
-            {{-- <th colspan="4"><center>{{$offer->project->price }}</center></th> --}}
+			{{-- <th colspan="4"><center>{{ 'Rp. '. format_uang($total) }}  </center></th> --}}
+            <th colspan="5"><center>{{$offer->project->price }}</center></th>
           </tr>
           <tr>
             <th >Kategori</th>
             <th colspan="2">Fasilitas</th>
             <th>Jumlah</th>
             <th>Harga</th>
+            <th>Total</th>
           </tr>
       </thead>
       <tbody>
             @foreach($detail as $category)
             @foreach ($category->facilities as $facility)
+            @php
+            $total = $facility["price"]*$facility["quantity"];
+             @endphp
             <tr>
               <td>
                 {{ $category->category}}
@@ -73,26 +84,19 @@
                     {{ $facility->quantity }}
               </td>
               <td>
-				{{ 'Rp. '. format_uang($facility->price) }}
-               {{-- @currency($facility->price) --}}
+				{{-- {{ 'Rp. '. format_uang($facility->price) }} --}}
+               @currency($facility->price)
               </td>
-              @endforeach
-                @endforeach
-              {{-- <td>
-                {{ $category->category}}
-              </td>
-              <td>
-                  {{ $facility->nama}}
-              </td>
-              <td>
-                    {{ $facility->quantity }}
-              </td>
-              <td>
-                    {{ $facility->price }}
-              </td>
-              @endforeach
-                @endforeach --}}
+              <td>{{ $total}}</td>
             </tr>
+            
+            @endforeach
+            <tr>
+              <td colspan="5" class="text-end">Sub Total</td>
+              <td >{{ $category->total}}</td>
+            </tr>
+            @endforeach
+         
       </tbody>
       </table>
     </div>
