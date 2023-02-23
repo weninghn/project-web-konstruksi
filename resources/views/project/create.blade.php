@@ -28,19 +28,16 @@
                           @endforeach
                       </select>
                       </div>
+                      <div class="form-group">
+                        <label for="name">Nama Project</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="nama" required>
+                      </div>
                       <!-- /.form-group -->
                       <div class="form-group">
                         <label for="work_date">Tanggal Pengerjaan</label>
                         <input type="date" class="form-control" id="work_date" name="work_date">
                       </div>
-                      <div class="form-group">
-                        <label for="date_end">Tanggal Selesai</label>
-                        <input type="date" class="form-control" id="date_end" name="date_end" >
-                      </div>
-                      <div class="form-group">
-                        <label for="location">Lokasi</label>
-                        <input type="text" class="form-control" id="location" name="location" placeholder="Lokasi">
-                      </div>
+                     
                       <!-- /.form-group -->
                     </div>
                     <!-- /.col -->
@@ -48,8 +45,12 @@
 
                       <!-- /.form-group -->
                       <div class="form-group">
-                        <label for="name">Nama Project</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="nama" required>
+                        <label for="date_end">Tanggal Selesai</label>
+                        <input type="date" class="form-control" id="date_end" name="date_end" >
+                      </div>
+                      <div class="form-group">
+                        <label for="location">Lokasi</label>
+                        <input type="text" class="form-control" id="location" name="location" placeholder="Lokasi">
                       </div>
                       <div class="form-group">
                         <label for="price">Harga</label>
@@ -59,17 +60,19 @@
                           </div>
                         <input type="text" class="form-control price" id="price" name="price" placeholder="Harga" required>
                       </div>
-
+                      
                        {{-- <div class="form-group">
                           <label for="date_offer">Tanggal Penawaran</label>
                           <input type="date" class="form-control" id="date_offer" name="date_offer" placeholder="Tanggal Penawaran" required>
                         </div> --}}
                       </div>
+                    </div>
+                  </div>
                      </div>
-                     <div class="card-footer">
-                      <button type="submit" class="btn btn-success">Save</button>
-                      <button type="reset" class="btn btn-md btn-warning">Reset</button>
-                     </div>
+                      <div class="card-footer">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="reset" class="btn btn-md btn-warning">Reset</button>
+                       </div>
               </form>
           </div>
         </div>

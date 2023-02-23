@@ -80,7 +80,7 @@ Detail|Penawaran
 									  {{-- <p class="subtotal">IDR {{ $facility->facilities->price * $facility->quantity }}</p> --}}
                                   </table>
                                   @if (auth()->user()->name=="admin")
-                                  <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category">Tambah Kategori</button>
+                                  <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category"><i class="fas fa-plus"></i> Kategori</button>
                                   @endif
                                   <table class="table table-sm table-striped">
                                     @forelse($offer->detail_offers as $category)
@@ -88,7 +88,7 @@ Detail|Penawaran
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $category->category }}
                                         @if (auth()->user()->name=="admin")
-                                      <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;">Tambah Fasilitas</button>
+                                      <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;"><i class="fas fa-plus"></i> Fasilitas</button>
                                     </td>
                                       <td>
                                         <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
@@ -99,27 +99,44 @@ Detail|Penawaran
                                       <td>
                                         <table class="table">
                                           <tr>
-                                         <th>Fasilitas</th>
-                                         <th>Jumlah</th>
-                                         <th>Harga</th>
-                                         <th></th>
-                                       </tr>
+                                              <th>Fasilitas</th>
+                                              <th>Jumlah</th>
+                                              <th>Harga</th>
+                                              <th>Total</th>
+                                              <th>Aksi</th>
+                                         </tr>
+                                              @php
+                                                  $total =0;
+                                                  $subtotal =0;
+                                              @endphp
                                           @forelse ($category->facilities as $facility)
+                                            @php
+                                                $total = $facility["price"]*$facility["quantity"];
+                                            @endphp
                                           <tr>
                                             <td>{{ $facility->nama }}</td>
                                             <td>{{ $facility->quantity }}</td>
                                             <td>Rp.{{$facility->price}}</td>
-                                            @if (auth()->user()->name=="admin")
+                                            <td>{{ $total}}</td>
+                                                @if (auth()->user()->name=="admin")
                                             <td>
-                                              <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                                <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                                             </td>
                                             @endif
-                                          </tr>
+                                            </tr>
                                           @empty
                                           <tr>
                                             <td rowspan="4">Tidak ada Fasilitas</td>
-                                          </tr>
+                                          </tr>      
                                           @endforelse
+                                          @php
+                                          $total += $subtotal;
+                                       @endphp
+                                          <tr>
+                                            <td colspan="3" class="text-end">Sub Total</td>
+                                            <td colspan="2">{{ $category->total}}</td>
+                                          </tr>
+                                          
                                         </table>
                                       </td>
                                     </tr>

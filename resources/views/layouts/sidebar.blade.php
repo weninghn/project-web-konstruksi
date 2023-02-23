@@ -85,7 +85,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="/logout" onclick="return confirm('Apakah anda yakin ingin keluar ?')"" class="nav-link">
+            <a href="/logout" onclick="return confirm('Apakah anda yakin ingin keluar ?')" class="nav-link">
               <i class="fas fa-power-off"></i>
               <p>
                 Logout
