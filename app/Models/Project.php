@@ -23,7 +23,7 @@ class Project extends Model
         'date_end',
         'name',
         'location',
-        'date_offer',
+        // 'date_offer',
         'price',
         // 'status_id',
         // 'status_payment_id',

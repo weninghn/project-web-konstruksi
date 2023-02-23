@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('date_end');
             $table->string('name',255);
             $table->string('location',255);
-            $table->date('date_offer');
+        //   $table->date('date_offer');  
             // $table->unsignedBigInteger('offer-id');
             // $table->foreign('offer-id')->references('id')->on('offers');
             // $table->unsignedBigInteger('payments');

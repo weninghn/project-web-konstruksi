@@ -64,7 +64,6 @@ Detail Tagihan
                                   @endif
                               </tr>
 
-
                             </table>
                         </div>
                     </div>
