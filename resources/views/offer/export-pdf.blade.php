@@ -82,7 +82,7 @@
               </td>
               <td>
                     {{ $facility->quantity }}
-              </td>
+              </td>     
               <td>
 				{{-- {{ 'Rp. '. format_uang($facility->price) }} --}}
                @currency($facility->price)

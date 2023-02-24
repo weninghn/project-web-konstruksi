@@ -19,13 +19,13 @@ return new class extends Migration
             // $table->foreign('project_id')->references('id')->on('projects');
             $table->unsignedBigInteger('payment_method_id');
             $table->foreign('payment_method_id')->references('id')->on('payment_methods');
-            $table->string('amount_payment',255);
+            $table->integer('amount_payment');
             $table->date('payment_date');
             // $table->boolean('payment_to');
             // $table->string('payment_to');
             // $table->string('status');
             // $table->boolean('status')->default(0);
-            $table->string('note');
+            $table->text('note');
             $table->timestamps();
         });
     }

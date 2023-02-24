@@ -73,7 +73,7 @@ class PaymentController extends Controller
 		$payment = [
 			'bill_id' => $request->bill_id,
 			'payment_method_id' => $request->payment_method_id,
-			'amount_payment' => $request->amount_payment,
+			'amount_payment' => str_replace('.','',$request->amount_payment),
 			'payment_date' => $request->payment_date,
 			'note' => $request->note,
 			'image' => $newName,
