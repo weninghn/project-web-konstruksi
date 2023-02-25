@@ -80,7 +80,9 @@ Detail|Penawaran
 									  {{-- <p class="subtotal">IDR {{ $facility->facilities->price * $facility->quantity }}</p> --}}
                                   </table>
                                   @if (auth()->user()->name=="admin")
+								  @if ($offer->status != 0)
                                   <button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#modal-add-category"><i class="fas fa-plus"></i> Kategori</button>
+								  @endif
                                   @endif
                                   <table class="table table-sm table-striped">
                                     @forelse($offer->detail_offers as $category)
@@ -88,13 +90,16 @@ Detail|Penawaran
                                       <td>{{ $loop->iteration }}</td>
                                       <td>{{ $category->category }}
                                         @if (auth()->user()->name=="admin")
+										@if ($offer->status != 0)
                                       <button type="button" id="{{ $category->id }}" class="btn btn-primary modal-add-facility" data-toggle="modal" data-target="#modal-add-facility"  style="float: right;"><i class="fas fa-plus"></i> Fasilitas</button>
+									  @endif
                                     </td>
                                       <td>
-                                        <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
-
-										<a href="/editcategory/{id}" data-toggle="modal" data-target="#modal-edit-category" class="btn btn-sm btn-primary" ><i class="fas fa-edit"></i></a>
-                                      </td>
+                                        @if ($offer->status != 0)
+                                            <a href="{{route('delete', $category->id )}}" data-name="{{ $category->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+										                        <a href="/editcategory/{id}" data-toggle="modal" data-target="#modal-edit-category" class="btn btn-sm btn-primary" ><i class="fas fa-edit"></i></a>
+                                        @endif
+                                        </td>
                                       @endif
                                       <td>
                                         <table class="table">
@@ -103,7 +108,9 @@ Detail|Penawaran
                                               <th>Jumlah</th>
                                               <th>Harga</th>
                                               <th>Total</th>
-                                              <th>Aksi</th>
+                                              @if ($offer->status != 0)
+                                                  <th>Aksi</th>
+                                              @endif
                                          </tr>
                                               @php
                                                   $total =0;
@@ -120,23 +127,25 @@ Detail|Penawaran
                                             <td>Rp.{{ $total}}</td>
                                                 @if (auth()->user()->name=="admin")
                                             <td>
-                                                <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                              @if ($offer->status != 0)
+                                                  <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                              @endif
                                             </td>
                                             @endif
                                             </tr>
                                           @empty
                                           <tr>
                                             <td rowspan="4">Tidak ada Fasilitas</td>
-                                          </tr>      
+                                          </tr>
                                           @endforelse
                                           @php
-                                          $total += $subtotal;
+                                          'Rp.'.$total += $subtotal;
                                        @endphp
                                           <tr>
                                             <td colspan="3" class="text-end">Sub Total</td>
                                             <td colspan="2">Rp.{{ $category->total}}</td>
                                           </tr>
-                                          
+
                                         </table>
                                       </td>
                                     </tr>

@@ -10,6 +10,7 @@ use App\Models\Bill;
 // use App\Models\facility;
 use App\Models\Facility;
 use App\Models\Detail_offer;
+use App\Models\Payment;
 use App\Models\Status_offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -46,6 +47,7 @@ class OfferController extends Controller
 	public function add()
 	{
 		$project = Project::all();
+		// $pay = Offer::where('status', 1, 2)->get();
 		// $status = Status_offer::all();
 		// dd($status->all());
 		return view('offer.offer-add',  ['project' => $project]);
@@ -189,18 +191,26 @@ class OfferController extends Controller
     }
     public function insertfacility(Request $request)
     {
+		$detail_offer = Detail_offer::findOrFail($request->detail_offer_id);
+		$project_price = $detail_offer->offer->project->price;
+		$total_offer = $detail_offer->offer->total_offer;
+		$price = str_replace('.','',$request->price);
+
+		if($project_price < ($total_offer+($price*$request->quantity))){
+			return redirect()->back();
+		}
 
         $facility = Facility::create([
             'detail_offer_id'=>$request->detail_offer_id,
             'nama'=> $request->nama,
-            'quantity'=>  str_replace('.','',$request->quantity),
+            'quantity'=>  $request->quantity,
             'price'=>  str_replace('.','',$request->price),
+
 
 			// $price = $facility->price * $request->quantity
         ]);
 
         // Facility::create($facility);
-		$detail_offer = Detail_offer::findOrFail($request->detail_offer_id);
 		$detail_offer->update([
 			'total' => $detail_offer->total + ($facility->quantity * $facility->price)
 		]);

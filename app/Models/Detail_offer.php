@@ -22,7 +22,7 @@ class Detail_offer extends Model
 
     public function offer()
     {
-        return $this->belongsTo(Offers::class);
+        return $this->belongsTo(Offer::class);
     }
     public function facilities()
     {
