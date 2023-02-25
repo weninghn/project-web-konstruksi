@@ -60,7 +60,7 @@ class ProjectController extends Controller
             'name'=> $request->name,
             'location'=> $request->location,
             // 'date_offer'=> $request->date_offer,
-            'price'=> $request->price,
+            'price'=>  str_replace('.','',$request->price),
             // 'status_id'=> $request->status_id,
             // 'status_payment_id'=> $request->status_payment_id,
         ];

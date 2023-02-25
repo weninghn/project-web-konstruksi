@@ -43,7 +43,7 @@ Detail Tagihan
 
                                  <tr>
                                   <td>Jumlah Dibayar</td>
-                                  <td>@currency($bill->payments()->latest()->first()->amount_payment)</td>
+                                  <td>{{$bill->payments()->latest()->first()->amount_payment}}</td>
                                 </tr>
 
                                <tr>

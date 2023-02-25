@@ -117,7 +117,7 @@ Detail|Penawaran
                                             <td>{{ $facility->nama }}</td>
                                             <td>{{ $facility->quantity }}</td>
                                             <td>Rp.{{$facility->price}}</td>
-                                            <td>{{ $total}}</td>
+                                            <td>Rp.{{ $total}}</td>
                                                 @if (auth()->user()->name=="admin")
                                             <td>
                                                 <a href="/deletefacility/{{ $facility->id }}" data-name="{{ $facility->name}}"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
@@ -134,7 +134,7 @@ Detail|Penawaran
                                        @endphp
                                           <tr>
                                             <td colspan="3" class="text-end">Sub Total</td>
-                                            <td colspan="2">{{ $category->total}}</td>
+                                            <td colspan="2">Rp.{{ $category->total}}</td>
                                           </tr>
                                           
                                         </table>

@@ -170,7 +170,7 @@ class OfferController extends Controller
         $detail_offer =[
             'offer_id'=> $request->offer_id,
             'category'=> $request->category,
-			'total' => $request->subtotal,
+			'total' =>  str_replace('.','',$request->total),
         ];
         Detail_offer::create($detail_offer);
         return redirect()->back();
@@ -193,8 +193,8 @@ class OfferController extends Controller
         $facility = Facility::create([
             'detail_offer_id'=>$request->detail_offer_id,
             'nama'=> $request->nama,
-            'quantity'=> $request->quantity,
-            'price'=> $request->price,
+            'quantity'=>  str_replace('.','',$request->quantity),
+            'price'=>  str_replace('.','',$request->price),
 
 			// $price = $facility->price * $request->quantity
         ]);
