@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('category',255);
             // $table->string('status',255);
             $table->boolean('status')->default(0);
-            $table->string('date_offer',255);
+            $table->date('date_offer',255);
             $table->timestamps();
         });
     }
