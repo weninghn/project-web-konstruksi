@@ -7,6 +7,6 @@
 	<title>Lampiran</title>
 </head>
 <body>
-	<iframe height="600" width="1000" src="/dokumen/{{$offer->dokumen}}" frameborder="0"></iframe>
+	<iframe height="600" width="1000" src="/dokumen/{{$offer->images}}" frameborder="0"></iframe>
 </body>
 </html>

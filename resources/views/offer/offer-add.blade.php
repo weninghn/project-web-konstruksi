@@ -40,9 +40,11 @@
                 <label for="name">Project</label>
                 <select name="project_id" id="project_id" name="project_id"class="form-control " >
                   <option value="#"></option>
-                    @foreach ($project as $item)
-                    <option value="{{ $item->id}}">{{ $item->name}}</option>
-                    @endforeach
+				  {{-- @if ($pay->status != 0) --}}
+				  @foreach ($project as $item)
+				  <option value="{{ $item->id}}">{{ $item->name}}</option>
+				  @endforeach
+				  {{-- @endif --}}
 
                 </select>
                 </div>
@@ -66,7 +68,7 @@
                   <input type="hidden" class="form-control" id="number" name="number" required >
                 </div>
 				<div class="form-group">
-					<label for="file">Upload File .pdf*</label>
+					<label for="file">Upload File*</label>
 					{{-- <a href="{{ url('/uploadpage')}}" class="btn-btn-primary">Upload File</a> --}}
 					<input type="file" class="form-control" name="file">
 				</div>

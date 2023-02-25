@@ -73,5 +73,11 @@ class Offer extends Model
             ]
         ];
     }
+
+
+    public function  getTotalOfferAttribute() {
+		$total = $this->detail_offers()->sum('total');
+		return $total;
+	}
 }
     // public function allData()
